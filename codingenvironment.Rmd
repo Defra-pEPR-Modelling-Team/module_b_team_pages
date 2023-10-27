@@ -2,17 +2,17 @@
 title: "Coding Environment"
 ---
 
-We use Defra's **Scientific Coding Environment** which allows us to write and run code on Amazon Web Service's EC2 virtual machines, and store our data using Amazon Web Services S3. Speak to the SCE admins (Ope and Jake as of September 2023) if you are not set up on the SCE.
+We use Defra's **Scientific Coding Environment** which allows us to write and run code on Amazon Web Service (AWS) EC2 virtual machines, and store our data using Amazon Web Services S3. Speak to the SCE admins (Ope and Jake as of September 2023) if you are not set up on the SCE.
 
 We can use [R Studio on our virtual machine](http://ranch-479.int.sce.network/rstudio/). This is available 5am - 11pm daily. 
 
-# How to login to AWS (Amazon Web Services)
+# How to login to AWS 
 
 To login to AWS you just need to enter the username and password the SCE team sent you. Your username will be in the format firstnamelastname
 
 The first time you login to AWS, there is some initial set up to do - you only need to do this once: 
 
-1. [Go here](https://int-sce-network.awsapps.com/console)
+1. Go to the [AWS console](https://int-sce-network.awsapps.com/console)
 
 2. Log in using existing credentials
 

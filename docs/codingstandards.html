@@ -359,10 +359,12 @@ style all files in a given directory, speeding up the process somewhat.
 Note: before you use <code>styler</code> you will need to tell it which
 style guide to use through ‘Addins &gt; Set style &gt;
 styler::tidyverse_style()’.</p>
-<p>In futur, we hope to have <code>lintr</code> run automatically when
-you commit through the use of <a
+<p>We run <code>lintr</code> automatically when you commit through the
+use of <a
 href="https://www.google.com/search?q=wha+tare+commit+hooks&amp;safe=active&amp;sca_esv=573154237&amp;sxsrf=AM9HkKkwVTiv4E_4QYR5aZSJRG3wVKhkJw%3A1697192837676&amp;ei=hRspZZ_wKOO28gLsu5j4AQ&amp;ved=0ahUKEwjfxtGB6PKBAxVjm1wKHewdBh8Q4dUDCBA&amp;uact=5&amp;oq=wha+tare+commit+hooks&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiFXdoYSB0YXJlIGNvbW1pdCBob29rczIHEAAYDRiABDIIEAAYCBgeGA0yCBAAGIoFGIYDMggQABiKBRiGA0idFVDsCFjqE3ADeAGQAQKYAdEBoAHXCKoBBTQuNC4xuAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICBxAjGLACGCfCAgYQABgHGB7CAggQABgIGAcYHsICChAhGKABGMMEGAriAwQYACBBiAYBkAYI&amp;sclient=gws-wiz-serp#fpstate=ive&amp;vld=cid:2ebd25be,vid:d70a8PXbrb8,st:0">commit
-hooks</a> which will also automate our unit tests.</p>
+hooks</a> This is achieved throigh the <a
+href="https://lorenzwalthert.github.io/precommit/index.html">precommit</a>
+package which will also soon automate our unit tests.</p>
 <p>We may also adapt the <code>tidyverse</code> style guide for our own
 needs, as we have started to do below, but this should be automatic
 through <code>lintr</code> and <code>styler</code>.</p>

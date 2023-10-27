@@ -347,19 +347,51 @@ changes to the code in it. To do that follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li><p>For QA purposes we do not edit the <em>main</em> or <em>dev</em>
 branches directly, so you will need to create a branch of your own. To
-do that in R Studio click the ‘New Branch’ button in the Git window.</p>
+do that in R Studio click the ‘New Branch’ button in the Git window
+(remember to ‘Pull’ first to make sure you are working on up-to-date
+code, see step 5a for relevant screenshot).</p>
 <p><img src="assets/new_branch_button.png"/></p></li>
 <li><p>You should then name your branch the same as the Jira ticket you
 are working on, for instance “B1-20 Extract and reformat RFI data”. Then
 click ‘Create’. The branch name next to the ‘New Branch’ button should
 now have the name of your branch.</p></li>
-<li><p>Now is time for you to make your edits! Make any changes you nee,
-following the coding standards, and frequently ‘commit’ (this is
+<li><p>Now is time for you to make your edits! Make any changes you
+need, following the coding standards, and frequently ‘commit’ (this is
 explained in the next step).</p></li>
 <li><p>When you make and save some changes Git will notice, so any
 changed files will appear in the Git window. Committing is like telling
 git those changes are ready to be uploaded to Github (which will happen
-in the next step). To commit:</p>
+in the next step).</p>
+<ol style="list-style-type: lower-alpha">
+<li>Before you commit code there are a few bits of housekeeping to do to
+keep the repository consistent and clean, namely Styler and Lintr. If
+these are not installed, install them by running “install.packages(”““)
+in the console.</li>
+</ol>
+<p><a
+href="https://www.tidyverse.org/blog/2017/12/styler-1.0.0/">Styler</a> -
+Uses the tidyverse style guide to remove blank lines, insert spaces
+after commas etc.</p>
+<p><a
+href="https://www.tidyverse.org/blog/2022/07/lintr-3-0-0/">Lintr</a> -
+flags any linting issues in the code (tidyverse style) and places
+<em>markers</em> in your code to show you where and what the issue
+is.</p></li>
+<li><p>Pre-commit</p>
+<ol style="list-style-type: lower-alpha">
+<li>Once you have finished your code edits, click the “Addins” drop down
+on the top banner</li>
+</ol>
+<p><img
+src="assets/pre_commit_formatting.png" /></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Run “Style active file”</li>
+<li>Run “Lint current file”</li>
+<li>Click the “Markers” tab on the console pane and go through and
+address the linting issues highlighted</li>
+</ol>
+<p><img src="assets/lint_markers.png" /></p></li>
+<li><p>Commit</p>
 <ol style="list-style-type: lower-alpha">
 <li>Tick the box in the Git window for the files you wish to
 commit.</li>
@@ -367,17 +399,24 @@ commit.</li>
 </ol>
 <p><img src="assets/commit_button.png" /></p>
 <ol start="3" style="list-style-type: lower-alpha">
-<li>In the window that opens, review your changes are as intended.</li>
-<li>Then add a ‘Commit message’ explaining what you have done, and click
-commit underneath.</li>
-<li>Close the window and go back to making changes.</li>
+<li><p>In the window that opens, review your changes are as
+intended.</p></li>
+<li><p>Then add a ‘Commit message’ explaining what you have done, and
+click commit underneath.</p>
+<p>Note: At this stage a “pre-commit hook” will run, and run your file
+through styler and lintr automatically, warning you if your file isn’t
+linted as it should be. If you have any assumptions in your code, the
+pre-commit hook will find that assumption and add it to the
+assumptions_caveats_log.md - This will then need to be commited as
+well.</p></li>
+<li><p>Close the window and go back to making changes.</p></li>
 </ol></li>
 </ol>
 <ul>
 <li>It is good practice to <strong>commit frequently</strong> so your
 changes are logged incrementally on Github.</li>
 </ul>
-<ol start="5" style="list-style-type: decimal">
+<ol start="7" style="list-style-type: decimal">
 <li><p>Once you have committed all the changes you need, we can ‘push’
 them to Github. You should do this once you have finished a ticket and
 whenever you stop working on the code e.g. for a meeting, to have lunch
