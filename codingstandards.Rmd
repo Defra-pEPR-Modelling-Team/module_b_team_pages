@@ -54,15 +54,15 @@ select(...)
 
 2. Packages should only be those available on [CRAN](https://cran.r-project.org/) 
 3. Generally we should be using the pipe operator (`%>%`) and tidyverse packages rather than loops. This means we need to load the `magrittr` package.
-4. Variable names must make sense in plain English e.g. `localAuthorityPopulation` not `lapop`.
+4. Variable names must make sense in plain English e.g. `local_authority_population` not `lapop`.
 6. We should modularise our code as much as possible, i.e. discrete parts of the code that do a particular job should be contained in a function. The end goal is to have the whole model run from one main file that calls functions.
 
 We have a PowerPoint with further information on our [coding standards](https://defra.sharepoint.com/:p:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B98C3D254-86E8-44FD-BB2E-206B37F6F802%7D&file=Coding%20Standards.pptx&action=edit&mobileredirect=true).
 
 ## Naming Conventions
 
-1. Github repositories should be all lower case with underscores "_" instead of spaces (e.g. *module_b*)
-2. R Script names should be camel case  with no spaces (e.g. *apportionEnglishTonnage.R*)
+1. Github repositories and R scripts should be all lower case with underscores "_" instead of spaces (e.g. *module_b*)
+2. If a file contains a single function, give the file the same name as the function.
 3. Functions should be named after the task that they perform (e.g. `calculate_average()`)
 3. Input files should keep the name they are received with wherever possible to aid trace-ability.
 4. Output files should be informatively named, with underscores "_" instead of spaces (e.g. *Wales_Disposal_Tonnages.csv*)
@@ -73,4 +73,6 @@ Where naming is unclear, follow these principles:
 - No spaces, for machine readability - underscores (_) or dashes (-) are preferred
 - Use of consistent date formatting (e.g. YYYY-MM-DD)
 - Padding the left side of numbers with zeros to maintain order - e.g. 001 instead of 1. The number of zeros should reflect the expected number of files.
+
+**- Do not let styling get in the way of progress, these are all simple changes that can be made retrospectively. **
 
