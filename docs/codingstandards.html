@@ -413,7 +413,8 @@ href="https://cran.r-project.org/">CRAN</a></li>
 and tidyverse packages rather than loops. This means we need to load the
 <code>magrittr</code> package.</li>
 <li>Variable names must make sense in plain English
-e.g. <code>localAuthorityPopulation</code> not <code>lapop</code>.</li>
+e.g. <code>local_authority_population</code> not
+<code>lapop</code>.</li>
 <li>We should modularise our code as much as possible, i.e. discrete
 parts of the code that do a particular job should be contained in a
 function. The end goal is to have the whole model run from one main file
@@ -426,10 +427,10 @@ standards</a>.</p>
 <div id="naming-conventions" class="section level2">
 <h2>Naming Conventions</h2>
 <ol style="list-style-type: decimal">
-<li>Github repositories should be all lower case with underscores “_”
-instead of spaces (e.g. <em>module_b</em>)</li>
-<li>R Script names should be camel case with no spaces
-(e.g. <em>apportionEnglishTonnage.R</em>)</li>
+<li>Github repositories and R scripts should be all lower case with
+underscores “_” instead of spaces (e.g. <em>module_b</em>)</li>
+<li>If a file contains a single function, give the file the same name as
+the function.</li>
 <li>Functions should be named after the task that they perform
 (e.g. <code>calculate_average()</code>)</li>
 <li>Input files should keep the name they are received with wherever
@@ -444,6 +445,8 @@ preferred - Use of consistent date formatting (e.g. YYYY-MM-DD) -
 Padding the left side of numbers with zeros to maintain order - e.g. 001
 instead of 1. The number of zeros should reflect the expected number of
 files.</p>
+<p><strong>- Do not let styling get in the way of progress, these are
+all simple changes that can be made retrospectively. </strong></p>
 </div>
 
 

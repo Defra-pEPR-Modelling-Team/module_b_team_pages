@@ -16,9 +16,9 @@ Once you have cloned a repo it is likely you will want to make some changes to t
 
     a. Before you commit code there are a few bits of housekeeping to do to keep the repository consistent and clean, namely Styler and Lintr. If these are not installed, install them by running "install.packages(""") in the console.
 
-    [Styler](https://www.tidyverse.org/blog/2017/12/styler-1.0.0/) - Uses the tidyverse style guide to remove blank lines, insert spaces after commas etc.
+    -  [Styler](https://www.tidyverse.org/blog/2017/12/styler-1.0.0/) - Uses the tidyverse style guide to remove blank lines, insert spaces after commas etc.
 
-    [Lintr](https://www.tidyverse.org/blog/2022/07/lintr-3-0-0/) - flags any linting issues in the code (tidyverse style) and places *markers* in your code to show you where and what the issue is.
+     - [Lintr](https://www.tidyverse.org/blog/2022/07/lintr-3-0-0/) - flags any linting issues in the code (tidyverse style) and places *markers* in your code to show you where and what the issue is.
 
 5.  Pre-commit
 

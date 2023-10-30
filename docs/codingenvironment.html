@@ -379,9 +379,14 @@ href="https://int-sce-network.awsapps.com/console">AWS console</a>. When
 we upload, modify or delete data on S3, this must be recorded in the <a
 href="https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B2FCDCE89-3F0D-41DD-B451-CB0D77D8DA26%7D&amp;file=Data%20Log%20Ranch_479.xlsx&amp;action=default&amp;mobileredirect=true">Data
 Log</a>.</p>
-<p><strong>All binned waste data</strong> should be stored in the
-appropriate B1 or B2 folder at: <em>s3://s3-ranch-043/Module_B1/</em> or
-<em>s3://s3-ranch-043/moduleB2/</em>..</p>
+<p><strong>All data</strong> should be stored in the appropriate B1 or
+B2 folder at: <em>s3://s3-ranch-043/Module_B1/</em> or
+<em>s3://s3-ranch-043/Module_B2/</em>.</p>
+<p>Within each of these there should be the following folders: - Inputs
+- for any raw data input to the model (this should be read only) -
+Intermediaries - for any useful data produced during modelling - Outputs
+- for the final model outputs - QA - for any data specifically relating
+to QA</p>
 <p>Scripts for reading and writing to AWS can be found in the <a
 href="https://github.com/Defra-pEPR-Modelling-Team/useful_scripts/blob/main/AWS%20to%20R.Rmd">useful
 scripts repo</a>. Here is an example of <strong>reading</strong> an
