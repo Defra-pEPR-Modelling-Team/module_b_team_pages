@@ -8,23 +8,19 @@ We can use [R Studio on our virtual machine](http://ranch-479.int.sce.network/rs
 
 # How to login to AWS 
 
-To login to AWS you just need to enter the username and password the SCE team sent you. Your username will be in the format firstnamelastname
+To login to AWS you just need to enter the username and password the SCE team sent you. Your username will be in the format firstnamelastname.
 
-The first time you login to AWS, there is some initial set up to do - you only need to do this once: 
+Login is here, at the [AWS console](http://aws-sso.sce.network/)
 
-1. Go to the [AWS console](https://int-sce-network.awsapps.com/console)
+If you encounter problems, you may need to switch role to the RANCH account using the menu in the top right corner of the page (official docs):
 
-2. Log in using existing credentials
+1. Ranch account number: 172974337612 
 
-3. You are now in the LOGIN account. You need to switch role to the RANCH account using the menu in the top right corner of the page (official docs)
+2. Role name is ExtendedProducerResponsibility
 
-4. Ranch account number: 172974337612 
+3. Display name can be anything you like
 
-5. Role name is ExtendedProducerResponsibility
-
-6. Display name can be anything you like
-
-7. Once logged in, remember to set the region to Ireland (AKA eu-west-1)
+4. Once logged in, you may also need to set the region to Ireland (AKA eu-west-1)
 
 # S3
 
