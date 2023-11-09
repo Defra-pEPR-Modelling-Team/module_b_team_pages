@@ -34,6 +34,8 @@ navbar:
         href: howtopullrequest.html
       - text: "...code review"
         href: howtocodereview.html
+      - text: "...record assumptions"
+        href: howtorecordassumptions.html
     - text: "Coding"
       menu:
       - text: "Coding Environment"

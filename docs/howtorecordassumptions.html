@@ -11,7 +11,7 @@
 
 
 
-<title>Repository Structure</title>
+<title>How to Record Assumptions</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -343,13 +343,155 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Repository Structure</h1>
+<h1 class="title toc-ignore">How to Record Assumptions</h1>
 
 </div>
 
 
-<p>You should adhere to this structure when writing code:</p>
-<p><img src="assets/repo_structure.png" /></p>
+<p>Follow these instructions to identify and record assumptions, for
+more guidance on what exactly is an assumption, scroll to the background
+section below.</p>
+<div id="instructions" class="section level1">
+<h1>Instructions</h1>
+<ol style="list-style-type: decimal">
+<li><p><strong>Identify an assumption: </strong></p>
+<p>Go through your code and identify modelling choices you have made-
+ask yourself the following questions:</p>
+<ul>
+<li><p>Are there other choices you could have made?</p></li>
+<li><p>Would changing your choice affect the final number?</p></li>
+<li><p>Can you imagine your choice leading to the wrong number?</p></li>
+<li><p>Can you justify your choice?</p></li>
+</ul>
+<p>If you answered ‘Yes’ to any two of the above questions, your
+modelling decision is an assumption.</p></li>
+<li><p><strong>Record your assumption in plain English, together with
+its location and approximate area in the code, in the “Assumptions Log”
+tab of the relevant QA Log:</strong></p>
+<p><img
+src="assets/qa_log_columns.png" /></p></li>
+<li><p><strong>Rate your assumption for Impact: </strong></p>
+<p>These are rated</p>
+<ul>
+<li>RED = Critical Impact,</li>
+<li>AMBER = Medium Impact and</li>
+<li>GREEN = Limited Impact.</li>
+</ul>
+<p>You can assess this directly quantitatively (see step 5), but the
+following rules of thumb may be useful:</p>
+<ul>
+<li>Choices of datasets, variables and key formulas have a Critical
+Impact, because they directly determine the number for all outputs.</li>
+<li>Treatment of individual cases which appear relatively often have a
+Medium Impact because they determine some of the outputs or a decent
+portion of the number.</li>
+<li>Treatment of edge cases, rare NAs etc have a Limited Impact because
+they only affect the outputs to a very limited degree.</li>
+</ul></li>
+<li><p><strong>Rate your assumption for Quality: </strong></p>
+<p>These are rated</p>
+<ul>
+<li>RED = Low Quality,</li>
+<li>AMBER = Mid Quality and</li>
+<li>GREEN = High Quality.</li>
+</ul>
+<p>Again see step 5 for guidance.</p></li>
+<li><p><strong>Explain your choices of Impact and Quality RAG in the
+“Comments” box: </strong></p>
+<p>Impact:</p>
+<ul>
+<li>Critical impact does not need to be justified for choice of
+datasets, variables, and key formulas.</li>
+<li>Where the assumption applies to a subset of cases, the percentage of
+such cases among the total should be calculated and recorded here.</li>
+<li>Fixes for missing or zero numbers should be quantified by a
+percentage increase, also recorded here.</li>
+<li>As a rule of thumb Critical Impact is an effect of &gt; 5%, Medium
+Impact is an effect of 1-5% and Limited Impact is an effect of
+&lt;1%.</li>
+</ul>
+<p>Quality:</p>
+<p>What constitutes assumption quality is a hard question, depending on
+the kind of assumption, and the level of impact. We should record:</p>
+<ul>
+<li>Is the effect of the assumption well understood? (are there graphs
+to help validate it?)</li>
+<li>Have there been any hypothesis tests to justify it?</li>
+<li>Has the assumption been scrutinised by stakeholders Eg. Technical
+Working Group?</li>
+<li>(if a dataset) How old are the data?</li>
+<li>(if a dataset) Were the data collected using a replicable, unbiased
+methodology?</li>
+<li>(if a dataset) Do the data cover all the population?</li>
+<li>Is there existing quality assurance? If so, how old is it and how
+good is it?</li>
+</ul>
+<p>A high impact assumption should be assessed thoroughly on all the
+above that are relevant. A lower impact assumption may require a less
+thorough assessment. The level of the assessment, as well as the
+outcome, remains a matter of judgement. The following rules of thumb may
+be useful however:</p>
+<ul>
+<li>High Quality denotes a reliable assumption, well understood and/or
+documented; anything up to a validated &amp; recent set of actual
+data.</li>
+<li>Mid Quality means there is some evidence to support the assumption,
+which may vary from a source with poor methodology to a good source that
+is a few years old.</li>
+<li>Low Quality means there is little evidence to support the
+assumption, which may vary from an opinion to a limited data source with
+poor methodology.</li>
+</ul></li>
+<li><p><strong>Save any code used to validate and or quantify the impact
+of the assumption, as well as any outputs: </strong></p>
+<p>Code should go in the documentation folder on github.</p>
+<p>Outputs of this validation code can be pasted into the outputs tab of
+the spreadsheet</p>
+<p>Include any links to other documentation e.g. </p>
+<ul>
+<li>Existing QA reports for datasets</li>
+<li>Technical working group minutes</li>
+<li>Emails verifying with stakeholders</li>
+<li>For high impact assumptions- separate QA logs for supporting
+analysis</li>
+</ul></li>
+<li><p><strong>Transfer the records from steps 2-7 into your
+code:</strong></p>
+<p>Paste the following code snippet next to the relevant portion of code
+and edit to reflect the above. The location or area need not be included
+as a separate detail, as these are implied by location in the code. The
+description will need to be extended over multiple lines to contain all
+comments.</p></li>
+</ol>
+<pre class="r"><code>    # Assumption: Title of assumption
+    # Quality: RED 
+    # Impact: AMBER 
+    # Detailed description 
+    # on next line or many. </code></pre>
+</div>
+<div id="background" class="section level1">
+<h1>Background</h1>
+<p>If you can imagine testifying to a judicial review about why you made
+a modelling choice, then it’s an assumption.</p>
+<p>As analysts, we make choices with every line of code. In some cases,
+these do not materially affect the output of the model: reformatting
+columns, for example, might make the code more user friendly, but
+shouldn’t change the output. But wherever a <strong>choice materially
+changes the output</strong>, whether that is a choice of column, a fix
+for missing values, or the use of a formula, that is an assumption, and
+we (that is Defra potentially long after you have been headhunted away
+by Google) <strong>need to be able to say why you made it.</strong></p>
+<p>Documenting assumptions completely can be quite an arduous task, and
+theoretically they represent half of how your code interfaces with the
+real world.</p>
+<p>But assumptions come in a spectrum of importance:</p>
+<p><img
+src="assets/assumption_hierarchy.png" /></p>
+<p>…Of course, sometimes highly obvious assumptions can turn out to be
+wrong. I once heard of a pension fund who supplied all their eligible
+years data as “3.152” meaning “3 years, 152 days”. Understandably nobody
+using the data recorded the assumption that it was a decimal…</p>
+</div>
 
 
 
