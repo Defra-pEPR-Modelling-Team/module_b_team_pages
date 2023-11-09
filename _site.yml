@@ -22,7 +22,8 @@ navbar:
         href: teamsprinttimings.html
       - text: "Meeting Etiquette"
         href: teammeetingetiquette.html  
-
+      - text: "Module B2"
+        href: teammoduleb2.html
     - text: "How to..."
       menu:
       - text: "...set up Github"
