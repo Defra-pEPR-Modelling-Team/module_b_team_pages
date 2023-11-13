@@ -62,7 +62,9 @@ Make sure you tick off this **checklist** before approving a code review:
 -   Documentation
 
     <input type="checkbox"> Have they updated the README files with any changes relevant to their code?
-
+    
+    <input type="checkbox"> Do function descriptions have at a minimum the description, inputs and outputs in keeping with the [roxygen style](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)?
+    
 -   For future use:
 
     <input type="checkbox"> Have they documented all assumptions using the [assumptions package](https://assumptions.readthedocs.io/en/latest/index.html)?

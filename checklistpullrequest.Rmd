@@ -57,6 +57,8 @@ Make sure you tick off this **checklist** before submitting a pull request:
 -   Documentation
 
     <input type="checkbox"> Have you updated the README files with any changes relevant to your code?
+    
+    <input type="checkbox"> Do your function descriptions have at a minimum the description, inputs and outputs in keeping with the [roxygen style](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)?
 
 -   For future use:
 
