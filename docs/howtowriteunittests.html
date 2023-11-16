@@ -11,7 +11,7 @@
 
 
 
-<title>Team Structure</title>
+<title>How to Write Unit Tests</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -346,29 +346,139 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Team Structure</h1>
+<h1 class="title toc-ignore">How to Write Unit Tests</h1>
 
 </div>
 
 
-<p>We are one of five teams within the Fees and Payments Calculator
-modelling team.</p>
-<ol style="list-style-type: decimal">
-<li>Module A - Producer Fees <strong>2. Module B1 - LA Costs</strong>
-<strong>3. Module B2 - Binned Waste</strong></li>
-<li>QA</li>
-<li>Readiness Team</li>
+<p><em>Note: someone still needs to work out how we run unit tests
+automatically with git hooks.</em></p>
+<p>For background, and bags of examples, see the <a
+href="https://best-practice-and-impact.github.io/qa-of-code-guidance/testing_code.html">Duck
+Book testing code guidance</a></p>
+<p>Your code should be built out of functions, which should serve
+essentially <strong>one purpose each</strong>. Unit tests automatically
+check that purpose is being fulfilled. Follow these instructions to
+create one.</p>
+<div id="instructions" class="section level1">
+<h1>Instructions:</h1>
+<p>The following works for more or less every function except for
+imports (for which you will have to check the formats of each imported
+dataset at a minimum). Note that some of the purpose of the function may
+actually be to stop on bad inputs and let the user know that the inputs
+are bad!</p>
+<p><strong>1. Create dummy input datasets:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Get the actual inputs to the function and take a sample of them to
+use as the inputs to your test.</li>
 </ol>
-<p>For more info, see slide 5 on the <a
-href="https://defra.sharepoint.com/:p:/t/Team419/ET9BduVb5n1KoY1MRh_HzIgBpMcze0Na0iz3Zdlg0Xnljw?e=BgFqbk&amp;CID=400146ED-B571-496F-BA2F-ED9010488AF3&amp;wdLOR=c7120BEFD-55C0-4AC6-B916-B17122625B69">R&amp;WE
-organogram</a>.</p>
-<p>The below provides an idea of where we sit within Defra:</p>
-<p><img src="assets/fpc_org.png" alt="A diagram of where the FPC team sits within Defra." width="300"/></p>
-<p>For further detail, please see the - <a
-href="https://defra.sharepoint.com/sites/Defraintranet/SitePages/Organisational-chart.aspx">Defra
-organisational chart</a> and - <a
-href="https://defra.sharepoint.com/teams/Team1478/Central%20PMO/Forms/AllItems.aspx?csf=1&amp;web=1&amp;e=40pAnJ&amp;cid=6748e449%2Da960%2D4705%2D9694%2D022465844f7d&amp;RootFolder=%2Fteams%2FTeam1478%2FCentral%20PMO%2F06%2E%20Resourcing%2F03%2E%20Resource%20%26%20Waste%20People%20%26%20Resourcing%2F1%2E%20Org%20Charts&amp;FolderCTID=0x012000A44110381EB3CB4C816BD7BB43BEA974&amp;OR=Teams%2DHL&amp;CT=1692001571358&amp;clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzA3MDMwNzMzMCIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D">CPR
-organisational chart</a></p>
+<pre class="r"><code>input_df1_downsized&lt;- df1[c(1:3),c(relevant columns)]
+input_df2_downsized&lt;- df2[c(1:3),c(relevant columns)]</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Apply the dput function to your downsized datasets, to get an output
+in the command line that can be turned into a dummy dataset with all the
+required formats.</li>
+</ol>
+<pre class="r"><code>dput(input_df1_downsized)</code></pre>
+<pre><code>Here’s my example:</code></pre>
+<pre class="r"><code>structure(
+  list(
+    `as.Date(date)` = structure(c(12537, 12544, 12551), class = &quot;Date&quot;),
+    Clear_Low = c(NA, 28, 28),
+    Clear_High = c(35, 35, 35)
+  ),
+  row.names = c(NA, 3L),
+  class = &quot;data.frame&quot;
+)</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Edit your datasets to be a bit ‘nasty’, adding awkward cases your
+code might be expected to handle, for example <code>NA</code>s,
+negatives and character values not in your database. Your dataset
+shouldn’t be so nasty that the function can’t apply (e.g. should have at
+least two non NA numbers if your function is taking an average!)
+e.g.</li>
+</ol>
+<pre class="r"><code>structure(
+  list(
+    `as.Date(date)` = structure(c(12537, NA, 12551), class = &quot;Date&quot;),
+    Clear_Low = c(NA, 28, 28),
+    Clear_High = c(35,-35, 35)
+  ),
+  row.names = c(NA, 3L),
+  class = &quot;data.frame&quot;
+)</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Now simply give your dummy data a name and paste it in your unit
+test code.</li>
+</ol>
+<pre class="r"><code>#Unit Test 1
+#Function: averageRecyclateValue
+#Test: Not enough dates error
+
+dummyMPRData1 &lt;-
+  structure(
+    list(
+      `as.Date(date)` = structure(c(12537, NA, 12551), class = &quot;Date&quot;),
+      Clear_Low = c(NA, 28, 28),
+      Clear_High = c(35,-35, 35)
+    ),
+    row.names = c(NA, 3L),
+    class = &quot;data.frame&quot;
+  )</code></pre>
+<p><strong>2. Next, work out what the output of your function should be
+for your dummy data:</strong></p>
+<p>Suppose I want my function to average recyclate prices, but to flag
+if there are missing months in a year of data. The output for my dummy
+dataset (which indeed has missing months) in this case should be
+“Missing months in specified range”.</p>
+<p>In this instance, this could be achieved in your function by applying
+the <code>stop(“Warning text”)</code> function inside of an if
+statement, as below. Note the inclusion of comment code explaining the
+use of the function- do not forget to do this, or it will be baffling in
+future!</p>
+<pre class="r"><code>#stop() added to ensure date range averaged over has a full
+#year of recyclate price values before averaging
+#averaging
+if (length(dates[!is.na(dates), ]) &lt; 12) {
+  stop(&quot;Not enough dates in range!&quot;)
+}
+else{
+  FOO
+}</code></pre>
+<p><strong>4. Use testthat package to check function:</strong></p>
+<p>The expect_error function, from the testthat package, applied to a
+function call (here my function is called “averageRecyclateValue”) on
+the dummy data enacts a unit test. The second argument is the expected
+error message.</p>
+<pre class="r"><code>#Unit Test for expected error for dataset with less than a year’s data
+testthat::expect_error(averageRecyclateValue (dummyMPRData1), “Not enough dates in range!”)</code></pre>
+<p><strong>5. Create more datasets and more unit tests if
+necessary:</strong></p>
+<p>The minimum set of tests you carry out should be those that verify
+the acceptance criteria in the Jira ticket.</p>
+<p>A second example could use the expect_equal function with an expected
+output and a tolerance.</p>
+<pre class="r"><code>#Unit test 2
+#Function: averageRecyclateValue
+#Test:Calculates average
+dummyMPRData2 &lt;-
+  structure(
+    list(
+      `as.Date(date)` = structure(c(12537, 12544, 12551), class = &quot;Date&quot;),
+      Clear_Low = c(28, 28, 28.5),
+      Clear_High = c(35,-35, 35)
+    ),
+    row.names = c(NA, 3L),
+    class = &quot;data.frame&quot;
+  )
+
+#Unit Test for normal mean functionality
+testthat::expect_equal(averageRecyclateValue(dummyMPRData2), 1.917, tolerance=0.001)</code></pre>
+<p><strong>7. Go through and check your comments explain both your tests
+and dummy data, then save in a relevant unit_tests folder.</strong> Also
+you need to include details of your unit test in the header of your
+function.</p>
+</div>
 
 
 

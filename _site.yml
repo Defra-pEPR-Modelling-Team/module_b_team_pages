@@ -36,6 +36,8 @@ navbar:
         href: howtocodereview.html
       - text: "...record assumptions"
         href: howtorecordassumptions.html
+      - text: "...write unit tests"
+        href: howtowriteunittests.html
     - text: "Coding"
       menu:
       - text: "Coding Environment"
