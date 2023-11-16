@@ -19,19 +19,10 @@ for (i in seq_along(files)) {
   script <- readLines(files[i])
 
   title <- gsub("title:", "", gsub('\"', "", script[2]))
-  space_urls <- na.omit(stringr::str_match(script, "\\[.*?\\)[:space:]"))
-  punctuation_urls <- na.omit(stringr::str_match(script, "\\[.*?\\)[:punct:]"))
-  end_urls <- na.omit(stringr::str_match(script, "\\[.*?\\)$"))
-  
-  #remove punctuation
-  punctuation_urls <- gsub("\\?","", punctuation_urls)
-  punctuation_urls <- gsub("\\.","", punctuation_urls)
-  punctuation_urls <- gsub("\\,","", punctuation_urls)
+  urls <- na.omit(stringr::str_match(script, "\\[.+\\]\\(.+\\)"))
   
   addtl_links <- dplyr::bind_rows(
-    data.frame(cbind(title, space_urls)), 
-    data.frame(cbind(title, punctuation_urls)),
-    data.frame(cbind(title, end_urls))
+    data.frame(cbind(title, urls))
     ) %>% 
     dplyr::filter(!grepl("assets", V2)) #filter out pictures
   
@@ -59,4 +50,5 @@ links %>%
     Link = purrr::map(Link, gt::md)
   ) %>%
   gt::gt()
+
 ```

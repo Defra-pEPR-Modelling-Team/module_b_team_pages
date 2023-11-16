@@ -10,7 +10,7 @@ Your code should be built out of functions, which should serve essentially **one
 
 # Instructions:
 
-The following works for more or less every function except for imports (for which you will have to check the formats of each imported dataset at a minimum). Note that some of the purpose of the function may actually be to stop on bad inputs and let the user know that the inputs are bad!
+The following works for more or less every function except for imports (for which you will have to check the formats of each imported dataset at a minimum). Note that some of the purpose of the function may actually be to stop on bad inputs and let the user know that the inputs are bad! In other words the code should throw an error if the data is not ingested properly or doesn't conform to expected format, then the unit tests test whether the code does throw a suitable error for bad input data.
 
 **1. Create dummy input datasets:**
 

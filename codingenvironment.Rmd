@@ -24,7 +24,7 @@ If you encounter problems, you may need to switch role to the RANCH account usin
 
 # S3
 
-S3 is accessed through the [AWS console](https://int-sce-network.awsapps.com/console). When we upload, modify or delete data on S3, this must be recorded in the [Data Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B2FCDCE89-3F0D-41DD-B451-CB0D77D8DA26%7D&file=Data%20Log%20Ranch_479.xlsx&action=default&mobileredirect=true).
+S3 is accessed through the AWS console. When we upload, modify or delete data on S3, this must be recorded in the [Data Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B2FCDCE89-3F0D-41DD-B451-CB0D77D8DA26%7D&file=Data%20Log%20Ranch_479.xlsx&action=default&mobileredirect=true).
 
 **All data** should be stored in the appropriate B1 or B2 folder at: *s3://s3-ranch-043/Module_B1/* or *s3://s3-ranch-043/Module_B2/*.
 
