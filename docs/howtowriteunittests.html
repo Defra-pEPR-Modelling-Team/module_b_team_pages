@@ -375,12 +375,12 @@ use as the inputs to your test.</li>
 <pre class="r"><code>input_df1_downsized&lt;- df1[c(1:3),c(relevant columns)]
 input_df2_downsized&lt;- df2[c(1:3),c(relevant columns)]</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Apply the dput function to your downsized datasets, to get an output
-in the command line that can be turned into a dummy dataset with all the
-required formats.</li>
+<li>Apply the dput function to your downsized datasets. This will output
+(in the console) code that can be used to produce your dummy dataset as
+required. For example:</li>
 </ol>
 <pre class="r"><code>dput(input_df1_downsized)</code></pre>
-<pre><code>Here’s my example:</code></pre>
+<p>produces the following</p>
 <pre class="r"><code>structure(
   list(
     `as.Date(date)` = structure(c(12537, 12544, 12551), class = &quot;Date&quot;),
@@ -441,9 +441,6 @@ future!</p>
 #averaging
 if (length(dates[!is.na(dates), ]) &lt; 12) {
   stop(&quot;Not enough dates in range!&quot;)
-}
-else{
-  FOO
 }</code></pre>
 <p><strong>4. Use testthat package to check function:</strong></p>
 <p>The expect_error function, from the testthat package, applied to a

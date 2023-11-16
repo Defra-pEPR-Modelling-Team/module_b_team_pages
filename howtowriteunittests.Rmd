@@ -9,26 +9,28 @@ For background, and bags of examples, see the [Duck Book testing code guidance](
 Your code should be built out of functions, which should serve essentially **one purpose each**. Unit tests automatically check that purpose is being fulfilled. Follow these instructions to create one.
 
 # Instructions:
-    
-The following works for more or less every function except for imports (for which you will have to check the formats of each imported dataset at a minimum). Note that some of the purpose of the function may actually be to stop on bad inputs and let the user know that the inputs are bad! 
 
-**1.	Create dummy input datasets:**
-        
-a.	Get the actual inputs to the function and take a sample of them to use as the inputs to your test.
-        
+The following works for more or less every function except for imports (for which you will have to check the formats of each imported dataset at a minimum). Note that some of the purpose of the function may actually be to stop on bad inputs and let the user know that the inputs are bad!
+
+**1. Create dummy input datasets:**
+
+a.  Get the actual inputs to the function and take a sample of them to use as the inputs to your test.
+
 ```{r, eval=FALSE}
 
 input_df1_downsized<- df1[c(1:3),c(relevant columns)]
 input_df2_downsized<- df2[c(1:3),c(relevant columns)]
 
 ```
-        
-b.	Apply the dput function to your downsized datasets, to get an output in the command line that can be turned into a dummy dataset with all the required formats.
-        
+
+b.  Apply the dput function to your downsized datasets. This will output (in the console) code that can be used to produce your dummy dataset as required. For example:
+
 ```{r, eval=FALSE}
 dput(input_df1_downsized)
 ```
-    Here’s my example:
+
+produces the following
+
 ```{r, eval=FALSE}
 structure(
   list(
@@ -41,7 +43,7 @@ structure(
 )
 ```
 
-c.	Edit your datasets to be a bit ‘nasty’, adding awkward cases your code might be expected to handle, for example `NA`s, negatives and character values not in your database. Your dataset shouldn’t be so nasty that the function can’t apply (e.g. should have at least two non NA numbers if your function is taking an average!) e.g.
+c.  Edit your datasets to be a bit 'nasty', adding awkward cases your code might be expected to handle, for example `NA`s, negatives and character values not in your database. Your dataset shouldn't be so nasty that the function can't apply (e.g. should have at least two non NA numbers if your function is taking an average!) e.g.
 
 ```{r, eval=FALSE}
 structure(
@@ -55,7 +57,7 @@ structure(
 )
 ```
 
-d.    Now simply give your dummy data a name and paste it in your unit test code.
+d.  Now simply give your dummy data a name and paste it in your unit test code.
 
 ```{r, eval=FALSE}
 #Unit Test 1
@@ -74,9 +76,9 @@ dummyMPRData1 <-
   )
 ```
 
-**2.	Next, work out what the output of your function should be for your dummy data:**
-    
-Suppose I want my function to average recyclate prices, but to flag if there are missing months in a year of data. The output for my dummy dataset (which indeed has missing months) in this case should be “Missing months in specified range”.
+**2. Next, work out what the output of your function should be for your dummy data:**
+
+Suppose I want my function to average recyclate prices, but to flag if there are missing months in a year of data. The output for my dummy dataset (which indeed has missing months) in this case should be "Missing months in specified range".
 
 In this instance, this could be achieved in your function by applying the `stop(“Warning text”)` function inside of an if statement, as below. Note the inclusion of comment code explaining the use of the function- do not forget to do this, or it will be baffling in future!
 
@@ -87,26 +89,24 @@ In this instance, this could be achieved in your function by applying the `stop(
 if (length(dates[!is.na(dates), ]) < 12) {
   stop("Not enough dates in range!")
 }
-else{
-  FOO
-}
+
 ```
 
-**4.	Use testthat package to check function:**
-    
-The expect_error function, from the testthat package, applied to a function call (here my function is called “averageRecyclateValue”) on the dummy data enacts a unit test. The second argument is the expected error message.
+**4. Use testthat package to check function:**
+
+The expect_error function, from the testthat package, applied to a function call (here my function is called "averageRecyclateValue") on the dummy data enacts a unit test. The second argument is the expected error message.
 
 ```{r, eval=FALSE}
 #Unit Test for expected error for dataset with less than a year’s data
 testthat::expect_error(averageRecyclateValue (dummyMPRData1), “Not enough dates in range!”)
 ```
 
-**5.	Create more datasets and more unit tests if necessary:**
+**5. Create more datasets and more unit tests if necessary:**
 
 The minimum set of tests you carry out should be those that verify the acceptance criteria in the Jira ticket.
-    
-A second example could use the expect_equal function with an expected output and a tolerance. 
-    
+
+A second example could use the expect_equal function with an expected output and a tolerance.
+
 ```{r, eval=FALSE}
 #Unit test 2
 #Function: averageRecyclateValue
@@ -126,4 +126,4 @@ dummyMPRData2 <-
 testthat::expect_equal(averageRecyclateValue(dummyMPRData2), 1.917, tolerance=0.001)
 ```
 
-**7.	Go through and check your comments explain both your tests and dummy data, then save in a relevant unit_tests folder.** Also you need to include details of your unit test in the header of your function.
+**7. Go through and check your comments explain both your tests and dummy data, then save in a relevant unit_tests folder.** Also you need to include details of your unit test in the header of your function.
