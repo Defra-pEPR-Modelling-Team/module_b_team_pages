@@ -400,7 +400,19 @@ scripts repo</a>. Here is an example of <strong>reading</strong> an
   object = &quot;test_folder/test_data.xlsx&quot;, # this file exists, but replace with your own filepath
   sheet=&quot;Sheet1&quot;,
   fillMergedCells = TRUE,
-  bucket = &quot;s3-ranch-043&quot;)</code></pre>
+  bucket = &quot;s3-ranch-043&quot;
+  )</code></pre>
+<p>And here is one for <strong>writing</strong> a <strong>CSV</strong>,
+note we need to set our permissions in the last line of the
+function:</p>
+<pre class="r"><code>aws.s3::s3write_using(
+  df_example,
+  FUN = readr::write_csv,
+  bucket = &quot;s3-ranch-043&quot;,
+  object = &quot;test_folder/test_data.csv,
+  opts = list(&quot;headers&quot; = list(&quot;x-amz-acl&quot; = &quot;bucket-owner-full-control&quot;)
+  )</code></pre>
+<p>Or you can use the generalised export function!</p>
 </div>
 
 

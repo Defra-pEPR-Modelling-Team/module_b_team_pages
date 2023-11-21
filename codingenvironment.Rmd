@@ -41,6 +41,20 @@ excel_data <- aws.s3::s3read_using(
   object = "test_folder/test_data.xlsx", # this file exists, but replace with your own filepath
   sheet="Sheet1",
   fillMergedCells = TRUE,
-  bucket = "s3-ranch-043")
+  bucket = "s3-ranch-043"
+  )
 ```
+
+And here is one for **writing** a **CSV**, note we need to set our permissions in the last line of the function:
+```{r AWS write, eval=FALSE}
+aws.s3::s3write_using(
+  df_example,
+  FUN = readr::write_csv,
+  bucket = "s3-ranch-043",
+  object = "test_folder/test_data.csv,
+  opts = list("headers" = list("x-amz-acl" = "bucket-owner-full-control")
+  )
+```
+
+Or you can use the generalised export function!
 
