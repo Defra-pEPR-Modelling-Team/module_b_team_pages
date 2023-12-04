@@ -26,7 +26,7 @@ Make sure you tick off this **checklist** before submitting a pull request:
 
 -   Coding Standards
 
-    <input type="checkbox"> Have you linted your code to ensure it complies with the style guide?
+    <input type="checkbox"> Have you linted and styled your code to ensure it complies with the style guide?
 
     <input type="checkbox"> Is your code's logic clear and free of unnecessary complexity?
 
@@ -35,6 +35,10 @@ Make sure you tick off this **checklist** before submitting a pull request:
     <input type="checkbox"> Are variable names in plain English and informative?
 
     <input type="checkbox"> Are the outputs reproducible i.e. will the code work the same on someone else's machine?
+    
+    <input type="checkbox"> Does your code have adequate unit tests?
+
+    <input type="checkbox"> Does your code pass existing unit tests?
 
 -   Modularisation
 
@@ -60,11 +64,7 @@ Make sure you tick off this **checklist** before submitting a pull request:
     
     <input type="checkbox"> Do your function descriptions have at a minimum the description, inputs and outputs in keeping with the [roxygen style](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)?
 
--   For future use:
-
     <input type="checkbox"> Have you documented all assumptions using the [assumptions package](https://assumptions.readthedocs.io/en/latest/index.html)?
 
-    <input type="checkbox"> Does your code have adequate unit tests? Are these run automatically using git hooks?
 
-    <input type="checkbox"> Does your code pass existing unit tests?
 :::

@@ -39,6 +39,10 @@ Make sure you tick off this **checklist** before approving a code review:
     
     <input type="checkbox"> Are variable names in plain English and informative?
     
+    <input type="checkbox"> Does their code have adequate unit tests? Are these run automatically using git hooks?
+    
+    <input type="checkbox"> Does their code pass existing unit tests?
+    
 -   Modularisation
 
     <input type="checkbox"> Are individual pieces of logic, i.e. that carry out one specific task, written as functions?
@@ -64,13 +68,7 @@ Make sure you tick off this **checklist** before approving a code review:
     <input type="checkbox"> Have they updated the README files with any changes relevant to their code?
     
     <input type="checkbox"> Do function descriptions have at a minimum the description, inputs and outputs in keeping with the [roxygen style](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)?
-    
--   For future use:
 
     <input type="checkbox"> Have they documented all assumptions using the [assumptions package](https://assumptions.readthedocs.io/en/latest/index.html)?
-
-    <input type="checkbox"> Does their code have adequate unit tests? Are these run automatically using git hooks?
-    
-    <input type="checkbox"> Does their code pass existing unit tests?
     
 </div>
