@@ -452,6 +452,9 @@ the dummy data enacts a unit test. The second argument is the expected
 error message.</p>
 <pre class="r"><code>#Unit Test for expected error for dataset with less than a year’s data
 testthat::expect_error(averageRecyclateValue (dummyMPRData1), “Not enough dates in range!”)</code></pre>
+<p>Note that the <code>test_that</code> function will allow you to
+perform multiple checks, please see the section at the bottom for more
+on this!</p>
 <p><strong>5. Create more datasets and more unit tests if
 necessary:</strong></p>
 <p>The minimum set of tests you carry out should be those that verify
@@ -478,6 +481,36 @@ testthat::expect_equal(averageRecyclateValue(dummyMPRData2), 1.917, tolerance=0.
 and dummy data, then save in a relevant unit_tests folder.</strong> Also
 you need to include details of your unit test in the header of your
 function.</p>
+</div>
+<div id="test_that-function" class="section level1">
+<h1>test_that function</h1>
+<p>I introduce to you the <code>test_that</code> function! It is what I
+believe we should be using in all of our test files. Here is an
+example:</p>
+<pre class="r"><code>testthat::test_that(&quot;output matches expectations&quot;, {
+  testthat::expect_equivalent(split_other_frequencies(dummy_input), dummy_output)
+  testthat::expect_equivalent(split_other_frequencies(dummy_input_2), dummy_output_2)
+  testthat::expect_equivalent(split_other_frequencies(dummy_input_3), dummy_output_3)
+})</code></pre>
+<p>The string input at the start is a rough categorisation of what we’re
+testing for and helps us figure out where to look when a test fails.
+It’s also quite cute that you can read it like a sentence. The parts in
+the curly brackets are the bits we’re testing. In this case, we’re
+testing <code>split_other_frequencies</code>. It’s important that the
+actual running of the function happens inside this
+<code>test_that</code> function, as each is run in a separate instance
+and therefore cannot inadvertently affect the other tests (a very nasty
+bug to solve). Additionally, when we run the function to test inside the
+<code>test_that</code> if the function errors elsewhere than the
+<code>expect_</code> it will fail the test, rather than causing an error
+in the test script which needs to be solved before we can run the tests.
+The input data is created elsewhere in the R file.</p>
+<p>By doing it in this way we are also then able to use
+<code>test_file</code> and its siblings to perform all of our tests, or
+selections thereof, at the same time. This will make it easier on us to
+perform and to use the resulting information. I think it’s a good idea
+to make sure all of the unit tests pass before we try to run the model
+for data.</p>
 </div>
 
 
