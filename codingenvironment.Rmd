@@ -24,15 +24,24 @@ If you encounter problems, you may need to switch role to the RANCH account usin
 
 # S3
 
-S3 is accessed through the AWS console. When we upload, modify or delete data on S3, this must be recorded in the [Data Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B2FCDCE89-3F0D-41DD-B451-CB0D77D8DA26%7D&file=Data%20Log%20Ranch_479.xlsx&action=default&mobileredirect=true).
+S3 is accessed through the AWS console. When we upload, modify or delete data on S3, this must be recorded in the [Data Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B2FCDCE89-3F0D-41DD-B451-CB0D77D8DA26%7D&file=Data%20Log%20Ranch_479.xlsx&action=default&mobileredirect=true) **Note this is soon to be replaced by the S3 Upload R Shiny App.**
 
-**All data** should be stored in the appropriate B1 or B2 folder at: *s3://s3-ranch-043/Module_B1/* or *s3://s3-ranch-043/Module_B2/*.
+**All data** should be stored in the appropriate B1 or B2 folder at: *s3://s3-ranch-043/Module_B1/* or *s3://s3-ranch-043/Module_B2/*. The 'general' folder can be used for anything relevant to multiple modules. The 'test_folder' can be used for any throwaway files that you would like to play around with that are not read into the model.
 
 Within each of these there should be the following folders:
 -   Inputs - for any raw data input to the model (this should be read only)
 -   Intermediaries - for any useful data produced during modelling
 -   Outputs - for the final model outputs
 -   QA - for any data specifically relating to QA
+-   Temp - for any temporary data needed during model development that will later be deleted.
+
+This is illustrated below:
+![](~/module_b_team_pages/assets/s3_structure.png)
+
+Meta data is stored for each input file including a description, source, the date of last edits and person who uploaded. This is not required for files in the test_folder or intermediaries and outputs (for now).
+
+
+# Communicating with S3 from R
 
 Scripts for reading and writing to AWS can be found in the [useful scripts repo](https://github.com/Defra-pEPR-Modelling-Team/useful_scripts/blob/main/AWS%20to%20R.Rmd). Here is an example of **reading** an **Excel** file:
 ```{r AWS read, eval = FALSE}

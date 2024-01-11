@@ -382,15 +382,29 @@ docs):</p>
 <p>S3 is accessed through the AWS console. When we upload, modify or
 delete data on S3, this must be recorded in the <a
 href="https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B2FCDCE89-3F0D-41DD-B451-CB0D77D8DA26%7D&amp;file=Data%20Log%20Ranch_479.xlsx&amp;action=default&amp;mobileredirect=true">Data
-Log</a>.</p>
+Log</a> <strong>Note this is soon to be replaced by the S3 Upload R
+Shiny App.</strong></p>
 <p><strong>All data</strong> should be stored in the appropriate B1 or
 B2 folder at: <em>s3://s3-ranch-043/Module_B1/</em> or
-<em>s3://s3-ranch-043/Module_B2/</em>.</p>
+<em>s3://s3-ranch-043/Module_B2/</em>. The ‘general’ folder can be used
+for anything relevant to multiple modules. The ‘test_folder’ can be used
+for any throwaway files that you would like to play around with that are
+not read into the model.</p>
 <p>Within each of these there should be the following folders: - Inputs
 - for any raw data input to the model (this should be read only) -
 Intermediaries - for any useful data produced during modelling - Outputs
 - for the final model outputs - QA - for any data specifically relating
-to QA</p>
+to QA - Temp - for any temporary data needed during model development
+that will later be deleted.</p>
+<p>This is illustrated below: <img
+src="assets/s3_structure.png" /></p>
+<p>Meta data is stored for each input file including a description,
+source, the date of last edits and person who uploaded. This is not
+required for files in the test_folder or intermediaries and outputs (for
+now).</p>
+</div>
+<div id="communicating-with-s3-from-r" class="section level1">
+<h1>Communicating with S3 from R</h1>
 <p>Scripts for reading and writing to AWS can be found in the <a
 href="https://github.com/Defra-pEPR-Modelling-Team/useful_scripts/blob/main/AWS%20to%20R.Rmd">useful
 scripts repo</a>. Here is an example of <strong>reading</strong> an
