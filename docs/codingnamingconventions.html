@@ -356,17 +356,18 @@ that relates all functions in the script should be used.</p></li>
 the following verbs followed by the data object or objects that the
 action is performed on.</p>
 <ul>
-<li><p><code>import</code></p></li>
-<li><p><code>clean</code></p></li>
-<li><p><code>extract</code></p></li>
-<li><p><code>calculate</code></p></li>
-<li><p><code>join</code>?</p></li>
-<li><p><code>apportion</code>?</p></li>
-<li><p><code>sum</code>?</p></li>
-<li><p><code>export</code></p></li>
+<li><p><code>import</code> for any functions which retrieve data from
+AWS</p></li>
+<li><p><code>clean</code> for any functions which renames or reorder
+data without changing values</p></li>
+<li><p><code>calculate</code> for any functions which manipulate data
+values</p></li>
+<li><p><code>join</code> for any functions which combine two or more
+data sets</p></li>
+<li><p><code>export</code> for any functions which print outputs to R
+Studio or AWS</p></li>
 </ul></li>
 </ul>
-<p>ADD DEFINTIONS FOR EACH?</p>
 </div>
 <div id="unit-tests" class="section level2">
 <h2>Unit Tests</h2>
@@ -380,6 +381,12 @@ action is performed on.</p>
 <li>Input files should keep the name they are received with wherever
 possible to aid trace-ability.</li>
 </ul>
+</div>
+<div id="object-names" class="section level2">
+<h2>Object Names?</h2>
+</div>
+<div id="column-names" class="section level2">
+<h2>Column Names?</h2>
 </div>
 <div id="output-files" class="section level2">
 <h2>Output Files</h2>

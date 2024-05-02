@@ -28,23 +28,15 @@ Script contains `import_inflation_data()`, `import_LA_names()` and `import_ONS_d
 
 -   Function names should reflect their purpose and should use one of the following verbs followed by the data object or objects that the action is performed on.
 
-    -   `import`
+    -   `import` for any functions which retrieve data from AWS
 
-    -   `clean`
+    -   `clean` for any functions which renames or reorder data without changing values
 
-    -   `extract`
+    -   `calculate` for any functions which manipulate data values
 
-    -   `calculate`
+    -   `join` for any functions which combine two or more data sets
 
-    -   `join`?
-
-    -   `apportion`?
-
-    -   `sum`?
-
-    -   `export`
-
-ADD DEFINTIONS FOR EACH?
+    -   `export` for any functions which print outputs to R Studio or AWS
 
 ## Unit Tests
 

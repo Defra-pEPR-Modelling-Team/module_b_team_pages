@@ -321,14 +321,36 @@ $(document).ready(function () {
 </div>
 
 
-<ol start="7" style="list-style-type: decimal">
-<li>Function descriptions should have at a minimum the description,
-inputs and outputs in keeping with the <a
-href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html">roxygen
-style</a>? Note you can get a skeleton for this generated automatically
-in R Studio through ‘Code &gt; Insert Roxygen Skeleton’ or by pressing
-Ctrl + Alt + Shift + R.</li>
-</ol>
+<div id="comments" class="section level2">
+<h2>Comments</h2>
+<p>Well written, well structured code should be able to be understood
+with minimal comments.</p>
+<p>Comments should only be used to indicate coding choices that are not
+obvious or have multiple possible options.</p>
+</div>
+<div id="function-documentation" class="section level2">
+<h2>Function Documentation</h2>
+<p>We document our functions using <a
+href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html">roxygen</a>.</p>
+<p><strong>We should include at a minimum the <span
+class="citation">@description</span>, <span
+class="citation">@param</span> and <span class="citation">@return</span>
+tags.</strong></p>
+<p><span class="citation">@examples</span> and <span
+class="citation">@seealso</span> can also be useful.</p>
+<p><strong>Any tags should be explicitly specified</strong>, including
+<span class="citation">@description</span> and <span
+class="citation">@title</span> if used.</p>
+<p>You can get an automatic roxygen skeleton for a function in R Studio
+through ‘Code &gt; Insert Roxygen Skeleton’ or by pressing <em>Ctrl +
+Alt + Shift + R</em>.</p>
+<p>Below is an example of a well documented function:</p>
+<p><strong>ADD THIS</strong></p>
+</div>
+<div id="repository-documentation" class="section level1">
+<h1>Repository Documentation</h1>
+<p>Every repository should have a README…</p>
+</div>
 
 
 
