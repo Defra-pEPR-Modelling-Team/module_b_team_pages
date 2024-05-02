@@ -11,7 +11,7 @@
 
 
 
-<title>Coding Standards</title>
+<title>Coding Style</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -240,47 +240,11 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Module B Team Pages</a>
+      <a class="navbar-brand" href="index.html">FPC Coding Guidance</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Checklists
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="checklistpullrequest.html">Pull Requests</a>
-    </li>
-    <li>
-      <a href="checklistcodereview.html">Code Reviews</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Team Info
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="teamstructure.html">Team Structure</a>
-    </li>
-    <li>
-      <a href="teamsprinttimings.html">Sprint Timings</a>
-    </li>
-    <li>
-      <a href="teammeetingetiquette.html">Meeting Etiquette</a>
-    </li>
-    <li>
-      <a href="teammoduleb2.html">Module B2</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     How to...
      
@@ -315,24 +279,30 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="codingenvironment.html">Coding Environment</a>
+      <a href="codingstyle.html">Coding Style</a>
     </li>
     <li>
-      <a href="codingstandards.html">Coding Standards</a>
+      <a href="codingnamingconventions.html">Naming Conventions</a>
     </li>
     <li>
-      <a href="codingrepositorystructure.html">Repository Structure</a>
+      <a href="codingcomments.html">Comments and Documentation</a>
     </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    LAPCAP
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="codinglearning.html">Learning</a>
+      <a href="lapcaprepositorystructure.html">Repository Structure</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="usefullinks.html">Useful Links</a>
-</li>
-<li>
-  <a href="glossary.html">Acronyms</a>
+  <a href="codingenvironment.html">Coding Environment</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -346,123 +316,39 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Coding Standards</h1>
+<h1 class="title toc-ignore">Coding Style</h1>
 
 </div>
 
 
-<div id="linting-code" class="section level2">
-<h2>Linting Code</h2>
-<p>Currently we are using the <a
+<p>Generally we use the <a
 href="https://style.tidyverse.org/"><code>tidyverse</code> style
-guide</a> which you can use through the <code>lintr</code> and
-<code>styler</code> packages: - <code>lintr</code>: You can use the
-‘Lint current file’ command in the ‘Addins’ menu in R Studio to obtain a
-list of all the places your script doesn’t comply with the style guide.
-You can then change your code to comply. - <code>styler</code>: The
-‘Style active file’ command (also accessed through the Addins menu) or
-‘Ctrl+Shift+A’ will do some of these changes for you. However, it is
-worth rerunning <code>lintr</code> afterwards to check any remaining
-issues. Additionally, the <code>styler::style_dir()</code> command will
-style all files in a given directory, speeding up the process somewhat.
-Note: before you use <code>styler</code> you will need to tell it which
-style guide to use through ‘Addins &gt; Set style &gt;
-styler::tidyverse_style()’.</p>
-<p>We run <code>lintr</code> automatically when you commit through the
-use of <a
-href="https://www.google.com/search?q=wha+tare+commit+hooks&amp;safe=active&amp;sca_esv=573154237&amp;sxsrf=AM9HkKkwVTiv4E_4QYR5aZSJRG3wVKhkJw%3A1697192837676&amp;ei=hRspZZ_wKOO28gLsu5j4AQ&amp;ved=0ahUKEwjfxtGB6PKBAxVjm1wKHewdBh8Q4dUDCBA&amp;uact=5&amp;oq=wha+tare+commit+hooks&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiFXdoYSB0YXJlIGNvbW1pdCBob29rczIHEAAYDRiABDIIEAAYCBgeGA0yCBAAGIoFGIYDMggQABiKBRiGA0idFVDsCFjqE3ADeAGQAQKYAdEBoAHXCKoBBTQuNC4xuAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICBxAjGLACGCfCAgYQABgHGB7CAggQABgIGAcYHsICChAhGKABGMMEGAriAwQYACBBiAYBkAYI&amp;sclient=gws-wiz-serp#fpstate=ive&amp;vld=cid:2ebd25be,vid:d70a8PXbrb8,st:0">commit
-hooks</a> This is achieved throigh the <a
-href="https://lorenzwalthert.github.io/precommit/index.html">precommit</a>
-package which will also soon automate our unit tests.</p>
-<p>We may also adapt the <code>tidyverse</code> style guide for our own
-needs, as we have started to do below, but this should be automatic
-through <code>lintr</code> and <code>styler</code>.</p>
-</div>
-<div id="coding-standards" class="section level2">
-<h2>Coding Standards</h2>
-<p>In addition to the <code>tidyverse</code> style guide you should
-adopt the following practices:</p>
+guide</a> to ensure our code is consistent. The <code>lintr</code> and
+<code>styler</code> packages can help make this easier:</p>
+<ul>
+<li><p><code>lintr</code>: You can use the ‘Lint current file’ command
+in the ‘Addins’ menu in R Studio to obtain a list of all the places your
+script doesn’t comply with the style guide. You can then change your
+code to comply.</p></li>
+<li><p><code>styler</code>: The ‘Style active file’ command (also
+accessed through the Addins menu) or ‘Ctrl+Shift+A’ will do some of
+these changes for you. However, it is worth rerunning <code>lintr</code>
+afterwards to check any remaining issues.</p></li>
+</ul>
+<p>There are a few instances when we vary from the
+<code>tidyverse</code> style guide for our own needs, which are laid out
+below:</p>
 <ol style="list-style-type: decimal">
-<li>We explicitly call packages rather than loading them.</li>
+<li><p>We explicitly call packages rather than loading them.</p>
+<p>Do:</p>
+<p><code>dplyr::select(...)</code></p>
+<p>Don’t:</p>
+<p><code>library(dplyr)</code></p>
+<p><code>select(...)</code></p></li>
+<li><p>We use roxygen for function documentation, further details are on
+the <a href="codingcomments.Rmd">Comments and Documentation
+page</a>.</p></li>
 </ol>
-<table>
-<tr>
-<th>
- 
-</th>
-<th>
-Do
-</th>
-<th>
- 
-</th>
-<th>
-Don’t
-</th>
-</tr>
-<tr>
-<td>
-</td>
-<td>
-<pre class="r"><code>dplyr::select(...)</code></pre>
-</td>
-<td>
-</td>
-<td>
-<pre class="r"><code>library(dplyr)
-
-select(...)</code></pre>
-</td>
-</tr>
-</table>
-<ol start="2" style="list-style-type: decimal">
-<li>Packages should only be those available on <a
-href="https://cran.r-project.org/">CRAN</a></li>
-<li>Generally we should be using the pipe operator (<code>%&gt;%</code>)
-and tidyverse packages rather than loops. This means we need to load the
-<code>magrittr</code> package.</li>
-<li>Variable names must make sense in plain English
-e.g. <code>local_authority_population</code> not
-<code>lapop</code>.</li>
-<li>We should modularise our code as much as possible, i.e. discrete
-parts of the code that do a particular job should be contained in a
-function. The end goal is to have the whole model run from one main file
-that calls functions.</li>
-<li>Function descriptions should have at a minimum the description,
-inputs and outputs in keeping with the <a
-href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html">roxygen
-style</a>? Note you can get a skeleton for this generated automatically
-in R Studio through ‘Code &gt; Insert Roxygen Skeleton’ or by pressing
-Ctrl + Alt + Shift + R.</li>
-</ol>
-<p>We have a PowerPoint with further information on our <a
-href="https://defra.sharepoint.com/:p:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B98C3D254-86E8-44FD-BB2E-206B37F6F802%7D&amp;file=Coding%20Standards.pptx&amp;action=edit&amp;mobileredirect=true">coding
-standards</a>.</p>
-</div>
-<div id="naming-conventions" class="section level2">
-<h2>Naming Conventions</h2>
-<ol style="list-style-type: decimal">
-<li>Github repositories and R scripts should be all lower case with
-underscores “_” instead of spaces (e.g. <em>module_b</em>)</li>
-<li>If a file contains a single function, give the file the same name as
-the function.</li>
-<li>Functions should be named after the task that they perform
-(e.g. <code>calculate_average()</code>)</li>
-<li>Input files should keep the name they are received with wherever
-possible to aid trace-ability.</li>
-<li>Output files should be informatively named, with underscores “_”
-instead of spaces (e.g. <em>Wales_Disposal_Tonnages.csv</em>)</li>
-</ol>
-<p>Where naming is unclear, follow these principles: - Consistency,
-above all else - Short but descriptive and human readable names - No
-spaces, for machine readability - underscores (_) or dashes (-) are
-preferred - Use of consistent date formatting (e.g. YYYY-MM-DD) -
-Padding the left side of numbers with zeros to maintain order - e.g. 001
-instead of 1. The number of zeros should reflect the expected number of
-files.</p>
-<p><strong>- Do not let styling get in the way of progress, these are
-all simple changes that can be made retrospectively. </strong></p>
-</div>
 
 
 

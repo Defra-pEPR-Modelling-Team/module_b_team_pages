@@ -1,4 +1,4 @@
-name: "Module B Team Pages"
+name: "FPC Coding Guidance"
 output_dir: docs
 output:
   html_document:
@@ -6,24 +6,8 @@ output:
     includes:
       in_header: header.html
 navbar:
-  title: "Module B Team Pages"
+  title: "FPC Coding Guidance"
   left:
-    - text: "Checklists"
-      menu: 
-      - text: "Pull Requests"
-        href: checklistpullrequest.html
-      - text: "Code Reviews"
-        href: checklistcodereview.html
-    - text: "Team Info"
-      menu:
-      - text: "Team Structure"
-        href: teamstructure.html  
-      - text: "Sprint Timings"
-        href: teamsprinttimings.html
-      - text: "Meeting Etiquette"
-        href: teammeetingetiquette.html  
-      - text: "Module B2"
-        href: teammoduleb2.html
     - text: "How to..."
       menu:
       - text: "...set up Github"
@@ -40,16 +24,17 @@ navbar:
         href: howtowriteunittests.html
     - text: "Coding"
       menu:
-      - text: "Coding Environment"
-        href: codingenvironment.html      
-      - text: "Coding Standards"
-        href: codingstandards.html
+         
+      - text: "Coding Style"
+        href: codingstyle.html
+      - text: "Naming Conventions"
+        href: codingnamingconventions.html
+      - text: "Comments and Documentation"
+        href: codingcomments.html
+    - text: "LAPCAP"
+      menu:
       - text: "Repository Structure"
-        href: codingrepositorystructure.html
-      - text: "Learning"
-        href: codinglearning.html  
-    - text: "Useful Links"
-      href: usefullinks.html
-    - text: "Acronyms"
-      href: glossary.html
+        href: lapcaprepositorystructure.html
+    - text: "Coding Environment"
+      href: codingenvironment.html  
        

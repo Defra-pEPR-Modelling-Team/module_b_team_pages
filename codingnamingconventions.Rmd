@@ -1,0 +1,79 @@
+---
+title: "Naming Conventions"
+---
+
+## Github Repositories
+
+-   Repositories should contain all code needed, in other words you should not need to run code from two different repositories to achieve your aim.
+
+-   Repository names should be a short description of this aim.
+
+-   Repository names should be all lower case with underscores "\_" instead of spaces (aka **snake_case**).
+
+*For example*: `gate_fees_analysis`
+
+## R Scripts
+
+-   Generally scripts should have the same name as the single function they contain.
+
+-   In rare cases of multiple functions in a script, a summary name that relates all functions in the script should be used.
+
+*For example*: Script contains only the `tidy_q100()` function: `tidy_q100.R`.
+
+Script contains `import_inflation_data()`, `import_LA_names()` and `import_ONS_data`: `imports.R`.
+
+## Functions
+
+-   Function names should also be snake_case.
+
+-   Function names should reflect their purpose and should use one of the following verbs followed by the data object or objects that the action is performed on.
+
+    -   `import`
+
+    -   `clean`
+
+    -   `extract`
+
+    -   `calculate`
+
+    -   `join`?
+
+    -   `apportion`?
+
+    -   `sum`?
+
+    -   `export`
+
+ADD DEFINTIONS FOR EACH?
+
+## Unit Tests
+
+-   Unit test names should include
+
+## Input Files
+
+-   Input files should keep the name they are received with wherever possible to aid trace-ability.
+
+## Object Names?
+
+## Column Names?
+
+## Output Files
+
+-   Output files should
+
+-   Outputs should be dated to aid trace-ability.
+
+## Other
+
+Where naming is unclear, follow these principles:
+
+-   Use `snake_case` - Maintain consistency above all else
+
+-   Short but descriptive and human readable names
+
+-   No spaces, for machine readability, underscores (\_) or dashes (-) are preferred
+
+-   Use of consistent date formatting (e.g. YYYY-MM-DD)
+
+-   Padding the left side of numbers with zeros to maintain order - e.g. 001 instead of 1. The number of zeros should reflect the expected number of files.

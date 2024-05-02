@@ -240,47 +240,11 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Module B Team Pages</a>
+      <a class="navbar-brand" href="index.html">FPC Coding Guidance</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Checklists
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="checklistpullrequest.html">Pull Requests</a>
-    </li>
-    <li>
-      <a href="checklistcodereview.html">Code Reviews</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Team Info
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="teamstructure.html">Team Structure</a>
-    </li>
-    <li>
-      <a href="teamsprinttimings.html">Sprint Timings</a>
-    </li>
-    <li>
-      <a href="teammeetingetiquette.html">Meeting Etiquette</a>
-    </li>
-    <li>
-      <a href="teammoduleb2.html">Module B2</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     How to...
      
@@ -315,24 +279,30 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="codingenvironment.html">Coding Environment</a>
+      <a href="codingstyle.html">Coding Style</a>
     </li>
     <li>
-      <a href="codingstandards.html">Coding Standards</a>
+      <a href="codingnamingconventions.html">Naming Conventions</a>
     </li>
     <li>
-      <a href="codingrepositorystructure.html">Repository Structure</a>
+      <a href="codingcomments.html">Comments and Documentation</a>
     </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    LAPCAP
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="codinglearning.html">Learning</a>
+      <a href="lapcaprepositorystructure.html">Repository Structure</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="usefullinks.html">Useful Links</a>
-</li>
-<li>
-  <a href="glossary.html">Acronyms</a>
+  <a href="codingenvironment.html">Coding Environment</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -353,9 +323,6 @@ $(document).ready(function () {
 
 <p>We use Github for version control, collaboration and code
 reviews.</p>
-<p><strong>Make sure you use the <a
-href="checklistpullrequest.html">pull request checklist</a> when
-submitting pull requests.</strong></p>
 <div id="instructions" class="section level1">
 <h1>Instructions</h1>
 <p>Here are the <strong>step-by-step instructions</strong> to submit a
@@ -383,10 +350,18 @@ be <em>dev</em> (for code in development) or sometimes <em>main</em> if
 it has been fully quality assured.</li>
 <li>Click ‘<em>Reviewer</em>’ and select the person who has agreed to
 review your code.</li>
-<li>Make sure your pull request has a title and description that will
-allow the reviewer to understand what you have done.</li>
-<li>You can also check that the correct files have changed at the bottom
-of the page.</li>
+<li>Make sure you fill out the fields in the pull request template.</li>
+</ol></li>
+<li><p>Then you can click ‘<em>Create pull request</em>’.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Once you have created the pull request you should move the ticket to
+‘For Review’ on Jira.</li>
+</ol></li>
+<li><p>Your reviewer will then inspect your code and may ask you some
+questions or suggest some changes. Once you have responded to these they
+will approve your pull request and you can merge your changes!</p>
+<p><img src="assets/approved.png" /></p>
+<ol style="list-style-type: lower-alpha">
 <li>You will also need to check there are no ‘merge conflicts’. This is
 where someone has changed the same files as you and so you need to agree
 with that person what are the correct changes and modify accordingly,
@@ -394,19 +369,6 @@ the screenshot below shows ‘<em>Able to merge</em>’ indicating there are
 no conflicts.</li>
 </ol>
 <p><img src="assets/pull_request.png" /></p></li>
-<li><p>Before submitting your pull request once again make sure you have
-ticked all the boxes at the top of of this page! Then you can click
-‘<em>Create pull request</em>’.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Once you have created the pull request you should move the ticket to
-‘For Review’ on Jira. You should then create a subtask by clicking
-‘<em>Add child issue</em>’ and assign this subtask to your
-reviewer.</li>
-</ol></li>
-<li><p>Your reviewer will then inspect your code and may ask you some
-questions or suggest some changes. Once you have responded to these they
-will approve your pull request and you can merge your changes!</p>
-<p><img src="assets/approved.png" /></p></li>
 </ol>
 </div>
 

@@ -1,0 +1,5 @@
+---
+title: "Comments and Documentation"
+---
+
+7. Function descriptions should have at a minimum the description, inputs and outputs in keeping with the [roxygen style](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)? Note you can get a skeleton for this generated automatically in R Studio through 'Code > Insert Roxygen Skeleton' or by pressing Ctrl + Alt + Shift + R.

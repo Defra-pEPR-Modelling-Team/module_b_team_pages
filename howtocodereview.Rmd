@@ -2,24 +2,22 @@
 title: "How to Code Review"
 ---
 
-This [Github code review tutorial](https://www.youtube.com/watch?v=lSnbOtw4izI) shows you how to review a pull request, or you can follow the steps at the bottom of this page.
+This [Github code review tutorial](https://www.youtube.com/watch?v=lSnbOtw4izI) shows you how to review a pull request, or you can follow the steps below.
 
-**Make sure you use the [code review checklist](checklistcodereview.html) when submitting pull requests.**
-
-#   Instuctions
+# Instuctions
 
 Follow these step-by-step instructions to do a proper code review:
 
-1.  Navigate to the '*pull request*' that has been assigned to you. Click '*Review changes*'
+1.  Navigate to the '*pull request*' that has been assigned to you. Read the description provided and use the checklist to aid your review.
 
-    ![](~/module_b_team_pages/assets/review_changes_button.png)
-
-2.  Make comments and suggestions as you see fit by clicking the blue plus to the left of the line you want to comment on. Make sure you tick off everything in the above checklist.
+2.  Switch to the '*Files changed*' tab to see the changes made, here you can make comments and suggestions as you see fit by clicking the blue plus to the left of the line you want to comment on.
 
     ![](~/module_b_team_pages/assets/add_comment_button.png)
 
-3.  When you are ready click '*Finish your review*' add a summary comment and then click '*Submit review*'. You may choose to leave comments to be responded to, suggest changes to be made or simply approve the pull request straight away.
+    a.  Make sure to tick '*Start a review*' rather than '*Add single comment*'.
+    b.  Github has lots of functionality to make this process easier, including being able to mark scripts as '*Viewed*' and limiting changes to certain commits.
+    c.  You should also run the code in R Studio and check the relevant QA log has been updated.
 
-    a.  When you have approved the request you should also mark the review subtask on the Jira ticket as complete.
+3.  When you are ready click '*Finish your review*' add a summary comment and then click '*Submit review*'. You may choose to leave comments to be responded to, suggest changes to be made or simply approve the pull request straight away.
 
     <img src="~/module_b_team_pages/assets/finish_review.png" width="311" height="222"/>

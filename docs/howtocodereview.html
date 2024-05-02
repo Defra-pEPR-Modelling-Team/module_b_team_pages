@@ -240,47 +240,11 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Module B Team Pages</a>
+      <a class="navbar-brand" href="index.html">FPC Coding Guidance</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Checklists
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="checklistpullrequest.html">Pull Requests</a>
-    </li>
-    <li>
-      <a href="checklistcodereview.html">Code Reviews</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Team Info
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="teamstructure.html">Team Structure</a>
-    </li>
-    <li>
-      <a href="teamsprinttimings.html">Sprint Timings</a>
-    </li>
-    <li>
-      <a href="teammeetingetiquette.html">Meeting Etiquette</a>
-    </li>
-    <li>
-      <a href="teammoduleb2.html">Module B2</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     How to...
      
@@ -315,24 +279,30 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="codingenvironment.html">Coding Environment</a>
+      <a href="codingstyle.html">Coding Style</a>
     </li>
     <li>
-      <a href="codingstandards.html">Coding Standards</a>
+      <a href="codingnamingconventions.html">Naming Conventions</a>
     </li>
     <li>
-      <a href="codingrepositorystructure.html">Repository Structure</a>
+      <a href="codingcomments.html">Comments and Documentation</a>
     </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    LAPCAP
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="codinglearning.html">Learning</a>
+      <a href="lapcaprepositorystructure.html">Repository Structure</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="usefullinks.html">Useful Links</a>
-</li>
-<li>
-  <a href="glossary.html">Acronyms</a>
+  <a href="codingenvironment.html">Coding Environment</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -353,31 +323,33 @@ $(document).ready(function () {
 
 <p>This <a href="https://www.youtube.com/watch?v=lSnbOtw4izI">Github
 code review tutorial</a> shows you how to review a pull request, or you
-can follow the steps at the bottom of this page.</p>
-<p><strong>Make sure you use the <a href="checklistcodereview.html">code
-review checklist</a> when submitting pull requests.</strong></p>
+can follow the steps below.</p>
 <div id="instuctions" class="section level1">
 <h1>Instuctions</h1>
 <p>Follow these step-by-step instructions to do a proper code
 review:</p>
 <ol style="list-style-type: decimal">
 <li><p>Navigate to the ‘<em>pull request</em>’ that has been assigned to
-you. Click ‘<em>Review changes</em>’</p>
-<p><img
-src="assets/review_changes_button.png" /></p></li>
-<li><p>Make comments and suggestions as you see fit by clicking the blue
-plus to the left of the line you want to comment on. Make sure you tick
-off everything in the above checklist.</p>
-<p><img
-src="assets/add_comment_button.png" /></p></li>
+you. Read the description provided and use the checklist to aid your
+review.</p></li>
+<li><p>Switch to the ‘<em>Files changed</em>’ tab to see the changes
+made, here you can make comments and suggestions as you see fit by
+clicking the blue plus to the left of the line you want to comment
+on.</p>
+<p><img src="assets/add_comment_button.png" /></p>
+<ol style="list-style-type: lower-alpha">
+<li>Make sure to tick ‘<em>Start a review</em>’ rather than ‘<em>Add
+single comment</em>’.</li>
+<li>Github has lots of functionality to make this process easier,
+including being able to mark scripts as ‘<em>Viewed</em>’ and limiting
+changes to certain commits.</li>
+<li>You should also run the code in R Studio and check the relevant QA
+log has been updated.</li>
+</ol></li>
 <li><p>When you are ready click ‘<em>Finish your review</em>’ add a
 summary comment and then click ‘<em>Submit review</em>’. You may choose
 to leave comments to be responded to, suggest changes to be made or
 simply approve the pull request straight away.</p>
-<ol style="list-style-type: lower-alpha">
-<li>When you have approved the request you should also mark the review
-subtask on the Jira ticket as complete.</li>
-</ol>
 <p><img src="assets/finish_review.png" width="311" height="222"/></p></li>
 </ol>
 </div>

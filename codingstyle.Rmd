@@ -1,0 +1,25 @@
+---
+title: "Coding Style"
+---
+
+Generally we use the [`tidyverse` style guide](https://style.tidyverse.org/) to ensure our code is consistent. The `lintr` and `styler` packages can help make this easier:
+
+-   `lintr`: You can use the 'Lint current file' command in the 'Addins' menu in R Studio to obtain a list of all the places your script doesn't comply with the style guide. You can then change your code to comply.
+
+-   `styler`: The 'Style active file' command (also accessed through the Addins menu) or 'Ctrl+Shift+A' will do some of these changes for you. However, it is worth rerunning `lintr` afterwards to check any remaining issues.
+
+There are a few instances when we vary from the `tidyverse` style guide for our own needs, which are laid out below:
+
+1.  We explicitly call packages rather than loading them.
+
+    Do:
+    
+    `dplyr::select(...)`
+
+    Don't: 
+    
+    `library(dplyr)` 
+    
+    `select(...)`
+
+2.  We use roxygen for function documentation, further details are on the [Comments and Documentation page](codingcomments.Rmd).

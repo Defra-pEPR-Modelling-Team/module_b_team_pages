@@ -1,0 +1,36 @@
+---
+title: "Module B2 - Binned Waste"
+---
+
+The Module B2 Binned Waste team is responsible for developing a model to estimate local authorities' costs of collecting and disposing of packaging placed in street bins. 
+
+Producers will then be required to pay these costs which will incentivise them to reduce packaging waste and make packaging more recyclable.
+
+This brings many benefits including greater resource efficiency, reduced pollution and reduced carbon emissions, supporting nature and combatting climate change.
+
+To find out more please peruse the [Binned Waste Sharepoint area](https://defra.sharepoint.com/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/Forms/AllItems.aspx?OR=Teams%2DHL&CT=1684743965727&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzA0MDIwMjcwNSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D&id=%2Fteams%2FTeam1478%2FExtended%20Producer%20Responsibility%20for%20Packaging%2F15%20Fees%20and%20Payments%20Calculator%20%28FPC%29%2F19%20Module%20B2%20%2D%20Binned%20waste&viewid=ec0dda87%2Dc649%2D45d1%2Da9f9%2D150ad0e349b4).
+
+Important documents stored here include:
+
+-   [Binned Waste Model Specification](https://defra.sharepoint.com/:w:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B91314FFE-2084-46D5-9B97-5A538087F872%7D&file=Binned%20Waste%20Model%20Specification.docx&action=default&mobileredirect=true)
+-   [Binned Waste Policy Breakdown](https://defra.sharepoint.com/:w:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B328FA97E-0229-49BD-9302-A287EB956935%7D&file=Policy%20Breakdown.docx&action=default&mobileredirect=true)
+-   [Binned Waste QA Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B43516211-3106-4EC1-936C-63B2137C5826%7D&file=Binned%20Waste%20QA%20Log%20v1.0.xlsm&action=default&mobileredirect=true)
+-   [Binned Waste Model Structure Mural](https://app.mural.co/t/coredefra2548/m/coredefra2548/1696932440203/6669c859a7f7d9f7dbc81d75d462b3903746961b?sender=ua275dbf0283dea17d6872587)
+
+elsewhere you can find our [live plan-on-a-page](https://defra.sharepoint.com/:p:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7BB88FC892-D16A-497B-8D41-664FE28D2F60%7D&file=20231023%20FPC%20Plans%20and%20POAPs_Latest.pptx&action=edit&mobileredirect=true).
+
+Details of our team members are:
+
+ Name | Areas of Work | Location | Working Pattern | Preferred Communication Method | Tips for Working Together | 
+|---|---|---|---|---|---|
+| Jake Billingham | Team Lead | Usually London office Mon - Thur, at home in North London on Friday | Mon - Fri, 9:30 - 5:30 | In person > Teams message > Email (but use email for anything we may need a record of) | Don't put meetings over Wednesday table tennis! |
+| Ope Ojo  | Coding Expert | London office Wednesdays and either Tuesday or Thursday | Mon - Fri, 9:30 - 5:30 | Whichever is best for the context |  |  |
+| Jo Keegan | Readiness Lead |  Working from home in Staffordshire | Mon - Thu, 8 - 5:30/6 | Whichever is best for the context |  |
+| Clare Watson | Policy Lead | Bristol office 4 days a week | Mon - Fri, 9:30 - 5:30  | Whichever is best for the context |  |
+| Bim Chaloner | Coding Expert | Bristol office, hybrid | Mon - Fri, 8:00-4:00 | Whichever is best for the context |  |
+
+**New joiners:** Let Jake know and he can add your details!
+
+# Team Video
+
+![](assets/b2_team_video.mp4)
