@@ -11,7 +11,7 @@
 
 
 
-<title>ToDoList</title>
+<title>How to Store and Access Data</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -245,10 +245,10 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="codingstyle.html">Coding Style</a>
+  <a href="coding_style.html">Coding Style</a>
 </li>
 <li>
-  <a href="codingnamingconventions.html">Naming Conventions</a>
+  <a href="coding_naming_conventions.html">Naming Conventions</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -258,25 +258,28 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="howtosetupgithub.html">...set up Github</a>
+      <a href="how_to_set_up_github.html">...set up Github</a>
     </li>
     <li>
-      <a href="howtoeditgithubcode.html">...edit Github code</a>
+      <a href="how_to_create_a_new_repository.html">...create a new repository</a>
     </li>
     <li>
-      <a href="howtostoreandaccessdata.html">...store and access data</a>
+      <a href="how_to_edit_github_code.html">...edit Github code</a>
     </li>
     <li>
-      <a href="howtopullrequest.html">...pull request</a>
+      <a href="how_to_store_and_access_data.html">...store and access data</a>
     </li>
     <li>
-      <a href="howtocodereview.html">...code review</a>
+      <a href="how_to_pull_request.html">...pull request</a>
     </li>
     <li>
-      <a href="howtorecordassumptions.html">...record assumptions</a>
+      <a href="how_to_code_review.html">...code review</a>
     </li>
     <li>
-      <a href="howtowriteunittests.html">...write unit tests</a>
+      <a href="how_to_record_assumptions.html">...record assumptions</a>
+    </li>
+    <li>
+      <a href="how_to_write_unit_tests.html">...write unit tests</a>
     </li>
   </ul>
 </li>
@@ -292,25 +295,47 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">ToDoList</h1>
+<h1 class="title toc-ignore">How to Store and Access Data</h1>
 
 </div>
 
 
-<ul>
-<li>Add any useful stuff from <a
-href="https://defra.sharepoint.com/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/Forms/AllItems.aspx?OR=Teams-HL&amp;CT=1684860172742&amp;clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzA0MDIwMjcwNSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D&amp;id=%2Fteams%2FTeam1478%2FExtended%20Producer%20Responsibility%20for%20Packaging%2F15%20Fees%20and%20Payments%20Calculator%20%28FPC%29%2F18%20Module%20B1%20-%20LA%20FNCs%2F14%20Module%20B1%20Admin%2FCoding%20Environment&amp;viewid=ec0dda87-c649-45d1-a9f9-150ad0e349b4"
-class="uri">https://defra.sharepoint.com/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/Forms/AllItems.aspx?OR=Teams-HL&amp;CT=1684860172742&amp;clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzA0MDIwMjcwNSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D&amp;id=%2Fteams%2FTeam1478%2FExtended%20Producer%20Responsibility%20for%20Packaging%2F15%20Fees%20and%20Payments%20Calculator%20%28FPC%29%2F18%20Module%20B1%20-%20LA%20FNCs%2F14%20Module%20B1%20Admin%2FCoding%20Environment&amp;viewid=ec0dda87-c649-45d1-a9f9-150ad0e349b4</a></li>
-<li>Diagram of links in code (could we automatically generate based on
-repo)</li>
-<li>Function documentation
-<ul>
-<li>Dependencies</li>
-<li>inputs outputs</li>
-<li>make it ‘pick up and use’</li>
-</ul>
-REVISE HOW TO ASSUMPTIONS AND UNIT TESTS</li>
-</ul>
+<div id="how-to-store-data-on-aws" class="section level1">
+<h1>How to Store Data on AWS</h1>
+<p><strong>UPLOADER APP INSTRUCTIONS TO BE WRITTEN BY BIM</strong></p>
+<p>Within each of these there should be the following folders: - Inputs
+- for any raw data input to the model (this should be read only) -
+Intermediaries - for any useful data produced during modelling - Outputs
+- for the final model outputs - QA - for any data specifically relating
+to QA - Temp - for any temporary data needed during model development
+that will later be deleted.</p>
+<p>This is illustrated below: <img
+src="assets/s3_structure.png" /></p>
+</div>
+<div id="how-to-access-s3-data" class="section level1">
+<h1>How to Access S3 Data</h1>
+<p>Scripts for reading and writing to AWS can be found in the <a
+href="https://github.com/Defra-pEPR-Modelling-Team/useful_scripts/blob/main/AWS%20to%20R.Rmd">useful
+scripts repo</a>. Here is an example of <strong>reading</strong> an
+<strong>Excel</strong> file:</p>
+<pre class="r"><code>excel_data &lt;- aws.s3::s3read_using(
+  FUN = openxlsx::read.xlsx,
+  object = &quot;test_folder/test_data.xlsx&quot;, # this file exists, but replace with your own filepath
+  sheet=&quot;Sheet1&quot;,
+  fillMergedCells = TRUE,
+  bucket = &quot;s3-ranch-043&quot;
+  )</code></pre>
+<p>And here is one for <strong>writing</strong> a <strong>CSV</strong>,
+note we need to set our permissions in the last line of the
+function:</p>
+<pre class="r"><code>aws.s3::s3write_using(
+  df_example,
+  FUN = readr::write_csv,
+  bucket = &quot;s3-ranch-043&quot;,
+  object = &quot;test_folder/test_data.csv,
+  opts = list(&quot;headers&quot; = list(&quot;x-amz-acl&quot; = &quot;bucket-owner-full-control&quot;)
+  )</code></pre>
+</div>
 
 
 

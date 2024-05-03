@@ -11,7 +11,7 @@
 
 
 
-<title>How to Store and Access Data</title>
+<title>How to Code Review</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -245,10 +245,10 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="codingstyle.html">Coding Style</a>
+  <a href="coding_style.html">Coding Style</a>
 </li>
 <li>
-  <a href="codingnamingconventions.html">Naming Conventions</a>
+  <a href="coding_naming_conventions.html">Naming Conventions</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -258,25 +258,28 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="howtosetupgithub.html">...set up Github</a>
+      <a href="how_to_set_up_github.html">...set up Github</a>
     </li>
     <li>
-      <a href="howtoeditgithubcode.html">...edit Github code</a>
+      <a href="how_to_create_a_new_repository.html">...create a new repository</a>
     </li>
     <li>
-      <a href="howtostoreandaccessdata.html">...store and access data</a>
+      <a href="how_to_edit_github_code.html">...edit Github code</a>
     </li>
     <li>
-      <a href="howtopullrequest.html">...pull request</a>
+      <a href="how_to_store_and_access_data.html">...store and access data</a>
     </li>
     <li>
-      <a href="howtocodereview.html">...code review</a>
+      <a href="how_to_pull_request.html">...pull request</a>
     </li>
     <li>
-      <a href="howtorecordassumptions.html">...record assumptions</a>
+      <a href="how_to_code_review.html">...code review</a>
     </li>
     <li>
-      <a href="howtowriteunittests.html">...write unit tests</a>
+      <a href="how_to_record_assumptions.html">...record assumptions</a>
+    </li>
+    <li>
+      <a href="how_to_write_unit_tests.html">...write unit tests</a>
     </li>
   </ul>
 </li>
@@ -292,46 +295,42 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">How to Store and Access Data</h1>
+<h1 class="title toc-ignore">How to Code Review</h1>
 
 </div>
 
 
-<div id="how-to-store-data-on-aws" class="section level1">
-<h1>How to Store Data on AWS</h1>
-<p><strong>UPLOADER APP INSTRUCTIONS TO BE WRITTEN BY BIM</strong></p>
-<p>Within each of these there should be the following folders: - Inputs
-- for any raw data input to the model (this should be read only) -
-Intermediaries - for any useful data produced during modelling - Outputs
-- for the final model outputs - QA - for any data specifically relating
-to QA - Temp - for any temporary data needed during model development
-that will later be deleted.</p>
-<p>This is illustrated below: <img
-src="assets/s3_structure.png" /></p>
-</div>
-<div id="how-to-access-s3-data" class="section level1">
-<h1>How to Access S3 Data</h1>
-<p>Scripts for reading and writing to AWS can be found in the <a
-href="https://github.com/Defra-pEPR-Modelling-Team/useful_scripts/blob/main/AWS%20to%20R.Rmd">useful
-scripts repo</a>. Here is an example of <strong>reading</strong> an
-<strong>Excel</strong> file:</p>
-<pre class="r"><code>excel_data &lt;- aws.s3::s3read_using(
-  FUN = openxlsx::read.xlsx,
-  object = &quot;test_folder/test_data.xlsx&quot;, # this file exists, but replace with your own filepath
-  sheet=&quot;Sheet1&quot;,
-  fillMergedCells = TRUE,
-  bucket = &quot;s3-ranch-043&quot;
-  )</code></pre>
-<p>And here is one for <strong>writing</strong> a <strong>CSV</strong>,
-note we need to set our permissions in the last line of the
-function:</p>
-<pre class="r"><code>aws.s3::s3write_using(
-  df_example,
-  FUN = readr::write_csv,
-  bucket = &quot;s3-ranch-043&quot;,
-  object = &quot;test_folder/test_data.csv,
-  opts = list(&quot;headers&quot; = list(&quot;x-amz-acl&quot; = &quot;bucket-owner-full-control&quot;)
-  )</code></pre>
+<p>This <a href="https://www.youtube.com/watch?v=lSnbOtw4izI">Github
+code review tutorial</a> shows you how to review a pull request, or you
+can follow the steps below.</p>
+<div id="instuctions" class="section level1">
+<h1>Instuctions</h1>
+<p>Follow these step-by-step instructions to do a proper code
+review:</p>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to the ‘<em>pull request</em>’ that has been assigned to
+you. Read the description provided and use the checklist to aid your
+review.</p></li>
+<li><p>Switch to the ‘<em>Files changed</em>’ tab to see the changes
+made, here you can make comments and suggestions as you see fit by
+clicking the blue plus to the left of the line you want to comment
+on.</p>
+<p><img src="assets/add_comment_button.png" /></p>
+<ol style="list-style-type: lower-alpha">
+<li>Make sure to tick ‘<em>Start a review</em>’ rather than ‘<em>Add
+single comment</em>’.</li>
+<li>Github has lots of functionality to make this process easier,
+including being able to mark scripts as ‘<em>Viewed</em>’ and limiting
+changes to certain commits.</li>
+<li>You should also run the code in R Studio and check the relevant QA
+log has been updated.</li>
+</ol></li>
+<li><p>When you are ready click ‘<em>Finish your review</em>’ add a
+summary comment and then click ‘<em>Submit review</em>’. You may choose
+to leave comments to be responded to, suggest changes to be made or
+simply approve the pull request straight away.</p>
+<p><img src="assets/finish_review.png" width="311" height="222"/></p></li>
+</ol>
 </div>
 
 

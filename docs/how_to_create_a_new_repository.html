@@ -11,7 +11,7 @@
 
 
 
-<title>How to Pull Request</title>
+<title>How to Create a New Repository</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -245,10 +245,10 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="codingstyle.html">Coding Style</a>
+  <a href="coding_style.html">Coding Style</a>
 </li>
 <li>
-  <a href="codingnamingconventions.html">Naming Conventions</a>
+  <a href="coding_naming_conventions.html">Naming Conventions</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -258,25 +258,28 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="howtosetupgithub.html">...set up Github</a>
+      <a href="how_to_set_up_github.html">...set up Github</a>
     </li>
     <li>
-      <a href="howtoeditgithubcode.html">...edit Github code</a>
+      <a href="how_to_create_a_new_repository.html">...create a new repository</a>
     </li>
     <li>
-      <a href="howtostoreandaccessdata.html">...store and access data</a>
+      <a href="how_to_edit_github_code.html">...edit Github code</a>
     </li>
     <li>
-      <a href="howtopullrequest.html">...pull request</a>
+      <a href="how_to_store_and_access_data.html">...store and access data</a>
     </li>
     <li>
-      <a href="howtocodereview.html">...code review</a>
+      <a href="how_to_pull_request.html">...pull request</a>
     </li>
     <li>
-      <a href="howtorecordassumptions.html">...record assumptions</a>
+      <a href="how_to_code_review.html">...code review</a>
     </li>
     <li>
-      <a href="howtowriteunittests.html">...write unit tests</a>
+      <a href="how_to_record_assumptions.html">...record assumptions</a>
+    </li>
+    <li>
+      <a href="how_to_write_unit_tests.html">...write unit tests</a>
     </li>
   </ul>
 </li>
@@ -292,61 +295,33 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">How to Pull Request</h1>
+<h1 class="title toc-ignore">How to Create a New Repository</h1>
 
 </div>
 
 
-<p>We use Github for version control, collaboration and code
-reviews.</p>
-<div id="instructions" class="section level1">
-<h1>Instructions</h1>
-<p>Here are the <strong>step-by-step instructions</strong> to submit a
-pull request:</p>
-<ol style="list-style-type: decimal">
-<li><p>Follow the steps on the ‘How to edit Github code’ to make the
-changes for your ticket</p></li>
-<li><p>Then go to the relevant repo on Github and navigate to your
-branch</p>
-<ol style="list-style-type: lower-alpha">
-<li>Use either the branches drop down or click on ‘<em>x branches</em>’
-to go to the branches page and select your branch.</li>
-</ol>
-<p><img
-src="assets/branches_button.png" /></p></li>
-<li><p>If your push was recent there may be a pop up allowing you to
-‘<em>compare and pull request</em>’, if not then click
-‘<em>Contribute</em>’ and ‘<em>Open pull request</em>’.</p>
-<p><img
-src="assets/contribute_button.png" /></p></li>
-<li><p>Now check your pull request is set up correctly:</p>
-<ol style="list-style-type: lower-alpha">
-<li>Make sure you are merging to the correct branch, this will usually
-be <em>dev</em> (for code in development) or sometimes <em>main</em> if
-it has been fully quality assured.</li>
-<li>Click ‘<em>Reviewer</em>’ and select the person who has agreed to
-review your code.</li>
-<li>Make sure you fill out the fields in the pull request template.</li>
-</ol></li>
-<li><p>Then you can click ‘<em>Create pull request</em>’.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Once you have created the pull request you should move the ticket to
-‘For Review’ on Jira.</li>
-</ol></li>
-<li><p>Your reviewer will then inspect your code and may ask you some
-questions or suggest some changes. Once you have responded to these they
-will approve your pull request and you can merge your changes!</p>
-<p><img src="assets/approved.png" /></p>
-<ol style="list-style-type: lower-alpha">
-<li>You will also need to check there are no ‘merge conflicts’. This is
-where someone has changed the same files as you and so you need to agree
-with that person what are the correct changes and modify accordingly,
-the screenshot below shows ‘<em>Able to merge</em>’ indicating there are
-no conflicts.</li>
-</ol>
-<p><img src="assets/pull_request.png" /></p></li>
-</ol>
-</div>
+<ul>
+<li>Use the <a
+href="https://github.com/Defra-pEPR-Modelling-Team/TemplateRepo">template
+repository</a>.
+<ul>
+<li>Use this template &gt; Create a new repository</li>
+</ul></li>
+<li>Repository names should be all lower case with underscores _ between
+words.</li>
+<li>A <em>.gitignore</em> file should be used to stop any sensitive data
+being stored on github.</li>
+<li>Make sure to update the repo description and <em>README</em>
+file.</li>
+<li>We use the <em>main</em> branch for fully QA’d production ready
+code, and the <em>dev</em> branch for checked code that is still being
+developed.</li>
+<li>By default the <em>main</em> and <em>dev</em> branch should be
+protected meaning, before merging, changes will require a pull request
+and at least 1 approval.</li>
+<li>All files for a project (i.e. any that may need to talk to each
+other) should be in one repository.</li>
+</ul>
 
 
 

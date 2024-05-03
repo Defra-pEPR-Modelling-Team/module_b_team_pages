@@ -11,7 +11,7 @@
 
 
 
-<title>How to Code Review</title>
+<title>Naming Conventions</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -245,10 +245,10 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="codingstyle.html">Coding Style</a>
+  <a href="coding_style.html">Coding Style</a>
 </li>
 <li>
-  <a href="codingnamingconventions.html">Naming Conventions</a>
+  <a href="coding_naming_conventions.html">Naming Conventions</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -258,25 +258,28 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="howtosetupgithub.html">...set up Github</a>
+      <a href="how_to_set_up_github.html">...set up Github</a>
     </li>
     <li>
-      <a href="howtoeditgithubcode.html">...edit Github code</a>
+      <a href="how_to_create_a_new_repository.html">...create a new repository</a>
     </li>
     <li>
-      <a href="howtostoreandaccessdata.html">...store and access data</a>
+      <a href="how_to_edit_github_code.html">...edit Github code</a>
     </li>
     <li>
-      <a href="howtopullrequest.html">...pull request</a>
+      <a href="how_to_store_and_access_data.html">...store and access data</a>
     </li>
     <li>
-      <a href="howtocodereview.html">...code review</a>
+      <a href="how_to_pull_request.html">...pull request</a>
     </li>
     <li>
-      <a href="howtorecordassumptions.html">...record assumptions</a>
+      <a href="how_to_code_review.html">...code review</a>
     </li>
     <li>
-      <a href="howtowriteunittests.html">...write unit tests</a>
+      <a href="how_to_record_assumptions.html">...record assumptions</a>
+    </li>
+    <li>
+      <a href="how_to_write_unit_tests.html">...write unit tests</a>
     </li>
   </ul>
 </li>
@@ -292,42 +295,163 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">How to Code Review</h1>
+<h1 class="title toc-ignore">Naming Conventions</h1>
 
 </div>
 
 
-<p>This <a href="https://www.youtube.com/watch?v=lSnbOtw4izI">Github
-code review tutorial</a> shows you how to review a pull request, or you
-can follow the steps below.</p>
-<div id="instuctions" class="section level1">
-<h1>Instuctions</h1>
-<p>Follow these step-by-step instructions to do a proper code
-review:</p>
-<ol style="list-style-type: decimal">
-<li><p>Navigate to the ‘<em>pull request</em>’ that has been assigned to
-you. Read the description provided and use the checklist to aid your
-review.</p></li>
-<li><p>Switch to the ‘<em>Files changed</em>’ tab to see the changes
-made, here you can make comments and suggestions as you see fit by
-clicking the blue plus to the left of the line you want to comment
-on.</p>
-<p><img src="assets/add_comment_button.png" /></p>
-<ol style="list-style-type: lower-alpha">
-<li>Make sure to tick ‘<em>Start a review</em>’ rather than ‘<em>Add
-single comment</em>’.</li>
-<li>Github has lots of functionality to make this process easier,
-including being able to mark scripts as ‘<em>Viewed</em>’ and limiting
-changes to certain commits.</li>
-<li>You should also run the code in R Studio and check the relevant QA
-log has been updated.</li>
-</ol></li>
-<li><p>When you are ready click ‘<em>Finish your review</em>’ add a
-summary comment and then click ‘<em>Submit review</em>’. You may choose
-to leave comments to be responded to, suggest changes to be made or
-simply approve the pull request straight away.</p>
-<p><img src="assets/finish_review.png" width="311" height="222"/></p></li>
-</ol>
+<div id="github-repositories" class="section level2">
+<h2>Github Repositories</h2>
+<ul>
+<li><p>Repositories should contain all code needed, in other words you
+should not need to run code from two different repositories to achieve
+your aim.</p></li>
+<li><p>Repository names should be a short description of this
+aim.</p></li>
+<li><p>Repository names should be all lower case with underscores “_”
+instead of spaces (aka <strong>snake_case</strong>).</p></li>
+</ul>
+<blockquote>
+<p><em>For example</em>:</p>
+<p><code>gate_fees_analysis</code></p>
+</blockquote>
+</div>
+<div id="r-scripts" class="section level2">
+<h2>R Scripts</h2>
+<ul>
+<li><p>Generally scripts should have the <strong>same name as the single
+function they contain</strong>.</p></li>
+<li><p>In rare cases of multiple functions in a script, a summary name
+that relates all functions in the script should be used.</p></li>
+<li><p>Use <strong>snake_case</strong>.</p></li>
+</ul>
+<blockquote>
+<p><em>For example</em>:</p>
+<p>Script contains only the <code>tidy_q100()</code> function, script is
+named <code>tidy_q100.R</code>.</p>
+<p>Script contains <code>import_inflation_data()</code>,
+<code>import_LA_names()</code> and <code>import_ONS_data</code> script
+is named <code>imports.R</code>.</p>
+</blockquote>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<ul>
+<li><p>Function names should reflect their <strong>purpose</strong> and
+should use one of the following <strong>verbs</strong> followed by the
+data object or objects that the action is performed on.</p>
+<ul>
+<li><p><code>import</code> for any functions which retrieve data from
+S3</p></li>
+<li><p><code>clean</code> for any functions which renames or reorder
+data without changing values</p></li>
+<li><p><code>calculate</code> for any functions which manipulate data
+values</p></li>
+<li><p><code>join</code> for any functions which combine two or more
+data sets</p></li>
+<li><p><code>export</code> for any functions which print outputs to R
+Studio or S3</p></li>
+</ul></li>
+<li><p>Use <strong>snake_case</strong>.</p></li>
+</ul>
+<blockquote>
+<p><em>For example</em>:</p>
+<p>A function that joins waste tonnages and local authority meta data
+could be called <code>join_tonnages_and_meta_data</code>.</p>
+<p>A function that calculates averages across local authority groupings
+could be called
+<code>calculate_local_authority_group_average</code>.</p>
+</blockquote>
+</div>
+<div id="unit-tests" class="section level2">
+<h2>Unit Tests</h2>
+<ul>
+<li>Unit tests should be named after the function they are testing,
+followed by <code>test</code>.</li>
+<li>In the case of multiple tests for a function, a description should
+be added after <code>test</code>.</li>
+</ul>
+<blockquote>
+<p><em>For example:</em></p>
+<p>A test for the <code>calculate_wfh_proportions()</code> function
+should be called <code>calculate_wfh_proportions_test</code>.</p>
+<p>If multiple tests were needed they could be called
+<code>calculate_wfh_proportions_test_country_not_specified</code>,
+<code>calculate_wfh_proportions_test_na_in_tonnages</code> and
+<code>calculate_wfh_proportions_test_correct_average</code>.</p>
+</blockquote>
+</div>
+<div id="input-files" class="section level2">
+<h2>Input Files</h2>
+<ul>
+<li><p>Input files should <strong>keep the name they are received
+with</strong> wherever possible to aid trace-ability.</p></li>
+<li><p>Input files should not be edited outside of R as this is not
+traceable.</p></li>
+<li><p>All input files should have a version control cover
+sheet.</p></li>
+</ul>
+<blockquote>
+<p><em>For example</em>:</p>
+<p>The WRAP 2017 waste composition should keep the name it was given
+when received from WRAP, which is
+<code>NATIONAL COMPOSITION ESTIMATES 2017 v3.0.xlsx</code>.</p>
+</blockquote>
+</div>
+<div id="object-names" class="section level2">
+<h2>Object Names</h2>
+<ul>
+<li><p>Maintain consistency with the existing code.</p></li>
+<li><p>Keep names short but readable, avoid abbreviations.</p></li>
+<li><p>Add details to the end of the name, to allow alphabetical
+sorting.</p>
+<ul>
+<li>e.g. <code>tonnages_england</code>, <code>tonnages_wales</code>
+rather than <code>england_tonnages</code>,
+<code>wales_tonnages</code>.</li>
+</ul></li>
+<li><p>Use <strong>snake_case</strong>.</p></li>
+</ul>
+</div>
+<div id="column-names" class="section level2">
+<h2>Column Names</h2>
+<ul>
+<li>Each project should have a <strong>data dictionary</strong> which
+will advise on how to keep column names consistent.</li>
+</ul>
+</div>
+<div id="output-files" class="section level2">
+<h2>Output Files</h2>
+<ul>
+<li><p>Output files should start with the <strong>project</strong> they
+come from (including a project version number if possible), followed by
+any <strong>specifics</strong> needed (that are not evident from the
+data itself).</p></li>
+<li><p>Output names should end with the <strong>date</strong> they were
+created to aid trace-ability.</p></li>
+<li><p>Use <strong>snake_case</strong>.</p></li>
+</ul>
+<blockquote>
+<p><em>For example</em>:</p>
+<p>LAPCAP outputs generated for the Simpler Recycling team on April 10th
+2024 could be called
+<code>lapcap_v1.0_simpler_recycling_20240410.csv</code>.</p>
+</blockquote>
+</div>
+<div id="other" class="section level2">
+<h2>Other</h2>
+<p>Where naming is unclear, follow these principles:</p>
+<ul>
+<li><p>Use <code>snake_case</code></p></li>
+<li><p>Maintain consistency above all else</p></li>
+<li><p>Short but descriptive and human readable names</p></li>
+<li><p>No spaces, for machine readability, underscores (_) or dashes (-)
+are preferred</p></li>
+<li><p>Use of consistent date formatting (e.g. YYYY-MM-DD)</p></li>
+<li><p>Padding the left side of numbers with zeros to maintain order -
+e.g. 001 instead of 1. The number of zeros should reflect the expected
+number of files.</p></li>
+</ul>
 </div>
 
 
