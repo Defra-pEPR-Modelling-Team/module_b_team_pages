@@ -53,13 +53,13 @@ title: "Naming Conventions"
 ## Unit Tests
 
 -   Unit tests should be named after the function they are testing, followed by `test`.
--   In the case of multiple tests for a function, a description should be added after `test`
+-   In the case of multiple tests for a function, a description should be added after `test`.
 
 > *For example:*
 >
 > A test for the `calculate_wfh_proportions()` function should be called `calculate_wfh_proportions_test`.
 >
-> If multiple tests were needed they could be called `calculate_wfh_proportions_test_country_not_specified`, `calculate_wfh_proportions_test_na_in_tonnages` and `calculate_wfh_proportions_test_correct_average.`
+> If multiple tests were needed they could be called `calculate_wfh_proportions_test_country_not_specified`, `calculate_wfh_proportions_test_na_in_tonnages` and `calculate_wfh_proportions_test_correct_average`.
 
 ## Input Files
 
@@ -75,7 +75,15 @@ title: "Naming Conventions"
 
 ## Object Names
 
--   ?
+-   Maintain consistency with the existing code.
+
+-   Keep names short but readable, avoid abbreviations.
+
+-   Add details to the end of the name, to allow alphabetical sorting.
+
+    -   e.g. `tonnages_england`, `tonnages_wales` rather than `england_tonnages`, `wales_tonnages`.
+
+-   Use **snake_case**.
 
 ## Column Names
 

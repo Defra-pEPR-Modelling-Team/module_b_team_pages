@@ -366,7 +366,7 @@ could be called
 <li>Unit tests should be named after the function they are testing,
 followed by <code>test</code>.</li>
 <li>In the case of multiple tests for a function, a description should
-be added after <code>test</code></li>
+be added after <code>test</code>.</li>
 </ul>
 <blockquote>
 <p><em>For example:</em></p>
@@ -375,7 +375,7 @@ should be called <code>calculate_wfh_proportions_test</code>.</p>
 <p>If multiple tests were needed they could be called
 <code>calculate_wfh_proportions_test_country_not_specified</code>,
 <code>calculate_wfh_proportions_test_na_in_tonnages</code> and
-<code>calculate_wfh_proportions_test_correct_average.</code></p>
+<code>calculate_wfh_proportions_test_correct_average</code>.</p>
 </blockquote>
 </div>
 <div id="input-files" class="section level2">
@@ -398,7 +398,16 @@ when received from WRAP, which is
 <div id="object-names" class="section level2">
 <h2>Object Names</h2>
 <ul>
-<li>?</li>
+<li><p>Maintain consistency with the existing code.</p></li>
+<li><p>Keep names short but readable, avoid abbreviations.</p></li>
+<li><p>Add details to the end of the name, to allow alphabetical
+sorting.</p>
+<ul>
+<li>e.g. <code>tonnages_england</code>, <code>tonnages_wales</code>
+rather than <code>england_tonnages</code>,
+<code>wales_tonnages</code>.</li>
+</ul></li>
+<li><p>Use <strong>snake_case</strong>.</p></li>
 </ul>
 </div>
 <div id="column-names" class="section level2">
