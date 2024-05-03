@@ -8,4 +8,14 @@ These pages contain all the information you need to write **good code** in the F
 
 Please suggest anything you think is missing from this site!
 
+*To Do:*
 
+-   *Update*
+
+    -   *How to write unit tests*
+
+    -   *How to record assumptions*
+
+    -   *How to create a new repo*
+
+    -   *How to store and access data*
