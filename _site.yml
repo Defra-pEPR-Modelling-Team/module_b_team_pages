@@ -9,23 +9,25 @@ navbar:
   title: "FPC Coding Guidance"
   left:
     - text: "Coding Style"
-      href: codingstyle.html
+      href: coding_style.html
     - text: "Naming Conventions"
-      href: codingnamingconventions.html
+      href: coding_naming_conventions.html
     - text: "How to..."
       menu:
       - text: "...set up Github"
-        href: howtosetupgithub.html
+        href: how_to_set_up_github.html
+      - text: "...create a new repository"
+        href: how_to_create_a_new_repository.html
       - text: "...edit Github code"
-        href: howtoeditgithubcode.html
+        href: how_to_edit_github_code.html
       - text: "...store and access data"
-        href: howtostoreandaccessdata.html
+        href: how_to_store_and_access_data.html
       - text: "...pull request"
-        href: howtopullrequest.html
+        href: how_to_pull_request.html
       - text: "...code review"
-        href: howtocodereview.html
+        href: how_to_code_review.html
       - text: "...record assumptions"
-        href: howtorecordassumptions.html
+        href: how_to_record_assumptions.html
       - text: "...write unit tests"
-        href: howtowriteunittests.html
+        href: how_to_write_unit_tests.html
 
