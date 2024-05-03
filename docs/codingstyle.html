@@ -335,7 +335,28 @@ class="citation">@seealso</span> can also be useful.</p>
 function in R Studio through ‘Code &gt; Insert Roxygen Skeleton’ or by
 pressing <em>Ctrl + Alt + Shift + R</em>.</p>
 <p>Below is an example of a well documented function:</p>
-<p><strong>ADD THIS</strong></p></li>
+<pre class="r"><code>#&#39; @title calculate_wfh_proportions
+#&#39; 
+#&#39; @description
+#&#39; This function calculates Waste From Household (WfH) proportions for a set of 
+#&#39; WasteDataFlow collection data. This follows the approach set out in
+#&#39; the &#39;WasteDataFlow method for calculating “waste from households” (WfH) 
+#&#39; recycling&#39; which can be found on the WasteDataFlow website. 
+#&#39;
+#&#39; @param countryString This input allows you to specify which country you are 
+#&#39; providing data for.
+#&#39; @param raw_collectionData This is the collection data which calculations will 
+#&#39; be performed on.
+#&#39; @param raw_q100 The function also takes in WasteDataFlow disposal data (Q100)
+#&#39; in order to get the correct local authority names.
+#&#39;
+#&#39; @return A data frame of WfH factors for each waste stream (residual, 
+#&#39; organics, dry recycling and reuse).
+#&#39;
+#&#39; @examples
+#&#39; wfh_factors &lt;- calculate_wfh_proportions(&quot;England&quot;, 
+#&#39;                                           raw_collectionData, 
+#&#39;                                           raw_q100)</code></pre></li>
 </ol>
 
 

@@ -34,4 +34,27 @@ There are a few instances when we vary from the `tidyverse` style guide for our 
 
     Below is an example of a well documented function:
 
-    **ADD THIS**
+    ``` R
+    #' @title calculate_wfh_proportions
+    #' 
+    #' @description
+    #' This function calculates Waste From Household (WfH) proportions for a set of 
+    #' WasteDataFlow collection data. This follows the approach set out in
+    #' the 'WasteDataFlow method for calculating “waste from households” (WfH) 
+    #' recycling' which can be found on the WasteDataFlow website. 
+    #'
+    #' @param countryString This input allows you to specify which country you are 
+    #' providing data for.
+    #' @param raw_collectionData This is the collection data which calculations will 
+    #' be performed on.
+    #' @param raw_q100 The function also takes in WasteDataFlow disposal data (Q100)
+    #' in order to get the correct local authority names.
+    #'
+    #' @return A data frame of WfH factors for each waste stream (residual, 
+    #' organics, dry recycling and reuse).
+    #'
+    #' @examples
+    #' wfh_factors <- calculate_wfh_proportions("England", 
+    #'                                           raw_collectionData, 
+    #'                                           raw_q100)
+    ```
