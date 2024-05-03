@@ -52,8 +52,8 @@ title: "Naming Conventions"
 
 ## Unit Tests
 
--   Unit tests should be named after the function they are testing, followed by `test`.
--   In the case of multiple tests for a function, a description should be added after `test`.
+-   Unit tests should be **named after the function they are testing**, followed by `test`.
+-   In the case of multiple tests for a function, a **description should be added after `test`**.
 
 > *For example:*
 >
@@ -75,11 +75,11 @@ title: "Naming Conventions"
 
 ## Object Names
 
--   Maintain consistency with the existing code.
+-   Maintain **consistency** with the existing code.
 
 -   Keep names short but readable, avoid abbreviations.
 
--   Add details to the end of the name, to allow alphabetical sorting.
+-   Add **details at the end** of the name, to allow alphabetical sorting.
 
     -   e.g. `tonnages_england`, `tonnages_wales` rather than `england_tonnages`, `wales_tonnages`.
 
