@@ -12,14 +12,26 @@ There are a few instances when we vary from the `tidyverse` style guide for our 
 
 1.  We explicitly call packages rather than loading them.
 
-    Do:
-    
-    `dplyr::select(...)`
+    > Do:
+    >
+    > `dplyr::select(...)`
+    >
+    > Don't:
+    >
+    > `library(dplyr)`
+    >
+    > `select(...)`
 
-    Don't: 
-    
-    `library(dplyr)` 
-    
-    `select(...)`
+2.  We document our functions using [roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html).
 
-2.  We use roxygen for function documentation, further details are on the [Comments and Documentation page](codingcomments.Rmd).
+    **All tags should be explicitly specified.**
+
+    **We should include at a minimum the `@description`, `@param` and `@return` tags.**
+
+    If used, @title should be the name of the function. @examples and @seealso can also be useful.
+
+    **Tip:** You can get an automatic roxygen skeleton for a function in R Studio through 'Code \> Insert Roxygen Skeleton' or by pressing *Ctrl + Alt + Shift + R*.
+
+    Below is an example of a well documented function:
+
+    **ADD THIS**

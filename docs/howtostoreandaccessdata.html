@@ -11,7 +11,7 @@
 
 
 
-<title>Coding Environment</title>
+<title>How to Store and Access Data</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -244,7 +244,13 @@ $(document).ready(function () {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
+        <li>
+  <a href="codingstyle.html">Coding Style</a>
+</li>
+<li>
+  <a href="codingnamingconventions.html">Naming Conventions</a>
+</li>
+<li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     How to...
      
@@ -256,6 +262,9 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="howtoeditgithubcode.html">...edit Github code</a>
+    </li>
+    <li>
+      <a href="howtostoreandaccessdata.html">...store and access data</a>
     </li>
     <li>
       <a href="howtopullrequest.html">...pull request</a>
@@ -271,39 +280,6 @@ $(document).ready(function () {
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Coding
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="codingstyle.html">Coding Style</a>
-    </li>
-    <li>
-      <a href="codingnamingconventions.html">Naming Conventions</a>
-    </li>
-    <li>
-      <a href="codingcomments.html">Comments and Documentation</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    LAPCAP
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="lapcaprepositorystructure.html">Repository Structure</a>
-    </li>
-  </ul>
-</li>
-<li>
-  <a href="codingenvironment.html">Coding Environment</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -316,50 +292,14 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Coding Environment</h1>
+<h1 class="title toc-ignore">How to Store and Access Data</h1>
 
 </div>
 
 
-<p>We use Defra’s <strong>Scientific Coding Environment</strong> which
-allows us to write and run code on Amazon Web Service (AWS) EC2 virtual
-machines, and store our data using Amazon Web Services S3. Speak to the
-SCE admins (Ope and Jake as of September 2023) if you are not set up on
-the SCE.</p>
-<p>We can use <a href="http://ranch-479.int.sce.network/rstudio/">R
-Studio on our virtual machine</a>. This is available 5am - 11pm
-daily.</p>
-<div id="how-to-login-to-aws" class="section level1">
-<h1>How to login to AWS</h1>
-<p>To login to AWS you just need to enter the username and password the
-SCE team sent you. Your username will be in the format
-firstnamelastname.</p>
-<p>Login is here, at the <a href="http://aws-sso.sce.network/">AWS
-console</a></p>
-<p>If you encounter problems, you may need to switch role to the RANCH
-account using the menu in the top right corner of the page (official
-docs):</p>
-<ol style="list-style-type: decimal">
-<li><p>Ranch account number: 172974337612</p></li>
-<li><p>Role name is ExtendedProducerResponsibility</p></li>
-<li><p>Display name can be anything you like</p></li>
-<li><p>Once logged in, you may also need to set the region to Ireland
-(AKA eu-west-1)</p></li>
-</ol>
-</div>
-<div id="s3" class="section level1">
-<h1>S3</h1>
-<p>S3 is accessed through the AWS console. When we upload, modify or
-delete data on S3, this must be recorded in the <a
-href="https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B2FCDCE89-3F0D-41DD-B451-CB0D77D8DA26%7D&amp;file=Data%20Log%20Ranch_479.xlsx&amp;action=default&amp;mobileredirect=true">Data
-Log</a> <strong>Note this is soon to be replaced by the S3 Upload R
-Shiny App.</strong></p>
-<p><strong>All data</strong> should be stored in the appropriate B1 or
-B2 folder at: <em>s3://s3-ranch-043/Module_B1/</em> or
-<em>s3://s3-ranch-043/Module_B2/</em>. The ‘general’ folder can be used
-for anything relevant to multiple modules. The ‘test_folder’ can be used
-for any throwaway files that you would like to play around with that are
-not read into the model.</p>
+<div id="how-to-store-data-on-aws" class="section level1">
+<h1>How to Store Data on AWS</h1>
+<p><strong>UPLOADER APP INSTRUCTIONS TO BE WRITTEN BY BIM</strong></p>
 <p>Within each of these there should be the following folders: - Inputs
 - for any raw data input to the model (this should be read only) -
 Intermediaries - for any useful data produced during modelling - Outputs
@@ -368,13 +308,9 @@ to QA - Temp - for any temporary data needed during model development
 that will later be deleted.</p>
 <p>This is illustrated below: <img
 src="assets/s3_structure.png" /></p>
-<p>Meta data is stored for each input file including a description,
-source, the date of last edits and person who uploaded. This is not
-required for files in the test_folder or intermediaries and outputs (for
-now).</p>
 </div>
-<div id="communicating-with-s3-from-r" class="section level1">
-<h1>Communicating with S3 from R</h1>
+<div id="how-to-access-s3-data" class="section level1">
+<h1>How to Access S3 Data</h1>
 <p>Scripts for reading and writing to AWS can be found in the <a
 href="https://github.com/Defra-pEPR-Modelling-Team/useful_scripts/blob/main/AWS%20to%20R.Rmd">useful
 scripts repo</a>. Here is an example of <strong>reading</strong> an
@@ -396,7 +332,6 @@ function:</p>
   object = &quot;test_folder/test_data.csv,
   opts = list(&quot;headers&quot; = list(&quot;x-amz-acl&quot; = &quot;bucket-owner-full-control&quot;)
   )</code></pre>
-<p>Or you can use the generalised export function!</p>
 </div>
 
 

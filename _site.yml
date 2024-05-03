@@ -8,12 +8,18 @@ output:
 navbar:
   title: "FPC Coding Guidance"
   left:
+    - text: "Coding Style"
+      href: codingstyle.html
+    - text: "Naming Conventions"
+      href: codingnamingconventions.html
     - text: "How to..."
       menu:
       - text: "...set up Github"
         href: howtosetupgithub.html
       - text: "...edit Github code"
         href: howtoeditgithubcode.html
+      - text: "...store and access data"
+        href: howtostoreandaccessdata.html
       - text: "...pull request"
         href: howtopullrequest.html
       - text: "...code review"
@@ -22,19 +28,4 @@ navbar:
         href: howtorecordassumptions.html
       - text: "...write unit tests"
         href: howtowriteunittests.html
-    - text: "Coding"
-      menu:
-         
-      - text: "Coding Style"
-        href: codingstyle.html
-      - text: "Naming Conventions"
-        href: codingnamingconventions.html
-      - text: "Comments and Documentation"
-        href: codingcomments.html
-    - text: "LAPCAP"
-      menu:
-      - text: "Repository Structure"
-        href: lapcaprepositorystructure.html
-    - text: "Coding Environment"
-      href: codingenvironment.html  
-       
+

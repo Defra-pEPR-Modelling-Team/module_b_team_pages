@@ -10,25 +10,29 @@ title: "Naming Conventions"
 
 -   Repository names should be all lower case with underscores "\_" instead of spaces (aka **snake_case**).
 
-*For example*: `gate_fees_analysis`
+> *For example*:
+>
+> `gate_fees_analysis`
 
 ## R Scripts
 
--   Generally scripts should have the same name as the single function they contain.
+-   Generally scripts should have the **same name as the single function they contain**.
 
 -   In rare cases of multiple functions in a script, a summary name that relates all functions in the script should be used.
 
-*For example*: Script contains only the `tidy_q100()` function: `tidy_q100.R`.
+-   Use **snake_case**.
 
-Script contains `import_inflation_data()`, `import_LA_names()` and `import_ONS_data`: `imports.R`.
+> *For example*:
+>
+> Script contains only the `tidy_q100()` function, script is named `tidy_q100.R`.
+>
+> Script contains `import_inflation_data()`, `import_LA_names()` and `import_ONS_data` script is named `imports.R`.
 
 ## Functions
 
--   Function names should also be snake_case.
+-   Function names should reflect their **purpose** and should use one of the following **verbs** followed by the data object or objects that the action is performed on.
 
--   Function names should reflect their purpose and should use one of the following verbs followed by the data object or objects that the action is performed on.
-
-    -   `import` for any functions which retrieve data from AWS
+    -   `import` for any functions which retrieve data from S3
 
     -   `clean` for any functions which renames or reorder data without changing values
 
@@ -36,31 +40,59 @@ Script contains `import_inflation_data()`, `import_LA_names()` and `import_ONS_d
 
     -   `join` for any functions which combine two or more data sets
 
-    -   `export` for any functions which print outputs to R Studio or AWS
+    -   `export` for any functions which print outputs to R Studio or S3
+
+-   Use **snake_case**.
+
+> *For example*:
+>
+> A function that joins waste tonnages and local authority meta data could be called `join_tonnages_and_meta_data`.
+>
+> A function that calculates averages across local authority groupings could be called `calculate_local_authority_group_average`.
 
 ## Unit Tests
 
--   Unit test names should include
+-   Unit tests...
 
 ## Input Files
 
--   Input files should keep the name they are received with wherever possible to aid trace-ability.
+-   Input files should **keep the name they are received with** wherever possible to aid trace-ability.
 
-## Object Names?
+-   Input files should not be edited outside of R as this is not traceable.
 
-## Column Names?
+-   All input files should have a version control cover sheet.
+
+> *For example*:
+>
+> The WRAP 2017 waste composition should keep the name it was given when received from WRAP, which is `NATIONAL COMPOSITION ESTIMATES 2017 v3.0.xlsx`.
+
+## Object Names
+
+-   ?
+
+## Column Names
+
+-   Each project should have a **data dictionary** which will advise on how to keep column names consistent.
 
 ## Output Files
 
--   Output files should
+-   Output files should start with the **project** they come from (including a project version number if possible), followed by any **specifics** needed (that are not evident from the data itself).
 
--   Outputs should be dated to aid trace-ability.
+-   Output names should end with the **date** they were created to aid trace-ability.
+
+-   Use **snake_case**.
+
+> *For example*:
+>
+> LAPCAP outputs generated for the Simpler Recycling team on April 10th 2024 could be called `lapcap_v1.0_simpler_recycling_20240410.csv`.
 
 ## Other
 
 Where naming is unclear, follow these principles:
 
--   Use `snake_case` - Maintain consistency above all else
+-   Use `snake_case`
+
+-   Maintain consistency above all else
 
 -   Short but descriptive and human readable names
 

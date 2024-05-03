@@ -8,3 +8,5 @@ title: "ToDoList"
     - Dependencies
     - inputs outputs
     - make it 'pick up and use'
+    
+    REVISE HOW TO ASSUMPTIONS AND UNIT TESTS
