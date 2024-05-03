@@ -34,7 +34,7 @@ There are a few instances when we vary from the `tidyverse` style guide for our 
 
     Below is an example of a well documented function:
 
-    ``` R
+    ``` r
     #' @title calculate_wfh_proportions
     #' 
     #' @description
