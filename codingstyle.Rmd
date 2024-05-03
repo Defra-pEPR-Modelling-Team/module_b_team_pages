@@ -22,13 +22,7 @@ There are a few instances when we vary from the `tidyverse` style guide for our 
     >
     > `select(...)`
 
-2.  We document our functions using [roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html).
-
-    **All tags should be explicitly specified.**
-
-    **We should include at a minimum the `@description`, `@param` and `@return` tags.**
-
-    If used, @title should be the name of the function. @examples and @seealso can also be useful.
+2.  We document our functions using [roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html). **All tags should be explicitly specified. We should include at a minimum the `@description`, `@param` and `@return` tags.** If used, @title should be the name of the function. @examples and @seealso can also be useful.
 
     **Tip:** You can get an automatic roxygen skeleton for a function in R Studio through 'Code \> Insert Roxygen Skeleton' or by pressing *Ctrl + Alt + Shift + R*.
 

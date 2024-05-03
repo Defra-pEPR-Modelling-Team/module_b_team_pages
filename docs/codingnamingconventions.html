@@ -363,8 +363,20 @@ could be called
 <div id="unit-tests" class="section level2">
 <h2>Unit Tests</h2>
 <ul>
-<li>Unit tests…</li>
+<li>Unit tests should be named after the function they are testing,
+followed by <code>test</code>.</li>
+<li>In the case of multiple tests for a function, a description should
+be added after <code>test</code></li>
 </ul>
+<blockquote>
+<p><em>For example:</em></p>
+<p>A test for the <code>calculate_wfh_proportions()</code> function
+should be called <code>calculate_wfh_proportions_test</code>.</p>
+<p>If multiple tests were needed they could be called
+<code>calculate_wfh_proportions_test_country_not_specified</code>,
+<code>calculate_wfh_proportions_test_na_in_tonnages</code> and
+<code>calculate_wfh_proportions_test_correct_average.</code></p>
+</blockquote>
 </div>
 <div id="input-files" class="section level2">
 <h2>Input Files</h2>
