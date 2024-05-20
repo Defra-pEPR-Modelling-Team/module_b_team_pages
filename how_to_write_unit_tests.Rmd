@@ -2,148 +2,160 @@
 title: "How to Write Unit Tests"
 ---
 
-*Note: someone still needs to work out how we run unit tests automatically with git hooks.*
+Unit tests generally fit into the following categories:
 
-For background, and bags of examples, see the [Duck Book testing code guidance](https://best-practice-and-impact.github.io/qa-of-code-guidance/testing_code.html)
++-----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| Type of test          | Minimum per function | Include                                                                                                                                                   | Other considerations                                                          |
++=======================+:====================:+===========================================================================================================================================================+===============================================================================+
+| Normal operation test | 1                    | Should check the function fulfils its intended purpose as laid out in the roxygen header.                                                                 | Consider splitting the function up if there is more than one aspect to check. |
++-----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| Error handling tests  | One per input        | Check that the function is able to cope with any potential errors introduced by previous functions, either by fixing values or throwing an error message. |                                                                               |
++-----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
 
-Your code should be built out of functions, which should serve essentially **one purpose each**. Unit tests automatically check that purpose is being fulfilled. Follow these instructions to create one.
+For more detail on each please and **templates** see the below sections.
 
-# Instructions:
+# Step-by-step guide
 
-The following works for more or less every function except for imports (for which you will have to check the formats of each imported dataset at a minimum). Note that some of the purpose of the function may actually be to stop on bad inputs and let the user know that the inputs are bad! In other words the code should throw an error if the data is not ingested properly or doesn't conform to expected format, then the unit tests test whether the code does throw a suitable error for bad input data.
+Most unit tests would be built using the following steps:
 
-**1. Create dummy input datasets:**
+**1. Create dummy input datasets.**
 
-a.  Get the actual inputs to the function and take a sample of them to use as the inputs to your test.
+a.  Get the actual inputs to the function and take a subset of them to use as the inputs to your test.
 
-```{r, eval=FALSE}
-
-input_df1_downsized<- df1[c(1:3),c(relevant columns)]
-input_df2_downsized<- df2[c(1:3),c(relevant columns)]
-
+```         
+    input_df1_downsized<- df1[c(1:3),c(relevant_columns)] 
+    input_df2_downsized<- df2[c(1:3),c(relevant columns)]
 ```
 
-b.  Apply the dput function to your downsized datasets. This will output (in the console) code that can be used to produce your dummy dataset as required. For example:
+b.  Apply the `dput` function to your downsized datasets. This will output (in the console) code that can be used to produce your dummy dataset as required. For example, `dput(input_df1_downsized)` would produce:
 
-```{r, eval=FALSE}
-dput(input_df1_downsized)
+```         
+    structure(
+      list(
+        `as.Date(date)` = structure(c(12537, 12544, 12551), class = "Date"),
+        Clear_Low = c(29, 28, 28),
+        Clear_High = c(35, 36, 35)
+      ),
+      row.names = c(NA, 3L),
+      class = "data.frame"
+    )
 ```
 
-produces the following
+If the test is checking for error handling you may want to introduce some errors to this, for instance incorrect negative values or NAs.
 
-```{r, eval=FALSE}
-structure(
-  list(
-    `as.Date(date)` = structure(c(12537, 12544, 12551), class = "Date"),
-    Clear_Low = c(NA, 28, 28),
-    Clear_High = c(35, 35, 35)
-  ),
-  row.names = c(NA, 3L),
-  class = "data.frame"
-)
-```
+**2. Next, work out what the output of your function should be for your dummy data.**
 
-c.  Edit your datasets to be a bit 'nasty', adding awkward cases your code might be expected to handle, for example `NA`s, negatives and character values not in your database. Your dataset shouldn't be so nasty that the function can't apply (e.g. should have at least two non NA numbers if your function is taking an average!) e.g.
+Either manually calculate or use `dput` to create an output object for the correct operation of your function.
 
-```{r, eval=FALSE}
-structure(
-  list(
-    `as.Date(date)` = structure(c(12537, NA, 12551), class = "Date"),
-    Clear_Low = c(NA, 28, 28),
-    Clear_High = c(35,-35, 35)
-  ),
-  row.names = c(NA, 3L),
-  class = "data.frame"
-)
-```
+If you are testing error catching there may not be a correct output, an error message may be expected instead.
 
-d.  Now simply give your dummy data a name and paste it in your unit test code.
+**3. Use testthat package to check operation of function.**
 
-```{r, eval=FALSE}
-#Unit Test 1
-#Function: averageRecyclateValue
-#Test: Not enough dates error
+The `testthat` package and `test_that` function allow us to perform various checks with the dummy inputs and outputs we have created already.
 
-dummyMPRData1 <-
-  structure(
-    list(
-      `as.Date(date)` = structure(c(12537, NA, 12551), class = "Date"),
-      Clear_Low = c(NA, 28, 28),
-      Clear_High = c(35,-35, 35)
-    ),
-    row.names = c(NA, 3L),
-    class = "data.frame"
-  )
-```
+For instance `expect_equal` allows us to check the function produces the outputs we expect, and `expect_error` allows us to check the correct error messages are thrown, both shown below.
 
-**2. Next, work out what the output of your function should be for your dummy data:**
-
-Suppose I want my function to average recyclate prices, but to flag if there are missing months in a year of data. The output for my dummy dataset (which indeed has missing months) in this case should be "Missing months in specified range".
-
-In this instance, this could be achieved in your function by applying the `stop(“Warning text”)` function inside of an if statement, as below. Note the inclusion of comment code explaining the use of the function- do not forget to do this, or it will be baffling in future!
-
-```{r, eval=FALSE}
-#stop() added to ensure date range averaged over has a full
-#year of recyclate price values before averaging
-#averaging
-if (length(dates[!is.na(dates), ]) < 12) {
-  stop("Not enough dates in range!")
-}
-
-```
-
-**4. Use testthat package to check function:**
-
-The expect_error function, from the testthat package, applied to a function call (here my function is called "averageRecyclateValue") on the dummy data enacts a unit test. The second argument is the expected error message.
-
-```{r, eval=FALSE}
-#Unit Test for expected error for dataset with less than a year’s data
-testthat::expect_error(averageRecyclateValue (dummyMPRData1), “Not enough dates in range!”)
-```
-
-Note that the `test_that` function will allow you to perform multiple checks, please see the section at the bottom for more on this!
-
-**5. Create more datasets and more unit tests if necessary:**
-
-The minimum set of tests you carry out should be those that verify the acceptance criteria in the Jira ticket.
-
-A second example could use the expect_equal function with an expected output and a tolerance.
-
-```{r, eval=FALSE}
-#Unit test 2
-#Function: averageRecyclateValue
-#Test:Calculates average
-dummyMPRData2 <-
-  structure(
-    list(
-      `as.Date(date)` = structure(c(12537, 12544, 12551), class = "Date"),
-      Clear_Low = c(28, 28, 28.5),
-      Clear_High = c(35,-35, 35)
-    ),
-    row.names = c(NA, 3L),
-    class = "data.frame"
-  )
-
-#Unit Test for normal mean functionality
-testthat::expect_equal(averageRecyclateValue(dummyMPRData2), 1.917, tolerance=0.001)
-```
-
-**7. Go through and check your comments explain both your tests and dummy data, then save in a relevant unit_tests folder.** Also you need to include details of your unit test in the header of your function.
-
-# test_that function
-
-I introduce to you the `test_that` function! It is what I believe we should be using in all of our test files. Here is an example:
-
-```{r, eval=FALSE}
-testthat::test_that("output matches expectations", {
-  testthat::expect_equivalent(split_other_frequencies(dummy_input), dummy_output)
-  testthat::expect_equivalent(split_other_frequencies(dummy_input_2), dummy_output_2)
-  testthat::expect_equivalent(split_other_frequencies(dummy_input_3), dummy_output_3)
+```         
+testthat::test_that("function_performs_calcualtions", {
+  testthat::expect_equal(function_to_test(input_df1_downsized, input_df2_downsized),
+                         output_df)
+  testthat::expect_error(function_to_test(input_df1_with_errors))
 })
 ```
 
-The string input at the start is a rough categorisation of what we're testing for and helps us figure out where to look when a test fails. It's also quite cute that you can read it like a sentence.
-The parts in the curly brackets are the bits we're testing. In this case, we're testing `split_other_frequencies`. It's important that the actual running of the function happens inside this `test_that` function, as each is run in a separate instance and therefore cannot inadvertently affect the other tests (a very nasty bug to solve). Additionally, when we run the function to test inside the `test_that` if the function errors elsewhere than the `expect_` it will fail the test, rather than causing an error in the test script which needs to be solved before we can run the tests.
-The input data is created elsewhere in the R file.
- 
-By doing it in this way we are also then able to use `test_file` and its siblings to perform all of our tests, or selections thereof, at the same time. This will make it easier on us to perform and to use the resulting information. I think it's a good idea to make sure all of the unit tests pass before we try to run the model for data.
+Other possible `expect_` functions can be found at the [testthat reference pages](https://testthat.r-lib.org/reference/).
+
+# Normal Operation Tests
+
+Unit tests of the normal operation of a function should test the code’s core functionality. They should cover all cases the function applies to, and ideally test specific calculation methods.
+
+**At least one normal operation unit test should be needed for each function.**
+
+A **template** is provided below, you should add detail to the description as well as changing object names:
+
+```{r, eval=FALSE}
+
+#' @title Unit test 1
+#' @description Tests the normal operation of function_name [ADD DETAIL]
+
+testthat::test_that("function name normal operation test", {
+  #Create dummy data
+  
+  function_name_ut1_input_data_1 <- #Paste dput of first three or four rows and relevant columns of dataset
+    
+  function_name_ut1_input_data_2 <- #Same again
+    
+  function_name_ut1_output_data <- #Paste dput of expected outputs or write code to manually calculate these
+    
+  #Test
+  testthat::expect_equal(
+    function_name(
+      function_name_ut1_input_data_1,
+      function_name_ut1_input_data_2
+    ),
+    function_name_ut1_output_data,
+    tolerance = 0.001
+  )
+})
+
+```
+
+# Error catching tests
+
+These can come in two forms:
+
+-   Checking that a function fixes expected errors,
+
+-   Checking that a function throws error messages for errors that cannot be fixed.
+
+**Code should be able to catch errors in each input and so we should have a unit test for each.**
+
+The first type would use a template very similar to that used for normal operation tests, but with the input datasets tweaked to include any errors that should be fixed.
+
+The latter type are slightly different, we have created a library of these for ease of use and consistency, the following are available:
+
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| **function_name(params)**                                           | **Error message**                                     | **Notes**                                                                                                               |
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| `validate_input_type(param, type)`                                  | `param` must be of type `type`.                       | `type` may be "data.frame", "numeric", "character", "logical" or "date".                                                |
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| `validate_input_choices(param, options)`                            | `param` must be of a valid option.                    | Additional message which states the possible options to choose from. `options` should be a vector c(option1,option2...) |
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| `validate_country_inputs(param, module)`                            | `param` must be a valid devolved administration.      | Additional message which lists and suggestions acceptable forms for country input.                                      |
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| `validate_column_values_NA(input_table, warn)`                      | `input_table` contains NA values.                     | Additional message reporting columns which have NA. use `warn = TRUE` to throw a warning instead of error.              |
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| `validate_column_values_negative(input_table, zeros_allowed, warn)` | `input_table` contains invalid values.                | Additional message reporting numeric columns which have invalid values.                                                 |
+|                                                                     |                                                       |                                                                                                                         |
+|                                                                     |                                                       | Use `zeros_allowed = TRUE` to treat 0 as valid.                                                                         |
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| `validate_column_types(input_table, column_types, warn)`            | `input_table` contains columns with mismatched types. | Additional message reporting columns which don’t match expected type.                                                   |
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| `validate_column_values_against_meta_Data(input_table, warn)`       | `input_table` contains discrepancies with meta data.  | Additional message highlighting columns and what discrepancies there are                                                |
++---------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+
+When a custom error catching check is needed, the **template** below can be used, you should add detail to the description as well as changing object names:
+
+```{r, eval=FALSE}
+#' @title Unit test 3/4/5…
+#' @description Test of error catching for error_type in input_dataframe_name
+#' for function_name
+
+testthat::test_that("Error catching test for error_type", {
+  #Create dummy data
+  
+  function_name_ut3_input_data_1 <- #Adjusted dput with one error type in it
+    
+  function_name_ut3_input_data_2 <- #Or maybe the error is in this one
+    
+  #Unit test for expected error type
+  testthat::expect_error(
+    function_name(
+      function_name_ut3_input_data_1,
+      function_name_ut3_input_data_2
+    ),
+    "Stop error text goes here"
+  )
+})
+
+```
