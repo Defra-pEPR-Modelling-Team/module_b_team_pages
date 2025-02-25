@@ -1,21 +1,9 @@
 ---
-title: "FPC Coding Guidance"
+title: "How to be a LAPCAPper"
 ---
 
-We currently use Defra's **Scientific Coding Environment (SCE)** which allows us to write and run code on *Amazon Web Service (AWS) EC2 virtual machines*, and store our data using *Amazon Web Services S3*. Speak to the **SCE admins** (Jake as of May 2024) if you are not set up on the SCE.
-
-These pages contain all the information you need to write **good code** in the Fees and Payments Calculator team! You should refer back to them if there is something you don't know *(but feel free to ask questions)*!
+On this site you will find everything you need to be a happy and functioning member of the Fees and Payment Calculator modelling team.
 
 Please suggest anything you think is missing from this site!
 
-*To Do:*
-
--   *Update*
-
-    -   *How to write unit tests*
-
-    -   *How to record assumptions*
-
-    -   *How to create a new repo*
-
-    -   *How to store and access data*
+ADD TABLE OF CONTENTS HERE

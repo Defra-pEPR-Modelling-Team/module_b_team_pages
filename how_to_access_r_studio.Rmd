@@ -1,0 +1,5 @@
+---
+title: "How to Access R Studio"
+---
+
+We currently use Defra's **Scientific Coding Environment (SCE)** which allows us to write and run code on *Amazon Web Service (AWS) EC2 virtual machines*, and store our data using *Amazon Web Services S3*. Speak to the **SCE admins** (Jake as of May 2024) if you are not set up on the SCE.

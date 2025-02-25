@@ -4,13 +4,10 @@ title: "How to Write Unit Tests"
 
 Unit tests generally fit into the following categories:
 
-+-----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
 | Type of test          | Minimum per function | Include                                                                                                                                                   | Other considerations                                                          |
-+=======================+:====================:+===========================================================================================================================================================+===============================================================================+
-| Normal operation test | 1                    | Should check the function fulfils its intended purpose as laid out in the roxygen header.                                                                 | Consider splitting the function up if there is more than one aspect to check. |
-+-----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| Error handling tests  | One per input        | Check that the function is able to cope with any potential errors introduced by previous functions, either by fixing values or throwing an error message. |                                                                               |
-+-----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+|-----------------------|:--------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Normal operation test |          1           | Should check the function fulfils its intended purpose as laid out in the roxygen header.                                                                 | Consider splitting the function up if there is more than one aspect to check. |
+| Error handling tests  |    One per input     | Check that the function is able to cope with any potential errors introduced by previous functions, either by fixing values or throwing an error message. |                                                                               |
 
 For more detail on each please and **templates** see the below sections.
 
