@@ -1,13 +1,25 @@
 ---
-title: "induction_stuff"
+title: "Welcome to the team!"
 ---
 
 # What do we do?
 
-asjkbfkasbnf;asdf
+We are a team composed mostly of operational researchers, who are working together to build a model of the UK waste and recycling sector, in order to provide payment values for Packaging Extended Producer Responsibility (pEPR).
+
+# Who is in this team?
+
+We are: - G7s - Katie Booth - Jacob Billingham - Lorna Pannett (Contractor) - SEOs - James Doran - Cat Pattie-Mayne - Alastair Grace - Ella Fleetham - HEOs - Rosanna Holdsworth - Nono Pengue - Fast Streamers - Andrew Hayden-Briffett - Marcus Bailey
 
 # Where are we in DEFRA?
 
 The below provides an idea of where we sit within Defra:
 
-<img src="fpcinorg.png" alt="A diagram of where the FPC team sits within Defra." width="300"/>
+INSERT DIAGRAM showing:
+
+DEFRA \> Portfolio Delivery Group \> Circular Economy Directorate \> Circular Economy Evidence & Analysis \> Fees & Payment Calculator modelling team!
+
+Led by: Tamara Finkelstein, Permanent Secretary \> Sarah Homer, Director General \> Emma Bourne, Director \> Sarah Andrews, Deputy Director \> Tristan Ibrahim, G6
+
+# What is the model?
+
+To learn about the Local Authority Packaging Costs and Performance model (LAPCAP) check out this video: <https://www.youtube.com/watch?v=orw5ekRjd7g>
