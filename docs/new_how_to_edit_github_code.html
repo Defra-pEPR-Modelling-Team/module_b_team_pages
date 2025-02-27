@@ -13,7 +13,7 @@
 
 <title>How to edit Github code</title>
 
-<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -240,46 +240,54 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">FPC Coding Guidance</a>
+      <a class="navbar-brand" href="index.html">How to be a LAPCAPper</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="coding_style.html">Coding Style</a>
-</li>
-<li>
-  <a href="coding_naming_conventions.html">Naming Conventions</a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    How to...
+    New Starters
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="how_to_set_up_github.html">...set up Github</a>
+      <a href="new_induction_stuff.html">Start here!</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">How to...</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="new_how_to_access_r_studio.html">...access R Studio</a>
+        </li>
+        <li>
+          <a href="new_how_to_set_up_github.html">...set up Github</a>
+        </li>
+        <li>
+          <a href="new_how_to_edit_github_code.html">...edit Github code</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="lapcap_cookbook.html">LAPCAP Cookbook</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Other Useful Bits
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="other_glossary.html">Glossary</a>
     </li>
     <li>
-      <a href="how_to_create_a_new_repository.html">...create a new repository</a>
+      <a href="other_learning.html">Learning and Development</a>
     </li>
     <li>
-      <a href="how_to_edit_github_code.html">...edit Github code</a>
-    </li>
-    <li>
-      <a href="how_to_store_and_access_data.html">...store and access data</a>
-    </li>
-    <li>
-      <a href="how_to_pull_request.html">...pull request</a>
-    </li>
-    <li>
-      <a href="how_to_code_review.html">...code review</a>
-    </li>
-    <li>
-      <a href="how_to_record_assumptions.html">...record assumptions</a>
-    </li>
-    <li>
-      <a href="how_to_write_unit_tests.html">...write unit tests</a>
+      <a href="other_meeting_etiquette.html">Meeting Etiquette</a>
     </li>
   </ul>
 </li>
@@ -308,7 +316,7 @@ branches directly, so you will need to create a branch of your own. To
 do that in R Studio click the ‘New Branch’ button in the Git window
 (remember to ‘Pull’ first to make sure you are working on up-to-date
 code, see step 5a for relevant screenshot).</p>
-<p><img src="assets/new_branch_button.png"/></p></li>
+<p><img src="~/module_b_team_pages/assets/new_branch_button.png"/></p></li>
 <li><p>You should then name your branch the same as the Jira ticket you
 are working on, for instance “B1-20 Extract and reformat RFI data”. Then
 click ‘Create’. The branch name next to the ‘New Branch’ button should
@@ -343,21 +351,21 @@ issue is.</p></li>
 on the top banner</li>
 </ol>
 <p><img
-src="assets/pre_commit_formatting.png" /></p>
+src="~/module_b_team_pages/assets/pre_commit_formatting.png" /></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Run “Style active file”</li>
 <li>Run “Lint current file”</li>
 <li>Click the “Markers” tab on the console pane and go through and
 address the linting issues highlighted</li>
 </ol>
-<p><img src="assets/lint_markers.png" /></p></li>
+<p><img src="~/module_b_team_pages/assets/lint_markers.png" /></p></li>
 <li><p>Commit</p>
 <ol style="list-style-type: lower-alpha">
 <li>Tick the box in the Git window for the files you wish to
 commit.</li>
 <li>Click the commit button.</li>
 </ol>
-<p><img src="assets/commit_button.png" /></p>
+<p><img src="~/module_b_team_pages/assets/commit_button.png" /></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li><p>In the window that opens, review your changes are as
 intended.</p></li>
@@ -388,14 +396,14 @@ prompted enter your Github username <strong>but instead of our password
 we need to use the token we generated in step 1 of ‘How to clone a
 repository’</strong>. Close any the Git pull pop-up.</li>
 </ol>
-<p><img src="assets/pull_button.png" /></p>
+<p><img src="~/module_b_team_pages/assets/pull_button.png" /></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Now we are ready to ‘push’, click the ‘Push’ button and once again
 if prompted enter your Github username <strong>but instead of our
 password we need to use the token we generated in step 1 of ‘How to
 clone a repository’</strong>.</li>
 </ol>
-<p><img src="assets/push_button.png" /></p>
+<p><img src="~/module_b_team_pages/assets/push_button.png" /></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>You have now successfully pushed your changes to Github.</li>
 </ol></li>

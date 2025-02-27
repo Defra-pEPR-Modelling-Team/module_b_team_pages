@@ -1,0 +1,13 @@
+---
+title: "induction_stuff"
+---
+
+# What do we do?
+
+asjkbfkasbnf;asdf
+
+# Where are we in DEFRA?
+
+The below provides an idea of where we sit within Defra:
+
+<img src="fpcinorg.png" alt="A diagram of where the FPC team sits within Defra." width="300"/>

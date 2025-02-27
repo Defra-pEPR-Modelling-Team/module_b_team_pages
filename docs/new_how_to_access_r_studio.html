@@ -11,9 +11,9 @@
 
 
 
-<title>Coding Style</title>
+<title>How to Access R Studio</title>
 
-<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -240,46 +240,54 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">FPC Coding Guidance</a>
+      <a class="navbar-brand" href="index.html">How to be a LAPCAPper</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="coding_style.html">Coding Style</a>
-</li>
-<li>
-  <a href="coding_naming_conventions.html">Naming Conventions</a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    How to...
+    New Starters
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="how_to_set_up_github.html">...set up Github</a>
+      <a href="new_induction_stuff.html">Start here!</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">How to...</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="new_how_to_access_r_studio.html">...access R Studio</a>
+        </li>
+        <li>
+          <a href="new_how_to_set_up_github.html">...set up Github</a>
+        </li>
+        <li>
+          <a href="new_how_to_edit_github_code.html">...edit Github code</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="lapcap_cookbook.html">LAPCAP Cookbook</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Other Useful Bits
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="other_glossary.html">Glossary</a>
     </li>
     <li>
-      <a href="how_to_create_a_new_repository.html">...create a new repository</a>
+      <a href="other_learning.html">Learning and Development</a>
     </li>
     <li>
-      <a href="how_to_edit_github_code.html">...edit Github code</a>
-    </li>
-    <li>
-      <a href="how_to_store_and_access_data.html">...store and access data</a>
-    </li>
-    <li>
-      <a href="how_to_pull_request.html">...pull request</a>
-    </li>
-    <li>
-      <a href="how_to_code_review.html">...code review</a>
-    </li>
-    <li>
-      <a href="how_to_record_assumptions.html">...record assumptions</a>
-    </li>
-    <li>
-      <a href="how_to_write_unit_tests.html">...write unit tests</a>
+      <a href="other_meeting_etiquette.html">Meeting Etiquette</a>
     </li>
   </ul>
 </li>
@@ -295,72 +303,24 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Coding Style</h1>
+<h1 class="title toc-ignore">How to Access R Studio</h1>
 
 </div>
 
 
-<p>Generally we use the <a
-href="https://style.tidyverse.org/"><code>tidyverse</code> style
-guide</a> to ensure our code is consistent. The <code>lintr</code> and
-<code>styler</code> packages can help make this easier:</p>
-<ul>
-<li><p><code>lintr</code>: You can use the ‘Lint current file’ command
-in the ‘Addins’ menu in R Studio to obtain a list of all the places your
-script doesn’t comply with the style guide. You can then change your
-code to comply.</p></li>
-<li><p><code>styler</code>: The ‘Style active file’ command (also
-accessed through the Addins menu) or ‘Ctrl+Shift+A’ will do some of
-these changes for you. However, it is worth rerunning <code>lintr</code>
-afterwards to check any remaining issues.</p></li>
-</ul>
-<p>There are a few instances when we vary from the
-<code>tidyverse</code> style guide for our own needs, which are laid out
-below:</p>
-<ol style="list-style-type: decimal">
-<li><p>We explicitly call packages rather than loading them.</p>
-<blockquote>
-<p>Do:</p>
-<p><code>dplyr::select(...)</code></p>
-<p>Don’t:</p>
-<p><code>library(dplyr)</code></p>
-<p><code>select(...)</code></p>
-</blockquote></li>
-<li><p>We document our functions using <a
-href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html">roxygen</a>.
-<strong>All tags should be explicitly specified. We should include at a
-minimum the <code>@description</code>, <code>@param</code> and
-<code>@return</code> tags.</strong> If used, <span
-class="citation">@title</span> should be the name of the function. <span
-class="citation">@examples</span> and <span
-class="citation">@seealso</span> can also be useful.</p>
-<p><strong>Tip:</strong> You can get an automatic roxygen skeleton for a
-function in R Studio through ‘Code &gt; Insert Roxygen Skeleton’ or by
-pressing <em>Ctrl + Alt + Shift + R</em>.</p>
-<p>Below is an example of a well documented function:</p>
-<pre class="r"><code>#&#39; @title calculate_wfh_proportions
-#&#39; 
-#&#39; @description
-#&#39; This function calculates Waste From Household (WfH) proportions for a set of 
-#&#39; WasteDataFlow collection data. This follows the approach set out in
-#&#39; the &#39;WasteDataFlow method for calculating “waste from households” (WfH) 
-#&#39; recycling&#39; which can be found on the WasteDataFlow website. 
-#&#39;
-#&#39; @param countryString This input allows you to specify which country you are 
-#&#39; providing data for.
-#&#39; @param raw_collectionData This is the collection data which calculations will 
-#&#39; be performed on.
-#&#39; @param raw_q100 The function also takes in WasteDataFlow disposal data (Q100)
-#&#39; in order to get the correct local authority names.
-#&#39;
-#&#39; @return A data frame of WfH factors for each waste stream (residual, 
-#&#39; organics, dry recycling and reuse).
-#&#39;
-#&#39; @examples
-#&#39; wfh_factors &lt;- calculate_wfh_proportions(&quot;England&quot;, 
-#&#39;                                           raw_collectionData, 
-#&#39;                                           raw_q100)</code></pre></li>
-</ol>
+<p>We currently use Defra’s <strong>Scientific Coding Environment
+(SCE)</strong> which allows us to write and run code on <em>Amazon Web
+Service (AWS) EC2 virtual machines</em>, and store our data using
+<em>Amazon Web Services S3</em>. Speak to the <strong>SCE
+admins</strong> (Jake as of May 2024) if you are not set up on the
+SCE.</p>
+<pre class="mermaid"><code>
+graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;</code></pre>
+<pre class="mermaid"><code>info</code></pre>
 
 
 

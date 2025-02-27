@@ -8,24 +8,29 @@ output:
 navbar:
   title: "How to be a LAPCAPper"
   left:
-    - text: "New starter? Here's how to..."
+    - text: "New Starters"
+      href: new_starters.html
       menu:
-      - text: "...access R Studio"
-        href: how_to_access_r_studio.html
-      - text: "...set up Github"
-        href: how_to_set_up_github.html     
-      - text: "...edit Github code"
-        href: how_to_edit_github_code.html
-      - text: "...store and access data"
-        href: how_to_store_and_access_data.html
-      - text: "...pull request"
-        href: how_to_pull_request.html
-      - text: "...code review"
-        href: how_to_code_review.html
-      - text: "...record assumptions"
-        href: how_to_record_assumptions.html
-      - text: "...write unit tests"
-        href: how_to_write_unit_tests.html
+      - text: "Start here!"
+        href: new_induction_stuff.html
+      - text: "How to..."
+        menu:
+        - text: "...access R Studio"
+          href: new_how_to_access_r_studio.html
+        - text: "...set up Github"
+          href: new_how_to_set_up_github.html      
+        - text: "...edit Github code"
+          href: new_how_to_edit_github_code.html
+    - text: "LAPCAP Cookbook"
+      href: lapcap_cookbook.html
+    - text: "Other Useful Bits"
+      menu: 
+      - text: "Glossary"
+        href: other_glossary.html
+      - text: "Learning and Development"
+        href: other_learning.html
+      - text: "Meeting Etiquette"
+        href: other_meeting_etiquette.html
 
       
 

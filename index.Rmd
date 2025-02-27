@@ -6,4 +6,20 @@ On this site you will find everything you need to be a happy and functioning mem
 
 Please suggest anything you think is missing from this site!
 
-ADD TABLE OF CONTENTS HERE
+<div style="display: flex; justify-content: space-around;">
+  <figure style="text-align: center;">
+    <a href="new_induction_stuff.html">
+      <img src="assets/baby_coder.png" alt="Baby Coder" width="150">
+    </a>
+    <figcaption>New Starters!</figcaption>
+  </figure>
+  <figure style="text-align: center;">
+    <a href="lapcap_cookbook.html">
+      <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="208">
+    </a>
+    <figcaption>LAPCAP Bible</figcaption>
+  </figure>
+</div>
+
+Quick Links
+
