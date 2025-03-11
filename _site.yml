@@ -6,7 +6,7 @@ output:
     includes:
       in_header: header.html
 navbar:
-  title: "How to be a LAPCAPper"
+  title: "FPC Team Pages"
   left:
     - text: "New Starters"
       href: new_starters.html

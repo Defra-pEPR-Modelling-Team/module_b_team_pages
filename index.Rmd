@@ -6,20 +6,32 @@ On this site you will find everything you need to be a happy and functioning mem
 
 Please suggest anything you think is missing from this site!
 
-<div style="display: flex; justify-content: space-around;">
-  <figure style="text-align: center;">
-    <a href="new_induction_stuff.html">
-      <img src="assets/baby_coder.png" alt="Baby Coder" width="150">
-    </a>
-    <figcaption>New Starters!</figcaption>
-  </figure>
-  <figure style="text-align: center;">
-    <a href="lapcap_cookbook.html">
-      <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="208">
-    </a>
-    <figcaption>LAPCAP Bible</figcaption>
-  </figure>
-</div>
+::: {style="display: flex; justify-content: space-around;"}
+<figure style="text-align: center;">
 
-Quick Links
+<a href="new_induction_stuff.html"> <img src="assets/baby_coder.png" alt="Baby Coder" width="150"/> </a>
 
+<figcaption>New Starters!</figcaption>
+
+</figure>
+
+<figure style="text-align: center;">
+
+<a href="lapcap_cookbook.html"> <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="208"/> </a>
+
+<figcaption>LAPCAP Bible</figcaption>
+
+</figure>
+:::
+
+## Quick Links
+
+[How to Record an Assumption](lapcap_bible.html#how_to_assumption)
+
+[How to Change a Data Input](lapcap_bible.html#how_to_data_input)
+
+[How to Write a Unit Test](lapcap_bible.html#how_to_unit_test)
+
+[How to Pull Request](lapcap_bible.html#how_to_pull_request)
+
+[How to Code Review](lapcap_bible.html#how_to_code_review)

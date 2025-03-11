@@ -11,7 +11,7 @@
 
 
 
-<title>LAPCAP Bible</title>
+<title>lapcap_bible.knit</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -322,7 +322,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">How to be a LAPCAPper</a>
+      <a class="navbar-brand" href="index.html">FPC Team Pages</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -385,13 +385,15 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">LAPCAP Bible</h1>
 
 </div>
 
 
-<div id="lapcap-documentation-overview" class="section level1">
-<h1>LAPCAP Documentation Overview</h1>
+<div id="lapcap-bible" class="section level1">
+<h1>LAPCAP Bible</h1>
+</div>
+<div id="documentation-overview" class="section level1">
+<h1>Documentation Overview</h1>
 <p>The below sets out the full set of documentation for LAPCAP,
 alongside where it can be found. In some cases, it may be stored in
 multiple locations and care should be taken to ensure both copies remain
@@ -521,8 +523,9 @@ edited alongside changes to the code for the new version.</p>
 </table>
 </div>
 </div>
-<div id="lapcap-quality-assurance-plan" class="section level1">
-<h1>LAPCAP Quality Assurance Plan</h1>
+<div id="modelling-and-quality-assurance-process"
+class="section level1">
+<h1>Modelling and Quality Assurance Process</h1>
 <p>This document is a plan of how, when and by whom model, data or
 assumption changes will be assured. This includes a list of
 responsibilities relating to the model, who the model owner is, the
@@ -603,63 +606,49 @@ assumption, data import or code logic, then the modelling team member
 must update the relevant assumption log, data log (?) or the technical
 document, code comments and roxygen headers.</p>
 <blockquote>
+<h4 id="how_to_assumption">
 <h4 id="how-to-change-an-assumption">How to change an assumption</h4>
+</h4>
 <p>INSERT ASSUMPTIONS CHANGE INSTRUCTIONS</p>
 </blockquote>
 <blockquote>
-<h4 id="how-to-change-a-data-input">How to change a data input</h4>
+<h4 id="how_to_data_input">
+<h4 id="how-to-change-an-data-input">How to change an data input</h4>
+</h4>
 <p>Data Pipeline </p>
 <ul>
-<li>The data pipeline should be run to update the data folder prior to a
-new version of the model being tagged (ensure to restart your R session
-and clean your environment before running the pipeline) </li>
-</ul>
-<!-- -->
-<ul>
-<li>Before the new version is tagged, you need to change the
+<li><p>The data pipeline should be run to update the data folder prior
+to a new version of the model being tagged (ensure to restart your R
+session and clean your environment before running the
+pipeline) </p></li>
+<li><p>Before the new version is tagged, you need to change the
 model_version parameter in the data pipeline and run it, and change the
 model_version parameter in run_LAPCAP_model, then push these changes
-before tagging the version </li>
-</ul>
-<!-- -->
-<ul>
-<li>If you are attempting to overwrite a folder then you will be asked
-to confirm – you should be sure that you want to overwrite the folder as
-this could prevent rolling back in the future </li>
-</ul>
-<!-- -->
-<ul>
-<li>Ensure that people are aware of a new version being tagged so they
-can rebase if necessary </li>
+before tagging the version </p></li>
+<li><p>If you are attempting to overwrite a folder then you will be
+asked to confirm – you should be sure that you want to overwrite the
+folder as this could prevent rolling back in the future </p></li>
+<li><p>Ensure that people are aware of a new version being tagged so
+they can rebase if necessary </p></li>
 </ul>
 <p>Versioning Vx.y.z </p>
 <ul>
-<li>The first number, x, should be updated when figures and published
-externally </li>
-</ul>
-<!-- -->
-<ul>
-<li>The second number, y, should be updated when figures are shared
-internally (e.g. Simpler Recycling) </li>
-</ul>
-<!-- -->
-<ul>
-<li>The third number, z, should be updated when there are changes to the
-data or data pipeline </li>
-</ul>
-<!-- -->
-<ul>
-<li>These versions should be tagged on dev on github to allow easy
-rollback to model versions </li>
-</ul>
-<!-- -->
-<ul>
-<li>When numbers are published externally and the first number updated,
-dev should be merged into main </li>
+<li><p>The first number, x, should be updated when figures and published
+externally </p></li>
+<li><p>The second number, y, should be updated when figures are shared
+internally (e.g. Simpler Recycling) </p></li>
+<li><p>The third number, z, should be updated when there are changes to
+the data or data pipeline </p></li>
+<li><p>These versions should be tagged on dev on github to allow easy
+rollback to model versions </p></li>
+<li><p>When numbers are published externally and the first number
+updated, dev should be merged into main </p></li>
 </ul>
 </blockquote>
 <blockquote>
+<h4 id="how_to_unit_test">
 <h4 id="how-to-write-a-unit-test">How to write a unit test</h4>
+</h4>
 <p>INSERT UNIT TEST INSTRUCTIONS</p>
 </blockquote>
 <p>Locations for assumption log, data log or the technical document can
@@ -670,7 +659,9 @@ and request a review from another member of the team. The below template
 should be filled out when making a pull request:</p>
 <p>INSERT NEW PULL REQUEST TEMPLATE</p>
 <blockquote>
+<p>&lt;h4 id=“how_to_pull_request”&gt;</p>
 <h4 id="how-to-make-a-pull-request">How to make a pull request</h4>
+</h4>
 <p>Here are the <strong>step-by-step instructions</strong> to submit a
 pull request:</p>
 <ol style="list-style-type: decimal">
@@ -752,7 +743,8 @@ into one review.</p>
 changes, in order for the reviewer to be happy. GitHub has functionality
 to enable this.</p>
 <blockquote>
-<h4 id="how-to-code-review">How to code review</h4>
+<p>&lt;h4 id=“how_to_code review&gt; How to do a code review</p>
+</h4>
 <p>Follow these step-by-step instructions to do a proper code
 review:</p>
 <ol style="list-style-type: decimal">

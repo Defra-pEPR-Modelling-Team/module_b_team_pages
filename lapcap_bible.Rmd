@@ -1,5 +1,4 @@
 ---
-title: "LAPCAP Bible"
 output:
   html_document:
     toc: true
@@ -8,7 +7,9 @@ output:
     toc_depth: 4
 ---
 
-# LAPCAP Documentation Overview
+# LAPCAP Bible
+
+# Documentation Overview
 
 The below sets out the full set of documentation for LAPCAP, alongside where it can be found. In some cases, it may be stored in multiple locations and care should be taken to ensure both copies remain up to date.
 
@@ -44,7 +45,7 @@ Instead, a new “- IN PROGRESS” folder should be created, with below document
 | Validation Docs  | CAT WORKING ON  |   |   |
 | CHANGE LOG?  | CAT INVESTIGATING IN VALIDATION TICKET  |   |   |
 
-# LAPCAP Quality Assurance Plan
+# Modelling and Quality Assurance Process
 
 This document is a plan of how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
 
@@ -104,25 +105,27 @@ The changes required should be clearly laid out in the relevant Jira ticket.
 
 If the changes made involve adding, removing or changing an assumption, data import or code logic, then the modelling team member must update the relevant assumption log, data log (?) or the technical document, code comments and roxygen headers.
 
+> <h4 id="how_to_assumption">
+>
 > #### How to change an assumption
+>
+> </h4>
 >
 > INSERT ASSUMPTIONS CHANGE INSTRUCTIONS
 
-> #### How to change a data input
+> <h4 id="how_to_data_input">
+>
+> #### How to change an data input
+>
+> </h4>
 >
 > Data Pipeline 
 >
 > -   The data pipeline should be run to update the data folder prior to a new version of the model being tagged (ensure to restart your R session and clean your environment before running the pipeline) 
 >
-> <!-- -->
->
 > -   Before the new version is tagged, you need to change the model_version parameter in the data pipeline and run it, and change the model_version parameter in run_LAPCAP_model, then push these changes before tagging the version 
 >
-> <!-- -->
->
 > -   If you are attempting to overwrite a folder then you will be asked to confirm – you should be sure that you want to overwrite the folder as this could prevent rolling back in the future 
->
-> <!-- -->
 >
 > -   Ensure that people are aware of a new version being tagged so they can rebase if necessary 
 >
@@ -130,23 +133,19 @@ If the changes made involve adding, removing or changing an assumption, data imp
 >
 > -   The first number, x, should be updated when figures and published externally 
 >
-> <!-- -->
->
 > -   The second number, y, should be updated when figures are shared internally (e.g. Simpler Recycling) 
->
-> <!-- -->
 >
 > -   The third number, z, should be updated when there are changes to the data or data pipeline 
 >
-> <!-- -->
->
 > -   These versions should be tagged on dev on github to allow easy rollback to model versions 
->
-> <!-- -->
 >
 > -   When numbers are published externally and the first number updated, dev should be merged into main 
 
+> <h4 id="how_to_unit_test">
+>
 > #### How to write a unit test
+>
+> </h4>
 >
 > INSERT UNIT TEST INSTRUCTIONS
 
@@ -156,7 +155,11 @@ Once complete the modelling team member should make a pull request and request a
 
 INSERT NEW PULL REQUEST TEMPLATE
 
+> \<h4 id="how_to_pull_request"\>
+>
 > #### How to make a pull request
+>
+> </h4>
 >
 > Here are the **step-by-step instructions** to submit a pull request:
 >
@@ -210,7 +213,9 @@ Reviewers should leave comments via GitHub, to ensure a record of verification a
 
 These reviews may go through one or more cycles of requesting changes, in order for the reviewer to be happy. GitHub has functionality to enable this.
 
-> #### How to code review
+> \<h4 id="how_to_code review\> How to do a code review
+>
+> </h4>
 >
 > Follow these step-by-step instructions to do a proper code review:
 >
