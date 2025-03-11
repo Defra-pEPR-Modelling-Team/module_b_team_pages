@@ -353,7 +353,7 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="lapcap_cookbook.html">LAPCAP Cookbook</a>
+  <a href="lapcap_bible.html">LAPCAP Bible</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -417,7 +417,8 @@ possible.</p>
 </tr>
 <tr class="even">
 <td>Quality Assurance Plan </td>
-<td> </td>
+<td>How, when and by whom model, data or assumption changes will be
+assured.</td>
 <td> -</td>
 <td><a
 href="https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/02%20LAPCAP%20QA%20Plan.docx?d=w9c733b9d25d2431b9e9153384ad2352e&amp;csf=1&amp;web=1&amp;e=c3uYng">02
@@ -453,8 +454,10 @@ Coding Guidance</a> </td>
 </div>
 <div id="version-specific-documentation" class="section level2">
 <h2>Version Specific Documentation</h2>
-<p>In the 00 Model Master folder, each model version will have a folder.
-This will contain all the documentation specific to that version.</p>
+<p>In the <a
+href="https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&amp;web=1&amp;e=1jREhl">00
+Model Master folder</a>, each model version will have a folder. This
+will contain all the documentation specific to that version.</p>
 <p>Whilst the version is still under development this folder will have
 “- IN PROGRESS” appended to its name.</p>
 <p>Once the version is completed (tagged on Github and merged into
@@ -520,16 +523,11 @@ edited alongside changes to the code for the new version.</p>
 </div>
 <div id="lapcap-quality-assurance-plan" class="section level1">
 <h1>LAPCAP Quality Assurance Plan</h1>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
 <p>This document is a plan of how, when and by whom model, data or
 assumption changes will be assured. This includes a list of
 responsibilities relating to the model, who the model owner is, the
 governance structure and decision-making process supporting the
 model.</p>
-</div>
-<div id="overview" class="section level2">
-<h2>Overview</h2>
 <p>The below diagrams give an overview of the processes, with more
 detail included in later sections.</p>
 <div id="coding-process" class="section level3">
@@ -577,24 +575,27 @@ profession, ensuring necessary modelling skills.</li>
 </ul>
 <p>Named individuals correct as of 3/2/2025</p>
 </div>
-</div>
 <div id="coding-process-detail" class="section level2">
 <h2>Coding Process Detail</h2>
 <div id="decide-to-change-code" class="section level3">
-<h3>Decide to change code</h3>
+<h3>1. Decide to change code</h3>
 <p>The modelling team, led by G7s, will identify the most important
-changes needed ahead of the next release of modelling outputs.</p>
-<p>They may choose to make use of the Analytical Board, TWG or Sounding
-Board in determining this.</p>
-<p>They may also choose to seek signoff of their plans from the model
-owner or project board, or to simply make them aware, to ensure planned
-changes are expected.</p>
+changes needed ahead of the next release of modelling outputs. They may
+choose to make use of the Analytical Board, TWG or Sounding Board in
+determining this. They may also choose to seek signoff of their plans
+from the model owner or project board, or to simply make them aware, to
+ensure planned changes are expected.</p>
 <p>An agile methodology using Jira is then used to plan out the delivery
 of these changes.</p>
-<p>A modelling team member makes changes to code</p>
+</div>
+<div id="a-modelling-team-member-makes-changes-to-code"
+class="section level3">
+<h3>2. A modelling team member makes changes to code</h3>
 <p>Through R Studio and Github changes are made to the existing LAPCAP
 model. This will be achieved through standard Git practice,
-e.g. branching off from the dev branch.</p>
+e.g. branching off from the dev branch. Instructions for how to do this
+can be found in the <a href="new_induction_stuff.html">new starter
+section</a>.</p>
 <p>The changes required should be clearly laid out in the relevant Jira
 ticket.</p>
 <p>If the changes made involve adding, removing or changing an
@@ -669,7 +670,7 @@ and request a review from another member of the team. The below template
 should be filled out when making a pull request:</p>
 <p>INSERT NEW PULL REQUEST TEMPLATE</p>
 <blockquote>
-<h3 id="how-to-make-a-pull-request">How to make a pull request</h3>
+<h4 id="how-to-make-a-pull-request">How to make a pull request</h4>
 <p>Here are the <strong>step-by-step instructions</strong> to submit a
 pull request:</p>
 <ol style="list-style-type: decimal">
@@ -725,7 +726,7 @@ src="~/module_b_team_pages/assets/ready_to_merge.png" /></p></li>
 </div>
 <div id="a-different-modelling-team-member-verifies-their-changes"
 class="section level3">
-<h3>A different modelling team member verifies their changes</h3>
+<h3>3. A different modelling team member verifies their changes</h3>
 <p>Once assigned a review the team member must complete the full
 checklist provided by the principle analyst. It is also the QAers must
 also review the list critically and ensure that it is both appropriate
@@ -750,16 +751,8 @@ into one review.</p>
 <p>These reviews may go through one or more cycles of requesting
 changes, in order for the reviewer to be happy. GitHub has functionality
 to enable this.</p>
-<p>Approved changes are merged into dev branch</p>
-<p>Before merging, the modelling team member should run the model. They
-should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this
-ensures we are able to explain any changes in outputs from one
-publication to another.</p>
-<p>TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)</p>
-<p>Once approved, changes should be merged into the dev branch. This may
-require resolving merge conflicts.</p>
 <blockquote>
-<h3 id="how-to-code-review">How to code review</h3>
+<h4 id="how-to-code-review">How to code review</h4>
 <p>Follow these step-by-step instructions to do a proper code
 review:</p>
 <ol style="list-style-type: decimal">
@@ -784,17 +777,28 @@ log has been updated.</li>
 summary comment and then click ‘<em>Submit review</em>’. You may choose
 to leave comments to be responded to, suggest changes to be made or
 simply approve the pull request straight away.</p>
-<p><img src="~/module_b_team_pages/assets/finish_review.png" width="311" height="222"/></p></li>
+<p><img src="~/module_b_team_pages/assets/finish_review.png" width="311"
+height="222" /></p></li>
 </ol>
 </blockquote>
 </div>
+<div id="approved-changes-are-merged-into-dev-branch"
+class="section level3">
+<h3>4. Approved changes are merged into dev branch</h3>
+<p>Before merging, the modelling team member should run the model. They
+should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this
+ensures we are able to explain any changes in outputs from one
+publication to another.</p>
+<p>TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)</p>
+<p>Once approved, changes should be merged into the dev branch. This may
+require resolving merge conflicts.</p>
 </div>
 </div>
-<div id="signoff-process-detail" class="section level1">
-<h1>Signoff Process Detail</h1>
+<div id="signoff-process-detail" class="section level2">
+<h2>Signoff Process Detail</h2>
 <p>SIGNOFF LOG?</p>
-<div id="model-development-complete" class="section level2">
-<h2>Model development complete</h2>
+<div id="model-development-complete" class="section level3">
+<h3>1. Model development complete</h3>
 <p>Once all changes required for a publication or sharing of the model
 are complete, the team will undertake the following steps.</p>
 <p>Multiple pull requests will have been merged into dev (e.g. the above
@@ -804,8 +808,8 @@ all receive signoff together.</p>
 required for instance, sharing the model internally, this is left to the
 judgment of the model owner.</p>
 </div>
-<div id="model-owner-signoff" class="section level2">
-<h2>Model owner signoff</h2>
+<div id="model-owner-signoff" class="section level3">
+<h3>2. Model owner signoff</h3>
 <p>The model owner should sign off on the following documents, which
 should have been updated:</p>
 <p>VALIDATION STUFF (PROCESS TBD)</p>
@@ -820,8 +824,8 @@ instance, in the past TWG have assured on assumptions logs.</p>
 <p>The model owner’s signoff for that model version should be stored in
 SIGNOFF LOG (EMAIL EVIDENCE).</p>
 </div>
-<div id="sro-pepr-project-board-signoff" class="section level2">
-<h2>SRO &amp; PEPR Project Board signoff</h2>
+<div id="sro-pepr-project-board-signoff" class="section level3">
+<h3>3. SRO &amp; pEPR Project Board signoff</h3>
 <p>Project board, acting on behalf of the model SROs, should signoff the
 model version for publication.</p>
 <p>It is unlikely that members of project board will review any of the
@@ -838,10 +842,11 @@ year of EPR.</p>
 <p>The project board signoff for that model version should be stored in
 SIGNOFF LOG (MEETING MINUTES AS EVIDENCE?).</p>
 </div>
-<div id="share-or-publish-outputs" class="section level2">
-<h2>Share or publish outputs</h2>
+<div id="share-or-publish-outputs" class="section level3">
+<h3>4. Share or publish outputs</h3>
 <p>Merge into main</p>
 <p>Save copy of everything in model master folder</p>
+</div>
 </div>
 </div>
 

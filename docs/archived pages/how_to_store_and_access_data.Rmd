@@ -1,0 +1,42 @@
+---
+title: "How to Store and Access Data"
+---
+
+# How to Store Data on AWS 
+
+**UPLOADER APP INSTRUCTIONS TO BE WRITTEN BY BIM**
+
+Within each of these there should be the following folders:
+-   Inputs - for any raw data input to the model (this should be read only)
+-   Intermediaries - for any useful data produced during modelling
+-   Outputs - for the final model outputs
+-   QA - for any data specifically relating to QA
+-   Temp - for any temporary data needed during model development that will later be deleted.
+
+This is illustrated below:
+![](~/module_b_team_pages/assets/s3_structure.png)
+
+
+# How to Access S3 Data
+
+Scripts for reading and writing to AWS can be found in the [useful scripts repo](https://github.com/Defra-pEPR-Modelling-Team/useful_scripts/blob/main/AWS%20to%20R.Rmd). Here is an example of **reading** an **Excel** file:
+```{r AWS read, eval = FALSE}
+excel_data <- aws.s3::s3read_using(
+  FUN = openxlsx::read.xlsx,
+  object = "test_folder/test_data.xlsx", # this file exists, but replace with your own filepath
+  sheet="Sheet1",
+  fillMergedCells = TRUE,
+  bucket = "s3-ranch-043"
+  )
+```
+
+And here is one for **writing** a **CSV**, note we need to set our permissions in the last line of the function:
+```{r AWS write, eval=FALSE}
+aws.s3::s3write_using(
+  df_example,
+  FUN = readr::write_csv,
+  bucket = "s3-ranch-043",
+  object = "test_folder/test_data.csv,
+  opts = list("headers" = list("x-amz-acl" = "bucket-owner-full-control")
+  )
+```

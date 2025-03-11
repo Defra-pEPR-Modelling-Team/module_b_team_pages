@@ -90,13 +90,13 @@ Named individuals correct as of 3/2/2025
 
 ## Coding Process Detail
 
-### Decide to change code
+### 1. Decide to change code
 
 The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs. They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this. They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
 
 An agile methodology using Jira is then used to plan out the delivery of these changes.
 
-### A modelling team member makes changes to code
+### 2. A modelling team member makes changes to code
 
 Through R Studio and Github changes are made to the existing LAPCAP model. This will be achieved through standard Git practice, e.g. branching off from the dev branch. Instructions for how to do this can be found in the [new starter section](new_induction_stuff.html).
 
@@ -196,7 +196,7 @@ INSERT NEW PULL REQUEST TEMPLATE
 >
 >     ![](~/module_b_team_pages/assets/ready_to_merge.png)
 
-### A different modelling team member verifies their changes
+### 3. A different modelling team member verifies their changes
 
 Once assigned a review the team member must complete the full checklist provided by the principle analyst. It is also the QAers must also review the list critically and ensure that it is both appropriate and sufficient. If the QAer feels otherwise they must raise this with in the first instance the principle analyst and then failing this the model owner.
 
@@ -209,14 +209,6 @@ Reviewers should trace the full logic of the code, both by reading through it an
 Reviewers should leave comments via GitHub, to ensure a record of verification and validation. GitHub has several features to help with this such as filtering changes by commit or file type, marking scripts as viewed, making direct code suggestions and bundling many comments into one review.
 
 These reviews may go through one or more cycles of requesting changes, in order for the reviewer to be happy. GitHub has functionality to enable this.
-
-Approved changes are merged into dev branch
-
-Before merging, the modelling team member should run the model. They should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this ensures we are able to explain any changes in outputs from one publication to another.
-
-TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)
-
-Once approved, changes should be merged into the dev branch. This may require resolving merge conflicts.
 
 > #### How to code review
 >
@@ -234,13 +226,21 @@ Once approved, changes should be merged into the dev branch. This may require re
 >
 > 3.  When you are ready click '*Finish your review*' add a summary comment and then click '*Submit review*'. You may choose to leave comments to be responded to, suggest changes to be made or simply approve the pull request straight away.
 >
->     <img src="~/module_b_team_pages/assets/finish_review.png" width="311" height="222"/>
+>     ![](~/module_b_team_pages/assets/finish_review.png){width="311" height="222"}
+
+### 4. Approved changes are merged into dev branch
+
+Before merging, the modelling team member should run the model. They should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this ensures we are able to explain any changes in outputs from one publication to another.
+
+TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)
+
+Once approved, changes should be merged into the dev branch. This may require resolving merge conflicts.
 
 ## Signoff Process Detail
 
 SIGNOFF LOG?
 
-### Model development complete
+### 1. Model development complete
 
 Once all changes required for a publication or sharing of the model are complete, the team will undertake the following steps.
 
@@ -248,7 +248,7 @@ Multiple pull requests will have been merged into dev (e.g. the above coding pro
 
 There are some circumstances where the full signoff may not be required for instance, sharing the model internally, this is left to the judgment of the model owner.
 
-### Model owner signoff
+### 2. Model owner signoff
 
 The model owner should sign off on the following documents, which should have been updated:
 
@@ -268,7 +268,7 @@ The model owner does not necessarily have to review all of these themselves; the
 
 The model owner’s signoff for that model version should be stored in SIGNOFF LOG (EMAIL EVIDENCE).
 
-### SRO & pEPR Project Board signoff
+### 3. SRO & pEPR Project Board signoff
 
 Project board, acting on behalf of the model SROs, should signoff the model version for publication.
 
@@ -280,7 +280,7 @@ There may be an additional stage of parameter setting, at this point in the appr
 
 The project board signoff for that model version should be stored in SIGNOFF LOG (MEETING MINUTES AS EVIDENCE?).
 
-### Share or publish outputs
+### 4. Share or publish outputs
 
 Merge into main
 
