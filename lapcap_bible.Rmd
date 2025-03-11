@@ -19,14 +19,14 @@ In general, documentation should be kept as close to the code as possible, for e
 |  |  |  |  |
 |------------------|------------------|------------------|------------------|
 |   | Description  | Github Location  | Sharepoint Location  |
-| Quality Assurance Plan  |   |  - | [02 LAPCAP QA Plan.docx](https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/02%20LAPCAP%20QA%20Plan.docx?d=w9c733b9d25d2431b9e9153384ad2352e&csf=1&web=1&e=c3uYng)  |
+| Quality Assurance Plan  | How, when and by whom model, data or assumption changes will be assured. |  - | [02 LAPCAP QA Plan.docx](https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/02%20LAPCAP%20QA%20Plan.docx?d=w9c733b9d25d2431b9e9153384ad2352e&csf=1&web=1&e=c3uYng)  |
 | Signoff Log  | Log of signoffs obtained for each version of LAPCAP.   |  -  |  [03 LAPCAP Signoff Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B5065D966-5D34-493C-92E1-FCA1CE67B2FD%7D&file=TEMPLATE%20modulename%20assumptions_data_log1.xlsm&action=default&mobileredirect=true)  |
 | Template Assumptions Log  | A blank version of our assumption log for use on any new modules.  | -  | [04 TEMPLATE modulename assumptions_data_log.xlsm](https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/04%20TEMPLATE%20modulename%20assumptions_data_log.xlsm?d=wb9cab66a483648f68e962eee10eb1add&csf=1&web=1&e=tL8AI4)  |
 | Team How To’s…  | Describes practical steps required for various team processes.  |  [FPC Coding Guidance](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html)  |  -  |
 
 ## Version Specific Documentation
 
-In the 00 Model Master folder, each model version will have a folder. This will contain all the documentation specific to that version.
+In the [00 Model Master folder](https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&web=1&e=1jREhl), each model version will have a folder. This will contain all the documentation specific to that version.
 
 Whilst the version is still under development this folder will have “- IN PROGRESS” appended to its name.
 
@@ -46,11 +46,7 @@ Instead, a new “- IN PROGRESS” folder should be created, with below document
 
 # LAPCAP Quality Assurance Plan
 
-## Introduction
-
 This document is a plan of how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
-
-## Overview
 
 The below diagrams give an overview of the processes, with more detail included in later sections.
 
@@ -96,17 +92,13 @@ Named individuals correct as of 3/2/2025
 
 ### Decide to change code
 
-The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs.
-
-They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this.
-
-They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
+The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs. They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this. They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
 
 An agile methodology using Jira is then used to plan out the delivery of these changes.
 
-A modelling team member makes changes to code
+### A modelling team member makes changes to code
 
-Through R Studio and Github changes are made to the existing LAPCAP model. This will be achieved through standard Git practice, e.g. branching off from the dev branch.
+Through R Studio and Github changes are made to the existing LAPCAP model. This will be achieved through standard Git practice, e.g. branching off from the dev branch. Instructions for how to do this can be found in the [new starter section](new_induction_stuff.html).
 
 The changes required should be clearly laid out in the relevant Jira ticket.
 
