@@ -17,7 +17,7 @@ In general, documentation should be kept as close to the code as possible, for e
 ## Overarching Documentation
 
 |  |  |  |  |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 |   | Description  | Github Location  | Sharepoint Location  |
 | Quality Assurance Plan  |   |  - | [02 LAPCAP QA Plan.docx](https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/02%20LAPCAP%20QA%20Plan.docx?d=w9c733b9d25d2431b9e9153384ad2352e&csf=1&web=1&e=c3uYng)  |
 | Signoff Log  | Log of signoffs obtained for each version of LAPCAP.   |  -  |  [03 LAPCAP Signoff Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B5065D966-5D34-493C-92E1-FCA1CE67B2FD%7D&file=TEMPLATE%20modulename%20assumptions_data_log1.xlsm&action=default&mobileredirect=true)  |
@@ -35,7 +35,7 @@ Once the version is completed (tagged on Github and merged into main), the folde
 Instead, a new “- IN PROGRESS” folder should be created, with below documents from the previous version copied into it, that can then be edited alongside changes to the code for the new version.
 
 |  |  |  |  |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 |   | Description  | Github Location  | Sharepoint Location  |
 | Technical Document  |    |    |    |
 | Assumptions Logs  |    |    |    |
@@ -164,7 +164,7 @@ Once complete the modelling team member should make a pull request and request a
 
 INSERT NEW PULL REQUEST TEMPLATE
 
-> ### How to make a pull request
+> #### How to make a pull request
 >
 > Here are the **step-by-step instructions** to submit a pull request:
 >
@@ -226,7 +226,7 @@ TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)
 
 Once approved, changes should be merged into the dev branch. This may require resolving merge conflicts.
 
-> ### How to code review
+> #### How to code review
 >
 > Follow these step-by-step instructions to do a proper code review:
 >
@@ -244,11 +244,11 @@ Once approved, changes should be merged into the dev branch. This may require re
 >
 >     <img src="~/module_b_team_pages/assets/finish_review.png" width="311" height="222"/>
 
-# Signoff Process Detail
+## Signoff Process Detail
 
 SIGNOFF LOG?
 
-## Model development complete
+### Model development complete
 
 Once all changes required for a publication or sharing of the model are complete, the team will undertake the following steps.
 
@@ -256,7 +256,7 @@ Multiple pull requests will have been merged into dev (e.g. the above coding pro
 
 There are some circumstances where the full signoff may not be required for instance, sharing the model internally, this is left to the judgment of the model owner.
 
-## Model owner signoff
+### Model owner signoff
 
 The model owner should sign off on the following documents, which should have been updated:
 
@@ -276,7 +276,7 @@ The model owner does not necessarily have to review all of these themselves; the
 
 The model owner’s signoff for that model version should be stored in SIGNOFF LOG (EMAIL EVIDENCE).
 
-## SRO & PEPR Project Board signoff
+### SRO & pEPR Project Board signoff
 
 Project board, acting on behalf of the model SROs, should signoff the model version for publication.
 
@@ -288,7 +288,7 @@ There may be an additional stage of parameter setting, at this point in the appr
 
 The project board signoff for that model version should be stored in SIGNOFF LOG (MEETING MINUTES AS EVIDENCE?).
 
-## Share or publish outputs
+### Share or publish outputs
 
 Merge into main
 
