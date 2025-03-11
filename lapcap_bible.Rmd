@@ -45,7 +45,7 @@ Instead, a new “- IN PROGRESS” folder should be created, with below document
 | Validation Docs  | CAT WORKING ON  |   |   |
 | CHANGE LOG?  | CAT INVESTIGATING IN VALIDATION TICKET  |   |   |
 
-# Modelling and Quality Assurance Process
+# Modelling and Assurance Process
 
 This document is a plan of how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
 
@@ -97,7 +97,7 @@ The modelling team, led by G7s, will identify the most important changes needed 
 
 An agile methodology using Jira is then used to plan out the delivery of these changes.
 
-### 2. A modelling team member makes changes to code
+### 2. Make changes to code
 
 Through R Studio and Github changes are made to the existing LAPCAP model. This will be achieved through standard Git practice, e.g. branching off from the dev branch. Instructions for how to do this can be found in the [new starter section](new_induction_stuff.html).
 
@@ -105,19 +105,11 @@ The changes required should be clearly laid out in the relevant Jira ticket.
 
 If the changes made involve adding, removing or changing an assumption, data import or code logic, then the modelling team member must update the relevant assumption log, data log (?) or the technical document, code comments and roxygen headers.
 
-> <h4 id="how_to_assumption">
->
-> #### How to change an assumption
->
-> </h4>
+> <h4 id="how_to_assumption"> <b>How to change an assumption</b> </h4>
 >
 > INSERT ASSUMPTIONS CHANGE INSTRUCTIONS
 
-> <h4 id="how_to_data_input">
->
-> #### How to change an data input
->
-> </h4>
+> <h4 id="how_to_data_input"> <b>How to change an data input</b> </h4>
 >
 > Data Pipeline 
 >
@@ -141,11 +133,7 @@ If the changes made involve adding, removing or changing an assumption, data imp
 >
 > -   When numbers are published externally and the first number updated, dev should be merged into main 
 
-> <h4 id="how_to_unit_test">
->
-> #### How to write a unit test
->
-> </h4>
+> <h4 id="how_to_unit_test"> <b>How to write a unit test</b> </h4>
 >
 > INSERT UNIT TEST INSTRUCTIONS
 
@@ -155,11 +143,7 @@ Once complete the modelling team member should make a pull request and request a
 
 INSERT NEW PULL REQUEST TEMPLATE
 
-> \<h4 id="how_to_pull_request"\>
->
-> #### How to make a pull request
->
-> </h4>
+> <h4 id="how_to_pull_request"> <b>How to make a pull request</b> </h4>
 >
 > Here are the **step-by-step instructions** to submit a pull request:
 >
@@ -199,7 +183,7 @@ INSERT NEW PULL REQUEST TEMPLATE
 >
 >     ![](~/module_b_team_pages/assets/ready_to_merge.png)
 
-### 3. A different modelling team member verifies their changes
+### 3. Verify the changes
 
 Once assigned a review the team member must complete the full checklist provided by the principle analyst. It is also the QAers must also review the list critically and ensure that it is both appropriate and sufficient. If the QAer feels otherwise they must raise this with in the first instance the principle analyst and then failing this the model owner.
 
@@ -213,9 +197,8 @@ Reviewers should leave comments via GitHub, to ensure a record of verification a
 
 These reviews may go through one or more cycles of requesting changes, in order for the reviewer to be happy. GitHub has functionality to enable this.
 
-> \<h4 id="how_to_code review\> How to do a code review
 >
-> </h4>
+> <h4 id="how_to_code_review"> <b>How to do a code review</b> </h4>
 >
 > Follow these step-by-step instructions to do a proper code review:
 >
@@ -233,7 +216,7 @@ These reviews may go through one or more cycles of requesting changes, in order 
 >
 >     ![](~/module_b_team_pages/assets/finish_review.png){width="311" height="222"}
 
-### 4. Approved changes are merged into dev branch
+### 4. Merge changes into dev branch
 
 Before merging, the modelling team member should run the model. They should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this ensures we are able to explain any changes in outputs from one publication to another.
 
@@ -273,7 +256,7 @@ The model owner does not necessarily have to review all of these themselves; the
 
 The model owner’s signoff for that model version should be stored in SIGNOFF LOG (EMAIL EVIDENCE).
 
-### 3. SRO & pEPR Project Board signoff
+### 3. SRO signoff
 
 Project board, acting on behalf of the model SROs, should signoff the model version for publication.
 
