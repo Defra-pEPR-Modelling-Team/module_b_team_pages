@@ -10,9 +10,8 @@
 
 
 
-<meta name="date" content="2025-02-27" />
 
-<title>lapcap_cookbook</title>
+<title>LAPCAP Bible</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -222,6 +224,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -229,6 +300,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -304,42 +385,470 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">lapcap_cookbook</h1>
-<h4 class="date">2025-02-27</h4>
+<h1 class="title toc-ignore">LAPCAP Bible</h1>
 
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting
-syntax for authoring HTML, PDF, and MS Word documents. For more details
-on using R Markdown see <a href="http://rmarkdown.rstudio.com"
-class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be
-generated that includes both content as well as the output of any
-embedded R code chunks within the document. You can embed an R code
-chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<div id="lapcap-documentation-overview" class="section level1">
+<h1>LAPCAP Documentation Overview</h1>
+<p>The below sets out the full set of documentation for LAPCAP,
+alongside where it can be found. In some cases, it may be stored in
+multiple locations and care should be taken to ensure both copies remain
+up to date.</p>
+<p>In general, documentation should be kept as close to the code as
+possible, for ease of access. However, this may not always be
+possible.</p>
+<div id="overarching-documentation" class="section level2">
+<h2>Overarching Documentation</h2>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td> </td>
+<td>Description </td>
+<td>Github Location </td>
+<td>Sharepoint Location </td>
+</tr>
+<tr class="even">
+<td>Quality Assurance Plan </td>
+<td> </td>
+<td> -</td>
+<td><a
+href="https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/02%20LAPCAP%20QA%20Plan.docx?d=w9c733b9d25d2431b9e9153384ad2352e&amp;csf=1&amp;web=1&amp;e=c3uYng">02
+LAPCAP QA Plan.docx</a> </td>
+</tr>
+<tr class="odd">
+<td>Signoff Log </td>
+<td>Log of signoffs obtained for each version of LAPCAP.  </td>
+<td> - </td>
+<td> <a
+href="https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B5065D966-5D34-493C-92E1-FCA1CE67B2FD%7D&amp;file=TEMPLATE%20modulename%20assumptions_data_log1.xlsm&amp;action=default&amp;mobileredirect=true">03
+LAPCAP Signoff Log</a> </td>
+</tr>
+<tr class="even">
+<td>Template Assumptions Log </td>
+<td>A blank version of our assumption log for use on any new
+modules. </td>
+<td>- </td>
+<td><a
+href="https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/04%20TEMPLATE%20modulename%20assumptions_data_log.xlsm?d=wb9cab66a483648f68e962eee10eb1add&amp;csf=1&amp;web=1&amp;e=tL8AI4">04
+TEMPLATE modulename assumptions_data_log.xlsm</a> </td>
+</tr>
+<tr class="odd">
+<td>Team How To’s… </td>
+<td>Describes practical steps required for various team processes. </td>
+<td> <a
+href="https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html">FPC
+Coding Guidance</a> </td>
+<td> - </td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="lapcap_cookbook_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the
-code chunk to prevent printing of the R code that generated the
-plot.</p>
+<div id="version-specific-documentation" class="section level2">
+<h2>Version Specific Documentation</h2>
+<p>In the 00 Model Master folder, each model version will have a folder.
+This will contain all the documentation specific to that version.</p>
+<p>Whilst the version is still under development this folder will have
+“- IN PROGRESS” appended to its name.</p>
+<p>Once the version is completed (tagged on Github and merged into
+main), the folder will have the “- IN PROGRESS” label removed, a zip
+file of the code and a zip file of the data inputs saved into it and
+should not be edited from that point onwards.</p>
+<p>Instead, a new “- IN PROGRESS” folder should be created, with below
+documents from the previous version copied into it, that can then be
+edited alongside changes to the code for the new version.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td> </td>
+<td>Description </td>
+<td>Github Location </td>
+<td>Sharepoint Location </td>
+</tr>
+<tr class="even">
+<td>Technical Document </td>
+<td>  </td>
+<td>  </td>
+<td>  </td>
+</tr>
+<tr class="odd">
+<td>Assumptions Logs </td>
+<td>  </td>
+<td>  </td>
+<td>  </td>
+</tr>
+<tr class="even">
+<td>Data Log </td>
+<td>  </td>
+<td>  </td>
+<td>  </td>
+</tr>
+<tr class="odd">
+<td>User Guide </td>
+<td>Guidance on how to practically run and control LAPCAP.  </td>
+<td>  </td>
+<td>  </td>
+</tr>
+<tr class="even">
+<td>Validation Docs </td>
+<td>CAT WORKING ON </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="odd">
+<td>CHANGE LOG? </td>
+<td>CAT INVESTIGATING IN VALIDATION TICKET </td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="lapcap-quality-assurance-plan" class="section level1">
+<h1>LAPCAP Quality Assurance Plan</h1>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This document is a plan of how, when and by whom model, data or
+assumption changes will be assured. This includes a list of
+responsibilities relating to the model, who the model owner is, the
+governance structure and decision-making process supporting the
+model.</p>
+</div>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The below diagrams give an overview of the processes, with more
+detail included in later sections.</p>
+<div id="coding-process" class="section level3">
+<h3>Coding Process</h3>
+<p>INSERT PICTURE</p>
+</div>
+<div id="signoff-process" class="section level3">
+<h3>Signoff Process</h3>
+<p>INSERT PICTURE</p>
+</div>
+<div id="stakeholder-groups" class="section level3">
+<h3>Stakeholder Groups</h3>
+<ul>
+<li><p>Senior Responsible Officers (SROs)</p>
+<ul>
+<li>Director of Resources &amp; Waste (Emma Bourne) and equivalents in
+the Devolved Administrations (David McPhee, Rhodri Asby, Shane
+Doris).</li>
+</ul></li>
+<li><p>pEPR Project Board</p>
+<ul>
+<li>Senior level oversight and support for the delivery of the joint
+UK-wide pEPR. Chaired by Dexter Davis.</li>
+</ul></li>
+<li><p>Model Owner</p>
+<ul>
+<li>G6 head of Fees and Payments Calculator team (Tristan Ibrahim).</li>
+</ul></li>
+<li><p>Advisory Groups</p>
+<ul>
+<li><p>Analytical Board - consists of senior analysts from England,
+Wales and Scotland</p></li>
+<li><p>Technical Working Group (TWG) - comprising expert waste advisors
+to Defra and the devolved administrations</p></li>
+<li><p>Local Authority Waste Officer Sounding Board – selected Waste
+Officers from local authorities across the UK</p></li>
+<li><p>Government Actuary’s Department – to date external QA has been
+provided by GAD</p></li>
+</ul></li>
+<li><p>Fees and Payments Calculator modelling team</p>
+<ul>
+<li>Made up of members of the Government Operational Research
+profession, ensuring necessary modelling skills.</li>
+</ul></li>
+</ul>
+<p>Named individuals correct as of 3/2/2025</p>
+</div>
+</div>
+<div id="coding-process-detail" class="section level2">
+<h2>Coding Process Detail</h2>
+<div id="decide-to-change-code" class="section level3">
+<h3>Decide to change code</h3>
+<p>The modelling team, led by G7s, will identify the most important
+changes needed ahead of the next release of modelling outputs.</p>
+<p>They may choose to make use of the Analytical Board, TWG or Sounding
+Board in determining this.</p>
+<p>They may also choose to seek signoff of their plans from the model
+owner or project board, or to simply make them aware, to ensure planned
+changes are expected.</p>
+<p>An agile methodology using Jira is then used to plan out the delivery
+of these changes.</p>
+<p>A modelling team member makes changes to code</p>
+<p>Through R Studio and Github changes are made to the existing LAPCAP
+model. This will be achieved through standard Git practice,
+e.g. branching off from the dev branch.</p>
+<p>The changes required should be clearly laid out in the relevant Jira
+ticket.</p>
+<p>If the changes made involve adding, removing or changing an
+assumption, data import or code logic, then the modelling team member
+must update the relevant assumption log, data log (?) or the technical
+document, code comments and roxygen headers.</p>
+<blockquote>
+<h4 id="how-to-change-an-assumption">How to change an assumption</h4>
+<p>INSERT ASSUMPTIONS CHANGE INSTRUCTIONS</p>
+</blockquote>
+<blockquote>
+<h4 id="how-to-change-a-data-input">How to change a data input</h4>
+<p>Data Pipeline </p>
+<ul>
+<li>The data pipeline should be run to update the data folder prior to a
+new version of the model being tagged (ensure to restart your R session
+and clean your environment before running the pipeline) </li>
+</ul>
+<!-- -->
+<ul>
+<li>Before the new version is tagged, you need to change the
+model_version parameter in the data pipeline and run it, and change the
+model_version parameter in run_LAPCAP_model, then push these changes
+before tagging the version </li>
+</ul>
+<!-- -->
+<ul>
+<li>If you are attempting to overwrite a folder then you will be asked
+to confirm – you should be sure that you want to overwrite the folder as
+this could prevent rolling back in the future </li>
+</ul>
+<!-- -->
+<ul>
+<li>Ensure that people are aware of a new version being tagged so they
+can rebase if necessary </li>
+</ul>
+<p>Versioning Vx.y.z </p>
+<ul>
+<li>The first number, x, should be updated when figures and published
+externally </li>
+</ul>
+<!-- -->
+<ul>
+<li>The second number, y, should be updated when figures are shared
+internally (e.g. Simpler Recycling) </li>
+</ul>
+<!-- -->
+<ul>
+<li>The third number, z, should be updated when there are changes to the
+data or data pipeline </li>
+</ul>
+<!-- -->
+<ul>
+<li>These versions should be tagged on dev on github to allow easy
+rollback to model versions </li>
+</ul>
+<!-- -->
+<ul>
+<li>When numbers are published externally and the first number updated,
+dev should be merged into main </li>
+</ul>
+</blockquote>
+<blockquote>
+<h4 id="how-to-write-a-unit-test">How to write a unit test</h4>
+<p>INSERT UNIT TEST INSTRUCTIONS</p>
+</blockquote>
+<p>Locations for assumption log, data log or the technical document can
+be found in 01 Documentation Overview.docx, and each includes
+instructions for how to use it.</p>
+<p>Once complete the modelling team member should make a pull request
+and request a review from another member of the team. The below template
+should be filled out when making a pull request:</p>
+<p>INSERT NEW PULL REQUEST TEMPLATE</p>
+<blockquote>
+<h3 id="how-to-make-a-pull-request">How to make a pull request</h3>
+<p>Here are the <strong>step-by-step instructions</strong> to submit a
+pull request:</p>
+<ol style="list-style-type: decimal">
+<li><p>Follow the steps on the ‘How to edit Github code’ to make the
+changes for your ticket</p>
+<ol style="list-style-type: decimal">
+<li><p>Then go to the relevant repo on Github and navigate to your
+branch</p>
+<ol style="list-style-type: lower-alpha">
+<li>Use either the branches drop down or click on ‘<em>x branches</em>’
+to go to the branches page and select your branch.</li>
+</ol>
+<p><img
+src="~/module_b_team_pages/assets/branches_button.png" /></p></li>
+</ol></li>
+<li><p>If your push was recent there may be a pop up allowing you to
+‘<em>compare and pull request</em>’, if not then click
+‘<em>Contribute</em>’ and ‘<em>Open pull request</em>’.</p>
+<p><img
+src="~/module_b_team_pages/assets/contribute_button.png" /></p></li>
+<li><p>Now check your pull request is set up correctly:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Make sure you are merging to the correct branch, this will
+usually be <em>dev</em> (for code in development) or sometimes
+<em>main</em> if it has been fully quality assured.</p>
+<p><img src="~/module_b_team_pages/assets/merge_to_dev.png" /></p></li>
+<li><p>Click ‘<em>Reviewer</em>’ and select the person who has agreed to
+review your code.</p>
+<p><img src="~/module_b_team_pages/assets/reviewers.png" /></p></li>
+<li><p>Make sure you have completed the requirements and fill out the
+fields in the pull request template.</p></li>
+</ol></li>
+<li><p>Then you can click ‘<em>Create pull request</em>’.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Once you have created the pull request you should move the ticket to
+‘For Review’ on Jira.</li>
+</ol></li>
+<li><p>Your reviewer will then inspect your code and may ask you some
+questions or suggest some changes. Once you have responded to these they
+will approve your pull request and you can merge your changes!</p>
+<p><img src="~/module_b_team_pages/assets/approved.png" /></p>
+<ol style="list-style-type: lower-alpha">
+<li>You will also need to check there are no ‘merge conflicts’. This is
+where someone has changed the same files as you and so you need to agree
+with that person what are the correct changes and modify accordingly,
+Github will read ‘<em>Able to merge</em>’ indicating there are no
+conflicts.</li>
+</ol>
+<p><img
+src="~/module_b_team_pages/assets/ready_to_merge.png" /></p></li>
+</ol>
+</blockquote>
+</div>
+<div id="a-different-modelling-team-member-verifies-their-changes"
+class="section level3">
+<h3>A different modelling team member verifies their changes</h3>
+<p>Once assigned a review the team member must complete the full
+checklist provided by the principle analyst. It is also the QAers must
+also review the list critically and ensure that it is both appropriate
+and sufficient. If the QAer feels otherwise they must raise this with in
+the first instance the principle analyst and then failing this the model
+owner.</p>
+<p>You should use the checklist below to ensure you carry out all
+necessary checks:</p>
+<p>INSERT NEW PR CHECKLIST</p>
+<p>Reviewers should trace the full logic of the code, both by reading
+through it and by running it and spot-checking intermediate data frames.
+They should inspect any relevant data imports both in R Studio and
+directly from their original source. They should examine model outputs
+before and after the changes to ensure they make sense. They should make
+sure they are able to replicate any processes or calculations in the
+code.</p>
+<p>Reviewers should leave comments via GitHub, to ensure a record of
+verification and validation. GitHub has several features to help with
+this such as filtering changes by commit or file type, marking scripts
+as viewed, making direct code suggestions and bundling many comments
+into one review.</p>
+<p>These reviews may go through one or more cycles of requesting
+changes, in order for the reviewer to be happy. GitHub has functionality
+to enable this.</p>
+<p>Approved changes are merged into dev branch</p>
+<p>Before merging, the modelling team member should run the model. They
+should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this
+ensures we are able to explain any changes in outputs from one
+publication to another.</p>
+<p>TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)</p>
+<p>Once approved, changes should be merged into the dev branch. This may
+require resolving merge conflicts.</p>
+<blockquote>
+<h3 id="how-to-code-review">How to code review</h3>
+<p>Follow these step-by-step instructions to do a proper code
+review:</p>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to the ‘<em>pull request</em>’ that has been assigned to
+you. Read the description provided and use the checklist to aid your
+review.</p></li>
+<li><p>Switch to the ‘<em>Files changed</em>’ tab to see the changes
+made, here you can make comments and suggestions as you see fit by
+clicking the blue plus to the left of the line you want to comment
+on.</p>
+<p><img src="~/module_b_team_pages/assets/add_comment_button.png" /></p>
+<ol style="list-style-type: lower-alpha">
+<li>Make sure to tick ‘<em>Start a review</em>’ rather than ‘<em>Add
+single comment</em>’.</li>
+<li>Github has lots of functionality to make this process easier,
+including being able to mark scripts as ‘<em>Viewed</em>’ and limiting
+changes to certain commits.</li>
+<li>You should also run the code in R Studio and check the relevant QA
+log has been updated.</li>
+</ol></li>
+<li><p>When you are ready click ‘<em>Finish your review</em>’ add a
+summary comment and then click ‘<em>Submit review</em>’. You may choose
+to leave comments to be responded to, suggest changes to be made or
+simply approve the pull request straight away.</p>
+<p><img src="~/module_b_team_pages/assets/finish_review.png" width="311" height="222"/></p></li>
+</ol>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="signoff-process-detail" class="section level1">
+<h1>Signoff Process Detail</h1>
+<p>SIGNOFF LOG?</p>
+<div id="model-development-complete" class="section level2">
+<h2>Model development complete</h2>
+<p>Once all changes required for a publication or sharing of the model
+are complete, the team will undertake the following steps.</p>
+<p>Multiple pull requests will have been merged into dev (e.g. the above
+coding process will have been repeated multiple times) and these will
+all receive signoff together.</p>
+<p>There are some circumstances where the full signoff may not be
+required for instance, sharing the model internally, this is left to the
+judgment of the model owner.</p>
+</div>
+<div id="model-owner-signoff" class="section level2">
+<h2>Model owner signoff</h2>
+<p>The model owner should sign off on the following documents, which
+should have been updated:</p>
+<p>VALIDATION STUFF (PROCESS TBD)</p>
+<p>VERIFICATION STUFF (PROCESS TBD)</p>
+<p>CHANGE LOG (RENAME)</p>
+<p>Technical Document</p>
+<p>Assumptions Logs</p>
+<p>Data Log (?)</p>
+<p>The model owner does not necessarily have to review all of these
+themselves; they may utilise the advisory groups to offer assurance. For
+instance, in the past TWG have assured on assumptions logs.</p>
+<p>The model owner’s signoff for that model version should be stored in
+SIGNOFF LOG (EMAIL EVIDENCE).</p>
+</div>
+<div id="sro-pepr-project-board-signoff" class="section level2">
+<h2>SRO &amp; PEPR Project Board signoff</h2>
+<p>Project board, acting on behalf of the model SROs, should signoff the
+model version for publication.</p>
+<p>It is unlikely that members of project board will review any of the
+model or its documentation themselves, however copies should be shared
+so they have the option to, and can delegate to members of their
+organisation.</p>
+<p>Instead, summaries of changes, visualisations of overall outputs and
+assurances from advisory groups may be presented. Exactly what is
+required may depend on the specific changes being signed off, so is left
+up to the judgment of the model owner.</p>
+<p>There may be an additional stage of parameter setting, at this point
+in the approvals process, especially for the first outputs for each new
+year of EPR.</p>
+<p>The project board signoff for that model version should be stored in
+SIGNOFF LOG (MEETING MINUTES AS EVIDENCE?).</p>
+</div>
+<div id="share-or-publish-outputs" class="section level2">
+<h2>Share or publish outputs</h2>
+<p>Merge into main</p>
+<p>Save copy of everything in model master folder</p>
+</div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -372,6 +881,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

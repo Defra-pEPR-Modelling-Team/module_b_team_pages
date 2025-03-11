@@ -1,5 +1,5 @@
 ---
-title: "How to be a LAPCAPper"
+title: "FPC Team Pages"
 ---
 
 On this site you will find everything you need to be a happy and functioning member of the Fees and Payment Calculator modelling team.
