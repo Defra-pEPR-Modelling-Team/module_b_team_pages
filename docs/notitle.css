@@ -1,3 +1,44 @@
 #header {
     display: none;
 }
+
+
+/*----------------NAVBAR ---------------*/
+.navbar-default {
+    background-color: #00a33b;
+}
+
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.active>a, 
+a.dropdown-toggle:hover {
+  background-color: #00a33b !important;
+}
+
+/* Dropdown menu color */
+.navbar-default .dropdown-menu {
+  background-color: #00a33b;
+}
+
+  /* Navbar Links when hovered*/
+.navbar-default .dropdown-menu>.active>a,
+.navbar-default .dropdown-menu>li>a:hover,
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav:hover, 
+.navbar-default .navbar-nav>li>a:hover, 
+a.navbar-brand:hover {
+  color: #ffffffab !important;
+  background-color: #00a33bf2;
+}
+
+  /* Navbar Links when not hovered*/
+.navbar-default .dropdown-menu>.active>a,
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .dropdown-menu>li>a,
+.navbar-default .navbar-nav, 
+.navbar-default .navbar-nav>li>a, 
+a.navbar-brand {
+  color: #ffffff !important;
+  background-color: #00a33bf2;
+}
+
+  /* Navbar Links when not active but not hovered*/

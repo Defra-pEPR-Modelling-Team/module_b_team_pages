@@ -6,7 +6,7 @@ output:
     toc_float:
       collapsed: false
     toc_depth: 4
-    css: hidden_title.css
+    css: notitle.css
 ---
 
 # LAPCAP Bible

@@ -17,7 +17,7 @@ Please suggest anything you think is missing from this site!
 
 <figure style="text-align: center;">
 
-<a href="lapcap_cookbook.html"> <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="208"/> </a>
+<a href="lapcap_bible.html"> <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="208"/> </a>
 
 <figcaption>LAPCAP Bible</figcaption>
 
