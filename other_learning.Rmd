@@ -4,6 +4,15 @@ title: "Learning"
 
 Here are a number of resources you can use to help improve your coding:
 
+  - [WikiWaste](https://wikiwaste.org.uk/Main_Page)
   - [Defra's monthly data science sessions](https://defra.sharepoint.com/sites/Community448/SitePages/Discussion-Sessions-(Coffee-and-Coding).aspx)
   - [BEIS's weekly Coffee and Coding sessions](https://forms.office.com/pages/responsepage.aspx?id=BXCsy8EC60O0l-ZJLRst2KUXyeG5QzlKhk--pMPwnKxURTJXTTFZVjVQSFA2SE1ZSVNKRDE3NzBYTy4u)
-  - [DataCamp](https://www.datacamp.com/) (Defra has unlimited DataCamp licenses, so anyone in Defra can sign up for a pro account)
+  - [DataCamp](https://www.datacamp.com/business/partners/Defra-and-datacamp-partnership) (Defra has unlimited DataCamp licenses, so anyone in Defra can sign up for a pro account)
+      - This [course on Git](https://app.datacamp.com/learn/courses/introduction-to-git) will be useful if you haven't used it before. 
+  
+
+Generally, the [Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/intro.html) should inform how we work.
+
+
+
+![](assets/b2_team_video.mp4)

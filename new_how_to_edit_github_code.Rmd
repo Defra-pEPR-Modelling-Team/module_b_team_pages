@@ -6,7 +6,7 @@ Once you have cloned a repo it is likely you will want to make some changes to t
 
 1.  For QA purposes we do not edit the *main* or *dev* branches directly, so you will need to create a branch of your own. To do that in R Studio click the 'New Branch' button in the Git window (remember to 'Pull' first to make sure you are working on up-to-date code, see step 5a for relevant screenshot).
 
-    <img src="~/module_b_team_pages/assets/new_branch_button.png"/>
+    <img src="assets/new_branch_button.png"/>
 
 2.  You should then name your branch the same as the Jira ticket you are working on, for instance "B1-20 Extract and reformat RFI data". Then click 'Create'. The branch name next to the 'New Branch' button should now have the name of your branch.
 
@@ -24,20 +24,20 @@ Once you have cloned a repo it is likely you will want to make some changes to t
 
     a.    Once you have finished your code edits, click the "Addins" drop down on the top banner
     
-    ![](~/module_b_team_pages/assets/pre_commit_formatting.png)
+    ![](assets/pre_commit_formatting.png)
     
     b.    Run "Style active file" 
     c.    Run "Lint current file"
     d.    Click the "Markers" tab on the console pane and go through and address the linting issues highlighted
     
-    ![](~/module_b_team_pages/assets/lint_markers.png)
+    ![](assets/lint_markers.png)
 
 6.  Commit
 
     a.    Tick the box in the Git window for the files you wish to commit.
     b.    Click the commit button.
 
-    ![](~/module_b_team_pages/assets/commit_button.png)
+    ![](assets/commit_button.png)
 
     c.  In the window that opens, review your changes are as intended.
     d.  Then add a 'Commit message' explaining what you have done, and click commit underneath.
@@ -52,10 +52,10 @@ Once you have cloned a repo it is likely you will want to make some changes to t
 
     a.  Firstly it is good practice to 'pull' to check no-one has changed our branch whilst we were working. Click the 'Pull' button and if prompted enter your Github username **but instead of our password we need to use the token we generated in step 1 of 'How to clone a repository'**. Close any the Git pull pop-up.
 
-    ![](~/module_b_team_pages/assets/pull_button.png)
+    ![](assets/pull_button.png)
 
     b.  Now we are ready to 'push', click the 'Push' button and once again if prompted enter your Github username **but instead of our password we need to use the token we generated in step 1 of 'How to clone a repository'**.
 
-    ![](~/module_b_team_pages/assets/push_button.png)
+    ![](assets/push_button.png)
 
     c.  You have now successfully pushed your changes to Github.
