@@ -31,6 +31,8 @@ navbar:
         href: other_learning.html
       - text: "Meeting Etiquette"
         href: other_meeting_etiquette.html
+      - text: "Common Problems"
+        href: other_common_problems.html
 
       
 

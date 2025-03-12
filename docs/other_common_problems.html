@@ -11,7 +11,7 @@
 
 
 
-<title>Meeting Etiquette</title>
+<title>Common Problems</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -306,42 +306,54 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Meeting Etiquette</h1>
+<h1 class="title toc-ignore">Common Problems</h1>
 
 </div>
 
-
-<p>These guidelines for meetings are endorsed by our senior leadership
-so please use them:</p>
-<ol style="list-style-type: decimal">
-<li>All employees are empowered to block out time in calendars free of
-meetings and this is respected.</li>
-<li>All colleagues should avoid setting up meetings where possible if
-time has been blocked out.</li>
-<li>We will block out the Defra lunch hour (12:30-1:30pm) in all R&amp;W
-employees.</li>
-<li>Before producing your invite consider if the whole team is required
-or if a representative would work with notes to take away to present to
-their team.</li>
-<li>All meetings have a clear agenda and purpose, circulated ahead of
-the meeting to allow individuals to prepare and contribute effectively –
-and will inform who is best placed to attend.</li>
-<li>Meetings should typically be no longer than 50 minutes, which allows
-10 minutes comfort between meetings. Meetings that are longer than 50
-minutes should include a 10-minute comfort break.</li>
-<li>Avoid multi-tasking and working on other documents allowing people
-to be present.</li>
-<li>Using calendars correctly - accepting and declining meetings (select
-to send a response this will update tracking) - tracking can then be
-seen and it can be determined if the meeting should go ahead.</li>
-<li>A short readout and key points should be cascaded to relevant teams
-asap after the meeting.</li>
-</ol>
-<p>Some additional tips:</p>
+<div id="TOC">
 <ul>
-<li>You can set meetings to start at 5 past automatically (File &gt;
-Options &gt; Calendar &gt; Shorten appointments and meetings)</li>
+<li><a href="#troubleshooting-problems-loadingwriting-data-to-s3"
+id="toc-troubleshooting-problems-loadingwriting-data-to-s3">Troubleshooting
+Problems Loading/Writing data to S3</a></li>
 </ul>
+</div>
+
+<div id="troubleshooting-problems-loadingwriting-data-to-s3"
+class="section level2">
+<h2>Troubleshooting Problems Loading/Writing data to S3</h2>
+<p>If you encounter the error:</p>
+<pre><code>Error in parse_aws_s3_response(r, Sig, verbose = verbose)
+Moved Permanently (HTTP 301).</code></pre>
+<p>While using functions from the “aws.s3” package such as
+“aws.s3::s3read_using()“</p>
+<ol style="list-style-type: decimal">
+<li><p>Ensure that the following package is installed:</p>
+<pre><code>install.packages(&quot;aws.ec2metadata&quot;)
+library(aws.ec2metadata)</code></pre>
+<p>You can check this in the bottom right under the packages tab:</p>
+<p><img src="assets/aws_problem_1.png" /></p>
+<p>to ensure you install to a share library you need to specify the
+location of the shared library like so:</p>
+<p><code>install.packages("aws.ec2metadata", lib = "/home/R_package_lib")</code></p></li>
+<li><p>Also check that the packages <code>aws.signature</code> and
+<code>aws.s3</code> are also installed.</p>
+<p>Run the following code:</p>
+<p><code>Sys.setenv("AWS_DEFAULT_REGION" = 'eu-west-1')</code></p></li>
+<li><p>If there are still issues with the package accessing the data,
+check the Virtual machine can access the Ranch bucket you need to pull
+data from.</p>
+<p>You can do this from the Linux Console with a command like this
+(Replace the XXX with the relevant bucket’s ranch number):</p>
+<p><code>aws s3 ls s3://s3-ranch-XXX/</code></p>
+<p>If the output shows you a list of folder names, the VM has access,
+eg:</p>
+<p><img src="assets/aws_problem_2.png" /></p></li>
+<li><p>If step 3 shows you there is no access, request that your VM be
+given read/Write access to the relevant buckets on the SCE Slack server.
+You will need the owner of the VM and the Buckets to approve the
+request.</p></li>
+</ol>
+</div>
 
 
 

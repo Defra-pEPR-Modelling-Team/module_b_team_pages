@@ -35,3 +35,5 @@ Please suggest anything you think is missing from this site!
 [How to Pull Request](lapcap_bible.html#how_to_pull_request)
 
 [How to Code Review](lapcap_bible.html#how_to_code_review)
+
+[Common Problems](other_common_problems.html)
