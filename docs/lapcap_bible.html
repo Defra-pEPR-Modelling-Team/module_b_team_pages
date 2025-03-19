@@ -614,6 +614,60 @@ document, code comments and roxygen headers.</p>
 <h4 id="how_to_assumption">
 <p><b>How to change an assumption</b></p>
 </h4>
+<ol style="list-style-type: decimal">
+<li><p>Identify an assumption.</p>
+<p>We define assumptions as <strong>“choices analysts make to correct
+for low quality or absent data or information, that knowingly introduce
+inaccuracy into our outputs.”</strong></p>
+<p>Questions to help you determine whether a section of code is an
+assumption could be:</p>
+<ul>
+<li>Have you had to make a specific choice for how to model?</li>
+<li>Is your choice a simplification of reality?</li>
+<li>Theoretically were there other choices you could have made?</li>
+<li>Would changing your choice affect the final number?</li>
+</ul>
+<p>ADD EXAMPLES?</p>
+<p>NOT DATA INPUTS - COVERED BY DATA LOGS</p>
+<p>NOT PROCEDURAL CHOICES (E.G. WHICH DPLYR FUNCTION TO USE) OR SUPER
+OBVIOUS STUFF THAT WOULD BE COVERED BY THE TECHNICAL DOC (E.G. WHAT
+COLUMNS OF A DATASET TO USE)</p></li>
+<li><p>Record your assumption in-code</p>
+<p>Paste the following code snippet below the relevant portion of code
+and edit to reflect the above.</p>
+<pre class="r"><code>    # Assumption: Title of assumption
+    # RAG: RED 
+    # Detailed description 
+    # on next line or many. </code></pre>
+<p>The title of the assumption should be short, clear and unique to this
+assumption.</p>
+<p>The RAG rating is a red, amber or green rating summarising both the
+quality (e.g. how confident we are) and impact (e.g. how much model
+outputs are likely to be affected) of the assumption.</p>
+<p>The detail description should give all information needed for someone
+to understand the assumption, including why an assumption is needed, why
+you have made the choice and more.</p></li>
+<li><p>Record your assumption in the relevant assumptions log</p>
+<p>Each module has its own assumptions log which you can find via the
+Documentation Overview section above.</p>
+<p>You will need to fill out the following fields:</p>
+<ul>
+<li><p>ID <em>- prefilled</em></p></li>
+<li><p>Assumption title <em>- same as reported in code</em></p></li>
+<li><p>Detailed description <em>- same as reported in code</em></p></li>
+<li><p>Reporter <em>- your name</em></p></li>
+<li><p>Script(s) <em>- which R script the assumption can be found
+in</em></p></li>
+<li><p>Line(s) in code <em>- which lines in the script are
+relevant</em></p></li>
+<li><p>RAG <em>- same as reported in code</em></p></li>
+<li><p>RAG explanation <em>- an explanation for why you gave the above
+RAG rating</em></p></li>
+<li><p>Links to supporting evidence <em>- any supporting evidence that
+you used in formulating this assumption, which should be stored in the
+corresponding ‘Supporting Evidence’ folder</em></p></li>
+</ul></li>
+</ol>
 <p>INSERT ASSUMPTIONS CHANGE INSTRUCTIONS</p>
 </blockquote>
 <blockquote>

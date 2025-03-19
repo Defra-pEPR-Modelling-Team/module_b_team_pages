@@ -101,6 +101,64 @@ If the changes made involve adding, removing or changing an assumption, data imp
 >
 > </h4>
 >
+> 1.  Identify an assumption.
+>
+>     We define assumptions as **"choices analysts make to correct for low quality or absent data or information, that knowingly introduce inaccuracy into our outputs."**
+>
+>     Questions to help you determine whether a section of code is an assumption could be:
+>
+>     -   Have you had to make a specific choice for how to model?
+>     -   Is your choice a simplification of reality?
+>     -   Theoretically were there other choices you could have made?
+>     -   Would changing your choice affect the final number?
+>
+>     ADD EXAMPLES?
+>
+>     NOT DATA INPUTS - COVERED BY DATA LOGS
+>
+>     NOT PROCEDURAL CHOICES (E.G. WHICH DPLYR FUNCTION TO USE) OR SUPER OBVIOUS STUFF THAT WOULD BE COVERED BY THE TECHNICAL DOC (E.G. WHAT COLUMNS OF A DATASET TO USE)
+>
+> 2.  Record your assumption in-code
+>
+>     Paste the following code snippet below the relevant portion of code and edit to reflect the above.
+>
+>     ```{r}
+>         # Assumption: Title of assumption
+>         # RAG: RED 
+>         # Detailed description 
+>         # on next line or many. 
+>     ```
+>
+>     The title of the assumption should be short, clear and unique to this assumption.
+>
+>     The RAG rating is a red, amber or green rating summarising both the quality (e.g. how confident we are) and impact (e.g. how much model outputs are likely to be affected) of the assumption.
+>
+>     The detail description should give all information needed for someone to understand the assumption, including why an assumption is needed, why you have made the choice and more.
+>
+> 3.  Record your assumption in the relevant assumptions log
+>
+>     Each module has its own assumptions log which you can find via the Documentation Overview section above.
+>
+>     You will need to fill out the following fields:
+>
+>     -   ID *- prefilled*
+>
+>     -   Assumption title *- same as reported in code*
+>
+>     -   Detailed description *- same as reported in code*
+>
+>     -   Reporter *- your name*
+>
+>     -   Script(s) *- which R script the assumption can be found in*
+>
+>     -   Line(s) in code *- which lines in the script are relevant*
+>
+>     -   RAG *- same as reported in code*
+>
+>     -   RAG explanation *- an explanation for why you gave the above RAG rating*
+>
+>     -   Links to supporting evidence *- any supporting evidence that you used in formulating this assumption, which should be stored in the corresponding 'Supporting Evidence' folder*
+>
 > INSERT ASSUMPTIONS CHANGE INSTRUCTIONS
 
 > <h4 id="how_to_data_input">
