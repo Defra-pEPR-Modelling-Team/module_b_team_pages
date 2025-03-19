@@ -185,7 +185,7 @@ The following sections explain how to do that:
 >
 > -   When numbers are published externally and the first number updated, dev should be merged into main
 >
-> #### How to run validation checks {#how_to_validate
+> #### How to run validation checks {#how_to_validate}
 > 
 > 1. Check the percentage difference between the outputs from the last tagged version of LAPCAP and the output of whatever changes you have made 
 >    Use the spreadsheet "[model_version] model output sensitivity testing.xlsx" on the Module B1 Sharepoint, within 00 Model Master > [model_version]
