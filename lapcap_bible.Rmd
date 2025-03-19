@@ -80,15 +80,15 @@ The below diagrams give an overview of the processes, with more detail included 
 
 Named individuals correct as of 3/2/2025
 
-# Coding Process Detail
+## Coding Process Detail
 
-## 1. Decide to change code
+### 1. Decide to change code
 
 The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs. They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this. They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
 
 An agile methodology using Jira is then used to plan out the delivery of these changes.
 
-## 2. Make changes to code
+### 2. Make changes to code
 
 Through R Studio and Github changes are made to the existing LAPCAP model. This will be achieved through standard Git practice, e.g. branching off from the dev branch. Instructions for how to do this can be found in the [new starter section](new_induction_stuff.html).
 
@@ -101,7 +101,7 @@ If the changes result in a functional change to the model, i.e. the changes will
 
 The following sections explain how to do that:
 
-> ### How to change an assumption {#how_to_assumption}
+> #### How to change an assumption {#how_to_assumption}
 >
 > 1.  Identify an assumption.
 >
@@ -161,7 +161,7 @@ The following sections explain how to do that:
 >
 >     -   Links to supporting evidence *- any supporting evidence that you used in formulating this assumption, which should be stored in the corresponding 'Supporting Evidence' folder*
 
-> ### How to change an data input {#how_to_data_input}
+> #### How to change an data input {#how_to_data_input}
 >
 > Data Pipeline
 >
@@ -185,11 +185,7 @@ The following sections explain how to do that:
 >
 > -   When numbers are published externally and the first number updated, dev should be merged into main
 >
-> <h4 id="how_to_validate">
->
-> <b>How to run validation checks</b>
->
-> </h4>
+> #### How to run validation checks {#how_to_validate
 > 
 > 1. Check the percentage difference between the outputs from the last tagged version of LAPCAP and the output of whatever changes you have made 
 >    Use the spreadsheet "[model_version] model output sensitivity testing.xlsx" on the Module B1 Sharepoint, within 00 Model Master > [model_version]
