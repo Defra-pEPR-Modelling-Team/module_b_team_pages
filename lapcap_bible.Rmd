@@ -55,11 +55,11 @@ The below diagrams give an overview of the processes, with more detail included 
 
 ### Coding Process
 
-INSERT PICTURE
+![](assets/bible_process_1.png)
 
 ### Signoff Process
 
-INSERT PICTURE
+![](assets/bible_process_2.png)
 
 ### Stakeholder Groups
 
