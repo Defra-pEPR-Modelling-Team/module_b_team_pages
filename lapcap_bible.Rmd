@@ -252,11 +252,9 @@ Locations for assumption log, data log or the technical document can be found in
 >
 > Here are the **step-by-step instructions** to submit a pull request:
 >
-> 1.  Follow the steps on the 'How to edit Github code' to make the changes for your ticket
+> 1.  Go to the relevant repo on Github and navigate to your branch
 >
->     Then go to the relevant repo on Github and navigate to your branch
->
->     Use either the branches drop down or click on '*x branches*' to go to the branches page and select your branch.
+>     a.  Use either the branches drop down or click on '*x branches*' to go to the branches page and select your branch.
 >
 >         ![](assets/branches_button.png)
 >
