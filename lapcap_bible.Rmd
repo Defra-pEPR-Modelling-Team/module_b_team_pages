@@ -5,7 +5,6 @@ output:
     toc: true
     toc_float:
       collapsed: false
-    toc_depth: 4
     css: notitle.css
 ---
 
@@ -52,8 +51,10 @@ Instead, a new “- IN PROGRESS” folder should be created, with below document
 This document is a plan of how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
 
 The below diagrams give an overview of the processes, with more detail included in later sections.
+
 ##
 ### Coding Process
+
 
 ![](assets/bible_process_1.png)
 
@@ -79,15 +80,15 @@ The below diagrams give an overview of the processes, with more detail included 
 
 Named individuals correct as of 3/2/2025
 
-## Coding Process Detail
+# Coding Process Detail
 
-### 1. Decide to change code
+## 1. Decide to change code
 
 The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs. They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this. They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
 
 An agile methodology using Jira is then used to plan out the delivery of these changes.
 
-### 2. Make changes to code
+## 2. Make changes to code
 
 Through R Studio and Github changes are made to the existing LAPCAP model. This will be achieved through standard Git practice, e.g. branching off from the dev branch. Instructions for how to do this can be found in the [new starter section](new_induction_stuff.html).
 
@@ -97,19 +98,70 @@ If the changes made involve adding, removing or changing an assumption, data imp
 
 If the changes result in a functional change to the model, i.e. the changes will effect model outputs, then valdation checks must be carried out.
 
-> <h4 id="how_to_assumption">
->
-> <b>How to change an assumption</b>
->
-> </h4>
->
-> INSERT ASSUMPTIONS CHANGE INSTRUCTIONS
 
-> <h4 id="how_to_data_input">
+The following sections explain how to do that:
+
+> ### How to change an assumption {#how_to_assumption}
 >
-> <b>How to change an data input</b>
+> 1.  Identify an assumption.
 >
-> </h4>
+>     We define assumptions as **"choices analysts make to correct for low quality or absent data or information, that knowingly introduce inaccuracy into our outputs."**
+>
+>     Questions to help you determine whether a section of code is an assumption could be:
+>
+>     -   Have you had to make a specific choice for how to model?
+>     -   Is your choice a simplification of reality?
+>     -   Theoretically were there other choices you could have made?
+>     -   Would changing your choice affect the final number?
+>
+>     ADD EXAMPLES?
+>
+>     NOT DATA INPUTS - COVERED BY DATA LOGS
+>
+>     NOT PROCEDURAL CHOICES (E.G. WHICH DPLYR FUNCTION TO USE) OR SUPER OBVIOUS STUFF THAT WOULD BE COVERED BY THE TECHNICAL DOC (E.G. WHAT COLUMNS OF A DATASET TO USE)
+>
+> 2.  Record your assumption in-code
+>
+>     Paste the following code snippet below the relevant portion of code and edit to reflect the above.
+>
+>     ```{r}
+>         # Assumption: Title of assumption
+>         # RAG: RED 
+>         # Detailed description 
+>         # on next line or many. 
+>     ```
+>
+>     The title of the assumption should be short, clear and unique to this assumption.
+>
+>     The RAG rating is a red, amber or green rating summarising both the quality (e.g. how confident we are) and impact (e.g. how much model outputs are likely to be affected) of the assumption.
+>
+>     The detail description should give all information needed for someone to understand the assumption, including why an assumption is needed, why you have made the choice and more.
+>
+> 3.  Record your assumption in the relevant assumptions log
+>
+>     Each module has its own assumptions log which you can find via the Documentation Overview section above.
+>
+>     You will need to fill out the following fields:
+>
+>     -   ID *- prefilled*
+>
+>     -   Assumption title *- same as reported in code*
+>
+>     -   Detailed description *- same as reported in code*
+>
+>     -   Reporter *- your name*
+>
+>     -   Script(s) *- which R script the assumption can be found in*
+>
+>     -   Line(s) in code *- which lines in the script are relevant*
+>
+>     -   RAG *- same as reported in code*
+>
+>     -   RAG explanation *- an explanation for why you gave the above RAG rating*
+>
+>     -   Links to supporting evidence *- any supporting evidence that you used in formulating this assumption, which should be stored in the corresponding 'Supporting Evidence' folder*
+
+> ### How to change an data input {#how_to_data_input}
 >
 > Data Pipeline
 >
@@ -256,22 +308,38 @@ Locations for assumption log, data log or the technical document can be found in
 > 4.  Then you can click '*Create pull request*'.
 >
 >     a.  Once you have created the pull request you should move the ticket to 'For Review' on Jira.
->
-> 5.  Your reviewer will then inspect your code and may ask you some questions or suggest some changes. Once you have responded to these they will approve your pull request and you can merge your changes!
->
->     ![](assets/approved.png)
->
->     a.  You will also need to check there are no 'merge conflicts'. This is where someone has changed the same files as you and so you need to agree with that person what are the correct changes and modify accordingly, Github will read '*Able to merge*' indicating there are no conflicts.
->
->     ![](assets/ready_to_merge.png)
 
-### 3. Verify the changes
+## 3. Verify the changes
 
 Once assigned a review the team member must complete the full checklist provided by the principle analyst. It is also the QAers must also review the list critically and ensure that it is both appropriate and sufficient. If the QAer feels otherwise they must raise this with in the first instance the principle analyst and then failing this the model owner.
 
-You should use the checklist below to ensure you carry out all necessary checks:
+You should use the checklist below, which is also included in the pull request template, to ensure you carry out all necessary checks:
 
-INSERT NEW PR CHECKLIST
+> 🌛 **Checker QA checklist**
+>
+> Before approving a pull request the reviewer **must** have completed the below checks: In addition to the above, the following is a checklist for the reviewer to use:
+>
+> -   [ ] The "do-er" checklist has been completed to an appropriate standard, fields above the checklist have been appropriately completed
+>
+> -   [ ] Code meets the requirements set out in the Jira ticket
+>
+> -   [ ] All functions have roxygen headers with @description, @param and @return fields, and comments in code are appropriate and sufficient
+>
+> -   [ ] The code runs when using an empty R environment, without error
+>
+> -   [ ] Code follows the [tidyverse](https://style.tidyverse.org/) and [FPC style guide](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html).
+>
+> -   [ ] No future risks have introduced by this change e.g. hardcoded values that may change in the future, or if they have they are adequately signposted and justified
+>
+> -   [ ] Code cannot be simplified significantly, there is no redundancy in code and no changes to model structure and dependant functions are needed, given the changes.
+>
+> -   [ ] There are no further improvements that can be made to the code
+>
+> -   [ ] Any additional QA checks appropriate to, and sufficient for, the changes have been performed
+>
+> -   [ ] When submitting the final review, a comment has been left that summarises the QA checks that have been performed and the outcomes
+
+Also you should carry out any additional checks required, which have been added to the Checker Checklist by the doer.
 
 Reviewers should trace the full logic of the code, both by reading through it and by running it and spot-checking intermediate data frames. They should inspect any relevant data imports both in R Studio and directly from their original source. They should examine model outputs before and after the changes to ensure they make sense. They should make sure they are able to replicate any processes or calculations in the code.
 
@@ -279,11 +347,9 @@ Reviewers should leave comments via GitHub, to ensure a record of verification a
 
 These reviews may go through one or more cycles of requesting changes, in order for the reviewer to be happy. GitHub has functionality to enable this.
 
-> <h4 id="how_to_code_review">
->
-> <b>How to do a code review</b>
->
-> </h4>
+The following explains the practical steps followed in when reviewing code:
+
+> ### How to do a code review {#how_to_code_review}
 >
 > This [Github code review tutorial](https://www.youtube.com/watch?v=lSnbOtw4izI) shows you how to review a pull request, or you can follow the steps below.
 >
@@ -303,7 +369,7 @@ These reviews may go through one or more cycles of requesting changes, in order 
 >
 >     ![](assets/finish_review.png){width="311" height="222"}
 
-### 4. Merge changes into dev branch
+## 4. Merge changes into dev branch
 
 Before merging, the modelling team member should run the model. They should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this ensures we are able to explain any changes in outputs from one publication to another.
 
@@ -311,11 +377,21 @@ TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)
 
 Once approved, changes should be merged into the dev branch. This may require resolving merge conflicts.
 
-## Signoff Process Detail
+> #### How to merge
+>
+> 1.  Once your reviewer has inspected your code they may ask you some questions or suggest some changes. Once you have responded to these they will approve your pull request and you can merge your changes! This will look like:
+>
+>     ![](assets/approved.png)
+>
+> 2.  You will need to check there are no 'merge conflicts'. This is where someone has changed the same files as you and so you need to agree with that person what are the correct changes and modify accordingly, Github will read '*Able to merge*' indicating there are no conflicts.
+>
+>     ![](assets/ready_to_merge.png)
+
+# Signoff Process Detail
 
 SIGNOFF LOG?
 
-### 1. Model development complete
+## 1. Model development complete
 
 Once all changes required for a publication or sharing of the model are complete, the team will undertake the following steps.
 
@@ -323,7 +399,7 @@ Multiple pull requests will have been merged into dev (e.g. the above coding pro
 
 There are some circumstances where the full signoff may not be required for instance, sharing the model internally, this is left to the judgment of the model owner.
 
-### 2. Model owner signoff
+## 2. Model owner signoff
 
 The model owner should sign off on the following documents, which should have been updated:
 
@@ -343,7 +419,7 @@ The model owner does not necessarily have to review all of these themselves; the
 
 The model owner’s signoff for that model version should be stored in SIGNOFF LOG (EMAIL EVIDENCE).
 
-### 3. SRO signoff
+## 3. SRO signoff
 
 Project board, acting on behalf of the model SROs, should signoff the model version for publication.
 
@@ -355,7 +431,7 @@ There may be an additional stage of parameter setting, at this point in the appr
 
 The project board signoff for that model version should be stored in SIGNOFF LOG (MEETING MINUTES AS EVIDENCE?).
 
-### 4. Share or publish outputs
+## 4. Share or publish outputs
 
 Merge into main
 

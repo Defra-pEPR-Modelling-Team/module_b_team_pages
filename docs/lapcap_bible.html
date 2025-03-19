@@ -539,16 +539,16 @@ governance structure and decision-making process supporting the
 model.</p>
 <p>The below diagrams give an overview of the processes, with more
 detail included in later sections.</p>
-<div id="coding-process" class="section level3">
-<h3>Coding Process</h3>
+<div id="coding-process" class="section level2">
+<h2>Coding Process</h2>
 <p><img src="assets/bible_process_1.png" /></p>
 </div>
-<div id="signoff-process" class="section level3">
-<h3>Signoff Process</h3>
+<div id="signoff-process" class="section level2">
+<h2>Signoff Process</h2>
 <p><img src="assets/bible_process_2.png" /></p>
 </div>
-<div id="stakeholder-groups" class="section level3">
-<h3>Stakeholder Groups</h3>
+<div id="stakeholder-groups" class="section level2">
+<h2>Stakeholder Groups</h2>
 <ul>
 <li>Senior Responsible Officers (SROs)
 <ul>
@@ -584,10 +584,11 @@ profession, ensuring necessary modelling skills.</li>
 </ul>
 <p>Named individuals correct as of 3/2/2025</p>
 </div>
-<div id="coding-process-detail" class="section level2">
-<h2>Coding Process Detail</h2>
-<div id="decide-to-change-code" class="section level3">
-<h3>1. Decide to change code</h3>
+</div>
+<div id="coding-process-detail" class="section level1">
+<h1>Coding Process Detail</h1>
+<div id="decide-to-change-code" class="section level2">
+<h2>1. Decide to change code</h2>
 <p>The modelling team, led by G7s, will identify the most important
 changes needed ahead of the next release of modelling outputs. They may
 choose to make use of the Analytical Board, TWG or Sounding Board in
@@ -597,8 +598,8 @@ ensure planned changes are expected.</p>
 <p>An agile methodology using Jira is then used to plan out the delivery
 of these changes.</p>
 </div>
-<div id="make-changes-to-code" class="section level3">
-<h3>2. Make changes to code</h3>
+<div id="make-changes-to-code" class="section level2">
+<h2>2. Make changes to code</h2>
 <p>Through R Studio and Github changes are made to the existing LAPCAP
 model. This will be achieved through standard Git practice,
 e.g. branching off from the dev branch. Instructions for how to do this
@@ -608,18 +609,69 @@ section</a>.</p>
 ticket.</p>
 <p>If the changes made involve adding, removing or changing an
 assumption, data import or code logic, then the modelling team member
-must update the relevant assumption log, data log (?) or the technical
-document, code comments and roxygen headers.</p>
+must update the relevant assumption log, data log or the technical
+document, code comments and roxygen headers, as well as including or
+updating unit tests.</p>
+<p>The following sections explain how to do that:</p>
 <blockquote>
-<h4 id="how_to_assumption">
-<p><b>How to change an assumption</b></p>
-</h4>
-<p>INSERT ASSUMPTIONS CHANGE INSTRUCTIONS</p>
+<h3 id="how_to_assumption">How to change an assumption</h3>
+<ol style="list-style-type: decimal">
+<li><p>Identify an assumption.</p>
+<p>We define assumptions as <strong>“choices analysts make to correct
+for low quality or absent data or information, that knowingly introduce
+inaccuracy into our outputs.”</strong></p>
+<p>Questions to help you determine whether a section of code is an
+assumption could be:</p>
+<ul>
+<li>Have you had to make a specific choice for how to model?</li>
+<li>Is your choice a simplification of reality?</li>
+<li>Theoretically were there other choices you could have made?</li>
+<li>Would changing your choice affect the final number?</li>
+</ul>
+<p>ADD EXAMPLES?</p>
+<p>NOT DATA INPUTS - COVERED BY DATA LOGS</p>
+<p>NOT PROCEDURAL CHOICES (E.G. WHICH DPLYR FUNCTION TO USE) OR SUPER
+OBVIOUS STUFF THAT WOULD BE COVERED BY THE TECHNICAL DOC (E.G. WHAT
+COLUMNS OF A DATASET TO USE)</p></li>
+<li><p>Record your assumption in-code</p>
+<p>Paste the following code snippet below the relevant portion of code
+and edit to reflect the above.</p>
+<pre class="r"><code>    # Assumption: Title of assumption
+    # RAG: RED 
+    # Detailed description 
+    # on next line or many. </code></pre>
+<p>The title of the assumption should be short, clear and unique to this
+assumption.</p>
+<p>The RAG rating is a red, amber or green rating summarising both the
+quality (e.g. how confident we are) and impact (e.g. how much model
+outputs are likely to be affected) of the assumption.</p>
+<p>The detail description should give all information needed for someone
+to understand the assumption, including why an assumption is needed, why
+you have made the choice and more.</p></li>
+<li><p>Record your assumption in the relevant assumptions log</p>
+<p>Each module has its own assumptions log which you can find via the
+Documentation Overview section above.</p>
+<p>You will need to fill out the following fields:</p>
+<ul>
+<li><p>ID <em>- prefilled</em></p></li>
+<li><p>Assumption title <em>- same as reported in code</em></p></li>
+<li><p>Detailed description <em>- same as reported in code</em></p></li>
+<li><p>Reporter <em>- your name</em></p></li>
+<li><p>Script(s) <em>- which R script the assumption can be found
+in</em></p></li>
+<li><p>Line(s) in code <em>- which lines in the script are
+relevant</em></p></li>
+<li><p>RAG <em>- same as reported in code</em></p></li>
+<li><p>RAG explanation <em>- an explanation for why you gave the above
+RAG rating</em></p></li>
+<li><p>Links to supporting evidence <em>- any supporting evidence that
+you used in formulating this assumption, which should be stored in the
+corresponding ‘Supporting Evidence’ folder</em></p></li>
+</ul></li>
+</ol>
 </blockquote>
 <blockquote>
-<h4 id="how_to_data_input">
-<p><b>How to change an data input</b></p>
-</h4>
+<h3 id="how_to_data_input">How to change an data input</h3>
 <p>Data Pipeline</p>
 <ul>
 <li><p>The data pipeline should be run to update the data folder prior
@@ -650,9 +702,7 @@ updated, dev should be merged into main</p></li>
 </ul>
 </blockquote>
 <blockquote>
-<h4 id="how_to_unit_test">
-<p><b>How to write a unit test</b></p>
-</h4>
+<h3 id="how_to_unit_test">How to write a unit test</h3>
 <p>INSERT UNIT TEST INSTRUCTIONS</p>
 </blockquote>
 <p>Locations for assumption log, data log or the technical document can
@@ -728,44 +778,10 @@ raised with a Grade 7 or above.</label></p></li>
 required, these have been added to the Checker Checklist below, with
 detailed instructions as to how to run the checks</label></p></li>
 </ul>
-<p>🌛 <strong>Checker QA checklist</strong></p>
-<p>Before approving a pull request the reviewer <strong>must</strong>
-have completed the below checks: In addition to the above, the following
-is a checklist for the reviewer to use:</p>
-<ul class="task-list">
-<li><p><label><input type="checkbox" />The “do-er” checklist has been
-completed to an appropriate standard, fields above the checklist have
-been appropriately completed</label></p></li>
-<li><p><label><input type="checkbox" />Code meets the requirements set
-out in the Jira ticket</label></p></li>
-<li><p><label><input type="checkbox" />All functions have roxygen
-headers with <span class="citation">@description</span>, <span
-class="citation">@param</span> and <span class="citation">@return</span>
-fields, and comments in code are appropriate and
-sufficient</label></p></li>
-<li><p><label><input type="checkbox" />The code runs when using an empty
-R environment, without error</label></p></li>
-<li><p><label><input type="checkbox" />Code follows the <a
-href="https://style.tidyverse.org/">tidyverse</a> and <a
-href="https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html">FPC
-style guide</a>.</label></p></li>
-<li><p><label><input type="checkbox" />No future risks have introduced
-by this change e.g. hardcoded values that may change in the future, or
-if they have they are adequately signposted and
-justified</label></p></li>
-<li><p><label><input type="checkbox" />Code cannot be simplified
-significantly, there is no redundancy in code and no changes to model
-structure and dependant functions are needed, given the
-changes.</label></p></li>
-<li><p><label><input type="checkbox" />There are no further improvements
-that can be made to the code</label></p></li>
-<li><p><label><input type="checkbox" />Any additional QA checks
-appropriate to, and sufficient for, the changes have been
-performed</label></p></li>
-<li><p><label><input type="checkbox" />When submitting the final review,
-a comment has been left that summarises the QA checks that have been
-performed and the outcomes</label></p></li>
-</ul>
+</blockquote>
+<p>As mentioned in the final bullet you should also review the following
+additional checks and add to the Checker Checklist.</p>
+<blockquote>
 <p><strong>Additional checks</strong></p>
 <p>The below is a list of QA checks that you may want to perform in
 addition to the above. Note that this lists is <strong>not
@@ -793,10 +809,10 @@ upon a particular data source, does the model respond as expected to
 extreme values, negatives, zeroes, NAs etc? Is it possible to break the
 model with the data or generate impossible results?</p>
 </blockquote>
+<p>The following explains the practicalities of making a pull
+request:</p>
 <blockquote>
-<h4 id="how_to_pull_request">
-<p><b>How to make a pull request</b></p>
-</h4>
+<h3 id="how_to_pull_request">How to make a pull request</h3>
 <p>Here are the <strong>step-by-step instructions</strong> to submit a
 pull request:</p>
 <ol style="list-style-type: decimal">
@@ -847,17 +863,58 @@ conflicts.</li>
 </ol>
 </blockquote>
 </div>
-<div id="verify-the-changes" class="section level3">
-<h3>3. Verify the changes</h3>
+<div id="verify-the-changes" class="section level2">
+<h2>3. Verify the changes</h2>
 <p>Once assigned a review the team member must complete the full
 checklist provided by the principle analyst. It is also the QAers must
 also review the list critically and ensure that it is both appropriate
 and sufficient. If the QAer feels otherwise they must raise this with in
 the first instance the principle analyst and then failing this the model
 owner.</p>
-<p>You should use the checklist below to ensure you carry out all
-necessary checks:</p>
-<p>INSERT NEW PR CHECKLIST</p>
+<p>You should use the checklist below, which is also included in the
+pull request template, to ensure you carry out all necessary checks:</p>
+<blockquote>
+<p>🌛 <strong>Checker QA checklist</strong></p>
+<p>Before approving a pull request the reviewer <strong>must</strong>
+have completed the below checks: In addition to the above, the following
+is a checklist for the reviewer to use:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" />The “do-er” checklist has been
+completed to an appropriate standard, fields above the checklist have
+been appropriately completed</label></p></li>
+<li><p><label><input type="checkbox" />Code meets the requirements set
+out in the Jira ticket</label></p></li>
+<li><p><label><input type="checkbox" />All functions have roxygen
+headers with <span class="citation">@description</span>, <span
+class="citation">@param</span> and <span class="citation">@return</span>
+fields, and comments in code are appropriate and
+sufficient</label></p></li>
+<li><p><label><input type="checkbox" />The code runs when using an empty
+R environment, without error</label></p></li>
+<li><p><label><input type="checkbox" />Code follows the <a
+href="https://style.tidyverse.org/">tidyverse</a> and <a
+href="https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html">FPC
+style guide</a>.</label></p></li>
+<li><p><label><input type="checkbox" />No future risks have introduced
+by this change e.g. hardcoded values that may change in the future, or
+if they have they are adequately signposted and
+justified</label></p></li>
+<li><p><label><input type="checkbox" />Code cannot be simplified
+significantly, there is no redundancy in code and no changes to model
+structure and dependant functions are needed, given the
+changes.</label></p></li>
+<li><p><label><input type="checkbox" />There are no further improvements
+that can be made to the code</label></p></li>
+<li><p><label><input type="checkbox" />Any additional QA checks
+appropriate to, and sufficient for, the changes have been
+performed</label></p></li>
+<li><p><label><input type="checkbox" />When submitting the final review,
+a comment has been left that summarises the QA checks that have been
+performed and the outcomes</label></p></li>
+</ul>
+</blockquote>
+<p>Also you should carry out any additional checks required, which have
+been added to the Checker Checklist by the doer.</p>
 <p>Reviewers should trace the full logic of the code, both by reading
 through it and by running it and spot-checking intermediate data frames.
 They should inspect any relevant data imports both in R Studio and
@@ -873,10 +930,10 @@ into one review.</p>
 <p>These reviews may go through one or more cycles of requesting
 changes, in order for the reviewer to be happy. GitHub has functionality
 to enable this.</p>
+<p>The following explains the practical steps followed in when reviewing
+code:</p>
 <blockquote>
-<h4 id="how_to_code_review">
-<p><b>How to do a code review</b></p>
-</h4>
+<h3 id="how_to_code_review">How to do a code review</h3>
 <p>This <a href="https://www.youtube.com/watch?v=lSnbOtw4izI">Github
 code review tutorial</a> shows you how to review a pull request, or you
 can follow the steps below.</p>
@@ -909,8 +966,8 @@ height="222" /></p></li>
 </ol>
 </blockquote>
 </div>
-<div id="merge-changes-into-dev-branch" class="section level3">
-<h3>4. Merge changes into dev branch</h3>
+<div id="merge-changes-into-dev-branch" class="section level2">
+<h2>4. Merge changes into dev branch</h2>
 <p>Before merging, the modelling team member should run the model. They
 should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this
 ensures we are able to explain any changes in outputs from one
@@ -920,11 +977,11 @@ publication to another.</p>
 require resolving merge conflicts.</p>
 </div>
 </div>
-<div id="signoff-process-detail" class="section level2">
-<h2>Signoff Process Detail</h2>
+<div id="signoff-process-detail" class="section level1">
+<h1>Signoff Process Detail</h1>
 <p>SIGNOFF LOG?</p>
-<div id="model-development-complete" class="section level3">
-<h3>1. Model development complete</h3>
+<div id="model-development-complete" class="section level2">
+<h2>1. Model development complete</h2>
 <p>Once all changes required for a publication or sharing of the model
 are complete, the team will undertake the following steps.</p>
 <p>Multiple pull requests will have been merged into dev (e.g. the above
@@ -934,8 +991,8 @@ all receive signoff together.</p>
 required for instance, sharing the model internally, this is left to the
 judgment of the model owner.</p>
 </div>
-<div id="model-owner-signoff" class="section level3">
-<h3>2. Model owner signoff</h3>
+<div id="model-owner-signoff" class="section level2">
+<h2>2. Model owner signoff</h2>
 <p>The model owner should sign off on the following documents, which
 should have been updated:</p>
 <p>VALIDATION STUFF (PROCESS TBD)</p>
@@ -950,8 +1007,8 @@ instance, in the past TWG have assured on assumptions logs.</p>
 <p>The model owner’s signoff for that model version should be stored in
 SIGNOFF LOG (EMAIL EVIDENCE).</p>
 </div>
-<div id="sro-signoff" class="section level3">
-<h3>3. SRO signoff</h3>
+<div id="sro-signoff" class="section level2">
+<h2>3. SRO signoff</h2>
 <p>Project board, acting on behalf of the model SROs, should signoff the
 model version for publication.</p>
 <p>It is unlikely that members of project board will review any of the
@@ -968,11 +1025,10 @@ year of EPR.</p>
 <p>The project board signoff for that model version should be stored in
 SIGNOFF LOG (MEETING MINUTES AS EVIDENCE?).</p>
 </div>
-<div id="share-or-publish-outputs" class="section level3">
-<h3>4. Share or publish outputs</h3>
+<div id="share-or-publish-outputs" class="section level2">
+<h2>4. Share or publish outputs</h2>
 <p>Merge into main</p>
 <p>Save copy of everything in model master folder</p>
-</div>
 </div>
 </div>
 
@@ -1025,7 +1081,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3,h4",
+      selectors: "h1,h2,h3",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
