@@ -52,7 +52,7 @@ Instead, a new “- IN PROGRESS” folder should be created, with below document
 This document is a plan of how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
 
 The below diagrams give an overview of the processes, with more detail included in later sections.
-
+##
 ### Coding Process
 
 ![](assets/bible_process_1.png)
@@ -93,7 +93,9 @@ Through R Studio and Github changes are made to the existing LAPCAP model. This 
 
 The changes required should be clearly laid out in the relevant Jira ticket.
 
-If the changes made involve adding, removing or changing an assumption, data import or code logic, then the modelling team member must update the relevant assumption log, data log (?) or the technical document, code comments and roxygen headers.
+If the changes made involve adding, removing or changing an assumption, data import or code logic, then the modelling team member must update the relevant assumption log, data log and/or the technical document, code comments and roxygen headers.
+
+If the changes result in a functional change to the model, i.e. the changes will effect model outputs, then valdation checks must be carried out.
 
 > <h4 id="how_to_assumption">
 >
@@ -130,7 +132,23 @@ If the changes made involve adding, removing or changing an assumption, data imp
 > -   These versions should be tagged on dev on github to allow easy rollback to model versions
 >
 > -   When numbers are published externally and the first number updated, dev should be merged into main
-
+>
+> <h4 id="how_to_validate">
+>
+> <b>How to run validation checks</b>
+>
+> </h4>
+> 
+> 1. Check the percentage difference between the outputs from the last tagged version of LAPCAP and the output of whatever changes you have made 
+>    Use the spreadsheet "[model_version] model output sensitivity testing.xlsx" on the Module B1 Sharepoint, within 00 Model Master > [model_version]
+>    Follow the instructions in the first sheet.
+>    The spreadsheet automatically highlights any percentage changes above the acceptable threshold. If values become highlighted, make sure to check with a Grade 7 whether the need for the change justifies the change in outputs.
+>
+> 2. Generate and inspect the Critical Success Factors (CSF) markdown to ensure the change hasn't violated any of the success factors
+>    Use the function generate_validation_markdowns() in documents in the LAPCAP repo to generate the markdown, following the instructions in the function's roxygen header
+>    Inspect the output, ensuring that each CSF is still being met. If you have any concerns, raise them with a G7 or above. 
+>    Download a version of the output so you can link it in the pull request template later.
+>
 > <h4 id="how_to_unit_test">
 >
 > <b>How to write a unit test</b>
@@ -141,106 +159,20 @@ If the changes made involve adding, removing or changing an assumption, data imp
 
 Locations for assumption log, data log or the technical document can be found in 01 Documentation Overview.docx, and each includes instructions for how to use it.
 
-Once complete the modelling team member should make a pull request and request a review from another member of the team. The below template should be filled out when making a pull request:
-
-> Replace this gif with one that describes how you felt about completing this ticket:
->
-> <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHB0bHQ4dzQ4anN5b3JoaDIyb2twOXh4Y3U5YWY1NHB6c3dreWdvNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gOfSjdLRr6SlvGQTe3/giphy.gif" height="150"/>
->
-> ✔️ **QA checklists**
->
-> 📝 **Description of changes made:**
->
-> 🎟️ **Link to Jira ticket:**
->
-> 🤔 **Link to QA log (assumptions or data log), if changed:**
->
-> 💾 **If appropriate, link to CSF markdown:**
->
-> 📈 **If appropriate, link to output percentage change spreadsheet:**
->
-> |                                 | \% change in EPR Total Net Cost |
-> |---------------------------------|---------------------------------|
-> | **Mean absolute change per LA** |                                 |
-> | **Overall**                     |                                 |
-> | **England**                     |                                 |
-> | **Scotland**                    |                                 |
-> | **Wales**                       |                                 |
-> | **NI**                          |                                 |
->
-> 🌜 **Do-er QA checklist**
->
-> -   [ ] Before submitting a pull request the principle analyst **must** have completed the below checks.
->
-> -   [ ] Assumptions log has been updated with any new or changed assumptions, including appropriate rationale and/or evidence
->
-> -   [ ] Data log has been updated with any new or changed data
->
-> -   [ ] If functional changes have been made to code, the CSF markdown has been generated and inspected, and there are no issues highlighted in visualisations
->
-> -   [ ] If functional changes have been made to code, the percentage change in model outputs has been calculated and reported above, if the change is above threshold, this has been raised with a Grade 7 or above.
->
-> -   [ ] If additional checks are required, these have been added to the Checker Checklist below, with detailed instructions as to how to run the checks
->
-> 🌛 **Checker QA checklist**
->
-> Before approving a pull request the reviewer **must** have completed the below checks: In addition to the above, the following is a checklist for the reviewer to use:
->
-> -   [ ] The "do-er" checklist has been completed to an appropriate standard, fields above the checklist have been appropriately completed
->
-> -   [ ] Code meets the requirements set out in the Jira ticket
->
-> -   [ ] All functions have roxygen headers with @description, @param and @return fields, and comments in code are appropriate and sufficient
->
-> -   [ ] The code runs when using an empty R environment, without error
->
-> -   [ ] Code follows the [tidyverse](https://style.tidyverse.org/) and [FPC style guide](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html).
->
-> -   [ ] No future risks have introduced by this change e.g. hardcoded values that may change in the future, or if they have they are adequately signposted and justified
->
-> -   [ ] Code cannot be simplified significantly, there is no redundancy in code and no changes to model structure and dependant functions are needed, given the changes.
->
-> -   [ ] There are no further improvements that can be made to the code
->
-> -   [ ] Any additional QA checks appropriate to, and sufficient for, the changes have been performed
->
-> -   [ ] When submitting the final review, a comment has been left that summarises the QA checks that have been performed and the outcomes
->
-> **Additional checks**
->
-> The below is a list of QA checks that you may want to perform in addition to the above. Note that this lists is **not exhaustive** and it is the responsibility of the principle analyst (do-er) and the QAer (checker) to ensure all items that need to be checked have been:
->
-> 1\. Check that the calculations done are fit for purpose and are correct
->
-> 2\. Check that uncertainty has been considered and appropriately accounted for (e.g. has sensitivity analysis been performed)
->
-> 3\. Check that the data used is fit for purpose and the best option available to us
->
-> 4\. Check that other appropriate documentation has been completed or updated to an appropriate standard e.g. the technical document
->
-> 5\. Is the data being correctly pulled into the model?
->
-> 6\. Is the data being properly cleaned and manipulated (either before the model or during the code)?
->
-> 7\. Has the data been verified and validated? Has it been checked for potential errors? And has it been confirmed that the data appropriate to use in the first place? Is it the best possible option?
->
-> 8\. Are there other results other than the outputs of the last model that the results need to be compared to?
->
-> 9\. In cases where new data is added, or a change is heavily dependent upon a particular data source, does the model respond as expected to extreme values, negatives, zeroes, NAs etc? Is it possible to break the model with the data or generate impossible results?
-
 > <h4 id="how_to_pull_request">
 >
 > <b>How to make a pull request</b>
 >
 > </h4>
+> Once the modelling team member has completed their changes, they should make a pull request and request a review from another member of the team. 
 >
 > Here are the **step-by-step instructions** to submit a pull request:
 >
 > 1.  Follow the steps on the 'How to edit Github code' to make the changes for your ticket
 >
->     1.  Then go to the relevant repo on Github and navigate to your branch
+>     Then go to the relevant repo on Github and navigate to your branch
 >
->         a.  Use either the branches drop down or click on '*x branches*' to go to the branches page and select your branch.
+>     Use either the branches drop down or click on '*x branches*' to go to the branches page and select your branch.
 >
 >         ![](assets/branches_button.png)
 >
@@ -253,6 +185,67 @@ Once complete the modelling team member should make a pull request and request a
 >     a.  Make sure you are merging to the correct branch, this will usually be *dev* (for code in development) or sometimes *main* if it has been fully quality assured.
 >
 >         ![](assets/merge_to_dev.png)
+>
+>     b.  Fill out the pull request template (following carrying out validation checks, see below), including adding any additional QA checks to the list.
+>           Replace this gif with one that describes how you felt about completing this ticket:
+>
+>           <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHB0bHQ4dzQ4anN5b3JoaDIyb2twOXh4Y3U5YWY1NHB6c3dreWdvNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gOfSjdLRr6SlvGQTe3/giphy.gif" height="150"/>
+>
+>           ✔️ **QA checklists**
+>
+>           📝 **Description of changes made:**
+>
+>           🎟️ **Link to Jira ticket:**
+>
+>           🤔 **Link to QA log (assumptions or data log), if changed:**
+>
+>           💾 **If appropriate, link to CSF markdown:**
+>
+>           📈 **If appropriate, link to output percentage change spreadsheet:**
+>
+>           |                                 | \% change in EPR Total Net Cost |
+>           |---------------------------------|---------------------------------|
+>           | **Mean absolute change per LA** |                                 |
+>           | **Overall**                     |                                 |
+>           | **England**                     |                                 |
+>           | **Scotland**                    |                                 |
+>           | **Wales**                       |                                 |
+>           | **NI**                          |                                 |
+>
+>           🌜 **Do-er QA checklist**
+>
+>            Before submitting a pull request the principle analyst **must** have completed the below checks.
+>            - [ ] Assumptions log has been updated with any new or changed assumptions, including appropriate rationale and/or evidence
+>            - [ ] Data log has been updated with any new or changed data
+>            - [ ] If functional changes have been made to code, the CSF markdown has been generated and inspected, and there are no issues highlighted in visualisations
+>            - [ ] If functional changes have been made to code, the percentage change in model outputs has been calculated and reported above, if the change is above threshold, this has been raised with a Grade 7 or    above.
+>            - [ ] If additional checks are required, these have been added to the Checker Checklist below, with detailed instructions as to how to run the checks
+>
+>           🌛 **Checker QA checklist**
+>
+>           Before approving a pull request the reviewer **must** have completed the below checks: In addition to the above, the following is a checklist for the reviewer to use:
+>           - [ ] The "do-er" checklist has been completed to an appropriate standard, fields above the checklist have been appropriately completed
+>           - [ ] Code meets the requirements set out in the Jira ticket
+>           - [ ] All functions have roxygen headers with @description, @param and @return fields, and comments in code are appropriate and sufficient
+>           - [ ] The code runs when using an empty R environment, without error
+>           - [ ] Code follows the [tidyverse](https://style.tidyverse.org/) and [FPC style guide](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html).
+>           - [ ] No future risks have introduced by this change e.g. hardcoded values that may change in the future, or if they have they are adequately signposted and justified
+>           - [ ] Code cannot be simplified significantly, there is no redundancy in code and no changes to model structure and dependant functions are needed, given the changes.
+>           - [ ] There are no further improvements that can be made to the code
+>           - [ ] Any additional QA checks appropriate to, and sufficient for, the changes have been performed
+>           - [ ] When submitting the final review, a comment has been left that summarises the QA checks that have been performed and the outcomes
+>
+>           **Additional checks**
+>           The below is a list of QA checks that you may want to perform in addition to the above. Note that this lists is **not exhaustive** and it is the responsibility of the principle analyst (do-er) and the QAer (checker) to ensure all items that need to be checked have been:
+>           1\. Check that the calculations done are fit for purpose and are correct
+>           2\. Check that uncertainty has been considered and appropriately accounted for (e.g. has sensitivity analysis been performed)
+>           3\. Check that the data used is fit for purpose and the best option available to us
+>           4\. Check that other appropriate documentation has been completed or updated to an appropriate standard e.g. the technical document
+>           5\. Is the data being correctly pulled into the model?
+>           6\. Is the data being properly cleaned and manipulated (either before the model or during the code)?
+>           7\. Has the data been verified and validated? Has it been checked for potential errors? And has it been confirmed that the data appropriate to use in the first place? Is it the best possible option?
+>           8\. Are there other results other than the outputs of the last model that the results need to be compared to?
+>           9\. In cases where new data is added, or a change is heavily dependent upon a particular data source, does the model respond as expected to extreme values, negatives, zeroes, NAs etc? Is it possible to break the model with the data or generate impossible results?
 >
 >     b.  Click '*Reviewer*' and select the person who has agreed to review your code.
 >
