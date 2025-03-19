@@ -661,7 +661,138 @@ instructions for how to use it.</p>
 <p>Once complete the modelling team member should make a pull request
 and request a review from another member of the team. The below template
 should be filled out when making a pull request:</p>
-<p>INSERT NEW PULL REQUEST TEMPLATE</p>
+<blockquote>
+<p>Replace this gif with one that describes how you felt about
+completing this ticket:</p>
+<p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHB0bHQ4dzQ4anN5b3JoaDIyb2twOXh4Y3U5YWY1NHB6c3dreWdvNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gOfSjdLRr6SlvGQTe3/giphy.gif" height="150"/></p>
+<p>✔️ <strong>QA checklists</strong></p>
+<p>📝 <strong>Description of changes made:</strong></p>
+<p>🎟️ <strong>Link to Jira ticket:</strong></p>
+<p>🤔 <strong>Link to QA log (assumptions or data log), if
+changed:</strong></p>
+<p>💾 <strong>If appropriate, link to CSF markdown:</strong></p>
+<p>📈 <strong>If appropriate, link to output percentage change
+spreadsheet:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>% change in EPR Total Net Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Mean absolute change per LA</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Overall</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>England</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Scotland</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Wales</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>NI</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>🌜 <strong>Do-er QA checklist</strong></p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" />Before submitting a pull request
+the principle analyst <strong>must</strong> have completed the below
+checks.</label></p></li>
+<li><p><label><input type="checkbox" />Assumptions log has been updated
+with any new or changed assumptions, including appropriate rationale
+and/or evidence</label></p></li>
+<li><p><label><input type="checkbox" />Data log has been updated with
+any new or changed data</label></p></li>
+<li><p><label><input type="checkbox" />If functional changes have been
+made to code, the CSF markdown has been generated and inspected, and
+there are no issues highlighted in visualisations</label></p></li>
+<li><p><label><input type="checkbox" />If functional changes have been
+made to code, the percentage change in model outputs has been calculated
+and reported above, if the change is above threshold, this has been
+raised with a Grade 7 or above.</label></p></li>
+<li><p><label><input type="checkbox" />If additional checks are
+required, these have been added to the Checker Checklist below, with
+detailed instructions as to how to run the checks</label></p></li>
+</ul>
+<p>🌛 <strong>Checker QA checklist</strong></p>
+<p>Before approving a pull request the reviewer <strong>must</strong>
+have completed the below checks: In addition to the above, the following
+is a checklist for the reviewer to use:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" />The “do-er” checklist has been
+completed to an appropriate standard, fields above the checklist have
+been appropriately completed</label></p></li>
+<li><p><label><input type="checkbox" />Code meets the requirements set
+out in the Jira ticket</label></p></li>
+<li><p><label><input type="checkbox" />All functions have roxygen
+headers with <span class="citation">@description</span>, <span
+class="citation">@param</span> and <span class="citation">@return</span>
+fields, and comments in code are appropriate and
+sufficient</label></p></li>
+<li><p><label><input type="checkbox" />The code runs when using an empty
+R environment, without error</label></p></li>
+<li><p><label><input type="checkbox" />Code follows the <a
+href="https://style.tidyverse.org/">tidyverse</a> and <a
+href="https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html">FPC
+style guide</a>.</label></p></li>
+<li><p><label><input type="checkbox" />No future risks have introduced
+by this change e.g. hardcoded values that may change in the future, or
+if they have they are adequately signposted and
+justified</label></p></li>
+<li><p><label><input type="checkbox" />Code cannot be simplified
+significantly, there is no redundancy in code and no changes to model
+structure and dependant functions are needed, given the
+changes.</label></p></li>
+<li><p><label><input type="checkbox" />There are no further improvements
+that can be made to the code</label></p></li>
+<li><p><label><input type="checkbox" />Any additional QA checks
+appropriate to, and sufficient for, the changes have been
+performed</label></p></li>
+<li><p><label><input type="checkbox" />When submitting the final review,
+a comment has been left that summarises the QA checks that have been
+performed and the outcomes</label></p></li>
+</ul>
+<p><strong>Additional checks</strong></p>
+<p>The below is a list of QA checks that you may want to perform in
+addition to the above. Note that this lists is <strong>not
+exhaustive</strong> and it is the responsibility of the principle
+analyst (do-er) and the QAer (checker) to ensure all items that need to
+be checked have been:</p>
+<p>1. Check that the calculations done are fit for purpose and are
+correct</p>
+<p>2. Check that uncertainty has been considered and appropriately
+accounted for (e.g. has sensitivity analysis been performed)</p>
+<p>3. Check that the data used is fit for purpose and the best option
+available to us</p>
+<p>4. Check that other appropriate documentation has been completed or
+updated to an appropriate standard e.g. the technical document</p>
+<p>5. Is the data being correctly pulled into the model?</p>
+<p>6. Is the data being properly cleaned and manipulated (either before
+the model or during the code)?</p>
+<p>7. Has the data been verified and validated? Has it been checked for
+potential errors? And has it been confirmed that the data appropriate to
+use in the first place? Is it the best possible option?</p>
+<p>8. Are there other results other than the outputs of the last model
+that the results need to be compared to?</p>
+<p>9. In cases where new data is added, or a change is heavily dependent
+upon a particular data source, does the model respond as expected to
+extreme values, negatives, zeroes, NAs etc? Is it possible to break the
+model with the data or generate impossible results?</p>
+</blockquote>
 <blockquote>
 <h4 id="how_to_pull_request">
 <p><b>How to make a pull request</b></p>

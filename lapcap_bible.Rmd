@@ -143,7 +143,90 @@ Locations for assumption log, data log or the technical document can be found in
 
 Once complete the modelling team member should make a pull request and request a review from another member of the team. The below template should be filled out when making a pull request:
 
-INSERT NEW PULL REQUEST TEMPLATE
+> Replace this gif with one that describes how you felt about completing this ticket:
+>
+> <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHB0bHQ4dzQ4anN5b3JoaDIyb2twOXh4Y3U5YWY1NHB6c3dreWdvNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gOfSjdLRr6SlvGQTe3/giphy.gif" height="150"/>
+>
+> ✔️ **QA checklists**
+>
+> 📝 **Description of changes made:**
+>
+> 🎟️ **Link to Jira ticket:**
+>
+> 🤔 **Link to QA log (assumptions or data log), if changed:**
+>
+> 💾 **If appropriate, link to CSF markdown:**
+>
+> 📈 **If appropriate, link to output percentage change spreadsheet:**
+>
+> |                                 | \% change in EPR Total Net Cost |
+> |---------------------------------|---------------------------------|
+> | **Mean absolute change per LA** |                                 |
+> | **Overall**                     |                                 |
+> | **England**                     |                                 |
+> | **Scotland**                    |                                 |
+> | **Wales**                       |                                 |
+> | **NI**                          |                                 |
+>
+> 🌜 **Do-er QA checklist**
+>
+> -   [ ] Before submitting a pull request the principle analyst **must** have completed the below checks.
+>
+> -   [ ] Assumptions log has been updated with any new or changed assumptions, including appropriate rationale and/or evidence
+>
+> -   [ ] Data log has been updated with any new or changed data
+>
+> -   [ ] If functional changes have been made to code, the CSF markdown has been generated and inspected, and there are no issues highlighted in visualisations
+>
+> -   [ ] If functional changes have been made to code, the percentage change in model outputs has been calculated and reported above, if the change is above threshold, this has been raised with a Grade 7 or above.
+>
+> -   [ ] If additional checks are required, these have been added to the Checker Checklist below, with detailed instructions as to how to run the checks
+>
+> 🌛 **Checker QA checklist**
+>
+> Before approving a pull request the reviewer **must** have completed the below checks: In addition to the above, the following is a checklist for the reviewer to use:
+>
+> -   [ ] The "do-er" checklist has been completed to an appropriate standard, fields above the checklist have been appropriately completed
+>
+> -   [ ] Code meets the requirements set out in the Jira ticket
+>
+> -   [ ] All functions have roxygen headers with @description, @param and @return fields, and comments in code are appropriate and sufficient
+>
+> -   [ ] The code runs when using an empty R environment, without error
+>
+> -   [ ] Code follows the [tidyverse](https://style.tidyverse.org/) and [FPC style guide](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html).
+>
+> -   [ ] No future risks have introduced by this change e.g. hardcoded values that may change in the future, or if they have they are adequately signposted and justified
+>
+> -   [ ] Code cannot be simplified significantly, there is no redundancy in code and no changes to model structure and dependant functions are needed, given the changes.
+>
+> -   [ ] There are no further improvements that can be made to the code
+>
+> -   [ ] Any additional QA checks appropriate to, and sufficient for, the changes have been performed
+>
+> -   [ ] When submitting the final review, a comment has been left that summarises the QA checks that have been performed and the outcomes
+>
+> **Additional checks**
+>
+> The below is a list of QA checks that you may want to perform in addition to the above. Note that this lists is **not exhaustive** and it is the responsibility of the principle analyst (do-er) and the QAer (checker) to ensure all items that need to be checked have been:
+>
+> 1\. Check that the calculations done are fit for purpose and are correct
+>
+> 2\. Check that uncertainty has been considered and appropriately accounted for (e.g. has sensitivity analysis been performed)
+>
+> 3\. Check that the data used is fit for purpose and the best option available to us
+>
+> 4\. Check that other appropriate documentation has been completed or updated to an appropriate standard e.g. the technical document
+>
+> 5\. Is the data being correctly pulled into the model?
+>
+> 6\. Is the data being properly cleaned and manipulated (either before the model or during the code)?
+>
+> 7\. Has the data been verified and validated? Has it been checked for potential errors? And has it been confirmed that the data appropriate to use in the first place? Is it the best possible option?
+>
+> 8\. Are there other results other than the outputs of the last model that the results need to be compared to?
+>
+> 9\. In cases where new data is added, or a change is heavily dependent upon a particular data source, does the model respond as expected to extreme values, negatives, zeroes, NAs etc? Is it possible to break the model with the data or generate impossible results?
 
 > <h4 id="how_to_pull_request">
 >
