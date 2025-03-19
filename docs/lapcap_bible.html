@@ -539,16 +539,16 @@ governance structure and decision-making process supporting the
 model.</p>
 <p>The below diagrams give an overview of the processes, with more
 detail included in later sections.</p>
-<div id="coding-process" class="section level3">
-<h3>Coding Process</h3>
+<div id="coding-process" class="section level2">
+<h2>Coding Process</h2>
 <p><img src="assets/bible_process_1.png" /></p>
 </div>
-<div id="signoff-process" class="section level3">
-<h3>Signoff Process</h3>
+<div id="signoff-process" class="section level2">
+<h2>Signoff Process</h2>
 <p><img src="assets/bible_process_2.png" /></p>
 </div>
-<div id="stakeholder-groups" class="section level3">
-<h3>Stakeholder Groups</h3>
+<div id="stakeholder-groups" class="section level2">
+<h2>Stakeholder Groups</h2>
 <ul>
 <li>Senior Responsible Officers (SROs)
 <ul>
@@ -584,10 +584,11 @@ profession, ensuring necessary modelling skills.</li>
 </ul>
 <p>Named individuals correct as of 3/2/2025</p>
 </div>
-<div id="coding-process-detail" class="section level2">
-<h2>Coding Process Detail</h2>
-<div id="decide-to-change-code" class="section level3">
-<h3>1. Decide to change code</h3>
+</div>
+<div id="coding-process-detail" class="section level1">
+<h1>Coding Process Detail</h1>
+<div id="decide-to-change-code" class="section level2">
+<h2>1. Decide to change code</h2>
 <p>The modelling team, led by G7s, will identify the most important
 changes needed ahead of the next release of modelling outputs. They may
 choose to make use of the Analytical Board, TWG or Sounding Board in
@@ -597,8 +598,8 @@ ensure planned changes are expected.</p>
 <p>An agile methodology using Jira is then used to plan out the delivery
 of these changes.</p>
 </div>
-<div id="make-changes-to-code" class="section level3">
-<h3>2. Make changes to code</h3>
+<div id="make-changes-to-code" class="section level2">
+<h2>2. Make changes to code</h2>
 <p>Through R Studio and Github changes are made to the existing LAPCAP
 model. This will be achieved through standard Git practice,
 e.g. branching off from the dev branch. Instructions for how to do this
@@ -608,12 +609,12 @@ section</a>.</p>
 ticket.</p>
 <p>If the changes made involve adding, removing or changing an
 assumption, data import or code logic, then the modelling team member
-must update the relevant assumption log, data log (?) or the technical
-document, code comments and roxygen headers.</p>
+must update the relevant assumption log, data log or the technical
+document, code comments and roxygen headers, as well as including or
+updating unit tests.</p>
+<p>The following sections explain how to do that:</p>
 <blockquote>
-<h4 id="how_to_assumption">
-<p><b>How to change an assumption</b></p>
-</h4>
+<h3 id="how_to_assumption">How to change an assumption</h3>
 <ol style="list-style-type: decimal">
 <li><p>Identify an assumption.</p>
 <p>We define assumptions as <strong>“choices analysts make to correct
@@ -670,9 +671,7 @@ corresponding ‘Supporting Evidence’ folder</em></p></li>
 </ol>
 </blockquote>
 <blockquote>
-<h4 id="how_to_data_input">
-<p><b>How to change an data input</b></p>
-</h4>
+<h3 id="how_to_data_input">How to change an data input</h3>
 <p>Data Pipeline</p>
 <ul>
 <li><p>The data pipeline should be run to update the data folder prior
@@ -703,9 +702,7 @@ updated, dev should be merged into main</p></li>
 </ul>
 </blockquote>
 <blockquote>
-<h4 id="how_to_unit_test">
-<p><b>How to write a unit test</b></p>
-</h4>
+<h3 id="how_to_unit_test">How to write a unit test</h3>
 <p>INSERT UNIT TEST INSTRUCTIONS</p>
 </blockquote>
 <p>Locations for assumption log, data log or the technical document can
@@ -812,10 +809,10 @@ upon a particular data source, does the model respond as expected to
 extreme values, negatives, zeroes, NAs etc? Is it possible to break the
 model with the data or generate impossible results?</p>
 </blockquote>
+<p>The following explains the practicalities of making a pull
+request:</p>
 <blockquote>
-<h4 id="how_to_pull_request">
-<p><b>How to make a pull request</b></p>
-</h4>
+<h3 id="how_to_pull_request">How to make a pull request</h3>
 <p>Here are the <strong>step-by-step instructions</strong> to submit a
 pull request:</p>
 <ol style="list-style-type: decimal">
@@ -866,16 +863,16 @@ conflicts.</li>
 </ol>
 </blockquote>
 </div>
-<div id="verify-the-changes" class="section level3">
-<h3>3. Verify the changes</h3>
+<div id="verify-the-changes" class="section level2">
+<h2>3. Verify the changes</h2>
 <p>Once assigned a review the team member must complete the full
 checklist provided by the principle analyst. It is also the QAers must
 also review the list critically and ensure that it is both appropriate
 and sufficient. If the QAer feels otherwise they must raise this with in
 the first instance the principle analyst and then failing this the model
 owner.</p>
-<p>You should use the checklist below to ensure you carry out all
-necessary checks:</p>
+<p>You should use the checklist below, which is also included in the
+pull request template, to ensure you carry out all necessary checks:</p>
 <blockquote>
 <p>🌛 <strong>Checker QA checklist</strong></p>
 <p>Before approving a pull request the reviewer <strong>must</strong>
@@ -916,7 +913,7 @@ a comment has been left that summarises the QA checks that have been
 performed and the outcomes</label></p></li>
 </ul>
 </blockquote>
-<p>Also you should cary out any additional checks required, which have
+<p>Also you should carry out any additional checks required, which have
 been added to the Checker Checklist by the doer.</p>
 <p>Reviewers should trace the full logic of the code, both by reading
 through it and by running it and spot-checking intermediate data frames.
@@ -933,10 +930,10 @@ into one review.</p>
 <p>These reviews may go through one or more cycles of requesting
 changes, in order for the reviewer to be happy. GitHub has functionality
 to enable this.</p>
+<p>The following explains the practical steps followed in when reviewing
+code:</p>
 <blockquote>
-<h4 id="how_to_code_review">
-<p><b>How to do a code review</b></p>
-</h4>
+<h3 id="how_to_code_review">How to do a code review</h3>
 <p>This <a href="https://www.youtube.com/watch?v=lSnbOtw4izI">Github
 code review tutorial</a> shows you how to review a pull request, or you
 can follow the steps below.</p>
@@ -969,8 +966,8 @@ height="222" /></p></li>
 </ol>
 </blockquote>
 </div>
-<div id="merge-changes-into-dev-branch" class="section level3">
-<h3>4. Merge changes into dev branch</h3>
+<div id="merge-changes-into-dev-branch" class="section level2">
+<h2>4. Merge changes into dev branch</h2>
 <p>Before merging, the modelling team member should run the model. They
 should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this
 ensures we are able to explain any changes in outputs from one
@@ -980,11 +977,11 @@ publication to another.</p>
 require resolving merge conflicts.</p>
 </div>
 </div>
-<div id="signoff-process-detail" class="section level2">
-<h2>Signoff Process Detail</h2>
+<div id="signoff-process-detail" class="section level1">
+<h1>Signoff Process Detail</h1>
 <p>SIGNOFF LOG?</p>
-<div id="model-development-complete" class="section level3">
-<h3>1. Model development complete</h3>
+<div id="model-development-complete" class="section level2">
+<h2>1. Model development complete</h2>
 <p>Once all changes required for a publication or sharing of the model
 are complete, the team will undertake the following steps.</p>
 <p>Multiple pull requests will have been merged into dev (e.g. the above
@@ -994,8 +991,8 @@ all receive signoff together.</p>
 required for instance, sharing the model internally, this is left to the
 judgment of the model owner.</p>
 </div>
-<div id="model-owner-signoff" class="section level3">
-<h3>2. Model owner signoff</h3>
+<div id="model-owner-signoff" class="section level2">
+<h2>2. Model owner signoff</h2>
 <p>The model owner should sign off on the following documents, which
 should have been updated:</p>
 <p>VALIDATION STUFF (PROCESS TBD)</p>
@@ -1010,8 +1007,8 @@ instance, in the past TWG have assured on assumptions logs.</p>
 <p>The model owner’s signoff for that model version should be stored in
 SIGNOFF LOG (EMAIL EVIDENCE).</p>
 </div>
-<div id="sro-signoff" class="section level3">
-<h3>3. SRO signoff</h3>
+<div id="sro-signoff" class="section level2">
+<h2>3. SRO signoff</h2>
 <p>Project board, acting on behalf of the model SROs, should signoff the
 model version for publication.</p>
 <p>It is unlikely that members of project board will review any of the
@@ -1028,11 +1025,10 @@ year of EPR.</p>
 <p>The project board signoff for that model version should be stored in
 SIGNOFF LOG (MEETING MINUTES AS EVIDENCE?).</p>
 </div>
-<div id="share-or-publish-outputs" class="section level3">
-<h3>4. Share or publish outputs</h3>
+<div id="share-or-publish-outputs" class="section level2">
+<h2>4. Share or publish outputs</h2>
 <p>Merge into main</p>
 <p>Save copy of everything in model master folder</p>
-</div>
 </div>
 </div>
 
@@ -1085,7 +1081,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3,h4",
+      selectors: "h1,h2,h3",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {

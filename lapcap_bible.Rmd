@@ -5,7 +5,6 @@ output:
     toc: true
     toc_float:
       collapsed: false
-    toc_depth: 4
     css: notitle.css
 ---
 
@@ -53,15 +52,15 @@ This document is a plan of how, when and by whom model, data or assumption chang
 
 The below diagrams give an overview of the processes, with more detail included in later sections.
 
-### Coding Process
+## Coding Process
 
 ![](assets/bible_process_1.png)
 
-### Signoff Process
+## Signoff Process
 
 ![](assets/bible_process_2.png)
 
-### Stakeholder Groups
+## Stakeholder Groups
 
 -   Senior Responsible Officers (SROs)
     -   Director of Resources & Waste (Emma Bourne) and equivalents in the Devolved Administrations (David McPhee, Rhodri Asby, Shane Doris).
@@ -79,27 +78,25 @@ The below diagrams give an overview of the processes, with more detail included 
 
 Named individuals correct as of 3/2/2025
 
-## Coding Process Detail
+# Coding Process Detail
 
-### 1. Decide to change code
+## 1. Decide to change code
 
 The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs. They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this. They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
 
 An agile methodology using Jira is then used to plan out the delivery of these changes.
 
-### 2. Make changes to code
+## 2. Make changes to code
 
 Through R Studio and Github changes are made to the existing LAPCAP model. This will be achieved through standard Git practice, e.g. branching off from the dev branch. Instructions for how to do this can be found in the [new starter section](new_induction_stuff.html).
 
 The changes required should be clearly laid out in the relevant Jira ticket.
 
-If the changes made involve adding, removing or changing an assumption, data import or code logic, then the modelling team member must update the relevant assumption log, data log (?) or the technical document, code comments and roxygen headers.
+If the changes made involve adding, removing or changing an assumption, data import or code logic, then the modelling team member must update the relevant assumption log, data log or the technical document, code comments and roxygen headers, as well as including or updating unit tests.
 
-> <h4 id="how_to_assumption">
->
-> <b>How to change an assumption</b>
->
-> </h4>
+The following sections explain how to do that:
+
+> ### How to change an assumption {#how_to_assumption}
 >
 > 1.  Identify an assumption.
 >
@@ -159,11 +156,7 @@ If the changes made involve adding, removing or changing an assumption, data imp
 >
 >     -   Links to supporting evidence *- any supporting evidence that you used in formulating this assumption, which should be stored in the corresponding 'Supporting Evidence' folder*
 
-> <h4 id="how_to_data_input">
->
-> <b>How to change an data input</b>
->
-> </h4>
+> ### How to change an data input {#how_to_data_input}
 >
 > Data Pipeline
 >
@@ -187,11 +180,7 @@ If the changes made involve adding, removing or changing an assumption, data imp
 >
 > -   When numbers are published externally and the first number updated, dev should be merged into main
 
-> <h4 id="how_to_unit_test">
->
-> <b>How to write a unit test</b>
->
-> </h4>
+> ### How to write a unit test {#how_to_unit_test}
 >
 > INSERT UNIT TEST INSTRUCTIONS
 
@@ -262,11 +251,9 @@ As mentioned in the final bullet you should also review the following additional
 >
 > 9\. In cases where new data is added, or a change is heavily dependent upon a particular data source, does the model respond as expected to extreme values, negatives, zeroes, NAs etc? Is it possible to break the model with the data or generate impossible results?
 
-> <h4 id="how_to_pull_request">
->
-> <b>How to make a pull request</b>
->
-> </h4>
+The following explains the practicalities of making a pull request:
+
+> ### How to make a pull request {#how_to_pull_request}
 >
 > Here are the **step-by-step instructions** to submit a pull request:
 >
@@ -306,11 +293,11 @@ As mentioned in the final bullet you should also review the following additional
 >
 >     ![](assets/ready_to_merge.png)
 
-### 3. Verify the changes
+## 3. Verify the changes
 
 Once assigned a review the team member must complete the full checklist provided by the principle analyst. It is also the QAers must also review the list critically and ensure that it is both appropriate and sufficient. If the QAer feels otherwise they must raise this with in the first instance the principle analyst and then failing this the model owner.
 
-You should use the checklist below to ensure you carry out all necessary checks:
+You should use the checklist below, which is also included in the pull request template, to ensure you carry out all necessary checks:
 
 > 🌛 **Checker QA checklist**
 >
@@ -335,9 +322,8 @@ You should use the checklist below to ensure you carry out all necessary checks:
 > -   [ ] Any additional QA checks appropriate to, and sufficient for, the changes have been performed
 >
 > -   [ ] When submitting the final review, a comment has been left that summarises the QA checks that have been performed and the outcomes
->
 
-Also you should cary out any additional checks required, which have been added to the Checker Checklist by the doer.
+Also you should carry out any additional checks required, which have been added to the Checker Checklist by the doer.
 
 Reviewers should trace the full logic of the code, both by reading through it and by running it and spot-checking intermediate data frames. They should inspect any relevant data imports both in R Studio and directly from their original source. They should examine model outputs before and after the changes to ensure they make sense. They should make sure they are able to replicate any processes or calculations in the code.
 
@@ -345,11 +331,9 @@ Reviewers should leave comments via GitHub, to ensure a record of verification a
 
 These reviews may go through one or more cycles of requesting changes, in order for the reviewer to be happy. GitHub has functionality to enable this.
 
-> <h4 id="how_to_code_review">
->
-> <b>How to do a code review</b>
->
-> </h4>
+The following explains the practical steps followed in when reviewing code:
+
+> ### How to do a code review {#how_to_code_review}
 >
 > This [Github code review tutorial](https://www.youtube.com/watch?v=lSnbOtw4izI) shows you how to review a pull request, or you can follow the steps below.
 >
@@ -369,7 +353,7 @@ These reviews may go through one or more cycles of requesting changes, in order 
 >
 >     ![](assets/finish_review.png){width="311" height="222"}
 
-### 4. Merge changes into dev branch
+## 4. Merge changes into dev branch
 
 Before merging, the modelling team member should run the model. They should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this ensures we are able to explain any changes in outputs from one publication to another.
 
@@ -377,11 +361,11 @@ TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)
 
 Once approved, changes should be merged into the dev branch. This may require resolving merge conflicts.
 
-## Signoff Process Detail
+# Signoff Process Detail
 
 SIGNOFF LOG?
 
-### 1. Model development complete
+## 1. Model development complete
 
 Once all changes required for a publication or sharing of the model are complete, the team will undertake the following steps.
 
@@ -389,7 +373,7 @@ Multiple pull requests will have been merged into dev (e.g. the above coding pro
 
 There are some circumstances where the full signoff may not be required for instance, sharing the model internally, this is left to the judgment of the model owner.
 
-### 2. Model owner signoff
+## 2. Model owner signoff
 
 The model owner should sign off on the following documents, which should have been updated:
 
@@ -409,7 +393,7 @@ The model owner does not necessarily have to review all of these themselves; the
 
 The model owner’s signoff for that model version should be stored in SIGNOFF LOG (EMAIL EVIDENCE).
 
-### 3. SRO signoff
+## 3. SRO signoff
 
 Project board, acting on behalf of the model SROs, should signoff the model version for publication.
 
@@ -421,7 +405,7 @@ There may be an additional stage of parameter setting, at this point in the appr
 
 The project board signoff for that model version should be stored in SIGNOFF LOG (MEETING MINUTES AS EVIDENCE?).
 
-### 4. Share or publish outputs
+## 4. Share or publish outputs
 
 Merge into main
 
