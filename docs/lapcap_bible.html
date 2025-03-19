@@ -668,7 +668,6 @@ you used in formulating this assumption, which should be stored in the
 corresponding ‘Supporting Evidence’ folder</em></p></li>
 </ul></li>
 </ol>
-<p>INSERT ASSUMPTIONS CHANGE INSTRUCTIONS</p>
 </blockquote>
 <blockquote>
 <h4 id="how_to_data_input">
@@ -782,44 +781,10 @@ raised with a Grade 7 or above.</label></p></li>
 required, these have been added to the Checker Checklist below, with
 detailed instructions as to how to run the checks</label></p></li>
 </ul>
-<p>🌛 <strong>Checker QA checklist</strong></p>
-<p>Before approving a pull request the reviewer <strong>must</strong>
-have completed the below checks: In addition to the above, the following
-is a checklist for the reviewer to use:</p>
-<ul class="task-list">
-<li><p><label><input type="checkbox" />The “do-er” checklist has been
-completed to an appropriate standard, fields above the checklist have
-been appropriately completed</label></p></li>
-<li><p><label><input type="checkbox" />Code meets the requirements set
-out in the Jira ticket</label></p></li>
-<li><p><label><input type="checkbox" />All functions have roxygen
-headers with <span class="citation">@description</span>, <span
-class="citation">@param</span> and <span class="citation">@return</span>
-fields, and comments in code are appropriate and
-sufficient</label></p></li>
-<li><p><label><input type="checkbox" />The code runs when using an empty
-R environment, without error</label></p></li>
-<li><p><label><input type="checkbox" />Code follows the <a
-href="https://style.tidyverse.org/">tidyverse</a> and <a
-href="https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html">FPC
-style guide</a>.</label></p></li>
-<li><p><label><input type="checkbox" />No future risks have introduced
-by this change e.g. hardcoded values that may change in the future, or
-if they have they are adequately signposted and
-justified</label></p></li>
-<li><p><label><input type="checkbox" />Code cannot be simplified
-significantly, there is no redundancy in code and no changes to model
-structure and dependant functions are needed, given the
-changes.</label></p></li>
-<li><p><label><input type="checkbox" />There are no further improvements
-that can be made to the code</label></p></li>
-<li><p><label><input type="checkbox" />Any additional QA checks
-appropriate to, and sufficient for, the changes have been
-performed</label></p></li>
-<li><p><label><input type="checkbox" />When submitting the final review,
-a comment has been left that summarises the QA checks that have been
-performed and the outcomes</label></p></li>
-</ul>
+</blockquote>
+<p>As mentioned in the final bullet you should also review the following
+additional checks and add to the Checker Checklist.</p>
+<blockquote>
 <p><strong>Additional checks</strong></p>
 <p>The below is a list of QA checks that you may want to perform in
 addition to the above. Note that this lists is <strong>not
@@ -911,7 +876,48 @@ the first instance the principle analyst and then failing this the model
 owner.</p>
 <p>You should use the checklist below to ensure you carry out all
 necessary checks:</p>
-<p>INSERT NEW PR CHECKLIST</p>
+<blockquote>
+<p>🌛 <strong>Checker QA checklist</strong></p>
+<p>Before approving a pull request the reviewer <strong>must</strong>
+have completed the below checks: In addition to the above, the following
+is a checklist for the reviewer to use:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" />The “do-er” checklist has been
+completed to an appropriate standard, fields above the checklist have
+been appropriately completed</label></p></li>
+<li><p><label><input type="checkbox" />Code meets the requirements set
+out in the Jira ticket</label></p></li>
+<li><p><label><input type="checkbox" />All functions have roxygen
+headers with <span class="citation">@description</span>, <span
+class="citation">@param</span> and <span class="citation">@return</span>
+fields, and comments in code are appropriate and
+sufficient</label></p></li>
+<li><p><label><input type="checkbox" />The code runs when using an empty
+R environment, without error</label></p></li>
+<li><p><label><input type="checkbox" />Code follows the <a
+href="https://style.tidyverse.org/">tidyverse</a> and <a
+href="https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html">FPC
+style guide</a>.</label></p></li>
+<li><p><label><input type="checkbox" />No future risks have introduced
+by this change e.g. hardcoded values that may change in the future, or
+if they have they are adequately signposted and
+justified</label></p></li>
+<li><p><label><input type="checkbox" />Code cannot be simplified
+significantly, there is no redundancy in code and no changes to model
+structure and dependant functions are needed, given the
+changes.</label></p></li>
+<li><p><label><input type="checkbox" />There are no further improvements
+that can be made to the code</label></p></li>
+<li><p><label><input type="checkbox" />Any additional QA checks
+appropriate to, and sufficient for, the changes have been
+performed</label></p></li>
+<li><p><label><input type="checkbox" />When submitting the final review,
+a comment has been left that summarises the QA checks that have been
+performed and the outcomes</label></p></li>
+</ul>
+</blockquote>
+<p>Also you should cary out any additional checks required, which have
+been added to the Checker Checklist by the doer.</p>
 <p>Reviewers should trace the full logic of the code, both by reading
 through it and by running it and spot-checking intermediate data frames.
 They should inspect any relevant data imports both in R Studio and

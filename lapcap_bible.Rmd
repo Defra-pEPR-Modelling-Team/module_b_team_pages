@@ -158,8 +158,6 @@ If the changes made involve adding, removing or changing an assumption, data imp
 >     -   RAG explanation *- an explanation for why you gave the above RAG rating*
 >
 >     -   Links to supporting evidence *- any supporting evidence that you used in formulating this assumption, which should be stored in the corresponding 'Supporting Evidence' folder*
->
-> INSERT ASSUMPTIONS CHANGE INSTRUCTIONS
 
 > <h4 id="how_to_data_input">
 >
@@ -239,31 +237,9 @@ Once complete the modelling team member should make a pull request and request a
 > -   [ ] If functional changes have been made to code, the percentage change in model outputs has been calculated and reported above, if the change is above threshold, this has been raised with a Grade 7 or above.
 >
 > -   [ ] If additional checks are required, these have been added to the Checker Checklist below, with detailed instructions as to how to run the checks
->
-> 🌛 **Checker QA checklist**
->
-> Before approving a pull request the reviewer **must** have completed the below checks: In addition to the above, the following is a checklist for the reviewer to use:
->
-> -   [ ] The "do-er" checklist has been completed to an appropriate standard, fields above the checklist have been appropriately completed
->
-> -   [ ] Code meets the requirements set out in the Jira ticket
->
-> -   [ ] All functions have roxygen headers with @description, @param and @return fields, and comments in code are appropriate and sufficient
->
-> -   [ ] The code runs when using an empty R environment, without error
->
-> -   [ ] Code follows the [tidyverse](https://style.tidyverse.org/) and [FPC style guide](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html).
->
-> -   [ ] No future risks have introduced by this change e.g. hardcoded values that may change in the future, or if they have they are adequately signposted and justified
->
-> -   [ ] Code cannot be simplified significantly, there is no redundancy in code and no changes to model structure and dependant functions are needed, given the changes.
->
-> -   [ ] There are no further improvements that can be made to the code
->
-> -   [ ] Any additional QA checks appropriate to, and sufficient for, the changes have been performed
->
-> -   [ ] When submitting the final review, a comment has been left that summarises the QA checks that have been performed and the outcomes
->
+
+As mentioned in the final bullet you should also review the following additional checks and add to the Checker Checklist.
+
 > **Additional checks**
 >
 > The below is a list of QA checks that you may want to perform in addition to the above. Note that this lists is **not exhaustive** and it is the responsibility of the principle analyst (do-er) and the QAer (checker) to ensure all items that need to be checked have been:
@@ -336,7 +312,32 @@ Once assigned a review the team member must complete the full checklist provided
 
 You should use the checklist below to ensure you carry out all necessary checks:
 
-INSERT NEW PR CHECKLIST
+> 🌛 **Checker QA checklist**
+>
+> Before approving a pull request the reviewer **must** have completed the below checks: In addition to the above, the following is a checklist for the reviewer to use:
+>
+> -   [ ] The "do-er" checklist has been completed to an appropriate standard, fields above the checklist have been appropriately completed
+>
+> -   [ ] Code meets the requirements set out in the Jira ticket
+>
+> -   [ ] All functions have roxygen headers with @description, @param and @return fields, and comments in code are appropriate and sufficient
+>
+> -   [ ] The code runs when using an empty R environment, without error
+>
+> -   [ ] Code follows the [tidyverse](https://style.tidyverse.org/) and [FPC style guide](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html).
+>
+> -   [ ] No future risks have introduced by this change e.g. hardcoded values that may change in the future, or if they have they are adequately signposted and justified
+>
+> -   [ ] Code cannot be simplified significantly, there is no redundancy in code and no changes to model structure and dependant functions are needed, given the changes.
+>
+> -   [ ] There are no further improvements that can be made to the code
+>
+> -   [ ] Any additional QA checks appropriate to, and sufficient for, the changes have been performed
+>
+> -   [ ] When submitting the final review, a comment has been left that summarises the QA checks that have been performed and the outcomes
+>
+
+Also you should cary out any additional checks required, which have been added to the Checker Checklist by the doer.
 
 Reviewers should trace the full logic of the code, both by reading through it and by running it and spot-checking intermediate data frames. They should inspect any relevant data imports both in R Studio and directly from their original source. They should examine model outputs before and after the changes to ensure they make sense. They should make sure they are able to replicate any processes or calculations in the code.
 
