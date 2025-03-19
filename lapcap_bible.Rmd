@@ -284,14 +284,6 @@ The following explains the practicalities of making a pull request:
 > 4.  Then you can click '*Create pull request*'.
 >
 >     a.  Once you have created the pull request you should move the ticket to 'For Review' on Jira.
->
-> 5.  Your reviewer will then inspect your code and may ask you some questions or suggest some changes. Once you have responded to these they will approve your pull request and you can merge your changes!
->
->     ![](assets/approved.png)
->
->     a.  You will also need to check there are no 'merge conflicts'. This is where someone has changed the same files as you and so you need to agree with that person what are the correct changes and modify accordingly, Github will read '*Able to merge*' indicating there are no conflicts.
->
->     ![](assets/ready_to_merge.png)
 
 ## 3. Verify the changes
 
@@ -360,6 +352,16 @@ Before merging, the modelling team member should run the model. They should then
 TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)
 
 Once approved, changes should be merged into the dev branch. This may require resolving merge conflicts.
+
+> #### How to merge
+>
+> 1.  Once your reviewer has inspected your code they may ask you some questions or suggest some changes. Once you have responded to these they will approve your pull request and you can merge your changes! This will look like:
+>
+>     ![](assets/approved.png)
+>
+> 2.  You will need to check there are no 'merge conflicts'. This is where someone has changed the same files as you and so you need to agree with that person what are the correct changes and modify accordingly, Github will read '*Able to merge*' indicating there are no conflicts.
+>
+>     ![](assets/ready_to_merge.png)
 
 # Signoff Process Detail
 
