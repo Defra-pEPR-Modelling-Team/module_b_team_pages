@@ -205,21 +205,14 @@ The following sections explain how to do that:
 >       Download a version of the output so you can link it in the pull request template later.
 >
 
-> <h4 id="how_to_unit_test">
->
-> <b>How to write a unit test</b>
->
-> </h4>
+> ### How to write a unit test {#how_to_unit_test}
 >
 > INSERT UNIT TEST INSTRUCTIONS
 
 Locations for assumption log, data log or the technical document can be found in 01 Documentation Overview.docx, and each includes instructions for how to use it.
 
-> <h4 id="how_to_pull_request">
+> ### How to make a pull request {#how_to_pull_request}
 >
-> <b>How to make a pull request</b>
->
-> </h4>
 > Once the modelling team member has completed their changes, they should make a pull request and request a review from another member of the team. 
 >
 > Here are the **step-by-step instructions** to submit a pull request:
