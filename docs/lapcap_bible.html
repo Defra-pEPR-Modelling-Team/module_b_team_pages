@@ -539,16 +539,16 @@ governance structure and decision-making process supporting the
 model.</p>
 <p>The below diagrams give an overview of the processes, with more
 detail included in later sections.</p>
-<div id="coding-process" class="section level2">
-<h2>Coding Process</h2>
+<div id="coding-process" class="section level3">
+<h3>Coding Process</h3>
 <p><img src="assets/bible_process_1.png" /></p>
 </div>
-<div id="signoff-process" class="section level2">
-<h2>Signoff Process</h2>
+<div id="signoff-process" class="section level3">
+<h3>Signoff Process</h3>
 <p><img src="assets/bible_process_2.png" /></p>
 </div>
-<div id="stakeholder-groups" class="section level2">
-<h2>Stakeholder Groups</h2>
+<div id="stakeholder-groups" class="section level3">
+<h3>Stakeholder Groups</h3>
 <ul>
 <li>Senior Responsible Officers (SROs)
 <ul>
@@ -609,9 +609,11 @@ section</a>.</p>
 ticket.</p>
 <p>If the changes made involve adding, removing or changing an
 assumption, data import or code logic, then the modelling team member
-must update the relevant assumption log, data log or the technical
-document, code comments and roxygen headers, as well as including or
-updating unit tests.</p>
+must update the relevant assumption log, data log and/or the technical
+document, code comments and roxygen headers.</p>
+<p>If the changes result in a functional change to the model, i.e. the
+changes will effect model outputs, then valdation checks must be carried
+out.</p>
 <p>The following sections explain how to do that:</p>
 <blockquote>
 <h3 id="how_to_assumption">How to change an assumption</h3>
@@ -671,7 +673,7 @@ corresponding ‘Supporting Evidence’ folder</em></p></li>
 </ol>
 </blockquote>
 <blockquote>
-<h3 id="how_to_data_input">How to change an data input</h3>
+<h3 id="how_to_data_input">How to change a data input</h3>
 <p>Data Pipeline</p>
 <ul>
 <li><p>The data pipeline should be run to update the data folder prior
@@ -702,16 +704,69 @@ updated, dev should be merged into main</p></li>
 </ul>
 </blockquote>
 <blockquote>
-<h3 id="how_to_unit_test">How to write a unit test</h3>
+<h3 id="how_to_validate">How to run validation checks</h3>
+<ol style="list-style-type: decimal">
+<li><p>Check the percentage difference between the outputs from the last
+tagged version of LAPCAP and the output of whatever changes you have
+made</p>
+<p>Use the spreadsheet “[model_version] model output sensitivity
+testing.xlsx” on the Module B1 Sharepoint, within <a
+href="https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&amp;web=1&amp;e=1jREhl">00
+Model Master folder</a> &gt; [model_version]</p>
+<p>Follow the instructions in the first sheet.</p>
+<p>The spreadsheet automatically highlights any percentage changes above
+the acceptable threshold. If values become highlighted, make sure to
+check with a Grade 7 whether the need for the change justifies the
+change in outputs.</p></li>
+<li><p>Generate and inspect the Critical Success Factors (CSF) markdown
+to ensure the change hasn’t violated any of the success factors</p>
+<p>Use the function generate_validation_markdowns() in documents in the
+LAPCAP repo to generate the markdown, following the instructions in the
+function’s roxygen header</p>
+<p>Inspect the output, ensuring that each CSF is still being met. If you
+have any concerns, raise them with a G7 or above.</p>
+<p>Download a version of the output so you can link it in the pull
+request template later.</p></li>
+</ol>
+</blockquote>
+<blockquote>
+<h4 id="how_to_unit_test">
+<p><b>How to write a unit test</b></p>
+</h4>
 <p>INSERT UNIT TEST INSTRUCTIONS</p>
 </blockquote>
 <p>Locations for assumption log, data log or the technical document can
 be found in 01 Documentation Overview.docx, and each includes
 instructions for how to use it.</p>
-<p>Once complete the modelling team member should make a pull request
-and request a review from another member of the team. The below template
-should be filled out when making a pull request:</p>
 <blockquote>
+<h4 id="how_to_pull_request">
+<p><b>How to make a pull request</b></p>
+</h4>
+<p>Once the modelling team member has completed their changes, they
+should make a pull request and request a review from another member of
+the team.</p>
+<p>Here are the <strong>step-by-step instructions</strong> to submit a
+pull request:</p>
+<ol style="list-style-type: decimal">
+<li><p>Go to the relevant repo on Github and navigate to your branch</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Use either the branches drop down or click on ‘<em>x
+branches</em>’ to go to the branches page and select your branch.</p>
+<p><img src="assets/branches_button.png" /></p></li>
+</ol></li>
+<li><p>If your push was recent there may be a pop up allowing you to
+‘<em>compare and pull request</em>’, if not then click
+‘<em>Contribute</em>’ and ‘<em>Open pull request</em>’.</p>
+<p><img src="assets/contribute_button.png" /></p></li>
+<li><p>Now check your pull request is set up correctly:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Make sure you are merging to the correct branch, this will
+usually be <em>dev</em> (for code in development) or sometimes
+<em>main</em> if it has been fully quality assured.</p>
+<p><img src="assets/merge_to_dev.png" /></p></li>
+<li><p>Fill out the pull request template (following carrying out
+validation checks, see below), including adding any additional QA checks
+to the list.</p>
 <p>Replace this gif with one that describes how you felt about
 completing this ticket:</p>
 <p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHB0bHQ4dzQ4anN5b3JoaDIyb2twOXh4Y3U5YWY1NHB6c3dreWdvNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gOfSjdLRr6SlvGQTe3/giphy.gif" height="150"/></p>
@@ -758,80 +813,25 @@ spreadsheet:</strong></p>
 </tbody>
 </table>
 <p>🌜 <strong>Do-er QA checklist</strong></p>
+<p>Before submitting a pull request the principle analyst
+<strong>must</strong> have completed the below checks.</p>
 <ul class="task-list">
-<li><p><label><input type="checkbox" />Before submitting a pull request
-the principle analyst <strong>must</strong> have completed the below
-checks.</label></p></li>
-<li><p><label><input type="checkbox" />Assumptions log has been updated
+<li><label><input type="checkbox" />Assumptions log has been updated
 with any new or changed assumptions, including appropriate rationale
-and/or evidence</label></p></li>
-<li><p><label><input type="checkbox" />Data log has been updated with
-any new or changed data</label></p></li>
-<li><p><label><input type="checkbox" />If functional changes have been
-made to code, the CSF markdown has been generated and inspected, and
-there are no issues highlighted in visualisations</label></p></li>
-<li><p><label><input type="checkbox" />If functional changes have been
-made to code, the percentage change in model outputs has been calculated
-and reported above, if the change is above threshold, this has been
-raised with a Grade 7 or above.</label></p></li>
-<li><p><label><input type="checkbox" />If additional checks are
-required, these have been added to the Checker Checklist below, with
-detailed instructions as to how to run the checks</label></p></li>
-</ul>
-</blockquote>
-<p>As mentioned in the final bullet you should also review the following
-additional checks and add to the Checker Checklist.</p>
-<blockquote>
-<p><strong>Additional checks</strong></p>
-<p>The below is a list of QA checks that you may want to perform in
-addition to the above. Note that this lists is <strong>not
-exhaustive</strong> and it is the responsibility of the principle
-analyst (do-er) and the QAer (checker) to ensure all items that need to
-be checked have been:</p>
-<p>1. Check that the calculations done are fit for purpose and are
-correct</p>
-<p>2. Check that uncertainty has been considered and appropriately
-accounted for (e.g. has sensitivity analysis been performed)</p>
-<p>3. Check that the data used is fit for purpose and the best option
-available to us</p>
-<p>4. Check that other appropriate documentation has been completed or
-updated to an appropriate standard e.g. the technical document</p>
-<p>5. Is the data being correctly pulled into the model?</p>
-<p>6. Is the data being properly cleaned and manipulated (either before
-the model or during the code)?</p>
-<p>7. Has the data been verified and validated? Has it been checked for
-potential errors? And has it been confirmed that the data appropriate to
-use in the first place? Is it the best possible option?</p>
-<p>8. Are there other results other than the outputs of the last model
-that the results need to be compared to?</p>
-<p>9. In cases where new data is added, or a change is heavily dependent
-upon a particular data source, does the model respond as expected to
-extreme values, negatives, zeroes, NAs etc? Is it possible to break the
-model with the data or generate impossible results?</p>
-</blockquote>
-<p>The following explains the practicalities of making a pull
-request:</p>
-<blockquote>
-<h3 id="how_to_pull_request">How to make a pull request</h3>
-<p>Here are the <strong>step-by-step instructions</strong> to submit a
-pull request:</p>
-<ol style="list-style-type: decimal">
-<li><p>Go to the relevant repo on Github and navigate to your branch</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Use either the branches drop down or click on ‘<em>x
-branches</em>’ to go to the branches page and select your branch.</p>
-<p><img src="assets/branches_button.png" /></p></li>
-</ol></li>
-<li><p>If your push was recent there may be a pop up allowing you to
-‘<em>compare and pull request</em>’, if not then click
-‘<em>Contribute</em>’ and ‘<em>Open pull request</em>’.</p>
-<p><img src="assets/contribute_button.png" /></p></li>
-<li><p>Now check your pull request is set up correctly:</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Make sure you are merging to the correct branch, this will
-usually be <em>dev</em> (for code in development) or sometimes
-<em>main</em> if it has been fully quality assured.</p>
-<p><img src="assets/merge_to_dev.png" /></p></li>
+and/or evidence</label></li>
+<li><label><input type="checkbox" />Data log has been updated with any
+new or changed data</label></li>
+<li><label><input type="checkbox" />If functional changes have been made
+to code, the CSF markdown has been generated and inspected, and there
+are no issues highlighted in visualisations</label></li>
+<li><label><input type="checkbox" />If functional changes have been made
+to code, the percentage change in model outputs has been calculated and
+reported above, if the change is above threshold, this has been raised
+with a Grade 7 or above.</label></li>
+<li><label><input type="checkbox" />If additional checks are required,
+these have been added to the Checker Checklist below, with detailed
+instructions as to how to run the checks</label></li>
+</ul></li>
 <li><p>Click ‘<em>Reviewer</em>’ and select the person who has agreed to
 review your code.</p>
 <p><img src="assets/reviewers.png" /></p></li>
@@ -905,6 +905,34 @@ directly from their original source. They should examine model outputs
 before and after the changes to ensure they make sense. They should make
 sure they are able to replicate any processes or calculations in the
 code.</p>
+<blockquote>
+<p><strong>Additional checks</strong></p>
+<p>The below is a list of QA checks that reviewers may want to perform
+in addition to the above. Note that this lists is <strong>not
+exhaustive</strong> and it is the responsibility of the principle
+analyst (do-er) and the QAer (checker) to ensure all items that need to
+be checked have been:</p>
+<p>1. Check that the calculations done are fit for purpose and are
+correct</p>
+<p>2. Check that uncertainty has been considered and appropriately
+accounted for (e.g. has sensitivity analysis been performed)</p>
+<p>3. Check that the data used is fit for purpose and the best option
+available to us</p>
+<p>4. Check that other appropriate documentation has been completed or
+updated to an appropriate standard e.g. the technical document</p>
+<p>5. Is the data being correctly pulled into the model?</p>
+<p>6. Is the data being properly cleaned and manipulated (either before
+the model or during the code)?</p>
+<p>7. Has the data been verified and validated? Has it been checked for
+potential errors? And has it been confirmed that the data appropriate to
+use in the first place? Is it the best possible option?</p>
+<p>8. Are there other results other than the outputs of the last model
+that the results need to be compared to?</p>
+<p>9. In cases where new data is added, or a change is heavily dependent
+upon a particular data source, does the model respond as expected to
+extreme values, negatives, zeroes, NAs etc? Is it possible to break the
+model with the data or generate impossible results?</p>
+</blockquote>
 <p>Reviewers should leave comments via GitHub, to ensure a record of
 verification and validation. GitHub has several features to help with
 this such as filtering changes by commit or file type, marking scripts
@@ -959,13 +987,17 @@ publication to another.</p>
 <p>Once approved, changes should be merged into the dev branch. This may
 require resolving merge conflicts.</p>
 <blockquote>
-<h4 id="how-to-merge">How to merge</h4>
+<h3 id="how-to-merge">How to merge</h3>
 <ol style="list-style-type: decimal">
 <li><p>Once your reviewer has inspected your code they may ask you some
 questions or suggest some changes. Once you have responded to these they
 will approve your pull request and you can merge your changes! This will
 look like:</p>
-<p><img src="assets/approved.png" /></p></li>
+<p><img src="assets/passed_pr_check.png" /></p>
+<p><strong>Note</strong>: if any of the QA checklist items have been
+left unchecked, GitHub will automatically block merging. It will look
+like:</p>
+<p><img src="assets/failed_pr_check.png" /></p></li>
 <li><p>You will need to check there are no ‘merge conflicts’. This is
 where someone has changed the same files as you and so you need to agree
 with that person what are the correct changes and modify accordingly,

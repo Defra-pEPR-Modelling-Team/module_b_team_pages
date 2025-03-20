@@ -5,35 +5,9 @@ output:
     toc: true
     toc_float:
       collapsed: false
-    toc_depth: 4
     css: notitle.css
 ---
 
-```{css toc-content, echo = FALSE}
-
-div.main-container {
-max-width: 100%;
-margin-right: 0%;
-}
-.container-fluid {
-margin-right: 15px;
-margin-left: 15px;
-padding-left: 10px
-}
-
-div.tocify {
-width: 20%;
-max-width: 260px;
-max-height: 85%;
-margin-left: 10px;
-}
-
-.toc-content {
-margin-left: 20%;
-padding-right: 40px;
-}
-
-```
 
 # LAPCAP Bible
 
@@ -79,9 +53,7 @@ This document is a plan of how, when and by whom model, data or assumption chang
 
 The below diagrams give an overview of the processes, with more detail included in later sections.
 
-##
 ### Coding Process
-
 
 ![](assets/bible_process_1.png)
 
@@ -107,15 +79,15 @@ The below diagrams give an overview of the processes, with more detail included 
 
 Named individuals correct as of 3/2/2025
 
-## Coding Process Detail
+# Coding Process Detail
 
-### 1. Decide to change code
+## 1. Decide to change code
 
 The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs. They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this. They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
 
 An agile methodology using Jira is then used to plan out the delivery of these changes.
 
-### 2. Make changes to code
+## 2. Make changes to code
 
 Through R Studio and Github changes are made to the existing LAPCAP model. This will be achieved through standard Git practice, e.g. branching off from the dev branch. Instructions for how to do this can be found in the [new starter section](new_induction_stuff.html).
 
@@ -128,7 +100,7 @@ If the changes result in a functional change to the model, i.e. the changes will
 
 The following sections explain how to do that:
 
-> #### How to change an assumption {#how_to_assumption}
+> ### How to change an assumption {#how_to_assumption}
 >
 > 1.  Identify an assumption.
 >
@@ -188,7 +160,7 @@ The following sections explain how to do that:
 >
 >     -   Links to supporting evidence *- any supporting evidence that you used in formulating this assumption, which should be stored in the corresponding 'Supporting Evidence' folder*
 
-> #### How to change a data input {#how_to_data_input}
+> ### How to change a data input {#how_to_data_input}
 >
 > Data Pipeline
 >
@@ -213,7 +185,7 @@ The following sections explain how to do that:
 > -   When numbers are published externally and the first number updated, dev should be merged into main
 
 
-> #### How to run validation checks {#how_to_validate}
+> ### How to run validation checks {#how_to_validate}
 > 
 > 1.    Check the percentage difference between the outputs from the last tagged version of LAPCAP and the output of whatever changes you have made 
 >    
@@ -405,7 +377,7 @@ TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)
 
 Once approved, changes should be merged into the dev branch. This may require resolving merge conflicts.
 
-> #### How to merge
+> ### How to merge
 >
 > 1.  Once your reviewer has inspected your code they may ask you some questions or suggest some changes. Once you have responded to these they will approve your pull request and you can merge your changes! This will look like:
 >
