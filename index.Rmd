@@ -17,6 +17,14 @@ Please suggest anything you think is missing from this site!
 
 <figure style="text-align: center;">
 
+<a href="documentation_library.html"> <img src="assets/waste_library.png" alt="Waste Library" width="208"/> </a>
+
+<figcaption>Documentation Library</figcaption>
+
+</figure>
+
+<figure style="text-align: center;">
+
 <a href="lapcap_bible.html"> <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="208"/> </a>
 
 <figcaption>LAPCAP Bible</figcaption>

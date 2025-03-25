@@ -399,14 +399,12 @@ div.tocify {
 </div>
 
 
-<div id="lapcap-bible" class="section level1">
-<h1>LAPCAP Bible</h1>
-</div>
-<div id="modelling-and-assurance-process" class="section level1">
-<h1>Modelling and Assurance Process</h1>
-<p>This document is a plan of how, when and by whom model, data or
-assumption changes will be assured. This includes a list of
-responsibilities relating to the model, who the model owner is, the
+<div id="lapcap-model-development-plan" class="section level1">
+<h1>LAPCAP Model Development Plan</h1>
+<p>This document is a plan for model development, quality assurance and
+signoff processes of LAPCAP. It includes detail on how, when and by whom
+model, data or assumption changes will be assured. This includes a list
+of responsibilities relating to the model, who the model owner is, the
 governance structure and decision-making process supporting the
 model.</p>
 <p>The below diagrams give an overview of the processes, with more
@@ -422,22 +420,22 @@ detail included in later sections.</p>
 <div id="stakeholder-groups" class="section level3">
 <h3>Stakeholder Groups</h3>
 <ul>
-<li>Senior Responsible Officers (SROs)
+<li><strong>Senior Responsible Officers (SROs)</strong>
 <ul>
 <li>Director of Resources &amp; Waste (Emma Bourne) and equivalents in
 the Devolved Administrations (David McPhee, Rhodri Asby, Shane
 Doris).</li>
 </ul></li>
-<li>pEPR Project Board
+<li><strong>pEPR Project Board</strong>
 <ul>
 <li>Senior level oversight and support for the delivery of the joint
 UK-wide pEPR. Chaired by Dexter Davis.</li>
 </ul></li>
-<li>Model Owner
+<li><strong>Model Owner</strong>
 <ul>
 <li>G6 head of Fees and Payments Calculator team (Tristan Ibrahim).</li>
 </ul></li>
-<li>Advisory Groups
+<li><strong>Advisory Groups</strong>
 <ul>
 <li>Analytical Board - consists of senior analysts from England, Wales
 and Scotland</li>
@@ -448,7 +446,7 @@ Officers from local authorities across the UK</li>
 <li>Government Actuary’s Department – to date external QA has been
 provided by GAD</li>
 </ul></li>
-<li>Fees and Payments Calculator modelling team
+<li><strong>Fees and Payments Calculator modelling team</strong>
 <ul>
 <li>Made up of members of the Government Operational Research
 profession, ensuring necessary modelling skills.</li>
@@ -462,13 +460,17 @@ profession, ensuring necessary modelling skills.</li>
 <div id="decide-to-change-code" class="section level2">
 <h2>1. Decide to change code</h2>
 <p>The modelling team, led by G7s, will identify the most important
-changes needed ahead of the next release of modelling outputs. They may
-choose to make use of the Analytical Board, TWG or Sounding Board in
-determining this. They may also choose to seek signoff of their plans
-from the model owner or project board, or to simply make them aware, to
-ensure planned changes are expected.</p>
+changes needed ahead of the next release of modelling outputs.</p>
+<p>They may choose to make use of the Analytical Board, TWG or Sounding
+Board in determining this.</p>
+<p>They may also choose to seek signoff of their plans from the model
+owner or project board, or to simply make them aware, to ensure planned
+changes are expected.</p>
 <p>An agile methodology using Jira is then used to plan out the delivery
-of these changes.</p>
+of these changes. Time for quality assurance should
+<strong>ALWAYS</strong> be built into each ticket in this planning, it
+should be understood that if there is not time for quality assurance
+then there is not time for the work.</p>
 </div>
 <div id="make-changes-to-code" class="section level2">
 <h2>2. Make changes to code</h2>
@@ -479,14 +481,11 @@ can be found in the <a href="new_induction_stuff.html">new starter
 section</a>.</p>
 <p>The changes required should be clearly laid out in the relevant Jira
 ticket.</p>
-<p>If the changes made involve adding, removing or changing an
-assumption, data import or code logic, then the modelling team member
-must update the relevant assumption log, data log and/or the technical
-document, code comments and roxygen headers.</p>
-<p>If the changes result in a functional change to the model, i.e. the
-changes will effect model outputs, then valdation checks must be carried
-out.</p>
-<p>The following sections explain how to do that:</p>
+<ol style="list-style-type: lower-alpha">
+<li>If the changes involve adding, removing or changing an assumption
+then the modelling team member must update the relevant assumption
+log:</li>
+</ol>
 <blockquote>
 <h3 id="how_to_assumption">How to change an assumption</h3>
 <ol style="list-style-type: decimal">
@@ -501,12 +500,9 @@ assumption could be:</p>
 <li>Is your choice a simplification of reality?</li>
 <li>Theoretically were there other choices you could have made?</li>
 <li>Would changing your choice affect the final number?</li>
-</ul>
-<p>ADD EXAMPLES?</p>
-<p>NOT DATA INPUTS - COVERED BY DATA LOGS</p>
-<p>NOT PROCEDURAL CHOICES (E.G. WHICH DPLYR FUNCTION TO USE) OR SUPER
-OBVIOUS STUFF THAT WOULD BE COVERED BY THE TECHNICAL DOC (E.G. WHAT
-COLUMNS OF A DATASET TO USE)</p></li>
+<li>Is this information recorded elsewhere (e.g. in a data log or the
+technical document)?</li>
+</ul></li>
 <li><p>Record your assumption in-code</p>
 <p>Paste the following code snippet below the relevant portion of code
 and edit to reflect the above.</p>
@@ -544,8 +540,13 @@ corresponding ‘Supporting Evidence’ folder</em></p></li>
 </ul></li>
 </ol>
 </blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>If the changes involve updating a data import then the data pipeline
+must be refreshed and data logs updated:</li>
+</ol>
 <blockquote>
 <h3 id="how_to_data_input">How to change a data input</h3>
+<p>ANDREW WRITING</p>
 <p>Data Pipeline</p>
 <ul>
 <li><p>The data pipeline should be run to update the data folder prior
@@ -575,6 +576,25 @@ rollback to model versions</p></li>
 updated, dev should be merged into main</p></li>
 </ul>
 </blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><p>If model logic is changed then the technical document, code
+comments and roxygen headers must be updated accordingly.</p>
+<p>Additionally unit tests may need adding or updating.</p></li>
+</ol>
+<blockquote>
+<h3 id="how-to-update-the-technical-document">How to update the
+technical document</h3>
+<p>MARCUS TO WRITE?</p>
+</blockquote>
+<blockquote>
+<h3 id="how_to_unit_test">How to write a unit test</h3>
+<p>NONO WRITING</p>
+</blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>If the changes result in a functional change to the model, i.e. the
+changes will effect model outputs, then validation checks must be
+carried out.</li>
+</ol>
 <blockquote>
 <h3 id="how_to_validate">How to run validation checks</h3>
 <ol style="list-style-type: decimal">
@@ -600,10 +620,6 @@ have any concerns, raise them with a G7 or above.</p>
 <p>Download a version of the output so you can link it in the pull
 request template later.</p></li>
 </ol>
-</blockquote>
-<blockquote>
-<h3 id="how_to_unit_test">How to write a unit test</h3>
-<p>INSERT UNIT TEST INSTRUCTIONS</p>
 </blockquote>
 <p>Locations for assumption log, data log or the technical document can
 be found in 01 Documentation Overview.docx, and each includes
@@ -844,14 +860,10 @@ simply approve the pull request straight away.</p>
 height="222" /></p></li>
 </ol>
 </blockquote>
+<p>ADD BIT ABOUT PETER REVIEWING PRs AND RECORDING</p>
 </div>
 <div id="merge-changes-into-dev-branch" class="section level2">
 <h2>4. Merge changes into dev branch</h2>
-<p>Before merging, the modelling team member should run the model. They
-should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this
-ensures we are able to explain any changes in outputs from one
-publication to another.</p>
-<p>TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)</p>
 <p>Once approved, changes should be merged into the dev branch. This may
 require resolving merge conflicts.</p>
 <blockquote>
@@ -878,7 +890,6 @@ conflicts.</p>
 </div>
 <div id="signoff-process-detail" class="section level1">
 <h1>Signoff Process Detail</h1>
-<p>SIGNOFF LOG?</p>
 <div id="model-development-complete" class="section level2">
 <h2>1. Model development complete</h2>
 <p>Once all changes required for a publication or sharing of the model
