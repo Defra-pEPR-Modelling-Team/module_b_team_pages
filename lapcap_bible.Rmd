@@ -8,11 +8,9 @@ output:
     css: notitle.css
 ---
 
-# LAPCAP Bible
+# LAPCAP Model Development Plan
 
-# Modelling and Assurance Process
-
-This document is a plan of how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
+This document is a plan for model development, quality assurance and signoff processes of LAPCAP. It includes detail on how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
 
 The below diagrams give an overview of the processes, with more detail included in later sections.
 
@@ -26,18 +24,18 @@ The below diagrams give an overview of the processes, with more detail included 
 
 ### Stakeholder Groups
 
--   Senior Responsible Officers (SROs)
+-   **Senior Responsible Officers (SROs)**
     -   Director of Resources & Waste (Emma Bourne) and equivalents in the Devolved Administrations (David McPhee, Rhodri Asby, Shane Doris).
--   pEPR Project Board
+-   **pEPR Project Board**
     -   Senior level oversight and support for the delivery of the joint UK-wide pEPR. Chaired by Dexter Davis.
--   Model Owner
+-   **Model Owner**
     -   G6 head of Fees and Payments Calculator team (Tristan Ibrahim).
--   Advisory Groups
+-   **Advisory Groups**
     -   Analytical Board - consists of senior analysts from England, Wales and Scotland
     -   Technical Working Group (TWG) - comprising expert waste advisors to Defra and the devolved administrations
     -   Local Authority Waste Officer Sounding Board – selected Waste Officers from local authorities across the UK
     -   Government Actuary’s Department – to date external QA has been provided by GAD
--   Fees and Payments Calculator modelling team
+-   **Fees and Payments Calculator modelling team**
     -   Made up of members of the Government Operational Research profession, ensuring necessary modelling skills.
 
 Named individuals correct as of 3/2/2025
@@ -46,9 +44,13 @@ Named individuals correct as of 3/2/2025
 
 ## 1. Decide to change code
 
-The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs. They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this. They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
+The modelling team, led by G7s, will identify the most important changes needed ahead of the next release of modelling outputs.
 
-An agile methodology using Jira is then used to plan out the delivery of these changes.
+They may choose to make use of the Analytical Board, TWG or Sounding Board in determining this.
+
+They may also choose to seek signoff of their plans from the model owner or project board, or to simply make them aware, to ensure planned changes are expected.
+
+An agile methodology using Jira is then used to plan out the delivery of these changes. Time for quality assurance should **ALWAYS** be built into each ticket in this planning, it should be understood that if there is not time for quality assurance then there is not time for the work.
 
 ## 2. Make changes to code
 
@@ -56,11 +58,7 @@ Through R Studio and Github changes are made to the existing LAPCAP model. This 
 
 The changes required should be clearly laid out in the relevant Jira ticket.
 
-If the changes made involve adding, removing or changing an assumption, data import or code logic, then the modelling team member must update the relevant assumption log, data log and/or the technical document, code comments and roxygen headers.
-
-If the changes result in a functional change to the model, i.e. the changes will effect model outputs, then valdation checks must be carried out.
-
-The following sections explain how to do that:
+a.  If the changes involve adding, removing or changing an assumption then the modelling team member must update the relevant assumption log:
 
 > ### How to change an assumption {#how_to_assumption}
 >
@@ -74,12 +72,7 @@ The following sections explain how to do that:
 >     -   Is your choice a simplification of reality?
 >     -   Theoretically were there other choices you could have made?
 >     -   Would changing your choice affect the final number?
->
->     ADD EXAMPLES?
->
->     NOT DATA INPUTS - COVERED BY DATA LOGS
->
->     NOT PROCEDURAL CHOICES (E.G. WHICH DPLYR FUNCTION TO USE) OR SUPER OBVIOUS STUFF THAT WOULD BE COVERED BY THE TECHNICAL DOC (E.G. WHAT COLUMNS OF A DATASET TO USE)
+>     -   Is this information recorded elsewhere (e.g. in a data log or the technical document)?
 >
 > 2.  Record your assumption in-code
 >
@@ -122,7 +115,11 @@ The following sections explain how to do that:
 >
 >     -   Links to supporting evidence *- any supporting evidence that you used in formulating this assumption, which should be stored in the corresponding 'Supporting Evidence' folder*
 
+b.  If the changes involve updating a data import then the data pipeline must be refreshed and data logs updated:
+
 > ### How to change a data input {#how_to_data_input}
+>
+> ANDREW WRITING
 >
 > Data Pipeline
 >
@@ -146,6 +143,20 @@ The following sections explain how to do that:
 >
 > -   When numbers are published externally and the first number updated, dev should be merged into main
 
+c.  If model logic is changed then the technical document, code comments and roxygen headers must be updated accordingly.
+
+    Additionally unit tests may need adding or updating.
+
+> ### How to update the technical document
+>
+> MARCUS TO WRITE?
+
+> ### How to write a unit test {#how_to_unit_test}
+>
+> NONO WRITING
+
+c.  If the changes result in a functional change to the model, i.e. the changes will effect model outputs, then validation checks must be carried out.
+
 > ### How to run validation checks {#how_to_validate}
 >
 > 1.  Check the percentage difference between the outputs from the last tagged version of LAPCAP and the output of whatever changes you have made
@@ -163,10 +174,6 @@ The following sections explain how to do that:
 >     Inspect the output, ensuring that each CSF is still being met. If you have any concerns, raise them with a G7 or above.
 >
 >     Download a version of the output so you can link it in the pull request template later.
-
-> ### How to write a unit test {#how_to_unit_test}
->
-> INSERT UNIT TEST INSTRUCTIONS
 
 Locations for assumption log, data log or the technical document can be found in 01 Documentation Overview.docx, and each includes instructions for how to use it.
 
@@ -321,11 +328,9 @@ The following explains the practical steps followed in when reviewing code:
 >
 >     ![](assets/finish_review.png){width="311" height="222"}
 
+ADD BIT ABOUT PETER REVIEWING PRs AND RECORDING
+
 ## 4. Merge changes into dev branch
-
-Before merging, the modelling team member should run the model. They should then add a set of outputs to the OUTPUT CHANGE LOG (RENAME), this ensures we are able to explain any changes in outputs from one publication to another.
-
-TO ADD LINK TO OUTPUT CHANGE LOG (RENAME)
 
 Once approved, changes should be merged into the dev branch. This may require resolving merge conflicts.
 
@@ -344,8 +349,6 @@ Once approved, changes should be merged into the dev branch. This may require re
 >     ![](assets/ready_to_merge.png)
 
 # Signoff Process Detail
-
-SIGNOFF LOG?
 
 ## 1. Model development complete
 
