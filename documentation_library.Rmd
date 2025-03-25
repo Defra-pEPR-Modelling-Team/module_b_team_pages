@@ -1,8 +1,8 @@
 ---
 title: "Documentation Library"
-output:
-  pdf_document: default
-  html_document: default
+output: 
+  html_document:
+    css: style.css
 ---
 
 The below sets out the full set of documentation for LAPCAP, alongside where it can be found. In some cases, it may be stored in multiple locations and care should be taken to ensure both copies remain up to date.
@@ -37,7 +37,7 @@ Once the version is completed (i.e. tagged on Github), the folder will have the 
 Instead, a new “- IN PROGRESS” folder should be created, with below documents from the previous version copied into it, that can then be edited alongside changes to the code for the new version. 
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 |   | Description  |
 | Technical Document  |  A full description of the model including code maps and example calculations. Should be detailed enough to allow for an external to recreate the model.  |
 | Assumptions Logs  |  A record of assumptions we have made throughout the model.  |
