@@ -17,31 +17,31 @@ Please suggest anything you think is missing from this site!
 
 <figure style="text-align: center;">
 
-<a href="documentation_library.html"> <img src="assets/waste_library.png" alt="Waste Library" width="200"/> </a>
+<a href="lapcap_library.html"> <img src="assets/waste_library.png" alt="Waste Library" width="200"/> </a>
 
-<figcaption>Documentation Library</figcaption>
+<figcaption>LAPCAP Library</figcaption>
 
 </figure>
 
 <figure style="text-align: center;">
 
-<a href="lapcap_bible.html"> <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="250"/> </a>
+<a href="lapcap_handbook.html"> <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="250"/> </a>
 
-<figcaption>LAPCAP Bible</figcaption>
+<figcaption>LAPCAP Handbook</figcaption>
 
 </figure>
 :::
 
 ## Quick Links
 
-[How to Record an Assumption](lapcap_bible.html#how_to_assumption)
+[How to Record an Assumption](lapcap_handbook.html#how_to_assumption)
 
-[How to Change a Data Input](lapcap_bible.html#how_to_data_input)
+[How to Change a Data Input](lapcap_handbook.html#how_to_data_input)
 
-[How to Write a Unit Test](lapcap_bible.html#how_to_unit_test)
+[How to Write a Unit Test](lapcap_handbook.html#how_to_unit_test)
 
-[How to Pull Request](lapcap_bible.html#how_to_pull_request)
+[How to Pull Request](lapcap_handbook.html#how_to_pull_request)
 
-[How to Code Review](lapcap_bible.html#how_to_code_review)
+[How to Code Review](lapcap_handbook.html#how_to_code_review)
 
 [Common Problems](other_common_problems.html)

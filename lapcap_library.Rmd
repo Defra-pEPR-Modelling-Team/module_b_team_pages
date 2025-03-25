@@ -1,5 +1,5 @@
 ---
-title: "Documentation Library"
+title: "LAPCAP Library"
 output: 
   html_document:
     css: style.css
@@ -14,7 +14,7 @@ In general, documentation should be kept as close to the code as possible, for e
 |  |  |  |
 |------------------------|------------------------|------------------------|
 |  | Description | Location |
-| Model Development Plan | A plan for model development, quality assurance and signoff processes. | [LAPCAP Model Development Plan](https://defra-pepr-modelling-team.github.io/module_b_team_pages/lapcap_bible.html) |
+| Model Development Plan | A plan for model development, quality assurance and signoff processes. | [LAPCAP Model Development Plan](https://defra-pepr-modelling-team.github.io/module_b_team_pages/lapcap_handbook.html) |
 | Signoff Log | Log of signoffs obtained for each version of LAPCAP. | [03 LAPCAP Signoff Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B5065D966-5D34-493C-92E1-FCA1CE67B2FD%7D&file=TEMPLATE%20modulename%20assumptions_data_log1.xlsm&action=default&mobileredirect=true) |
 | FPC Team Pages | Detailed practical steps required for various team processes. Model development plan is stored here also. | [FPC Team Pages](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html) |
 
@@ -28,20 +28,20 @@ There are also templates for:
 
 # Version Specific Documentation
 
-In the [00 Model Master](https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&web=1&e=nb7fDx) folder, each model version will have a folder. This will contain all the documentation specific to that version. 
+In the [00 Model Master](https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&web=1&e=nb7fDx) folder, each model version will have a folder. This will contain all the documentation specific to that version.
 
-Whilst the version is still under development this folder will have “- IN PROGRESS” appended to its name. 
+Whilst the version is still under development this folder will have “- IN PROGRESS” appended to its name.
 
-Once the version is completed (i.e. tagged on Github), the folder will have the “- IN PROGRESS” label removed, a zip file of the code and a copy of the model outputs saved into it and should not be edited from that point onwards. 
+Once the version is completed (i.e. tagged on Github), the folder will have the “- IN PROGRESS” label removed, a zip file of the code and a copy of the model outputs saved into it and should not be edited from that point onwards.
 
-Instead, a new “- IN PROGRESS” folder should be created, with below documents from the previous version copied into it, that can then be edited alongside changes to the code for the new version. 
+Instead, a new “- IN PROGRESS” folder should be created, with below documents from the previous version copied into it, that can then be edited alongside changes to the code for the new version.
 
 |  |  |
 |------------------------------------|------------------------------------|
-|   | Description  |
-| Technical Document  |  A full description of the model including code maps and example calculations. Should be detailed enough to allow for an external to recreate the model.  |
-| Assumptions Logs  |  A record of assumptions we have made throughout the model.  |
-| Data Logs  |  A record of data inputs used by LAPCAP.  |
-| User Guide  | Guidance on how to practically run and control LAPCAP.  Stored in the README file in our GitHub repository.  |
-| Change Log  | A record of changes in output numbers for merges between versions.  |
-| Verification Log  | A record of verification done on each merge. Maintained by our quality assurance lead (Peter Neary).  |
+|  | Description |
+| Technical Document | A full description of the model including code maps and example calculations. Should be detailed enough to allow for an external to recreate the model. |
+| Assumptions Logs | A record of assumptions we have made throughout the model. |
+| Data Logs | A record of data inputs used by LAPCAP. |
+| User Guide | Guidance on how to practically run and control LAPCAP. Stored in the README file in our GitHub repository. |
+| Change Log | A record of changes in output numbers for merges between versions. |
+| Verification Log | A record of verification done on each merge. Maintained by our quality assurance lead (Peter Neary). |

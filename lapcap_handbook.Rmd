@@ -1,5 +1,5 @@
 ---
-title: "LAPCAP Bible"
+title: "LAPCAP Handbook"
 output:
   html_document:
     toc: true
@@ -8,7 +8,7 @@ output:
     css: notitle.css
 ---
 
-# LAPCAP Model Development Plan
+# LAPCAP Handbook
 
 This document is a plan for model development, quality assurance and signoff processes of LAPCAP. It includes detail on how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
 
@@ -93,7 +93,7 @@ a.  If the changes involve adding, removing or changing an assumption then the m
 >
 > 3.  Record your assumption in the relevant assumptions log
 >
->     Each module has its own assumptions log which you can find via the Documentation Overview section above.
+>     Each module has its own assumptions log which you can find via the LAPCAP library.
 >
 >     You will need to fill out the following fields:
 >
@@ -175,7 +175,7 @@ c.  If the changes result in a functional change to the model, i.e. the changes 
 >
 >     Download a version of the output so you can link it in the pull request template later.
 
-Locations for assumption log, data log or the technical document can be found in 01 Documentation Overview.docx, and each includes instructions for how to use it.
+Locations for assumption log, data log or the technical document can be found in the LAPCAP library, and each includes instructions for how to use it.
 
 > ### How to make a pull request {#how_to_pull_request}
 >
