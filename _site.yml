@@ -21,6 +21,8 @@ navbar:
           href: new_how_to_set_up_github.html      
         - text: "...edit Github code"
           href: new_how_to_edit_github_code.html
+    - text: "Documentation Library"
+      href: documentation_library.html
     - text: "LAPCAP Bible"
       href: lapcap_bible.html
     - text: "Other Useful Bits"

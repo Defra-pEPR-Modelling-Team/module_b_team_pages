@@ -11,7 +11,7 @@
 
 
 
-<title>How to Access R Studio</title>
+<title>Documentation Library</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -312,19 +312,133 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">How to Access R Studio</h1>
+<h1 class="title toc-ignore">Documentation Library</h1>
 
 </div>
 
 
-<p>We currently use Defra’s <strong>Scientific Coding Environment
-(SCE)</strong> which allows us to write and run code on <em>Amazon Web
-Service (AWS) EC2 virtual machines</em>, and store our data using
-<em>Amazon Web Services S3</em>. Speak to the <strong>SCE
-admins</strong> (Jake as of May 2024) if you are not set up on the
-SCE.</p>
-<p><a href="http://ranch-793.int.sce.network/rstudio/">R Studio
-link</a></p>
+<p>The below sets out the full set of documentation for LAPCAP,
+alongside where it can be found. In some cases, it may be stored in
+multiple locations and care should be taken to ensure both copies remain
+up to date.</p>
+<p>In general, documentation should be kept as close to the code as
+possible, for ease of access. However, this may not always be
+possible.</p>
+<div id="overarching-documentation" class="section level1">
+<h1>Overarching Documentation</h1>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Description</td>
+<td>Location</td>
+</tr>
+<tr class="even">
+<td>Model Development Plan</td>
+<td>A plan for model development, quality assurance and signoff
+processes.</td>
+<td><a
+href="https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/02%20LAPCAP%20QA%20Plan.docx?d=w9c733b9d25d2431b9e9153384ad2352e&amp;csf=1&amp;web=1&amp;e=c3uYng">02
+LAPCAP QA Plan.docx</a></td>
+</tr>
+<tr class="odd">
+<td>Signoff Log</td>
+<td>Log of signoffs obtained for each version of LAPCAP.</td>
+<td><a
+href="https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B5065D966-5D34-493C-92E1-FCA1CE67B2FD%7D&amp;file=TEMPLATE%20modulename%20assumptions_data_log1.xlsm&amp;action=default&amp;mobileredirect=true">03
+LAPCAP Signoff Log</a></td>
+</tr>
+<tr class="even">
+<td>FPC Team Pages</td>
+<td>Detailed practical steps required for various team processes.</td>
+<td><a
+href="https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html">FPC
+Team Pages</a></td>
+</tr>
+</tbody>
+</table>
+<p>There are also templates for:</p>
+<ul>
+<li>Assumptions logs (<a
+href="https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/TEMPLATE%20modulename%20assumptions_log.xlsm?d=wb9cab66a483648f68e962eee10eb1add&amp;csf=1&amp;web=1&amp;e=7kzgb7">TEMPLATE
+modulename assumptions_log.xlsm</a>)</li>
+<li>Change logs (<a
+href="https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/TEMPLATE%20model%20output%20sensitivity%20testing.xlsx?d=w2f17d9953c16471d846b3fa3a97fd816&amp;csf=1&amp;web=1&amp;e=itEbIe">TEMPLATE
+model output sensitivity testing.xlsx</a>)
+<ul>
+<li>Used to check changes in outputs for each merge.</li>
+</ul></li>
+<li>Verification logs (<a
+href="https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/TEMPLATE%20verification%20log.xlsx?d=w211af91668db4e89ae63b12812c6a30e&amp;csf=1&amp;web=1&amp;e=CFfKY0">TEMPLATE
+verification log.xlsx</a>)
+<ul>
+<li>Used by our quality assurance lead (Peter Neary) to keep a record of
+verification being done for each merge.</li>
+</ul></li>
+</ul>
+</div>
+<div id="version-specific-documentation" class="section level1">
+<h1>Version Specific Documentation</h1>
+<p>In the <a
+href="https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&amp;web=1&amp;e=nb7fDx">00
+Model Master</a> folder, each model version will have a folder. This
+will contain all the documentation specific to that version. </p>
+<p>Whilst the version is still under development this folder will have
+“- IN PROGRESS” appended to its name. </p>
+<p>Once the version is completed (i.e. tagged on Github), the folder
+will have the “- IN PROGRESS” label removed, a zip file of the code and
+a copy of the model outputs saved into it and should not be edited from
+that point onwards. </p>
+<p>Instead, a new “- IN PROGRESS” folder should be created, with below
+documents from the previous version copied into it, that can then be
+edited alongside changes to the code for the new version. </p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td> </td>
+<td>Description </td>
+</tr>
+<tr class="even">
+<td>Technical Document </td>
+<td> A full description of the model including code maps and example
+calculations. Should be detailed enough to allow for an external to
+recreate the model. </td>
+</tr>
+<tr class="odd">
+<td>Assumptions Logs </td>
+<td> A record of assumptions we have made throughout the model. </td>
+</tr>
+<tr class="even">
+<td>Data Logs </td>
+<td> A record of data inputs used by LAPCAP. </td>
+</tr>
+<tr class="odd">
+<td>User Guide </td>
+<td>Guidance on how to practically run and control LAPCAP.  Stored in
+the README file in our GitHub repository. </td>
+</tr>
+<tr class="even">
+<td>Change Log </td>
+<td>A record of changes in output numbers for merges between
+versions. </td>
+</tr>
+<tr class="odd">
+<td>Verification Log </td>
+<td>A record of verification done on each merge. Maintained by our
+quality assurance lead (Peter Neary). </td>
+</tr>
+</tbody>
+</table>
+</div>
 
 
 

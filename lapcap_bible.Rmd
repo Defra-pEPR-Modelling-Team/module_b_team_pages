@@ -8,44 +8,7 @@ output:
     css: notitle.css
 ---
 
-
 # LAPCAP Bible
-
-# Documentation Overview
-
-The below sets out the full set of documentation for LAPCAP, alongside where it can be found. In some cases, it may be stored in multiple locations and care should be taken to ensure both copies remain up to date.
-
-In general, documentation should be kept as close to the code as possible, for ease of access. However, this may not always be possible.
-
-## Overarching Documentation
-
-|  |  |  |  |
-|------------------|------------------|------------------|------------------|
-|  | Description | Github Location | Sharepoint Location |
-| Quality Assurance Plan | How, when and by whom model, data or assumption changes will be assured. | \- | [02 LAPCAP QA Plan.docx](https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/02%20LAPCAP%20QA%20Plan.docx?d=w9c733b9d25d2431b9e9153384ad2352e&csf=1&web=1&e=c3uYng) |
-| Signoff Log | Log of signoffs obtained for each version of LAPCAP. | \- | [03 LAPCAP Signoff Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B5065D966-5D34-493C-92E1-FCA1CE67B2FD%7D&file=TEMPLATE%20modulename%20assumptions_data_log1.xlsm&action=default&mobileredirect=true) |
-| Template Assumptions Log | A blank version of our assumption log for use on any new modules. | \- | [04 TEMPLATE modulename assumptions_data_log.xlsm](https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/04%20TEMPLATE%20modulename%20assumptions_data_log.xlsm?d=wb9cab66a483648f68e962eee10eb1add&csf=1&web=1&e=tL8AI4) |
-| Team How To’s… | Describes practical steps required for various team processes. | [FPC Coding Guidance](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html) | \- |
-
-## Version Specific Documentation
-
-In the [00 Model Master folder](https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&web=1&e=1jREhl), each model version will have a folder. This will contain all the documentation specific to that version.
-
-Whilst the version is still under development this folder will have “- IN PROGRESS” appended to its name.
-
-Once the version is completed (tagged on Github and merged into main), the folder will have the “- IN PROGRESS” label removed, a zip file of the code and a zip file of the data inputs saved into it and should not be edited from that point onwards.
-
-Instead, a new “- IN PROGRESS” folder should be created, with below documents from the previous version copied into it, that can then be edited alongside changes to the code for the new version.
-
-|  |  |  |  |
-|------------------|------------------|------------------|------------------|
-|  | Description | Github Location | Sharepoint Location |
-| Technical Document |  |  |  |
-| Assumptions Logs |  |  |  |
-| Data Log |  |  |  |
-| User Guide | Guidance on how to practically run and control LAPCAP. |  |  |
-| Validation Docs | CAT WORKING ON |  |  |
-| CHANGE LOG? | CAT INVESTIGATING IN VALIDATION TICKET |  |  |
 
 # Modelling and Assurance Process
 
@@ -96,7 +59,6 @@ The changes required should be clearly laid out in the relevant Jira ticket.
 If the changes made involve adding, removing or changing an assumption, data import or code logic, then the modelling team member must update the relevant assumption log, data log and/or the technical document, code comments and roxygen headers.
 
 If the changes result in a functional change to the model, i.e. the changes will effect model outputs, then valdation checks must be carried out.
-
 
 The following sections explain how to do that:
 
@@ -184,26 +146,23 @@ The following sections explain how to do that:
 >
 > -   When numbers are published externally and the first number updated, dev should be merged into main
 
-
 > ### How to run validation checks {#how_to_validate}
-> 
-> 1.    Check the percentage difference between the outputs from the last tagged version of LAPCAP and the output of whatever changes you have made 
->    
->       Use the spreadsheet "[model_version] model output sensitivity testing.xlsx" on the Module B1 Sharepoint, within [00 Model Master folder](https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&web=1&e=1jREhl) > [model_version]
->    
->       Follow the instructions in the first sheet.
->    
->       The spreadsheet automatically highlights any percentage changes above the acceptable threshold. If values become highlighted, make sure to check with a Grade 7 whether the need for the change justifies the change in outputs.
 >
+> 1.  Check the percentage difference between the outputs from the last tagged version of LAPCAP and the output of whatever changes you have made
 >
-> 2.    Generate and inspect the Critical Success Factors (CSF) markdown to ensure the change hasn't violated any of the success factors
+>     Use the spreadsheet "[model_version] model output sensitivity testing.xlsx" on the Module B1 Sharepoint, within [00 Model Master folder](https://defra.sharepoint.com/:f:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master?csf=1&web=1&e=1jREhl) \> [model_version]
 >
->       Use the function generate_validation_markdowns() in documents in the LAPCAP repo to generate the markdown, following the instructions in the function's roxygen header
+>     Follow the instructions in the first sheet.
 >
->       Inspect the output, ensuring that each CSF is still being met. If you have any concerns, raise them with a G7 or above. 
+>     The spreadsheet automatically highlights any percentage changes above the acceptable threshold. If values become highlighted, make sure to check with a Grade 7 whether the need for the change justifies the change in outputs.
 >
->       Download a version of the output so you can link it in the pull request template later.
+> 2.  Generate and inspect the Critical Success Factors (CSF) markdown to ensure the change hasn't violated any of the success factors
 >
+>     Use the function generate_validation_markdowns() in documents in the LAPCAP repo to generate the markdown, following the instructions in the function's roxygen header
+>
+>     Inspect the output, ensuring that each CSF is still being met. If you have any concerns, raise them with a G7 or above.
+>
+>     Download a version of the output so you can link it in the pull request template later.
 
 > ### How to write a unit test {#how_to_unit_test}
 >
@@ -213,7 +172,7 @@ Locations for assumption log, data log or the technical document can be found in
 
 > ### How to make a pull request {#how_to_pull_request}
 >
-> Once the modelling team member has completed their changes, they should make a pull request and request a review from another member of the team. 
+> Once the modelling team member has completed their changes, they should make a pull request and request a review from another member of the team.
 >
 > Here are the **step-by-step instructions** to submit a pull request:
 >
@@ -235,45 +194,46 @@ Locations for assumption log, data log or the technical document can be found in
 >
 >     b.  Fill out the pull request template (following carrying out validation checks, see below), including adding any additional QA checks to the list.
 >
->           Replace this gif with one that describes how you felt about completing this ticket:
+>         Replace this gif with one that describes how you felt about completing this ticket:
 >
->           <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHB0bHQ4dzQ4anN5b3JoaDIyb2twOXh4Y3U5YWY1NHB6c3dreWdvNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gOfSjdLRr6SlvGQTe3/giphy.gif" height="150"/>
+>         <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHB0bHQ4dzQ4anN5b3JoaDIyb2twOXh4Y3U5YWY1NHB6c3dreWdvNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gOfSjdLRr6SlvGQTe3/giphy.gif" height="150"/>
 >
->           ✔️ **QA checklists**
+>         ✔️ **QA checklists**
 >
->           📝 **Description of changes made:**
+>         📝 **Description of changes made:**
 >
->           🎟️ **Link to Jira ticket:**
+>         🎟️ **Link to Jira ticket:**
 >
->           🤔 **Link to QA log (assumptions or data log), if changed:**
+>         🤔 **Link to QA log (assumptions or data log), if changed:**
 >
->           💾 **If appropriate, link to CSF markdown:**
+>         💾 **If appropriate, link to CSF markdown:**
 >
->           📈 **If appropriate, link to output percentage change spreadsheet:**
+>         📈 **If appropriate, link to output percentage change spreadsheet:**
 >
->           |                                 | \% change in EPR Total Net Cost |
->           |---------------------------------|---------------------------------|
->           | **Mean absolute change per LA** |                                 |
->           | **Overall**                     |                                 |
->           | **England**                     |                                 |
->           | **Scotland**                    |                                 |
->           | **Wales**                       |                                 |
->           | **NI**                          |                                 |
+>         |                                 | \% change in EPR Total Net Cost |
+>         |---------------------------------|---------------------------------|
+>         | **Mean absolute change per LA** |                                 |
+>         | **Overall**                     |                                 |
+>         | **England**                     |                                 |
+>         | **Scotland**                    |                                 |
+>         | **Wales**                       |                                 |
+>         | **NI**                          |                                 |
 >
->           🌜 **Do-er QA checklist**
+>         🌜 **Do-er QA checklist**
 >
->            Before submitting a pull request the principle analyst **must** have completed the below checks.
->            - [ ] Assumptions log has been updated with any new or changed assumptions, including appropriate rationale and/or evidence
->            - [ ] Data log has been updated with any new or changed data
->            - [ ] If functional changes have been made to code, the CSF markdown has been generated and inspected, and there are no issues highlighted in visualisations
->            - [ ] If functional changes have been made to code, the percentage change in model outputs has been calculated and reported above, if the change is above threshold, this has been raised with a Grade 7 or    above.
->            - [ ] If additional checks are required, these have been added to the Checker Checklist below, with detailed instructions as to how to run the checks
+>         Before submitting a pull request the principle analyst **must** have completed the below checks.
 >
->     b.  Click '*Reviewer*' and select the person who has agreed to review your code.
+>         -   [ ] Assumptions log has been updated with any new or changed assumptions, including appropriate rationale and/or evidence
+>         -   [ ] Data log has been updated with any new or changed data
+>         -   [ ] If functional changes have been made to code, the CSF markdown has been generated and inspected, and there are no issues highlighted in visualisations
+>         -   [ ] If functional changes have been made to code, the percentage change in model outputs has been calculated and reported above, if the change is above threshold, this has been raised with a Grade 7 or above.
+>         -   [ ] If additional checks are required, these have been added to the Checker Checklist below, with detailed instructions as to how to run the checks
+>
+>     c.  Click '*Reviewer*' and select the person who has agreed to review your code.
 >
 >         ![](assets/reviewers.png)
 >
->     c.  Make sure you have completed the requirements and fill out the fields in the pull request template.
+>     d.  Make sure you have completed the requirements and fill out the fields in the pull request template.
 >
 > 4.  Then you can click '*Create pull request*'.
 >
@@ -312,7 +272,6 @@ You should use the checklist below, which is also included in the pull request t
 Also you should carry out any additional checks required, which have been added to the Checker Checklist by the doer.
 
 Reviewers should trace the full logic of the code, both by reading through it and by running it and spot-checking intermediate data frames. They should inspect any relevant data imports both in R Studio and directly from their original source. They should examine model outputs before and after the changes to ensure they make sense. They should make sure they are able to replicate any processes or calculations in the code.
-
 
 > **Additional checks**
 >
