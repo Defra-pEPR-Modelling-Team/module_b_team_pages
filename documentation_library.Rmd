@@ -1,8 +1,8 @@
 ---
 title: "Documentation Library"
-output:
-  pdf_document: default
-  html_document: default
+output: 
+  html_document:
+    css: style.css
 ---
 
 The below sets out the full set of documentation for LAPCAP, alongside where it can be found. In some cases, it may be stored in multiple locations and care should be taken to ensure both copies remain up to date.
@@ -14,9 +14,9 @@ In general, documentation should be kept as close to the code as possible, for e
 |  |  |  |
 |------------------------|------------------------|------------------------|
 |  | Description | Location |
-| Model Development Plan | A plan for model development, quality assurance and signoff processes. | [02 LAPCAP QA Plan.docx](https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/02%20LAPCAP%20QA%20Plan.docx?d=w9c733b9d25d2431b9e9153384ad2352e&csf=1&web=1&e=c3uYng) |
+| Model Development Plan | A plan for model development, quality assurance and signoff processes. | [LAPCAP Model Development Plan](https://defra-pepr-modelling-team.github.io/module_b_team_pages/lapcap_bible.html) |
 | Signoff Log | Log of signoffs obtained for each version of LAPCAP. | [03 LAPCAP Signoff Log](https://defra.sharepoint.com/:x:/r/teams/Team1478/_layouts/15/Doc.aspx?sourcedoc=%7B5065D966-5D34-493C-92E1-FCA1CE67B2FD%7D&file=TEMPLATE%20modulename%20assumptions_data_log1.xlsm&action=default&mobileredirect=true) |
-| FPC Team Pages | Detailed practical steps required for various team processes. | [FPC Team Pages](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html) |
+| FPC Team Pages | Detailed practical steps required for various team processes. Model development plan is stored here also. | [FPC Team Pages](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html) |
 
 There are also templates for:
 
@@ -37,7 +37,7 @@ Once the version is completed (i.e. tagged on Github), the folder will have the 
 Instead, a new “- IN PROGRESS” folder should be created, with below documents from the previous version copied into it, that can then be edited alongside changes to the code for the new version. 
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 |   | Description  |
 | Technical Document  |  A full description of the model including code maps and example calculations. Should be detailed enough to allow for an external to recreate the model.  |
 | Assumptions Logs  |  A record of assumptions we have made throughout the model.  |

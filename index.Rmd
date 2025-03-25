@@ -9,7 +9,7 @@ Please suggest anything you think is missing from this site!
 ::: {style="display: flex; justify-content: space-around;"}
 <figure style="text-align: center;">
 
-<a href="new_induction_stuff.html"> <img src="assets/baby_coder.png" alt="Baby Coder" width="150"/> </a>
+<a href="new_induction_stuff.html"> <img src="assets/baby_coder.png" alt="Baby Coder" width="200"/> </a>
 
 <figcaption>New Starters!</figcaption>
 
@@ -17,7 +17,7 @@ Please suggest anything you think is missing from this site!
 
 <figure style="text-align: center;">
 
-<a href="documentation_library.html"> <img src="assets/waste_library.png" alt="Waste Library" width="208"/> </a>
+<a href="documentation_library.html"> <img src="assets/waste_library.png" alt="Waste Library" width="200"/> </a>
 
 <figcaption>Documentation Library</figcaption>
 
@@ -25,7 +25,7 @@ Please suggest anything you think is missing from this site!
 
 <figure style="text-align: center;">
 
-<a href="lapcap_bible.html"> <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="208"/> </a>
+<a href="lapcap_bible.html"> <img src="assets/barbara_diagram.png" alt="Barbara Diagram" width="250"/> </a>
 
 <figcaption>LAPCAP Bible</figcaption>
 
