@@ -20,7 +20,7 @@ To clone a repository, follow these steps:
 
 3.  Next, in R Studio go to *'File \> New Project \> Version Control \> Git'* and paste in the address from the previous step. Then click 'Create project'.
 
-4.  If prompted enter your Github username **but instead of our password we need to use the token we generated in step 1 of 'How to clone a repository'**.
+4.  If prompted enter your Github username **but instead of our password we need to use the token we generated in step 1**.
 
 5.  You have now successfully cloned a repo into your R Studio. You should now be able to access the git tab in the top right window.
 
