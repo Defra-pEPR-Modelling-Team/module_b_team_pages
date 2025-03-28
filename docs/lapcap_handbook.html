@@ -454,6 +454,51 @@ profession, ensuring necessary modelling skills.</li>
 </ul>
 <p>Named individuals correct as of 3/2/2025</p>
 </div>
+<div id="model_versioning" class="section level3">
+<h3>Model Versioning</h3>
+<p>We use a process of model versioning designed to allow easy
+rolling-back to past versions.</p>
+<p>In version Vx.y.z</p>
+<ul>
+<li>The first number, x, should be updated when figures are published
+externally (including publishing letters, use in public base fees
+etc.)</li>
+<li>The second number, y, should be updated when figures are shared
+non-publically (e.g. with Simpler Recycling, MHCLG, DESNZ etc.)</li>
+<li>The third number, z, should be updated when there are changes to the
+data inputs or the data pipeline (to allows rolling back to the correct
+data in the future)</li>
+</ul>
+<div id="model_tagging" class="section level4">
+<h4>How to update the tagged version</h4>
+<p>When a new version of the model needs to be tagged on GitHub, follow
+the below steps:</p>
+<ol style="list-style-type: decimal">
+<li>Create a branch from dev</li>
+<li>Change the model_version parameter in run_LAPCAP_model (in main.R)
+and the model_version parameter in the data_pipeline function in
+update_data_pipeline.R. Commit and push these changes to your
+branch</li>
+<li>Run the data pipeline with the new model_version parameter to create
+a folder on the aws bucket containing all the data for that version of
+the model (remembering to restart your R session and clean your
+environment before running the pipeline) - see <a
+href="#how_to_data_input">here</a> for full data pipeline guidance</li>
+<li>Ensure that the data pipeline and model both run with the new
+model_version parameter</li>
+<li>Open a pull request (PR) to merge your branch back into dev</li>
+<li>Merge the branch into dev (following any QA processes) and delete
+the now-redundant branch</li>
+<li>Tag the commit on dev with the new model version using GitHub’s
+tagging feature</li>
+<li>Optionally, if publishing externally and updating the first number
+in the model version, you should now open a PR and merge dev into
+main</li>
+</ol>
+<p>Ensure that the rest of the team are aware of the version being
+tagged so they can rebase their branches if necessary.</p>
+</div>
+</div>
 </div>
 <div id="coding-process-detail" class="section level1">
 <h1>Coding Process Detail</h1>
@@ -545,36 +590,76 @@ corresponding ‘Supporting Evidence’ folder</em></p></li>
 must be refreshed and data logs updated:</li>
 </ol>
 <blockquote>
-<h3 id="how_to_data_input">How to change a data input</h3>
-<p>ANDREW WRITING</p>
-<p>Data Pipeline</p>
-<ul>
-<li><p>The data pipeline should be run to update the data folder prior
-to a new version of the model being tagged (ensure to restart your R
-session and clean your environment before running the pipeline)</p></li>
-<li><p>Before the new version is tagged, you need to change the
-model_version parameter in the data pipeline and run it, and change the
-model_version parameter in run_LAPCAP_model, then push these changes
-before tagging the version</p></li>
-<li><p>If you are attempting to overwrite a folder then you will be
-asked to confirm – you should be sure that you want to overwrite the
-folder as this could prevent rolling back in the future</p></li>
-<li><p>Ensure that people are aware of a new version being tagged so
-they can rebase if necessary</p></li>
-</ul>
-<p>Versioning Vx.y.z</p>
-<ul>
-<li><p>The first number, x, should be updated when figures and published
-externally</p></li>
-<li><p>The second number, y, should be updated when figures are shared
-internally (e.g. Simpler Recycling)</p></li>
-<li><p>The third number, z, should be updated when there are changes to
-the data or data pipeline</p></li>
-<li><p>These versions should be tagged on dev on github to allow easy
-rollback to model versions</p></li>
-<li><p>When numbers are published externally and the first number
-updated, dev should be merged into main</p></li>
-</ul>
+<h3 id="how_to_data_input">How to change the data pipeline or a data
+input</h3>
+<p>When working on or updating the data pipeline itself
+(experimentation, testing, logic changes etc.) or updating/changing a
+data source, you should <strong>ensure you have changed the
+model_version parameter in any calls to the data_pipeline
+function</strong> – this prevents you from accidentally overwriting data
+being used by the “live” model and ensures rolling-back to versions is
+easy in the future.</p>
+<p>The pipeline will tell you if you are going to overwrite any
+data.</p>
+<p>You should use a unique string for your model_version parameter
+e.g. “your_name_test”.</p>
+<p>Once you have finished your experimentation/changes make sure to
+update the model_version parameter to the correct model version number
+before merging back into dev, and delete any temporary folders you
+created in aws using your model_version parameter. Follow the <a
+href="#model_tagging">Model Versioning guidance</a> to update the model
+version and run the pipeline.</p>
+<h4 id="running-the-data-pipeline">Running the Data Pipeline:</h4>
+<p>To run the data pipeline, run the update_data_pipeline.R script. This
+will update to the lastest version of the LAPCAP package, load all of
+the pipeline scripts, and run the pipeline (including saving the outputs
+to the aws bucket). This will create a new folder of processed data at
+“Module_B1/Inputs/Processed/” named after the model_version
+parameter.</p>
+<p>There are dependencies between the sub-pipelines (e.g. waste flow
+using data from scheme data), so they will need to be run in order in
+any experimentation.</p>
+<p>If you are running pipeline functions outside of the pipeline itself,
+you will likely need to define the following variables:</p>
+</blockquote>
+<blockquote>
+<pre class="r"><code>s3_bucket &lt;- &quot;s3-ranch-043&quot;
+root_folder &lt;- &quot;Module_B1/Inputs&quot;
+file_log &lt;- list()</code></pre>
+<h4 id="updating-the-data-pipeline-itself">Updating the data pipeline
+itself:</h4>
+<ol style="list-style-type: decimal">
+<li><p>Follow the guidance above to prevent overwriting data that is (or
+will be) used</p></li>
+<li><p>Experiment and make the changes needed to the code</p></li>
+<li><p>Update the model_version parameter to the next model version
+(following the <a href="#model_tagging">Model Versioning guidance</a>)
+in both the argument to data_pipeline() in update_data_pipeline.R and
+the argument to run_LAPCAP_model() in main.R</p></li>
+<li><p>Run the pipeline to create a folder of data for that model
+version</p></li>
+<li><p>Open a PR and merge your changes into dev</p></li>
+<li><p>Follow the Model Versioning guidance about tagging the new model
+version on dev</p></li>
+</ol>
+<h4 id="updating-a-data-source">Updating a data source:</h4>
+<ol style="list-style-type: decimal">
+<li><p>Follow the guidance above to prevent overwriting data that is (or
+will be) used</p></li>
+<li><p>Experiment and make the changes needed to the code. Ensure you
+add the file_path and file_log logic to any new import functions (see
+the other import functions for details) – this will capture the new data
+sources in the file log.</p></li>
+<li><p>Update the model_version parameter to the next model version
+(following the <a href="#model_tagging">Model Versioning guidance</a>)
+in both the argument to data_pipeline() in update_data_pipeline.R and
+the argument to run_LAPCAP_model() in main.R</p></li>
+<li><p>Run the pipeline to create a folder of data for that model
+version</p></li>
+<li><p>Open a PR and merge your changes into dev</p></li>
+<li><p>Follow the Model Versioning guidance about tagging the new model
+version on dev</p></li>
+</ol>
 </blockquote>
 <ol start="3" style="list-style-type: lower-alpha">
 <li><p>If model logic is changed then the technical document, code
