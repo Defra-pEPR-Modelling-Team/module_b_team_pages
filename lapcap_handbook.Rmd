@@ -144,6 +144,12 @@ b.  If the changes involve updating a data import then the data pipeline must be
 
 > ### How to modify the data pipeline {#how_to_data_input}
 >
+> We have separated the code that processes our data inputs from the rest of the model,. this code is known as the *data pipeline*.The data pipeline is our way of version controlling input data for LAPCAP, meaning we can run previous versions of the model even if inputs have changed.
+>
+> It works by reading the raw data inputs from AWS S3, processing them in R and then saving them back to AWS in a new version specific location. The model can then read from this location.
+>
+> Therefore if you need to change, add or remove a data input or the way it is processed, you will need to edit the data pipeline. Guidance for how to do this can be found below.
+>
 > **Important:**
 >
 > -   When working on or updating the data pipeline itself (experimentation, testing, logic changes etc.) or updating/changing a data source, **you *must* ensure you have changed the model_version parameter in any calls to the data_pipeline function** -- this prevents you from accidentally overwriting data being used by the "live" model and ensures rolling-back to versions is easy in the future.
