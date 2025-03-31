@@ -40,6 +40,31 @@ The below diagrams give an overview of the processes, with more detail included 
 
 Named individuals correct as of 3/2/2025
 
+### Model Versioning {#model_versioning}
+
+We use a process of model versioning designed to allow easy rolling-back to past versions.
+
+In version Vx.y.z
+
+-   The first number, x, should be updated when figures are published externally (including publishing letters, use in public base fees etc.)
+-   The second number, y, should be updated when figures are shared non-publically (e.g. with Simpler Recycling, MHCLG, DESNZ etc.)
+-   The third number, z, should be updated when there are changes to the data inputs or the data pipeline (to allow rolling back to the correct data in the future)
+
+> #### **How to update the tagged version** {#model_tagging}
+>
+> When a new version of the model needs to be tagged on GitHub, follow the below steps:
+>
+> 1.  Create a branch from dev
+> 2.  Change the model_version parameter in `run_LAPCAP_model` (in `main.R`) and the model_version parameter in the data_pipeline function in `update_data_pipeline.R`. Commit and push these changes to your branch
+> 3.  Run the data pipeline with the new model_version parameter to create a folder on the aws bucket containing all the data for that version of the model (remembering to restart your R session and clean your environment before running the pipeline) - see [here](#how_to_data_input) for full data pipeline guidance
+> 4.  Ensure that the data pipeline and model both run correctly with the new model_version parameter
+> 5.  Open a pull request (PR) to merge your branch back into dev
+> 6.  Merge the branch into dev (following any QA processes) and delete the now-redundant branch
+> 7.  Tag the commit on dev with the new model version using GitHub's tagging feature
+> 8.  Optionally, if publishing externally and updating the first number in the model version, you should now open a PR and merge dev into main
+>
+> Ensure that the rest of the team are aware of the version being tagged so they can rebase their branches if necessary.
+
 # Coding Process Detail
 
 ## 1. Decide to change code
@@ -117,31 +142,62 @@ a.  If the changes involve adding, removing or changing an assumption then the m
 
 b.  If the changes involve updating a data import then the data pipeline must be refreshed and data logs updated:
 
-> ### How to change a data input {#how_to_data_input}
+> ### How to modify the data pipeline {#how_to_data_input}
 >
-> ANDREW WRITING
+> We have separated the code that processes our data inputs from the rest of the model,. this code is known as the *data pipeline*.The data pipeline is our way of version controlling input data for LAPCAP, meaning we can run previous versions of the model even if inputs have changed.
 >
-> Data Pipeline
+> It works by reading the raw data inputs from AWS S3, processing them in R and then saving them back to AWS in a new version specific location. The model can then read from this location.
 >
-> -   The data pipeline should be run to update the data folder prior to a new version of the model being tagged (ensure to restart your R session and clean your environment before running the pipeline)
+> Therefore if you need to change, add or remove a data input or the way it is processed, you will need to edit the data pipeline. Guidance for how to do this can be found below.
 >
-> -   Before the new version is tagged, you need to change the model_version parameter in the data pipeline and run it, and change the model_version parameter in run_LAPCAP_model, then push these changes before tagging the version
+> **Important:**
 >
-> -   If you are attempting to overwrite a folder then you will be asked to confirm – you should be sure that you want to overwrite the folder as this could prevent rolling back in the future
+> -   When working on or updating the data pipeline itself (experimentation, testing, logic changes etc.) or updating/changing a data source, **you *must* ensure you have changed the model_version parameter in any calls to the data_pipeline function** -- this prevents you from accidentally overwriting data being used by the "live" model and ensures rolling-back to versions is easy in the future.
+> -   The pipeline will tell you if you are going to overwrite any data.
+> -   You should use a unique string for your model_version parameter e.g. "your_name_test".
+> -   Once you have finished your experimentation/changes make sure to update the model_version parameter to the correct model version number before merging back into dev, and delete any temporary folders you created in aws using your model_version parameter. Follow the [Model Versioning guidance](#model_tagging) to update the model version and run the pipeline.
 >
-> -   Ensure that people are aware of a new version being tagged so they can rebase if necessary
+> #### **Running the Data Pipeline:**
 >
-> Versioning Vx.y.z
+> To run the data pipeline, run the `update_data_pipeline.R` script. This will update to the latest version of the LAPCAP package, load all of the pipeline scripts, and run the pipeline (including saving the outputs to the aws bucket). This will create a new folder of processed data at "Module_B1/Inputs/Processed/" named after the model_version parameter.
 >
-> -   The first number, x, should be updated when figures and published externally
+> There are dependencies between the sub-pipelines (e.g. waste flow using data from scheme data), so they will need to be run in order in any experimentation.
 >
-> -   The second number, y, should be updated when figures are shared internally (e.g. Simpler Recycling)
+> If you are running pipeline functions outside of the pipeline itself, you will likely need to define the following variables:
 >
-> -   The third number, z, should be updated when there are changes to the data or data pipeline
+> ```{r}
+> s3_bucket <- "s3-ranch-043"
+> root_folder <- "Module_B1/Inputs"
+> file_log <- list()
+> ```
 >
-> -   These versions should be tagged on dev on github to allow easy rollback to model versions
+> #### **Updating the processing or logic in the data pipeline:**
 >
-> -   When numbers are published externally and the first number updated, dev should be merged into main
+> 1.  Follow the guidance above to prevent overwriting data that is (or will be) used
+>
+> 2.  Experiment and make the changes needed to the code
+>
+> 3.  Update the model_version parameter to the next model version (following the [Model Versioning guidance](#model_tagging)) in both the argument to `data_pipeline()` in `update_data_pipeline.R` and the argument to `run_LAPCAP_model()` in `main.R`
+>
+> 4.  Run the pipeline to create a folder of data for that model version
+>
+> 5.  Open a PR, follow QA processes and merge your changes into dev
+>
+> 6.  Follow the Model Versioning guidance about tagging the new model version on dev
+>
+> #### **Updating a data source:**
+>
+> 1.  Follow the guidance above to prevent overwriting data that is (or will be) used
+>
+> 2.  Experiment and make the changes needed to the code. Ensure you add the file_path and file_log logic to any new import functions (see the other import functions for details) -- this will capture the new data sources in the file log.
+>
+> 3.  Update the model_version parameter to the next model version (following the [Model Versioning guidance](#model_tagging)) in both the argument to `data_pipeline()` in `update_data_pipeline.R` and the argument to `run_LAPCAP_model()` in `main.R`
+>
+> 4.  Run the pipeline to create a folder of data for that model version
+>
+> 5.  Open a PR, follow QA processes and merge your changes into dev
+>
+> 6.  Follow the Model Versioning guidance about tagging the new model version on dev
 
 c.  If model logic is changed then the technical document, code comments and roxygen headers must be updated accordingly.
 
@@ -378,7 +434,7 @@ The model owner should sign off on the following documents, which should have be
 
     -   Change log
 
-    -   Critical success factors markdown - which can be updated following the steps under [How to run validation checks]
+    -   Critical success factors markdown - which can be updated following the steps under [How to run validation checks](#how_to_validate)
 
     -   The validation markdown - STILL BEING REVISED BY CAT
 
