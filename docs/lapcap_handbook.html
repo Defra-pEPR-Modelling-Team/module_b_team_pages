@@ -592,13 +592,13 @@ must be refreshed and data logs updated:</li>
 </ol>
 <blockquote>
 <h3 id="how_to_data_input">How to modify the data pipeline</h3>
-<p><strong>Note:</strong> When working on or updating the data pipeline
-itself (experimentation, testing, logic changes etc.) or
-updating/changing a data source, you should <strong>ensure you have
-changed the model_version parameter in any calls to the data_pipeline
-function</strong> – this prevents you from accidentally overwriting data
-being used by the “live” model and ensures rolling-back to versions is
-easy in the future.</p>
+<p><strong>Important:</strong> When working on or updating the data
+pipeline itself (experimentation, testing, logic changes etc.) or
+updating/changing a data source, <strong>you <em>must</em> ensure you
+have changed the model_version parameter in any calls to the
+data_pipeline function</strong> – this prevents you from accidentally
+overwriting data being used by the “live” model and ensures rolling-back
+to versions is easy in the future.</p>
 <p>The pipeline will tell you if you are going to overwrite any
 data.</p>
 <p>You should use a unique string for your model_version parameter
