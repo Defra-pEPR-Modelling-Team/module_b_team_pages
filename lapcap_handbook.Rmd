@@ -155,7 +155,7 @@ b.  If the changes involve updating a data import then the data pipeline must be
 >
 > #### Running the Data Pipeline:
 >
-> To run the data pipeline, run the update_data_pipeline.R script. This will update to the lastest version of the LAPCAP package, load all of the pipeline scripts, and run the pipeline (including saving the outputs to the aws bucket). This will create a new folder of processed data at "Module_B1/Inputs/Processed/" named after the model_version parameter.
+> To run the data pipeline, run the update_data_pipeline.R script. This will update to the latest version of the LAPCAP package, load all of the pipeline scripts, and run the pipeline (including saving the outputs to the aws bucket). This will create a new folder of processed data at "Module_B1/Inputs/Processed/" named after the model_version parameter.
 >
 > There are dependencies between the sub-pipelines (e.g. waste flow using data from scheme data), so they will need to be run in order in any experimentation.
 >
