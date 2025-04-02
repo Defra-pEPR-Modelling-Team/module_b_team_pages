@@ -418,6 +418,8 @@ There are some circumstances where the full signoff may not be required for inst
 
 ## 2. Model owner signoff
 
+The [TEMPLATE model_owner_signoff_request.docx](https://defra.sharepoint.com/:w:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/TEMPLATE%20model_owner_signoff_request.docx?d=w3162a6ece2984a77a4403747dbffba47&csf=1&web=1&e=XhXJPj) should be used to request a sign off from the model owner. It contains instructions for how to fill it out.
+
 The model owner should sign off on the following documents, which should have been updated:
 
 -   Documentation
