@@ -205,8 +205,48 @@ c.  If model logic is changed then the technical document, code comments and rox
 
 > ### How to update the technical document
 >
-> MARCUS TO WRITE?
-
+> All updates to the technical document should first be written in the technical document working draft document. It is not neccessary for someone to check when you have written in the doc, but of course if you
+are not confident with what you have written then get someone to check. Before any numbers are publicised all updates to the technical document should be checked. When the word document has been fully approved,
+only then should the markdown file be changed. (This is for your ease of use as it is much easier to edit a word document). 
+ 
+> **How to know if you should update the technical document**
+>
+> If the changes to the model you have created have changed the functionality of the model then you should update the relevent section of the technical document. The sections of the technical document mirror the 
+model modules. Furthermore, if a new calculation is added, then the example calculations section should also be updated. 
+Whenever a new file in the model (not the pipeline) is created, the technical document should also be created. Even if there is no actual changes to model functionality, the related content section for the
+relevant module should also be updated with the name of the new file created. This is because when the markdown is created it checks that all files have been covered in the technical document.
+>
+> **Tips for wrtiting the technical document/example calculations:**
+>
+> 1. Ensure you explain the model in terms that a non-technical person can understand
+>
+> 2. Use as many diagrams as possible to aid understanding
+>
+> 3. Use example calculations/equations
+> 
+> 4. Don't use any language like "I" or "we"
+> 
+> 5. If you are not sure how to write your section then read some other sections for guidance or ask someone to help.
+> 
+> 6. If you are updating the example calculations section there should be no surprises! Each variable you mention should have previously mentioned or you need to say where it has come from.
+> 
+> 7. All equations in example calculations should follow through.
+>
+> **What happens with the technical document when we publish numbers?**
+>
+> The final technical document should be created using markdown, however, before any changes are made to the markdown, the following must happen:
+> 
+> 1. All new files that have been covered in the updated technical document should be added to the related contents section in the markdown code.
+> 
+> 2. You should run the generate technical document function to check which files are not covered in the technical document. If it is fine for these files to not be covered, fine, but if they include important
+functionality then update the technical document.
+> 
+> 3. The technical document should be sent to relevant parties who want to check it. This should include the FPC team, members of adjoining teams, the G6 (Tristan), and any other people you think might want to add
+input.
+> 
+> 4. The HTML version of the example calculations section should be sent to the contents team to check if there are any significant changes. This is subject to it still being included in the LA guidance and 
+published.
+>
 > ### How to write a unit test {#how_to_unit_test}
 >
 > NONO WRITING
