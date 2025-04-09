@@ -552,10 +552,11 @@ technical document)?</li>
 <li><p>Record your assumption in-code</p>
 <p>Paste the following code snippet below the relevant portion of code
 and edit to reflect the above.</p>
-<pre class="r"><code>    # Assumption: Title of assumption
-    # RAG: RED 
-    # Detailed description 
-    # on next line or many. </code></pre>
+<pre class="r"><code># Assumption: Title of assumption
+# Quality: RED
+# Impact: AMBER
+# Detailed description
+# on one line or many.</code></pre>
 <p>The title of the assumption should be short, clear and unique to this
 assumption.</p>
 <p>The RAG rating is a red, amber or green rating summarising both the
@@ -563,7 +564,10 @@ quality (e.g. how confident we are) and impact (e.g. how much model
 outputs are likely to be affected) of the assumption.</p>
 <p>The detail description should give all information needed for someone
 to understand the assumption, including why an assumption is needed, why
-you have made the choice and more.</p></li>
+you have made the choice and more.</p>
+<p>For more info on the package behind our assumptions log go to: <a
+href="https://assumptions.readthedocs.io/en/latest/index.html">Assumptions
+1.1.0 Docs</a>.</p></li>
 <li><p>Record your assumption in the relevant assumptions log</p>
 <p>Each module has its own assumptions log which you can find via the
 LAPCAP library.</p>
@@ -696,8 +700,6 @@ Before any numbers are publicised all updates to the technical document
 should be checked. When the word document has been fully approved, only
 then should the markdown file be changed. (This is for your ease of use
 as it is much easier to edit a word document).</p>
-</blockquote>
-<blockquote>
 <p><strong>How to know if you should update the technical
 document</strong></p>
 <p>If the changes to the model you have created have changed the
@@ -749,8 +751,73 @@ sent to the contents team to check if there are any significant changes.
 This is subject to it still being included in the LA guidance and
 published.</p></li>
 </ol>
+</blockquote>
+<blockquote>
 <h3 id="how_to_unit_test">How to write a unit test</h3>
-<p>NONO WRITING</p>
+<p>Unit tests are automated checks that verify individual functions or
+modules behave as expected. They act as a safety net when changing or
+adding features, ensuring existing functionality remains unchanged. The
+tests serve as live documentation for how functions are intended to work
+but also pinpoint which part of the code does not work when failing.
+This section explains how to write, run, and maintain unit tests for our
+LAPCAP model. </p>
+<p>Assuming you’ve set up the correct directory and project (module_b)
+you can find all unit tests in the LAPCAP model in the
+~/module_b/LAPCAP/tests folder. You should be able to click on any one
+of them and run them as any normal function (Ctrl+Shift+Enter). After
+which the test results will appear in the “Console” pane. You will see
+messages like “Test passed” or error messages if something goes
+wrong. </p>
+<p>If you wish to run them all at the same time you can use:
+“testthat::test_dir(”~/module_b/LAPCAP/tests”)” which will execute all
+the files in that location. </p>
+<h4 id="writing-a-unit-test">Writing a unit test</h4>
+<p>Before writing or executing unit tests, it is crucial to ensure that
+all functions required for testing are properly loaded. You can do this
+by simply finding the function you’re seeking to make a unit test for
+and all the functions that are relevant to it and running them before
+starting the unit test. </p>
+<p>Sourcing each function individually in every test script should be
+avoided (as names/location of functions may change). To avoid not having
+the right function you should load all the functions at once into your
+environment.  One effective method to do this is by loading LAPCAP as a
+package, using library(LAPCAP), which makes all functions available in
+your environment. Alternatively, you can use
+devtools::load_all(“~/module_b/LAPCAP”) to load all the  functions into
+your R session. As a manual way to load the functions that are in this
+particular folder. If the folder or functions change location or name
+than you can modify the code accordingly.</p>
+<p>Unit tests generally fall into three categories.  </p>
+<ul>
+<li><strong>Normal operation tests</strong>, verify the core
+functionality of the code using typical inputs. <strong>Most of our
+tests should be like this.</strong> </li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Error fixing tests</strong>, confirm that known problematic
+inputs (e.g., NAs, zeros, negatives, mismatched names) are correctly
+handled or “fixed.”</li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Error catching tests</strong>, ensure that inappropriate
+inputs trigger proper error messages and stop execution as
+intended.</li>
+</ul>
+<p>We use the testthat package in R to write and organise our unit
+tests. Testthat offers a straightforward syntax for creating tests and
+assertions, making it simple to check whether function outputs match
+expected results.  </p>
+<p>It provides functions like expect_equal, expect_identical, and
+expect_error that allow you to compare actual and expected outcomes,
+check data types, and confirm that proper errors are raised under
+invalid inputs. </p>
+<p>Make sure that testthat is installed and loaded in your testing
+environment before running your tests. Furthermore, it is important to
+name your test files clearly (e.g., test_inflate_costs.R,
+test_align_facility.R) so that it is immediately obvious which module or
+function each test is verifying.</p>
 </blockquote>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>If the changes result in a functional change to the model, i.e. the
