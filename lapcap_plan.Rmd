@@ -1,0 +1,121 @@
+---
+title: "LAPCAP Plan"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+    css: notitle.css
+---
+
+# LAPCAP Plan
+
+## Introduction
+
+Extended Producer Responsibility for packaging (pEPR) will move the full cost of dealing with packaging waste from households away from local taxpayers and councils to the packaging producers (applying the ‘polluter pays principle’), giving producers responsibility for the costs of their packaging throughout its life cycle. This will encourage producers to reduce their use of packaging and use packaging which is easier to recycle. Producers will pay more for less sustainable packaging, incentivising packaging that uses less material and is easier to recycle. Producers will also be expected to meet ambitious new recycling targets and use clear unambiguous labelling of recyclability to make it easy for consumers to do the right thing. 
+
+pEPR will be introduced in a phased manner from 2025, initially focussing on payments for household packaging waste managed by local authorities, with such payments being determined from 1 April 2025. While waste management is a devolved policy area, the pEPR scheme will be implemented simultaneously in England, Wales, Scotland and Northern Ireland and administered by a single scheme administrator, hosted by Defra (the UK government Department for the Environment Food and Rural Affairs), known as PackUK. 
+
+The LAPCAP (Local Authority Packaging Cost And Performance) Model will be used to calculate the Basic Payment Amount paid to each Local Authority from 1 April 2025 for the collection and disposal of household packaging waste (excluding street bins and litter). The model will also be used to calculate the total cost for each packaging material, which will be divided between those producers who are obligated under the scheme.
+
+The LAPCAP model is being developed by a team within Defra, but requires approval by all 4 participating nations. PackUK (whose governance includes all 4 UK nations) has the responsibility to approve the modelling approach. Prior to establishment on PackUK the 4-nation CPR Programme Board stood in to govern the model.  
+
+This document details the background, theory and plan for model development, quality assurance and signoff processes of LAPCAP. It includes detail on how, when and by whom model, data or assumption changes will be assured. This includes a list of responsibilities relating to the model, who the model owner is, the governance structure and decision-making process supporting the model.
+
+The LAPCAP handbook gives practical steps and detail for how this will be achieved and should be used by FPC team members to carry out the processes correctly.
+
+## Is LAPCAP Business Critical?
+
+The [Macpherson Review](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/206946/review_of_qa_of_govt_analytical_models_final_report_040313.pdf) assesses business criticality on the basis of "the extent to which error could lead to serious financial, legal or reputational damage". An assessment of this is shown below.
+
+|  |  |  |
+|------------------------|------------------------|------------------------|
+| **Risks**  | **Example/explanation**  | **Risk rating** |
+| Financial | The model will be used to determine fees and payments of over £1 billion. | High  |
+| Legal  | There is a strong chance that stakeholders could challenge the fees or payments. | High  |
+| Reputational | This is a high profile scheme and its failure would lead to criticism of DEFRA and government. | High  |
+
+This model is high risk in all of these categories, hence **should be considered business critical**. It is also highly complex, relying on many data sources and assumptions. As a result it merits QA at the upper end of robustness.
+
+## Risks
+
+Decision-makers need information on the uncertainty of decision outcomes i.e. the range of outcomes that may occur and their relative likelihoods; in order to act appropriately and be confident with the messages they communicate. The model risk log identifies these more detailed risks and proposed mitigations. It can be accessed here: [Risk register v2.0.xlsm](https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/16%20QA/Risk%20Registers/Risk%20register%20v2.0.xlsm?d=wbb875e70cabb402fa21468433ffb4caf&csf=1&web=1&e=LrpVtg), and is maintained by David Akpan through monthly reviews with the FPC G7 lead analysts.
+
+## Stakeholder Groups
+
+A large number of stakeholders are involved in quality assurance of the LAPCAP model. We have split the roles into “signatory” roles which are directly responsible or accountable for producing or approving the model, and “consultative” roles who provide advice or evidence which could improve the model.
+
+### Signatory Roles
+
+These are laid out below in decreasing hierarchical order:
+
+-   **Accounting Officers** of the 4 nations (Defra permanent secretary and equivalents in devolved administrations)
+
+    -   These individuals may be required to agree to any financial risks arising from the modelling
+
+-   **Senior Responsible Officers (SROs)** are the members of the PackUK Executive Committee
+
+    -   The joint SROs fulfil the “Commissioner” role in the Aqua book terminology and are responsible for ensuring that the model is fit for purpose, based on the quality assurance advice they receive.
+    -   Previously this was fulfilled by members of pEPR Project Board, specifically Director of Resources & Waste (Emma Bourne) and equivalents in the Devolved Administrations (David McPhee, Rhodri Asby, Shane Doris).
+
+-   **Analytical Board**
+
+    -   The pEPR Project Board requested the formation of a 4-nation pEPR Analytical Board to scrutinise the model as it is developed, and to advise the SROs on the quality of the model before formal approval of the model for use. At time of writing the pEPR Analytical Board consists of senior analysts from England, Wales and Scotland, with Northern Ireland content to rely on the analysts from these three nations.
+
+-   **Model Owner**
+
+    -   Sarah Andrews (Deputy Director of Circular Economy Evidence and Analysis)
+
+    -   The **model owner** manages the analysts and focuses on ensuring that the model meets policy goals, including by ensuring that the modelling team is sufficiently resourced.
+
+-   **Fees and Payments Calculator modelling team** which is made up of
+
+    -   G6 head of Fees and Payments Calculator team (Tristan Ibrahim)
+    -   G7 lead analysts (Katie Booth and Jacob Billingham) who act as reviewers, checking the QA log entries of the checkers, but they are primarily responsible for ensuring that the model is properly designed, uses adequate data and makes sensible assumptions (“validation” in Aqua Book terms). They do this by designing validation checks of the model, and by testing assumptions with knowledgeable stakeholders (those with consultative roles).
+    -   Analysts who act as doers and checkers: produce the model (write code, record assumptions) and review each others’ code to check it is working as described (described as “verification” in the Aqua Book) in code comments and in the assumptions log. These checks should be documented in QA logs. These are members of the Government Operational Research profession, ensuring necessary modelling skills.
+
+### Consultative Roles
+
+These are stakeholders who generally have expertise in some area relevant to the model development. Their advice is used to support assumptions made in the modelling, and should be recorded in QA logs with links to evidence such as meeting minutes or email chains.
+
+Regularly consulted stakeholders include: 
+
+-   **Defra legal advisers** – to advise on interpretation of the (draft) pEPR regulations, which specify what the model should/may do 
+
+-   **LA payments modelling Technical Working Group (TWG)** – comprising expert waste advisors to Defra and the devolved administrations, advising on the adequacy of model assumptions 
+
+-   **Local authorities (via the LA Waste Officer Sounding Board)** – selected Waste Officers from local authorities across the UK to test the validity of assumptions relating to local authority operations 
+
+-   **Local authorities (via representative bodies, including bodies for special types of LA such as disposal authorities)** – such as WIDP, NAWDO, LARAC and more, used similarly to the above
+
+-   **Government Actuary’s Department** – to date external QA, peer review and advice on best practice has been provided by GAD
+
+Named individuals correct as of 14/4/2025
+
+## Approach to QA {#model_versioning}
+
+In order to ensure the appropriate level of robust QA, we are taking a multi-layered approach (as recommended by Chart 2.C in the MacPherson Review and also re-used in the Aqua Book). Below is a list of the steps taken within this:
+
+-   To ensure outputs can be **reproduced**:
+
+    -   all calculation steps will be scripted, using the R language;
+
+    -   model code is version controlled in Github, with a clearly defined versioning, tagging and publication process;
+
+    -   data is stored in Amazon S3 and an automated, flexible data pipeline has been developed to version control this data, ensuring all versions of the model have access to the correct data.
+
+-   To **verify** the model is error free:
+
+    -   Github is set to require compulsory code review by a second analyst before code is merged. This includes a quality assurance checklist which enforces verification and validation processes are followed.
+
+    -   In terms of verification this includes:
+
+        -   
+
+-   To **validate** the outputs of the model:
+
+    -   
+
+-   To make our analysis simple to **understand** and **communicate**:
+
+    -   a log of data version, data quality assessment and processing done to the data. 

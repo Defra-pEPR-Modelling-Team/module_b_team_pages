@@ -23,6 +23,8 @@ navbar:
           href: new_how_to_edit_github_code.html
     - text: "LAPCAP Library"
       href: lapcap_library.html
+    - text: "LAPCAP Plan"
+      href: lapcap_plan.html
     - text: "LAPCAP Handbook"
       href: lapcap_handbook.html
     - text: "Other Useful Bits"
