@@ -29,7 +29,7 @@ The LAPCAP handbook gives practical steps and detail for how this will be achiev
 The [Macpherson Review](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/206946/review_of_qa_of_govt_analytical_models_final_report_040313.pdf) assesses business criticality on the basis of "the extent to which error could lead to serious financial, legal or reputational damage". An assessment of this is shown below.
 
 |  |  |  |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Risks** | **Example/explanation** | **Risk rating** |
 | Financial | The model will be used to determine fees and payments of over £1 billion. | High |
 | Legal | There is a strong chance that stakeholders could challenge the fees or payments. | High |
@@ -110,17 +110,23 @@ In order to ensure the appropriate level of robust QA, we are taking a multi-lay
 
     -   In terms of verification this includes:
 
-        -   
+        -   UNIT TESTS
 
--   To **validate** the outputs of the model:
+    -   We have had versions of the model externally audited by the Government Actuary's Department
+
+-   To **validate** the model works as intended:
 
     -   The *pull request checklist* enforces:
 
-        -   
+        -   dfhgsd
+
+    -   We have made comparisons of LAPCAP against a second model known as the top-down model.
+
+    -   We have tested the modelling approach, model structure, quality assurance processes, and outputs with our consultative stakeholders as detailed above.
 
 -   To make our analysis simple to **understand** and **communicate**:
 
     -   The *pull request checklist* enforces:
         -   Code follows the [Tidyverse style guide](https://style.tidyverse.org/)
-        -   \
-    -   a log of data version, data quality assessment and processing done to the data.
+        -   Maintenance of our assumptions logs, alongside the code and in a set of central logs, covering specifics of assumptions, rationale behind them and confidence in them;
+        -   a log of data version, data quality assessment and processing done to the data.

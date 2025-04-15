@@ -412,72 +412,21 @@ correctly.</p>
 read the LAPCAP Plan.</p>
 <p>The below diagrams give an overview of the processes, with more
 detail included in later sections.</p>
-<div id="coding-process" class="section level3">
-<h3>Coding Process</h3>
-<p><img src="assets/bible_process_1.png" /></p>
+<p><u>Coding Process Diagram</u> <img
+src="assets/bible_process_1.png" /></p>
+<p><u>Signoff Process Diagram</u> <img
+src="assets/bible_process_2.png" /></p>
+<div id="coding-process-detail" class="section level2">
+<h2>Coding Process Detail</h2>
 </div>
-<div id="signoff-process" class="section level3">
-<h3>Signoff Process</h3>
-<p><img src="assets/bible_process_2.png" /></p>
-</div>
-<div id="model-versioning" class="section level3">
-<h3>Model Versioning</h3>
-<p>We use a process of model versioning designed to allow easy
-rolling-back to past versions.</p>
-<p>In version Vx.y.z</p>
-<ul>
-<li>The first number, x, should be updated when figures are published
-externally (including publishing letters, use in public base fees
-etc.)</li>
-<li>The second number, y, should be updated when figures are shared
-non-publically (e.g. with Simpler Recycling, MHCLG, DESNZ etc.)</li>
-<li>The third number, z, should be updated when there are changes to the
-data inputs or the data pipeline (to allow rolling back to the correct
-data in the future)</li>
-</ul>
-<blockquote>
-<h4 id="model_tagging"><strong>How to update the tagged
-version</strong></h4>
-<p>When a new version of the model needs to be tagged on GitHub, follow
-the below steps:</p>
-<ol style="list-style-type: decimal">
-<li>Create a branch from dev</li>
-<li>Change the model_version parameter in <code>run_LAPCAP_model</code>
-(in <code>main.R</code>) and the model_version parameter in the
-data_pipeline function in <code>update_data_pipeline.R</code>. Commit
-and push these changes to your branch</li>
-<li>Run the data pipeline with the new model_version parameter to create
-a folder on the aws bucket containing all the data for that version of
-the model (remembering to restart your R session and clean your
-environment before running the pipeline) - see <a
-href="#how_to_data_input">here</a> for full data pipeline guidance</li>
-<li>Ensure that the data pipeline and model both run correctly with the
-new model_version parameter</li>
-<li>Open a pull request (PR) to merge your branch back into dev</li>
-<li>Merge the branch into dev (following any QA processes) and delete
-the now-redundant branch</li>
-<li>Tag the commit on dev with the new model version using GitHub’s
-tagging feature</li>
-<li>Optionally, if publishing externally and updating the first number
-in the model version, you should now open a PR and merge dev into
-main</li>
-</ol>
-<p>Ensure that the rest of the team are aware of the version being
-tagged so they can rebase their branches if necessary.</p>
-</blockquote>
-</div>
-</div>
-<div id="coding-process-detail" class="section level1">
-<h1>Coding Process Detail</h1>
 <div id="decide-to-change-code" class="section level2">
 <h2>1. Decide to change code</h2>
 <p>The modelling team, led by G7s, will identify the most important
 changes needed ahead of the next release of modelling outputs.</p>
 <p>They may choose to make use of the Analytical Board, TWG or Sounding
-Board in determining this.</p>
-<p>They may also choose to seek signoff of their plans from the model
-owner or project board, or to simply make them aware, to ensure planned
-changes are expected.</p>
+Board in determining this. They may also choose to seek signoff of their
+plans from the model owner or project board, or to simply make them
+aware, to ensure planned changes are expected.</p>
 <p>An agile methodology using Jira is then used to plan out the delivery
 of these changes. Time for quality assurance should
 <strong>ALWAYS</strong> be built into each ticket in this planning, it
@@ -486,22 +435,33 @@ then there is not time for the work.</p>
 </div>
 <div id="make-changes-to-code" class="section level2">
 <h2>2. Make changes to code</h2>
-<p>Through R Studio and Github changes are made to the existing LAPCAP
-model. This will be achieved through standard Git practice,
-e.g. branching off from the dev branch. Instructions for how to do this
-can be found in the <a href="new_induction_stuff.html">new starter
-section</a>.</p>
-<p>The changes required should be clearly laid out in the relevant Jira
-ticket.</p>
-<ol style="list-style-type: lower-alpha">
-<li>If the changes involve adding, removing or changing an assumption
-then the modelling team member must update the relevant assumption
-log:</li>
-</ol>
-<blockquote>
-<h3 id="how_to_assumption">How to change an assumption</h3>
+<p>Team members will then take ownership of individual tasks, which
+should be clearly laid out in a single Jira ticket. Tasks should be as
+short and defined as possible with a clear endpoint. Story points will
+be used to make sure each team member has an appropriate workload in
+each sprint. With sprints lasting two weeks team members should be able
+to take on approximately 8 story points (estimated to be 8 days of work)
+in addition to their other responsibilities.</p>
+<p>During completion of a ticket, changes will be made to the existing
+LAPCAP model through R Studio and Github. In order for multiple team
+members to work on the model at once we use Git, instructions for how to
+set this up can be found in the <a href="new_induction_stuff.html">new
+starter section</a>, whilst details on our use of branches can be found
+in the <a href="#model-versioning">Model Versioning</a> section.</p>
+<p>In addition to changing the code, you may need to take additional
+steps, as follows:</p>
+<div
+id="a.-if-the-changes-involve-adding-removing-or-changing-an-assumption-then-the-modelling-team-member-must-update-the-relevant-assumption-log"
+class="section level4">
+<h4>a. If the changes involve <strong>adding, removing or changing an
+assumption</strong> then the modelling team member must update the
+relevant assumption log:</h4>
+<details>
+<summary>
+How to change an assumption
+</summary>
 <ol style="list-style-type: decimal">
-<li><p>Identify an assumption.</p>
+<li><p><strong>Identify an assumption.</strong></p>
 <p>We define assumptions as <strong>“choices analysts make to correct
 for low quality or absent data or information, that knowingly introduce
 inaccuracy into our outputs.”</strong></p>
@@ -515,7 +475,7 @@ assumption could be:</p>
 <li>Is this information recorded elsewhere (e.g. in a data log or the
 technical document)?</li>
 </ul></li>
-<li><p>Record your assumption in-code</p>
+<li><p><strong>Record your assumption in-code.</strong></p>
 <p>Paste the following code snippet below the relevant portion of code
 and edit to reflect the above.</p>
 <pre class="r"><code># Assumption: Title of assumption
@@ -534,7 +494,8 @@ you have made the choice and more.</p>
 <p>For more info on the package behind our assumptions log go to: <a
 href="https://assumptions.readthedocs.io/en/latest/index.html">Assumptions
 1.1.0 Docs</a>.</p></li>
-<li><p>Record your assumption in the relevant assumptions log</p>
+<li><p><strong>Record your assumption in the relevant assumptions
+log.</strong></p>
 <p>Each module has its own assumptions log which you can find via the
 LAPCAP library.</p>
 <p>You will need to fill out the following fields:</p>
@@ -555,13 +516,18 @@ you used in formulating this assumption, which should be stored in the
 corresponding ‘Supporting Evidence’ folder</em></p></li>
 </ul></li>
 </ol>
-</blockquote>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>If the changes involve updating a data import then the data pipeline
-must be refreshed and data logs updated:</li>
-</ol>
-<blockquote>
-<h3 id="how_to_data_input">How to modify the data pipeline</h3>
+</details>
+<p><br></p>
+</div>
+<div
+id="b.-if-the-changes-involve-updating-a-data-import-then-the-data-pipeline-must-be-refreshed-and-data-logs-updated"
+class="section level4">
+<h4>b. If the changes involve <strong>updating a data import</strong>
+then the data pipeline must be refreshed and data logs updated:</h4>
+<details>
+<summary>
+How to modify the data pipeline
+</summary>
 <p>We have separated the code that processes our data inputs from the
 rest of the model,. this code is known as the <em>data pipeline</em>.The
 data pipeline is our way of version controlling input data for LAPCAP,
@@ -573,91 +539,70 @@ location. The model can then read from this location.</p>
 <p>Therefore if you need to change, add or remove a data input or the
 way it is processed, you will need to edit the data pipeline. Guidance
 for how to do this can be found below.</p>
-<p><strong>Important:</strong></p>
-<ul>
-<li>When working on or updating the data pipeline itself
+<ol style="list-style-type: decimal">
+<li><p><strong>Before you do anything else change the
+<code>model_version</code> parameter in any calls to the ‘data_pipeline’
+function to a placeholder.</strong></p>
+<p>This will prevent you from accidentally overwriting data being used
+by the “live” model, when working on the data pipeline itself
 (experimentation, testing, logic changes etc.) or updating/changing a
-data source, <strong>you <em>must</em> ensure you have changed the
-model_version parameter in any calls to the data_pipeline
-function</strong> – this prevents you from accidentally overwriting data
-being used by the “live” model and ensures rolling-back to versions is
-easy in the future.</li>
-<li>The pipeline will tell you if you are going to overwrite any
-data.</li>
-<li>You should use a unique string for your model_version parameter
-e.g. “your_name_test”.</li>
-<li>Once you have finished your experimentation/changes make sure to
-update the model_version parameter to the correct model version number
-before merging back into dev, and delete any temporary folders you
-created in aws using your model_version parameter. Follow the <a
-href="#model_tagging">Model Versioning guidance</a> to update the model
-version and run the pipeline.</li>
+data source,and ensures rolling-back to versions is easy in the
+future.</p>
+<p>The pipeline will tell you if you are going to overwrite any data,
+but care should still be taken.</p>
+<p>You should use a unique string for your model_version parameter
+e.g. “your_name_test”. This will be changed later when merging into
+dev.</p></li>
+<li><p><strong>Experiment and make the changes needed to the
+code.</strong></p>
+<p>Ensure you add the file_path and file_log logic to any new import
+functions (see the other import functions for details) – this will
+capture the new data sources in the file log.</p>
+<p>If you are modifying the pipeline itself, you should note:</p>
+<ul>
+<li>There are dependencies between the sub-pipelines (e.g. waste flow
+using data from scheme data), so they will need to be run in order in
+any experimentation.</li>
+<li>If you are running pipeline functions outside of the pipeline
+itself, you will likely need to define the following variables:</li>
 </ul>
-<h4 id="running-the-data-pipeline"><strong>Running the Data
-Pipeline:</strong></h4>
+<pre class="r"><code>s3_bucket &lt;- &quot;s3-ranch-043&quot;
+root_folder &lt;- &quot;Module_B1/Inputs&quot;
+file_log &lt;- list()</code></pre></li>
+<li><p><strong>Once you have finished your experimentation/changes,
+update the model_version parameter to the next model
+version.</strong></p>
+<p>Follow the <a href="#model_tagging">Model Versioning guidance</a>) in
+both the argument to <code>data_pipeline()</code> in
+<code>update_data_pipeline.R</code> and the argument to
+<code>run_LAPCAP_model()</code> in <code>main.R</code>.</p></li>
+<li><p><strong>Run the pipeline to create a folder of data for that
+model version.</strong></p>
 <p>To run the data pipeline, run the <code>update_data_pipeline.R</code>
 script. This will update to the latest version of the LAPCAP package,
 load all of the pipeline scripts, and run the pipeline (including saving
 the outputs to the aws bucket). This will create a new folder of
 processed data at “Module_B1/Inputs/Processed/” named after the
-model_version parameter.</p>
-<p>There are dependencies between the sub-pipelines (e.g. waste flow
-using data from scheme data), so they will need to be run in order in
-any experimentation.</p>
-<p>If you are running pipeline functions outside of the pipeline itself,
-you will likely need to define the following variables:</p>
-<pre class="r"><code>s3_bucket &lt;- &quot;s3-ranch-043&quot;
-root_folder &lt;- &quot;Module_B1/Inputs&quot;
-file_log &lt;- list()</code></pre>
-<h4
-id="updating-the-processing-or-logic-in-the-data-pipeline"><strong>Updating
-the processing or logic in the data pipeline:</strong></h4>
-<ol style="list-style-type: decimal">
-<li><p>Follow the guidance above to prevent overwriting data that is (or
-will be) used</p></li>
-<li><p>Experiment and make the changes needed to the code</p></li>
-<li><p>Update the model_version parameter to the next model version
-(following the <a href="#model_tagging">Model Versioning guidance</a>)
-in both the argument to <code>data_pipeline()</code> in
-<code>update_data_pipeline.R</code> and the argument to
-<code>run_LAPCAP_model()</code> in <code>main.R</code></p></li>
-<li><p>Run the pipeline to create a folder of data for that model
-version</p></li>
-<li><p>Open a PR, follow QA processes and merge your changes into
-dev</p></li>
-<li><p>Follow the Model Versioning guidance about tagging the new model
-version on dev</p></li>
+model_version parameter.</p></li>
+<li><p><strong>Open a PR, follow QA processes and merge your changes
+into dev</strong></p>
+<p>Also delete any temporary folders you created in aws using your
+temporary model_version parameter.</p></li>
+<li><p><strong>Follow the Model Versioning guidance about tagging the
+new model version on dev</strong></p></li>
 </ol>
-<h4 id="updating-a-data-source"><strong>Updating a data
-source:</strong></h4>
-<ol style="list-style-type: decimal">
-<li><p>Follow the guidance above to prevent overwriting data that is (or
-will be) used</p></li>
-<li><p>Experiment and make the changes needed to the code. Ensure you
-add the file_path and file_log logic to any new import functions (see
-the other import functions for details) – this will capture the new data
-sources in the file log.</p></li>
-<li><p>Update the model_version parameter to the next model version
-(following the <a href="#model_tagging">Model Versioning guidance</a>)
-in both the argument to <code>data_pipeline()</code> in
-<code>update_data_pipeline.R</code> and the argument to
-<code>run_LAPCAP_model()</code> in <code>main.R</code></p></li>
-<li><p>Run the pipeline to create a folder of data for that model
-version</p></li>
-<li><p>Open a PR, follow QA processes and merge your changes into
-dev</p></li>
-<li><p>Follow the Model Versioning guidance about tagging the new model
-version on dev</p></li>
-</ol>
-</blockquote>
-<ol start="3" style="list-style-type: lower-alpha">
-<li><p>If model logic is changed then the technical document, code
-comments and roxygen headers must be updated accordingly.</p>
-<p>Additionally unit tests may need adding or updating.</p></li>
-</ol>
-<blockquote>
-<h3 id="how-to-update-the-technical-document">How to update the
-technical document</h3>
+</details>
+<p><br></p>
+</div>
+<div
+id="c.-if-model-logic-is-changed-then-the-technical-document-and-unit-tests-must-be-updated-accordingly."
+class="section level4">
+<h4>c. If <strong>model logic is changed</strong> then the technical
+document and unit tests must be updated accordingly.</h4>
+<details>
+<summary>
+How to update the technical document
+</summary>
 <p>All updates to the technical document should first be written in the
 technical document working draft document. It is not neccessary for
 someone to check when you have written in the doc, but of course if you
@@ -679,7 +624,7 @@ functionality, the related content section for the relevant module
 should also be updated with the name of the new file created. This is
 because when the markdown is created it checks that all files have been
 covered in the technical document.</p>
-<p><strong>Tips for wrtiting the technical document/example
+<p><strong>Tips for writing the technical document/example
 calculations:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Ensure you explain the model in terms that a non-technical person
@@ -717,9 +662,12 @@ sent to the contents team to check if there are any significant changes.
 This is subject to it still being included in the LA guidance and
 published.</p></li>
 </ol>
-</blockquote>
-<blockquote>
-<h3 id="how_to_unit_test">How to write a unit test</h3>
+</details>
+<p><br></p>
+<details>
+<summary>
+How to write a unit test
+</summary>
 <p>Unit tests are automated checks that verify individual functions or
 modules behave as expected. They act as a safety net when changing or
 adding features, ensuring existing functionality remains unchanged. The
@@ -737,7 +685,7 @@ wrong. </p>
 <p>If you wish to run them all at the same time you can use:
 “testthat::test_dir(”~/module_b/LAPCAP/tests”)” which will execute all
 the files in that location. </p>
-<h4 id="writing-a-unit-test">Writing a unit test</h4>
+<p>Writing a unit test</p>
 <p>Before writing or executing unit tests, it is crucial to ensure that
 all functions required for testing are properly loaded. You can do this
 by simply finding the function you’re seeking to make a unit test for
@@ -784,14 +732,18 @@ environment before running your tests. Furthermore, it is important to
 name your test files clearly (e.g., test_inflate_costs.R,
 test_align_facility.R) so that it is immediately obvious which module or
 function each test is verifying.</p>
-</blockquote>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>If the changes result in a functional change to the model, i.e. the
-changes will effect model outputs, then validation checks must be
-carried out.</li>
-</ol>
-<blockquote>
-<h3 id="how_to_validate">How to run validation checks</h3>
+</details>
+<p><br></p>
+</div>
+<div
+id="d.-if-the-changes-will-affect-model-outputs-then-validation-checks-must-be-carried-out."
+class="section level4">
+<h4>d. If the <strong>changes will affect model outputs</strong>, then
+validation checks must be carried out.</h4>
+<details>
+<summary>
+How to run validation checks
+</summary>
 <ol style="list-style-type: decimal">
 <li><p>Check the percentage difference between the outputs from the last
 tagged version of LAPCAP and the output of whatever changes you have
@@ -815,12 +767,18 @@ have any concerns, raise them with a G7 or above.</p>
 <p>Download a version of the output so you can link it in the pull
 request template later.</p></li>
 </ol>
-</blockquote>
+</details>
 <p>Locations for assumption log, data log or the technical document can
 be found in the LAPCAP library, and each includes instructions for how
 to use it.</p>
-<blockquote>
-<h3 id="how_to_pull_request">How to make a pull request</h3>
+<p>Once you have satisfied the requirements of your ticket, all of the
+above have been addressed and you are ready for someone to review your
+work, you should make a pull request via Github.</p>
+<details>
+<p><br></p>
+<summary>
+How to make a pull request
+</summary>
 <p>Once the modelling team member has completed their changes, they
 should make a pull request and request a review from another member of
 the team.</p>
@@ -923,7 +881,9 @@ fields in the pull request template.</p></li>
 ‘For Review’ on Jira.</li>
 </ol></li>
 </ol>
-</blockquote>
+</details>
+<p><br></p>
+</div>
 </div>
 <div id="verify-the-changes" class="section level2">
 <h2>3. Verify the changes</h2>
@@ -935,46 +895,21 @@ the first instance the principle analyst and then failing this the model
 owner.</p>
 <p>You should use the checklist below, which is also included in the
 pull request template, to ensure you carry out all necessary checks:</p>
-<blockquote>
-<p>🌛 <strong>Checker QA checklist</strong></p>
-<p>Before approving a pull request the reviewer <strong>must</strong>
-have completed the below checks: In addition to the above, the following
-is a checklist for the reviewer to use:</p>
-<ul class="task-list">
-<li><p><label><input type="checkbox" />The “do-er” checklist has been
-completed to an appropriate standard, fields above the checklist have
-been appropriately completed</label></p></li>
-<li><p><label><input type="checkbox" />Code meets the requirements set
-out in the Jira ticket</label></p></li>
-<li><p><label><input type="checkbox" />All functions have roxygen
-headers with <span class="citation">@description</span>, <span
-class="citation">@param</span> and <span class="citation">@return</span>
-fields, and comments in code are appropriate and
-sufficient</label></p></li>
-<li><p><label><input type="checkbox" />The code runs when using an empty
-R environment, without error</label></p></li>
-<li><p><label><input type="checkbox" />Code follows the <a
-href="https://style.tidyverse.org/">tidyverse</a> and <a
-href="https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html">FPC
-style guide</a>.</label></p></li>
-<li><p><label><input type="checkbox" />No future risks have introduced
-by this change e.g. hardcoded values that may change in the future, or
-if they have they are adequately signposted and
-justified</label></p></li>
-<li><p><label><input type="checkbox" />Code cannot be simplified
-significantly, there is no redundancy in code and no changes to model
-structure and dependant functions are needed, given the
-changes.</label></p></li>
-<li><p><label><input type="checkbox" />There are no further improvements
-that can be made to the code</label></p></li>
-<li><p><label><input type="checkbox" />Any additional QA checks
-appropriate to, and sufficient for, the changes have been
-performed</label></p></li>
-<li><p><label><input type="checkbox" />When submitting the final review,
-a comment has been left that summarises the QA checks that have been
-performed and the outcomes</label></p></li>
-</ul>
-</blockquote>
+<pre><code>🌛 Checker QA checklist
+         
+Before approving a pull request the reviewer must have completed the below checks: In addition to the above, the following is a checklist for the reviewer to use:
+
+
+-   [ ] The &quot;do-er&quot; checklist has been completed to an appropriate standard, fields above the checklist have been appropriately completed
+-   [ ] Code meets the requirements set out in the Jira ticket
+-   [ ] All functions have roxygen headers with @description, @param and @return fields, and comments in code are appropriate and sufficient
+-   [ ] The code runs when using an empty R environment, without error
+-   [ ] Code follows the [tidyverse](https://style.tidyverse.org/) and [FPC style guide](https://defra-pepr-modelling-team.github.io/module_b_team_pages/index.html).
+-   [ ] No future risks have introduced by this change e.g. hardcoded values that may change in the future, or if they have they are adequately signposted and justified
+-   [ ] Code cannot be simplified significantly, there is no redundancy in code and no changes to model structure and dependant functions are needed, given the changes.
+-   [ ] There are no further improvements that can be made to the code
+-   [ ] Any additional QA checks appropriate to, and sufficient for, the changes have been performed
+-   [ ] When submitting the final review, a comment has been left that summarises the QA checks that have been performed and the outcomes</code></pre>
 <p>Also you should carry out any additional checks required, which have
 been added to the Checker Checklist by the doer.</p>
 <p>Reviewers should trace the full logic of the code, both by reading
@@ -984,34 +919,19 @@ directly from their original source. They should examine model outputs
 before and after the changes to ensure they make sense. They should make
 sure they are able to replicate any processes or calculations in the
 code.</p>
-<blockquote>
-<p><strong>Additional checks</strong></p>
-<p>The below is a list of QA checks that reviewers may want to perform
-in addition to the above. Note that this lists is <strong>not
-exhaustive</strong> and it is the responsibility of the principle
-analyst (do-er) and the QAer (checker) to ensure all items that need to
-be checked have been:</p>
-<p>1. Check that the calculations done are fit for purpose and are
-correct</p>
-<p>2. Check that uncertainty has been considered and appropriately
-accounted for (e.g. has sensitivity analysis been performed)</p>
-<p>3. Check that the data used is fit for purpose and the best option
-available to us</p>
-<p>4. Check that other appropriate documentation has been completed or
-updated to an appropriate standard e.g. the technical document</p>
-<p>5. Is the data being correctly pulled into the model?</p>
-<p>6. Is the data being properly cleaned and manipulated (either before
-the model or during the code)?</p>
-<p>7. Has the data been verified and validated? Has it been checked for
-potential errors? And has it been confirmed that the data appropriate to
-use in the first place? Is it the best possible option?</p>
-<p>8. Are there other results other than the outputs of the last model
-that the results need to be compared to?</p>
-<p>9. In cases where new data is added, or a change is heavily dependent
-upon a particular data source, does the model respond as expected to
-extreme values, negatives, zeroes, NAs etc? Is it possible to break the
-model with the data or generate impossible results?</p>
-</blockquote>
+<pre><code>**Additional checks**
+
+The below is a list of QA checks that reviewers may want to perform in addition to the above. Note that this lists is **not exhaustive** and it is the responsibility of the principle analyst (do-er) and the QAer (checker) to ensure all items that need to be checked have been:
+
+1. Check that the calculations done are fit for purpose and are correct
+2. Check that uncertainty has been considered and appropriately accounted for (e.g. has sensitivity analysis been performed)
+3. Check that the data used is fit for purpose and the best option available to us
+4. Check that other appropriate documentation has been completed or updated to an appropriate standard e.g. the technical document
+5. Is the data being correctly pulled into the model?
+6. Is the data being properly cleaned and manipulated (either before the model or during the code)?
+7. Has the data been verified and validated? Has it been checked for potential errors? And has it been confirmed that the data appropriate to use in the first place? Is it the best possible option?
+8. Are there other results other than the outputs of the last model that the results need to be compared to?
+9. In cases where new data is added, or a change is heavily dependent upon a particular data source, does the model respond as expected to extreme values, negatives, zeroes, NAs etc? Is it possible to break the model with the data or generate impossible results?</code></pre>
 <p>Reviewers should leave comments via GitHub, to ensure a record of
 verification and validation. GitHub has several features to help with
 this such as filtering changes by commit or file type, marking scripts
@@ -1022,8 +942,10 @@ changes, in order for the reviewer to be happy. GitHub has functionality
 to enable this.</p>
 <p>The following explains the practical steps followed in when reviewing
 code:</p>
-<blockquote>
-<h3 id="how_to_code_review">How to do a code review</h3>
+<details>
+<summary>
+How to do a code review
+</summary>
 <p>This <a href="https://www.youtube.com/watch?v=lSnbOtw4izI">Github
 code review tutorial</a> shows you how to review a pull request, or you
 can follow the steps below.</p>
@@ -1054,7 +976,8 @@ simply approve the pull request straight away.</p>
 <p><img src="assets/finish_review.png" width="311"
 height="222" /></p></li>
 </ol>
-</blockquote>
+</details>
+<p><br></p>
 <p>The QAer should then write a summary of the checks performed. In
 particular noting issues and any unusual checks that have had to be
 performed in the process of QAing.</p>
@@ -1063,8 +986,10 @@ performed in the process of QAing.</p>
 <h2>4. Merge changes into dev branch</h2>
 <p>Once approved, changes should be merged into the dev branch. This may
 require resolving merge conflicts.</p>
-<blockquote>
-<h3 id="how-to-merge">How to merge</h3>
+<details>
+<summary>
+How to merge
+</summary>
 <ol style="list-style-type: decimal">
 <li><p>Once your reviewer has inspected your code they may ask you some
 questions or suggest some changes. Once you have responded to these they
@@ -1082,7 +1007,7 @@ Github will read ‘<em>Able to merge</em>’ indicating there are no
 conflicts.</p>
 <p><img src="assets/ready_to_merge.png" /></p></li>
 </ol>
-</blockquote>
+</details>
 <p>Finally the QA analyst (or the appropriate G7) will review the pull
 requests on a weekly basis to ensure that they been done to a high
 standard.and record them in the verification log <a
@@ -1090,10 +1015,55 @@ href="https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Re
 LAPCAP Signoff Log.xlsm</a>. This will allow us to effectively
 communicate the steps taken to ensure quality with stakeholders and
 inspire confidence.</p>
+<div id="model-versioning" class="section level3">
+<h3>Model Versioning</h3>
+<p>We use a process of model versioning designed to allow easy
+rolling-back to past versions.</p>
+<p>In version Vx.y.z</p>
+<ul>
+<li>The first number, x, should be updated when figures are published
+externally (including publishing letters, use in public base fees
+etc.)</li>
+<li>The second number, y, should be updated when figures are shared
+non-publically (e.g. with Simpler Recycling, MHCLG, DESNZ etc.)</li>
+<li>The third number, z, should be updated when there are changes to the
+data inputs or the data pipeline (to allow rolling back to the correct
+data in the future)</li>
+</ul>
+<details>
+<summary>
+How to update the tagged version
+</summary>
+<p>When a new version of the model needs to be tagged on GitHub, follow
+the below steps:</p>
+<ol style="list-style-type: decimal">
+<li>Create a branch from dev</li>
+<li>Change the model_version parameter in <code>run_LAPCAP_model</code>
+(in <code>main.R</code>) and the model_version parameter in the
+data_pipeline function in <code>update_data_pipeline.R</code>. Commit
+and push these changes to your branch</li>
+<li>Run the data pipeline with the new model_version parameter to create
+a folder on the aws bucket containing all the data for that version of
+the model (remembering to restart your R session and clean your
+environment before running the pipeline) - see <a
+href="#how_to_data_input">here</a> for full data pipeline guidance</li>
+<li>Ensure that the data pipeline and model both run correctly with the
+new model_version parameter</li>
+<li>Open a pull request (PR) to merge your branch back into dev</li>
+<li>Merge the branch into dev (following any QA processes) and delete
+the now-redundant branch</li>
+<li>Tag the commit on dev with the new model version using GitHub’s
+tagging feature</li>
+<li>Optionally, if publishing externally and updating the first number
+in the model version, you should now open a PR and merge dev into
+main</li>
+</ol>
+<p>Ensure that the rest of the team are aware of the version being
+tagged so they can rebase their branches if necessary.</p>
+<p></detail><br></p>
+<p>Signoff Process Detail</p>
 </div>
 </div>
-<div id="signoff-process-detail" class="section level1">
-<h1>Signoff Process Detail</h1>
 <div id="model-development-complete" class="section level2">
 <h2>1. Model development complete</h2>
 <p>Once all changes required for a publication or sharing of the model
