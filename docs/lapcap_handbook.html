@@ -447,7 +447,7 @@ LAPCAP model through R Studio and Github. In order for multiple team
 members to work on the model at once we use Git, instructions for how to
 set this up can be found in the <a href="new_induction_stuff.html">new
 starter section</a>, whilst details on our use of branches can be found
-in the <a href="#model-versioning">Model Versioning</a> section.</p>
+in the <a href="#model_tagging">Model Versioning</a> section.</p>
 <p>In addition to changing the code, you may need to take additional
 steps, as follows:</p>
 <div
@@ -460,6 +460,7 @@ relevant assumption log:</h4>
 <summary>
 How to change an assumption
 </summary>
+<p><a id="how_to_assumption"></a></p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Identify an assumption.</strong></p>
 <p>We define assumptions as <strong>“choices analysts make to correct
@@ -528,6 +529,7 @@ then the data pipeline must be refreshed and data logs updated:</h4>
 <summary>
 How to modify the data pipeline
 </summary>
+<p><a id="how_to_data_input"></a></p>
 <p>We have separated the code that processes our data inputs from the
 rest of the model,. this code is known as the <em>data pipeline</em>.The
 data pipeline is our way of version controlling input data for LAPCAP,
@@ -603,6 +605,7 @@ document and unit tests must be updated accordingly.</h4>
 <summary>
 How to update the technical document
 </summary>
+<p><a id="how_to_tech_doc"></a></p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Decide whether you need to change the technical
 document.</strong></p>
@@ -676,6 +679,7 @@ published.</li>
 <summary>
 How to write a unit test
 </summary>
+<p><a id="how_to_unit_test"></a></p>
 <p>Unit tests are automated checks that verify individual functions or
 modules behave as expected. They act as a safety net when changing or
 adding features, ensuring existing functionality remains unchanged. The
@@ -752,6 +756,7 @@ validation checks must be carried out.</h4>
 <summary>
 How to run validation checks
 </summary>
+<p><a id="how_to_validation"></a></p>
 <p>Validation checks ensure the model is performing as we expect. We
 currently have three validation processes in place, outlined below.
 These have been mostly automated so should be easy!</p>
@@ -785,6 +790,7 @@ request template later.</p></li>
 <p>PROCESS TBD - STILL IN DEVELOPMENT</p></li>
 </ol>
 </details>
+<p><br></p>
 <p>Locations for assumption log, data log or the technical document can
 be found in the LAPCAP library, and each includes further instructions
 for how to use it.</p>
@@ -792,10 +798,10 @@ for how to use it.</p>
 above have been addressed and you are ready for someone to review your
 work, you should make a pull request via Github.</p>
 <details>
-<p><br></p>
 <summary>
 How to make a pull request
 </summary>
+<p><a id="how_to_pull_request"></a></p>
 <p>Once the modelling team member has completed their changes, they
 should make a pull request and request a review from another member of
 the team.</p>
@@ -1004,6 +1010,7 @@ code:</p>
 <summary>
 How to do a code review
 </summary>
+<p><a id="how_to_code_review"></a></p>
 <p>This <a href="https://www.youtube.com/watch?v=lSnbOtw4izI">Github
 code review tutorial</a> shows you how to review a pull request, or you
 can follow the steps below.</p>
@@ -1048,6 +1055,7 @@ require resolving merge conflicts.</p>
 <summary>
 How to merge
 </summary>
+<p><a id="how_to_merge"></a></p>
 <ol style="list-style-type: decimal">
 <li><p>Once your reviewer has inspected your code they may ask you some
 questions or suggest some changes. Once you have responded to these they
@@ -1066,14 +1074,15 @@ conflicts.</p>
 <p><img src="assets/ready_to_merge.png" /></p></li>
 <li><p>If you are merging a new <strong>tagged version</strong> of the
 model…</p>
+<p><a id="model_tagging"></a></p>
 <p>You will need to make sure:</p>
 <ol style="list-style-type: decimal">
-<li>You have changed the model_version parameter in
+<li><p>You have changed the model_version parameter in
 <code>run_LAPCAP_model</code> (in <code>main.R</code>) and the
 model_version parameter in the data_pipeline function in
-<code>update_data_pipeline.R</code>.</li>
-</ol>
-<p>Version numbers should follow this convention, in version Vx.y.z</p>
+<code>update_data_pipeline.R</code>.</p>
+<p><strong>Version numbers should follow this convention: in version
+Vx.y.z,</strong></p>
 <ul>
 <li>The first number, x, should be updated when figures are published
 externally (including publishing letters, use in public base fees
@@ -1083,8 +1092,7 @@ non-publically (e.g. with Simpler Recycling, MHCLG, DESNZ etc.)</li>
 <li>The third number, z, should be updated when there are changes to the
 data inputs or the data pipeline (to allow rolling back to the correct
 data in the future)</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
+</ul></li>
 <li><p>You have run the data pipeline with the new model_version
 parameter to create a folder on the aws bucket containing all the data
 for that version of the model (remembering to restart your R session and
@@ -1096,14 +1104,15 @@ the new model_version parameter</p></li>
 </ol>
 <p>After merging you can then tag the commit on dev with the new model
 version using GitHub’s tagging feature. If publishing externally and
-updating the first number in the model version, you should now open a PR
-and merge dev into main.</p>
+updating the first number in the model version, you should open a PR and
+merge dev into main, after signoff processes have been completed.</p>
 <p>You should ensure that the rest of the team are aware of the version
 being tagged so they can rebase their branches if necessary.</p></li>
 <li><p>Finally you can delete the old, now redundant branch you were
 working on!</p></li>
 </ol>
 </details>
+<p><br></p>
 <p>Finally the QA analyst (or the appropriate G7) will review the pull
 requests on a weekly basis to ensure that they been done to a high
 standard.and record them in the verification log <a
@@ -1111,11 +1120,6 @@ href="https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Re
 LAPCAP Signoff Log.xlsm</a>. This will allow us to effectively
 communicate the steps taken to ensure quality with stakeholders and
 inspire confidence.</p>
-<div id="model-versioning" class="section level3">
-<h3>Model Versioning</h3>
-<p>We use a process of model versioning designed to allow easy
-rolling-back to past versions.</p>
-</div>
 </div>
 </div>
 <div id="signoff-process-detail" class="section level1">

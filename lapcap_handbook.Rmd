@@ -34,7 +34,7 @@ An agile methodology using Jira is then used to plan out the delivery of these c
 
 Team members will then take ownership of individual tasks, which should be clearly laid out in a single Jira ticket. Tasks should be as short and defined as possible with a clear endpoint. Story points will be used to make sure each team member has an appropriate workload in each sprint. With sprints lasting two weeks team members should be able to take on approximately 8 story points (estimated to be 8 days of work) in addition to their other responsibilities.
 
-During completion of a ticket, changes will be made to the existing LAPCAP model through R Studio and Github. In order for multiple team members to work on the model at once we use Git, instructions for how to set this up can be found in the [new starter section](new_induction_stuff.html), whilst details on our use of branches can be found in the [Model Versioning] section.
+During completion of a ticket, changes will be made to the existing LAPCAP model through R Studio and Github. In order for multiple team members to work on the model at once we use Git, instructions for how to set this up can be found in the [new starter section](new_induction_stuff.html), whilst details on our use of branches can be found in the [Model Versioning](#model_tagging) section.
 
 In addition to changing the code, you may need to take additional steps, as follows:
 
@@ -43,6 +43,8 @@ In addition to changing the code, you may need to take additional steps, as foll
 <details>
 
 <summary>How to change an assumption</summary>
+
+<a id="how_to_assumption"></a>
 
 1.  **Identify an assumption.**
 
@@ -110,6 +112,8 @@ In addition to changing the code, you may need to take additional steps, as foll
 
 <summary>How to modify the data pipeline</summary>
 
+<a id="how_to_data_input"></a>
+
 We have separated the code that processes our data inputs from the rest of the model,. this code is known as the *data pipeline*.The data pipeline is our way of version controlling input data for LAPCAP, meaning we can run previous versions of the model even if inputs have changed.
 
 It works by reading the raw data inputs from AWS S3, processing them in R and then saving them back to AWS in a new version specific location. The model can then read from this location.
@@ -163,6 +167,8 @@ Therefore if you need to change, add or remove a data input or the way it is pro
 
 <summary>How to update the technical document</summary>
 
+<a id="how_to_tech_doc"></a>
+
 1.  **Decide whether you need to change the technical document.**
 
     If your changes to the model you have created have changed the functionality of the model then you should update the relevent section of the technical document.
@@ -207,6 +213,8 @@ Therefore if you need to change, add or remove a data input or the way it is pro
 
 <summary>How to write a unit test</summary>
 
+<a id="how_to_unit_test"></a>
+
 Unit tests are automated checks that verify individual functions or modules behave as expected. They act as a safety net when changing or adding features, ensuring existing functionality remains unchanged. The tests serve as live documentation for how functions are intended to work but also pinpoint which part of the code does not work when failing. This section explains how to write, run, and maintain unit tests for our LAPCAP model.
 
 Assuming you’ve set up the correct directory and project (module_b) you can find all unit tests in the LAPCAP model in the \~/module_b/LAPCAP/tests folder. You should be able to click on any one of them and run them as any normal function (Ctrl+Shift+Enter). After which the test results will appear in the “Console” pane. You will see messages like “Test passed” or error messages if something goes wrong.
@@ -247,6 +255,8 @@ Make sure that testthat is installed and loaded in your testing environment befo
 
 <summary>How to run validation checks</summary>
 
+<a id="how_to_validation"></a>
+
 Validation checks ensure the model is performing as we expect. We currently have three validation processes in place, outlined below. These have been mostly automated so should be easy!
 
 1.  **Change log**
@@ -275,15 +285,17 @@ Validation checks ensure the model is performing as we expect. We currently have
 
 </details>
 
+<br>
+
 Locations for assumption log, data log or the technical document can be found in the LAPCAP library, and each includes further instructions for how to use it.
 
 Once you have satisfied the requirements of your ticket, all of the above have been addressed and you are ready for someone to review your work, you should make a pull request via Github.
 
 <details>
 
-<br>
-
 <summary>How to make a pull request</summary>
+
+<a id="how_to_pull_request"></a>
 
 Once the modelling team member has completed their changes, they should make a pull request and request a review from another member of the team.
 
@@ -409,6 +421,8 @@ The following explains the practical steps followed in when reviewing code:
 
 <summary>How to do a code review</summary>
 
+<a id="how_to_code_review"></a>
+
 This [Github code review tutorial](https://www.youtube.com/watch?v=lSnbOtw4izI) shows you how to review a pull request, or you can follow the steps below.
 
 Follow these step-by-step instructions to do a proper code review:
@@ -441,6 +455,8 @@ Once approved, changes should be merged into the dev branch. This may require re
 
 <summary>How to merge</summary>
 
+<a id="how_to_merge"></a>
+
 1.  Once your reviewer has inspected your code they may ask you some questions or suggest some changes. Once you have responded to these they will approve your pull request and you can merge your changes! This will look like:
 
     ![](assets/passed_pr_check.png)
@@ -455,34 +471,33 @@ Once approved, changes should be merged into the dev branch. This may require re
 
 3.  If you are merging a new **tagged version** of the model...
 
+    <a id="model_tagging"></a>
+
     You will need to make sure:
 
     1.  You have changed the model_version parameter in `run_LAPCAP_model` (in `main.R`) and the model_version parameter in the data_pipeline function in `update_data_pipeline.R`.
-        
-    Version numbers should follow this convention, in version Vx.y.z
-    -   The first number, x, should be updated when figures are published externally (including publishing letters, use in public base fees etc.)
-    -   The second number, y, should be updated when figures are shared non-publically (e.g. with Simpler Recycling, MHCLG, DESNZ etc.)
-    -   The third number, z, should be updated when there are changes to the data inputs or the data pipeline (to allow rolling back to the correct data in the future)
+
+        **Version numbers should follow this convention: in version Vx.y.z,**
+
+        -   The first number, x, should be updated when figures are published externally (including publishing letters, use in public base fees etc.)
+        -   The second number, y, should be updated when figures are shared non-publically (e.g. with Simpler Recycling, MHCLG, DESNZ etc.)
+        -   The third number, z, should be updated when there are changes to the data inputs or the data pipeline (to allow rolling back to the correct data in the future)
 
     2.  You have run the data pipeline with the new model_version parameter to create a folder on the aws bucket containing all the data for that version of the model (remembering to restart your R session and clean your environment before running the pipeline) - see [here](#how_to_data_input) for full data pipeline guidance
 
     3.  Ensure that the data pipeline and model both run correctly with the new model_version parameter
 
-    After merging you can then tag the commit on dev with the new model version using GitHub's tagging feature. If publishing externally and updating the first number in the model version, you should now open a PR and merge dev into main.
-    
+    After merging you can then tag the commit on dev with the new model version using GitHub's tagging feature. If publishing externally and updating the first number in the model version, you should open a PR and merge dev into main, after signoff processes have been completed.
+
     You should ensure that the rest of the team are aware of the version being tagged so they can rebase their branches if necessary.
-    
-4. Finally you can delete the old, now redundant branch you were working on!
+
+4.  Finally you can delete the old, now redundant branch you were working on!
 
 </details>
 
+<br>
+
 Finally the QA analyst (or the appropriate G7) will review the pull requests on a weekly basis to ensure that they been done to a high standard.and record them in the verification log [03 LAPCAP Signoff Log.xlsm](https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/03%20LAPCAP%20Signoff%20Log.xlsm?d=w5065d9665d34493c92e1fca1ce67b2fd&csf=1&web=1&e=3xjNJt). This will allow us to effectively communicate the steps taken to ensure quality with stakeholders and inspire confidence.
-
-### Model Versioning
-
-We use a process of model versioning designed to allow easy rolling-back to past versions.
-
-
 
 # Signoff Process Detail
 
