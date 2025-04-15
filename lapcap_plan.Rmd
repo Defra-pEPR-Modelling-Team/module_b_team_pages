@@ -108,25 +108,35 @@ In order to ensure the appropriate level of robust QA, we are taking a multi-lay
 
     -   Github is set to require compulsory code review by a second analyst before code is merged. This includes a quality assurance checklist which enforces verification and validation processes are followed.
 
-    -   In terms of verification this includes:
+    -   In terms of verification the checklist includes:
 
-        -   UNIT TESTS
+        -   Ensuring code runs when using an empty R environment, without error;
+        -   Code is efficient, could not be simplified significantly and there is no redundant code;
+        -   Ensuring there are adequate unit tests to guarantee functions are performing as expected.
 
-    -   We have had versions of the model externally audited by the Government Actuary's Department
+    -   We have had versions of the model externally audited by the Government Actuary's Department.
+
+    -   We have appointed a quality assurance lead to monitor and log the QA activities of the team and ensure they are of sufficient quality.
 
 -   To **validate** the model works as intended:
 
     -   The *pull request checklist* enforces:
 
-        -   dfhgsd
+        -   Use of our Change log to ensure changes between versions are within expected bounds;
+        -   Use of our Critical Success Factors markdown to ensure the model meets agreed principles;
+        -   Use of our internal validation markdown to ensure outputs resemble reality.
 
     -   We have made comparisons of LAPCAP against a second model known as the top-down model.
 
     -   We have tested the modelling approach, model structure, quality assurance processes, and outputs with our consultative stakeholders as detailed above.
 
+    -   We have put in place a formal signoff hierarchy ensuring robust and appropriate oversight at every stage.
+
 -   To make our analysis simple to **understand** and **communicate**:
 
     -   The *pull request checklist* enforces:
-        -   Code follows the [Tidyverse style guide](https://style.tidyverse.org/)
+        -   Code follows the [Tidyverse style guide](https://style.tidyverse.org/), including comprehensive roxygen headers and comments;
+        -   Maintenance of our technical document, giving model detail that would be sufficient to replicate the model;
         -   Maintenance of our assumptions logs, alongside the code and in a set of central logs, covering specifics of assumptions, rationale behind them and confidence in them;
-        -   a log of data version, data quality assessment and processing done to the data.
+        -   Maintenance of a log of data, including data quality assessment and processing done to the data.
+    -   We have converted the model to an R package which guarantees code documentation is up to standard and makes it easily accessible via the R Studio IDE.

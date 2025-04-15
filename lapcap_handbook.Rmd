@@ -151,6 +151,8 @@ Therefore if you need to change, add or remove a data input or the way it is pro
 
     To run the data pipeline, run the `update_data_pipeline.R` script. This will update to the latest version of the LAPCAP package, load all of the pipeline scripts, and run the pipeline (including saving the outputs to the aws bucket). This will create a new folder of processed data at "Module_B1/Inputs/Processed/" named after the model_version parameter.
 
+    a.  If adding a data input, you should add it to the appropriate data log also.
+
 5.  **Open a PR, follow QA processes and merge your changes into dev**
 
     Also delete any temporary folders you created in aws using your temporary model_version parameter.
@@ -215,35 +217,73 @@ Therefore if you need to change, add or remove a data input or the way it is pro
 
 <a id="how_to_unit_test"></a>
 
-Unit tests are automated checks that verify individual functions or modules behave as expected. They act as a safety net when changing or adding features, ensuring existing functionality remains unchanged. The tests serve as live documentation for how functions are intended to work but also pinpoint which part of the code does not work when failing. This section explains how to write, run, and maintain unit tests for our LAPCAP model.
+Unit tests are automated checks that verify individual functions or modules behave as expected. They act as a safety net when changing or adding features, ensuring existing functionality remains unchanged.
 
-Assuming you’ve set up the correct directory and project (module_b) you can find all unit tests in the LAPCAP model in the \~/module_b/LAPCAP/tests folder. You should be able to click on any one of them and run them as any normal function (Ctrl+Shift+Enter). After which the test results will appear in the “Console” pane. You will see messages like “Test passed” or error messages if something goes wrong.
+Unit tests should be used during development and whenever you run the model. You can find all unit tests in the LAPCAP model in the `~/module_b/LAPCAP/tests` folder. You should be able to click on any one of them and run them as any normal function (Ctrl+Shift+Enter). After which the test results will appear in the “Console” pane. You will see messages like “Test passed” or error messages if something goes wrong.
 
 If you wish to run them all at the same time you can use: “testthat::test_dir("\~/module_b/LAPCAP/tests")” which will execute all the files in that location.
 
-Writing a unit test
+1.  **Identify whether a test is needed, and what sort.**
 
-Before writing or executing unit tests, it is crucial to ensure that all functions required for testing are properly loaded. You can do this by simply finding the function you’re seeking to make a unit test for and all the functions that are relevant to it and running them before starting the unit test.
+    Unit tests should be used to test important model functionality, this may mean an individual function, or many. They should be included anywhere a failing function will impact model outputs.
 
-Sourcing each function individually in every test script should be avoided (as names/location of functions may change). To avoid not having the right function you should load all the functions at once into your environment. One effective method to do this is by loading LAPCAP as a package, using library(LAPCAP), which makes all functions available in your environment. Alternatively, you can use devtools::load_all("\~/module_b/LAPCAP") to load all the functions into your R session. As a manual way to load the functions that are in this particular folder. If the folder or functions change location or name than you can modify the code accordingly.
+    Unit tests generally fall into three categories.
 
-Unit tests generally fall into three categories.
+    -   **Normal operation tests**, verify the core functionality of the code using typical inputs. **Most of our tests should be like this.**
+    -   **Error fixing tests**, confirm that known problematic inputs (e.g., NAs, zeros, negatives, mismatched names) are correctly handled or “fixed.”
+    -   **Error catching tests**, ensure that inappropriate inputs trigger proper error messages and stop execution as intended.
 
--   **Normal operation tests**, verify the core functionality of the code using typical inputs. **Most of our tests should be like this.**
+    Identify what it is about the model you want to ensure is protected and select a type of test that can do this.
 
-<!-- -->
+2.  **Get your test input data.**
 
--   **Error fixing tests**, confirm that known problematic inputs (e.g., NAs, zeros, negatives, mismatched names) are correctly handled or “fixed.”
+    Most unit tests function by comparing expected and actual results of a function on a fixed set of input data.
 
-<!-- -->
+    So we need fixed inputs in order to test our functions:
 
--   **Error catching tests**, ensure that inappropriate inputs trigger proper error messages and stop execution as intended.
+    a.  Start by obtaining some real or dummy input data (or a subset of it) for the section of code you are testing.
+    b.  Apply the dput function to your downsized datasets. This will output (in the console) code that can be used to produce your dummy dataset as required.
 
-We use the testthat package in R to write and organise our unit tests. Testthat offers a straightforward syntax for creating tests and assertions, making it simple to check whether function outputs match expected results.
+    If you are testing error fixing or catching you may wish to intentionally introduce some incorrect data here.
 
-It provides functions like expect_equal, expect_identical, and expect_error that allow you to compare actual and expected outcomes, check data types, and confirm that proper errors are raised under invalid inputs.
+3.  **Get your output data.**
 
-Make sure that testthat is installed and loaded in your testing environment before running your tests. Furthermore, it is important to name your test files clearly (e.g., test_inflate_costs.R, test_align_facility.R) so that it is immediately obvious which module or function each test is verifying.
+    Either manually or by using code you know to be correct, generate the outputs that should result from running the test input data through your function.
+
+    If you are testing error catching there may not be a correct output, an error message may be expected instead.
+
+4.  **Write your test.**
+
+    We use the testthat package, which provides functions like expect_equal, expect_identical, and expect_error that allow you to compare actual and expected outcomes.
+
+    A template is provided below, you should add detail to the description as well as changing object names:
+
+    ``` R
+    #' @title Unit test 1 
+    #' @description Tests the normal operation of function_name [ADD DETAIL] 
+
+    testthat::test_that("function name normal operation test", { 
+
+    #Create dummy data 
+    function_name_ut1_input_data_1 <- #Paste dput of first three or four rows and relevant columns of dataset 
+    function_name_ut1_input_data_2 <- #Same again 
+
+    function_name_ut1_output_data <- #Paste dput of expected outputs or write code to manually calculate these 
+
+    #Test 
+    testthat::expect_equal( 
+      function_name( 
+        function_name_ut1_input_data_1, 
+        function_name_ut1_input_data_2 
+        ), 
+        function_name_ut1_output_data
+      ) 
+    })
+    ```
+
+    It is important to name your test files clearly (e.g., test_inflate_costs.R, test_align_facility.R) so that it is immediately obvious which module or function each test is verifying.
+
+5.  Finally you should run your unit tests to ensure they pass, and also tweak your functions to check they fail when they should. This will also be reviewed as part of your pull request.
 
 </details>
 
@@ -255,7 +295,7 @@ Make sure that testthat is installed and loaded in your testing environment befo
 
 <summary>How to run validation checks</summary>
 
-<a id="how_to_validation"></a>
+<a id="how_to_validate"></a>
 
 Validation checks ensure the model is performing as we expect. We currently have three validation processes in place, outlined below. These have been mostly automated so should be easy!
 
@@ -539,11 +579,13 @@ The model owner’s signoff for that model version should be recorded in [03 LAP
 
 ## 3. SRO signoff
 
-Project board, acting on behalf of the model SROs, should signoff the model version for publication.
+PackUK Executive Committee, or pEPR Project Board in their absence, acting on behalf of the model SROs, should signoff the model version for publication.
 
 It is unlikely that members of project board will review any of the model or its documentation themselves, however copies should be shared so they have the option to, and can delegate to members of their organisation.
 
 Instead, summaries of changes, visualisations of overall outputs and assurances from advisory groups may be presented. Exactly what is required may depend on the specific changes being signed off, so is left up to the judgment of the model owner.
+
+The paper or presentation submitted to the SROs should be approved by Analytical Board in order to allow the SROs confidence in the analytical quality of the model before formal approval for use.
 
 There may be an additional stage of parameter setting, at this point in the approvals process, especially for the first outputs for each new year of EPR.
 

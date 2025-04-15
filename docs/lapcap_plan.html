@@ -620,24 +620,39 @@ versions of the model have access to the correct data.</p></li>
 analyst before code is merged. This includes a quality assurance
 checklist which enforces verification and validation processes are
 followed.</p></li>
-<li><p>In terms of verification this includes:</p>
+<li><p>In terms of verification the checklist includes:</p>
 <ul>
-<li>UNIT TESTS</li>
+<li>Ensuring code runs when using an empty R environment, without
+error;</li>
+<li>Code is efficient, could not be simplified significantly and there
+is no redundant code;</li>
+<li>Ensuring there are adequate unit tests to guarantee functions are
+performing as expected.</li>
 </ul></li>
 <li><p>We have had versions of the model externally audited by the
-Government Actuary’s Department</p></li>
+Government Actuary’s Department.</p></li>
+<li><p>We have appointed a quality assurance lead to monitor and log the
+QA activities of the team and ensure they are of sufficient
+quality.</p></li>
 </ul></li>
 <li><p>To <strong>validate</strong> the model works as intended:</p>
 <ul>
 <li><p>The <em>pull request checklist</em> enforces:</p>
 <ul>
-<li>dfhgsd</li>
+<li>Use of our Change log to ensure changes between versions are within
+expected bounds;</li>
+<li>Use of our Critical Success Factors markdown to ensure the model
+meets agreed principles;</li>
+<li>Use of our internal validation markdown to ensure outputs resemble
+reality.</li>
 </ul></li>
 <li><p>We have made comparisons of LAPCAP against a second model known
 as the top-down model.</p></li>
 <li><p>We have tested the modelling approach, model structure, quality
 assurance processes, and outputs with our consultative stakeholders as
 detailed above.</p></li>
+<li><p>We have put in place a formal signoff hierarchy ensuring robust
+and appropriate oversight at every stage.</p></li>
 </ul></li>
 <li><p>To make our analysis simple to <strong>understand</strong> and
 <strong>communicate</strong>:</p>
@@ -645,13 +660,19 @@ detailed above.</p></li>
 <li>The <em>pull request checklist</em> enforces:
 <ul>
 <li>Code follows the <a href="https://style.tidyverse.org/">Tidyverse
-style guide</a></li>
+style guide</a>, including comprehensive roxygen headers and
+comments;</li>
+<li>Maintenance of our technical document, giving model detail that
+would be sufficient to replicate the model;</li>
 <li>Maintenance of our assumptions logs, alongside the code and in a set
 of central logs, covering specifics of assumptions, rationale behind
 them and confidence in them;</li>
-<li>a log of data version, data quality assessment and processing done
-to the data.</li>
+<li>Maintenance of a log of data, including data quality assessment and
+processing done to the data.</li>
 </ul></li>
+<li>We have converted the model to an R package which guarantees code
+documentation is up to standard and makes it easily accessible via the R
+Studio IDE.</li>
 </ul></li>
 </ul>
 </div>
