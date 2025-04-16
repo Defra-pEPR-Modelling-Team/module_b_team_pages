@@ -29,7 +29,7 @@ The LAPCAP handbook gives practical steps and detail for how this will be achiev
 The [Macpherson Review](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/206946/review_of_qa_of_govt_analytical_models_final_report_040313.pdf) assesses business criticality on the basis of "the extent to which error could lead to serious financial, legal or reputational damage". An assessment of this is shown below.
 
 |  |  |  |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Risks** | **Example/explanation** | **Risk rating** |
 | Financial | The model will be used to determine fees and payments of over £1 billion. | High |
 | Legal | There is a strong chance that stakeholders could challenge the fees or payments. | High |
@@ -140,3 +140,21 @@ In order to ensure the appropriate level of robust QA, we are taking a multi-lay
         -   Maintenance of our assumptions logs, alongside the code and in a set of central logs, covering specifics of assumptions, rationale behind them and confidence in them;
         -   Maintenance of a log of data, including data quality assessment and processing done to the data.
     -   We have converted the model to an R package which guarantees code documentation is up to standard and makes it easily accessible via the R Studio IDE.
+
+## Communication of Outputs
+
+Once we have a major version of LAPCAP ready for publication this will be communicated publicly via the following processes.
+
+-   Sending of Notification Letters - these give each individual local authority a breakdown of their payment, with accompanying explanation, under a number of headings such as collection and disposal tonnages and costs, as well as split by materials.
+
+    -   Standard templates have been developed by the PackUK FPC Delivery team and these have been signed off following their signoff processes.
+
+    -   These will then be converted to R markdown documents and automatically populated, and finally distributed by the digital team.
+
+-   Publication of Local Authority guidance - a comprehensive local authority guidance document, giving a full guide to the model will be published alongside the letters. This differs from the technical guide in that it will be non-technical, using simple everyday language and laid out in terms that Local authority waste officers can understand.
+
+    -   This will include a 'worked example' derived from the example calculations in the technical document.
+
+    -   Again these documents have been developed by the PackUK FPC Delivery team and these have been signed off following their signoff processes.
+
+-   These publications will be followed up by a webinar at which local authorities will have the opportunity to pose any further questions not answered by the previous documents.
