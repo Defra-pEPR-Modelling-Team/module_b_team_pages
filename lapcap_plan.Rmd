@@ -29,7 +29,7 @@ The LAPCAP handbook gives practical steps and detail for how this will be achiev
 The [Macpherson Review](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/206946/review_of_qa_of_govt_analytical_models_final_report_040313.pdf) assesses business criticality on the basis of "the extent to which error could lead to serious financial, legal or reputational damage". An assessment of this is shown below.
 
 |  |  |  |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | **Risks** | **Example/explanation** | **Risk rating** |
 | Financial | The model will be used to determine fees and payments of over £1 billion. | High |
 | Legal | There is a strong chance that stakeholders could challenge the fees or payments. | High |

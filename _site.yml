@@ -29,6 +29,8 @@ navbar:
       href: lapcap_handbook.html
     - text: "Other Useful Bits"
       menu: 
+      - text: "Data Dictionary"
+        href: other_data_dictionary.html
       - text: "Glossary"
         href: other_glossary.html
       - text: "Learning and Development"

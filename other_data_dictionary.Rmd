@@ -1,0 +1,18 @@
+---
+title: "Data Dictionary"
+output: "html_document"
+---
+
+There are a number of columns that crop up in various places throughout the model. We have created the following data dictionary in order to try and encourage consistency.
+
+You should follow this for new code and if you find a column name that doesn't, you should fix it!
+
+**Tip:** *Ctrl+Shift+F* or *Edit\>Find In Files* allow you to find all matches for a string across multiple scripts in R Studio, so you can make sure there aren't any scripts trying to call a column that no longer exists!
+
+| Correct Column Name | Description | Data Class | Values | Possible Incorrect Names |
+|---------------|---------------|---------------|---------------|---------------|
+| local_authority | This is the name of the local authority. | Character | Should be consistent with the [official LA list.](https://defra.sharepoint.com/:x:/r/teams/Team568/_layouts/15/Doc.aspx?sourcedoc=%7B1DED825F-BDAF-4957-9584-90CBC3A84A02%7D&file=2.%20LA_list.xlsx&action=default&mobileredirect=true) | LA_Name, la_name, authority |
+| jpp | An ID number used to identify local authorities. | Numeric | Should be consistent with the [official LA list.](https://defra.sharepoint.com/:x:/r/teams/Team568/_layouts/15/Doc.aspx?sourcedoc=%7B1DED825F-BDAF-4957-9584-90CBC3A84A02%7D&file=2.%20LA_list.xlsx&action=default&mobileredirect=true) Special attention should be paid to WasteDataFlow which uses some different values. | JPP, jpp_code, jppCode |
+| country | Country which the LA resides in or data is relevant to. | Character | Either "England", "Wales, "Scotland" or "NI" | Country, countryString |
+| local_authority_group | The grouping that we have assigned a local authority to. | Character | Currently should be deprivation group followed by rurality, e.g. "low_rural". The "Inaccessible Rural" group is an exception to this. | LA_class, class, LA_group |
+| local_authority_type | Determined by the functions that a given authority fulfils, which could be waste collection, disposal or both. | Character | "WCA", "WDA" or "Unitary" | LA_type, la_type |

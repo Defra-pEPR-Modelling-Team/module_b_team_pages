@@ -258,7 +258,7 @@ If you wish to run them all at the same time you can use: “testthat::test_dir(
 
     A template is provided below, you should add detail to the description as well as changing object names:
 
-    ``` R
+    ``` r
     #' @title Unit test 1 
     #' @description Tests the normal operation of function_name [ADD DETAIL] 
 

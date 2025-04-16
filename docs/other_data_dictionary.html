@@ -11,7 +11,7 @@
 
 
 
-<title>Welcome to the team!</title>
+<title>Data Dictionary</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -318,43 +318,83 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Welcome to the team!</h1>
+<h1 class="title toc-ignore">Data Dictionary</h1>
 
 </div>
 
 
-<div id="what-do-we-do" class="section level1">
-<h1>What do we do?</h1>
-<p>We are a team composed mostly of operational researchers, who are
-working together to build a model of the UK waste and recycling sector,
-in order to provide payment values for Packaging Extended Producer
-Responsibility (pEPR).</p>
-</div>
-<div id="who-is-in-this-team" class="section level1">
-<h1>Who is in this team?</h1>
-<p>We are: - G7s - Katie Booth - Jacob Billingham - Lorna Pannett
-(Contractor) - SEOs - James Doran - Cat Pattie-Mayne - Alastair Grace -
-Ella Fleetham - HEOs - Rosanna Holdsworth - Nono Pengue - Fast Streamers
-- Andrew Hayden-Briffett - Marcus Bailey</p>
-</div>
-<div id="where-are-we-in-defra" class="section level1">
-<h1>Where are we in DEFRA?</h1>
-<p>The below provides an idea of where we sit within Defra:</p>
-<p>INSERT DIAGRAM showing:</p>
-<p>DEFRA &gt; Portfolio Delivery Group &gt; Circular Economy Directorate
-&gt; Circular Economy Evidence &amp; Analysis &gt; Fees &amp; Payment
-Calculator modelling team!</p>
-<p>Led by: Tamara Finkelstein, Permanent Secretary &gt; Sarah Homer,
-Director General &gt; Emma Bourne, Director &gt; Sarah Andrews, Deputy
-Director &gt; Tristan Ibrahim, G6</p>
-</div>
-<div id="what-is-the-model" class="section level1">
-<h1>What is the model?</h1>
-<p>To learn about the Local Authority Packaging Costs and Performance
-model (LAPCAP) check out this video: <a
-href="https://www.youtube.com/watch?v=orw5ekRjd7g"
-class="uri">https://www.youtube.com/watch?v=orw5ekRjd7g</a></p>
-</div>
+<p>There are a number of columns that crop up in various places
+throughout the model. We have created the following data dictionary in
+order to try and encourage consistency.</p>
+<p>You should follow this for new code and if you find a column name
+that doesn’t, you should fix it!</p>
+<p><strong>Tip:</strong> <em>Ctrl+Shift+F</em> or <em>Edit&gt;Find In
+Files</em> allow you to find all matches for a string across multiple
+scripts in R Studio, so you can make sure there aren’t any scripts
+trying to call a column that no longer exists!</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Correct Column Name</th>
+<th>Description</th>
+<th>Data Class</th>
+<th>Values</th>
+<th>Possible Incorrect Names</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>local_authority</td>
+<td>This is the name of the local authority.</td>
+<td>Character</td>
+<td>Should be consistent with the <a
+href="https://defra.sharepoint.com/:x:/r/teams/Team568/_layouts/15/Doc.aspx?sourcedoc=%7B1DED825F-BDAF-4957-9584-90CBC3A84A02%7D&amp;file=2.%20LA_list.xlsx&amp;action=default&amp;mobileredirect=true">official
+LA list.</a></td>
+<td>LA_Name, la_name, authority</td>
+</tr>
+<tr class="even">
+<td>jpp</td>
+<td>An ID number used to identify local authorities.</td>
+<td>Numeric</td>
+<td>Should be consistent with the <a
+href="https://defra.sharepoint.com/:x:/r/teams/Team568/_layouts/15/Doc.aspx?sourcedoc=%7B1DED825F-BDAF-4957-9584-90CBC3A84A02%7D&amp;file=2.%20LA_list.xlsx&amp;action=default&amp;mobileredirect=true">official
+LA list.</a> Special attention should be paid to WasteDataFlow which
+uses some different values.</td>
+<td>JPP, jpp_code, jppCode</td>
+</tr>
+<tr class="odd">
+<td>country</td>
+<td>Country which the LA resides in or data is relevant to.</td>
+<td>Character</td>
+<td>Either “England”, “Wales,”Scotland” or “NI”</td>
+<td>Country, countryString</td>
+</tr>
+<tr class="even">
+<td>local_authority_group</td>
+<td>The grouping that we have assigned a local authority to.</td>
+<td>Character</td>
+<td>Currently should be deprivation group followed by rurality,
+e.g. “low_rural”. The “Inaccessible Rural” group is an exception to
+this.</td>
+<td>LA_class, class, LA_group</td>
+</tr>
+<tr class="odd">
+<td>local_authority_type</td>
+<td>Determined by the functions that a given authority fulfils, which
+could be waste collection, disposal or both.</td>
+<td>Character</td>
+<td>“WCA”, “WDA” or “Unitary”</td>
+<td>LA_type, la_type</td>
+</tr>
+</tbody>
+</table>
 
 
 
