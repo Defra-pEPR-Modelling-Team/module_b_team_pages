@@ -141,6 +141,14 @@ In order to ensure the appropriate level of robust QA, we are taking a multi-lay
         -   Maintenance of a log of data, including data quality assessment and processing done to the data.
     -   We have converted the model to an R package which guarantees code documentation is up to standard and makes it easily accessible via the R Studio IDE.
 
+## Signoff Responsibilities
+
+The below provides an outline of who is responsible for signoff of various pieces of model documentation:
+
+![](assets/signoff_plan.png)
+
+For more information, please see [05 Signoff Responsibilities.xlsx](https://defra.sharepoint.com/:x:/r/teams/Team1478/Extended%20Producer%20Responsibility%20for%20Packaging/07%20Fees%20and%20Payments%20Calculator/18%20Module%20B1%20-%20LA%20FNCs/04%20Bottom-up%20Modelling/00%20Model%20Master/05%20Signoff%20Responsibilities.xlsx?d=w7b7c61c456cb433cafe0bd661ad02b0c&csf=1&web=1&e=HWjPpo)
+
 ## Communication of Outputs
 
 Once we have a major version of LAPCAP ready for publication this will be communicated publicly via the following processes.
