@@ -5,6 +5,20 @@ output:
     toc: true
 ---
 
+## Problems accessing R Studio 
+
+If your R Studio won't load, particilarly first thing in the morning, it is likely that the virtual machine has not been started for the day. You will need to log in to AWS at https://sso-int-sce-network.awsapps.com/start/#/ and then complete the following steps:
+
+1. Access the EC2 app. This may be in your "Recently visited" apps pane, but if not use the search bar at the top and search "EC2"
+
+2. In the Resources pane, select "Instances". **NOTE**: don't select Instances (running) as the instance of the VM is not currently running 
+
+3. In the search bar which says "Find instance by atribute or tag", type the name of the virtual machine (most likely ranch-793) and press enter.
+
+4. Tick the checkbox on the left of the instance name, click "Instance state" on the top right side of the screen and select "Start instance". 
+
+5. Wait about 30 seconds and refresh your R Studio, it should now connect. If it doesn't try again after waiting a few seconds.
+
 ## Troubleshooting Problems Loading/Writing data to S3
 
 If you encounter the error:
