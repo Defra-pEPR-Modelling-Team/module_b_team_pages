@@ -324,12 +324,38 @@ $(document).ready(function () {
 
 <div id="TOC">
 <ul>
+<li><a href="#trouble-accessing-r-studio"
+id="toc-trouble-accessing-r-studio">Trouble accessing R Studio</a></li>
 <li><a href="#troubleshooting-problems-loadingwriting-data-to-s3"
 id="toc-troubleshooting-problems-loadingwriting-data-to-s3">Troubleshooting
 Problems Loading/Writing data to S3</a></li>
 </ul>
 </div>
 
+<div id="trouble-accessing-r-studio" class="section level2">
+<h2>Trouble accessing R Studio</h2>
+<p>If your R Studio won’t load, particilarly first thing in the morning,
+it is likely that the virtual machine has not been started for the day.
+You will need to log in to AWS at <a
+href="https://sso-int-sce-network.awsapps.com/start/#/"
+class="uri">https://sso-int-sce-network.awsapps.com/start/#/</a> and
+then complete the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Access the EC2 app. This may be in your “Recently visited” apps
+pane, but if not use the search bar at the top and search “EC2”</p></li>
+<li><p>In the Resources pane, select “Instances”. <strong>NOTE</strong>:
+don’t select Instances (running) as the instance of the VM is not
+currently running</p></li>
+<li><p>In the search bar which says “Find instance by atribute or tag”,
+type the name of the virtual machine (most likely ranch-793) and press
+enter.</p></li>
+<li><p>Tick the checkbox on the left of the instance name, click
+“Instance state” on the top right side of the screen and select “Start
+instance”.</p></li>
+<li><p>Wait about 30 seconds and refresh your R Studio, it should now
+connect. If it doesn’t try again after waiting a few seconds.</p></li>
+</ol>
+</div>
 <div id="troubleshooting-problems-loadingwriting-data-to-s3"
 class="section level2">
 <h2>Troubleshooting Problems Loading/Writing data to S3</h2>
