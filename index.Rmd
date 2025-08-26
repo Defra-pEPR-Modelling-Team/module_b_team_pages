@@ -1,6 +1,9 @@
 ---
 title: "FPC Team Pages"
 ---
+<meta http-equiv='cache-control' content='no-cache'> 
+<meta http-equiv='expires' content='0'> 
+<meta http-equiv='pragma' content='no-cache'>
 
 On this site you will find everything you need to be a happy and functioning member of the Fees and Payment Calculator modelling team.
 
